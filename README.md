@@ -1,2 +1,2 @@
-# jekyllblog
-persona blog using github page and jekyll
+# boomkim.github.io
+personal blog using github page and jekyll
