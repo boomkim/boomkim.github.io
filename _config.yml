@@ -1,4 +1,4 @@
-name: Everglow's blog
+name: Everglow's page
 markdown: kramdown
 permalink: /blog/:year/:month/:day/:title
 
