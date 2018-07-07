@@ -11,6 +11,8 @@ categories: python bigdata
 
 ### random 모듈을 이용해 간단하게 짠 코드
 
+아래의 코드는 *int형 데이터 3개, varchar 형 13개, datetime형 4개로 이루어진 레코드 1000개* 를 만들어서 csv 파일로 저장한다. 
+
 ```python
 import csv
 import random
