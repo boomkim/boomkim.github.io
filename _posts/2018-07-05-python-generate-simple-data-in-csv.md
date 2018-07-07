@@ -13,7 +13,6 @@ categories: python bigdata
 
 ```python
 import csv
-import names
 import random
 import datetime
 import timeit
