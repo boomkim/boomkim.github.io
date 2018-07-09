@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "파이썬으로 간단한 테스트 데이터 생성하기 (csv)"
+title: "[Python] 파이썬으로 간단한 테스트 데이터 생성하기 (csv)"
 date: 2018-07-05
 categories: python bigdata
 comments: true

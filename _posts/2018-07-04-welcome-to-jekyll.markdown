@@ -23,3 +23,8 @@ Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most ou
 [jekyll-docs]: https://jekyllrb.com/docs/home
 [jekyll-gh]:   https://github.com/jekyll/jekyll
 [jekyll-talk]: https://talk.jekyllrb.com/
+<br>
+
+---
+
+*jekyll을 이용하면 이런 포스팅이 최초에 생성된다*
