@@ -6,34 +6,43 @@ categories: SAML AWS
 ---
 
 
-### SAML 이란? 
+## SAML 이란? 
 
 **Security Asserting Markup Language**
-*보안 인증에 관한 정보를 기술하는 마크업 언어* 정도로 생각하면 될 것 같다. 혹은 *인증/인가 정보를 담은 XML* 정도로 간단하게 생각하면 될 것 같다. 
 
-### 그렇다면 SAML은 어디에 쓰이는가?
+즉, *보안 인증에 관한 정보를 기술하는 마크업 언어* 정도로 생각하면 될 것 같다. 혹은 *인증/인가 정보를 담은 XML* 정도로 간단하게 생각하면 될 것 같다. 
+
+## 그렇다면 SAML은 어디에 쓰이는가?
 
 **SSO(Single Sign-On)을 구현하기 위해 쓰인다.** SSO는 한 번의 로그인으로 여러개의 다른 도메인을 이용하려고 할때 필요한 기술이다. 예를 들어, 온프레미스에 이미 구축해 놓은 인증 시스템을 이용해서 AWS 리소스에 접근하려고 할때 AWS에 별도의 인증 시스템을 구축하지 않고 온프레미스의 인증을 그대로 쓰려고 할 때 사용한다. 
 
-### SAML을 통한 인증 프로세스 
+## SAML을 통한 인증 프로세스 
 
-#### 간단하지만 설명이 잘된 경우를 찾아냈다. (이해하기 쉽다)
+### 간단하지만 설명이 잘된 경우를 찾아냈다. (이해하기 쉽다)
+
+**[과정1]**
 
 ![그림1-1](/images/saml_bcho1.png)
+
 1. Browser에서 사이트 SpA로 접속한다.
 2. 사이트 SpA에는 로그인이 되어 있지 않기 때문에 (세션이 없어서). SpA에서는 SAML request를 만들어서, Browser에게로 redirect URL을 보낸다.
 3. Browser는 redirect URL에 따라 IdP에 접속하고, Idp에서 login form을 넣고 log in을 한다. 이때, IdP와 Brower 사이에 HttpSession 또는 Cookie로 Login에 대한 정보를 기록한다. 그리고 다시 사이트 SpA로의 SAML response를 포함한 redirect URL을 browser로 전송한다.
 4. Browser는 SAML reponse를 가지고 SpA로 접속하면, SpA에는 인증된 정보를 가지고 로그인 처리를 한다. ※ 이 과정에서는 바로 사이트 SpA의 사용자 페이지(예를 들어 /home)등으로 가는 것이 아니라, SAML에 의해서 미리 정의한 SpA의 SAML response 처리 URL로 갔다가 SAML response를 처리가 끝나면 인증 처리를 한후, 사용자 페이지(/home)으로 다시 redirect한다.
 
+**[과정2]**
+
 ![그림1-2](/images/saml_bcho2.png)
+
 1. 사이트 SpA에서 로그인된 상태에서 SpB에 접속한다.
 2. 사이트 SpB는 로그인이 되어 있지 않기 때문에, SAML 메시지를 만들어서 IdP의 login from으로 redirect URL을 보낸다.
 3. 브라우져는 redirect URL을 따라서 IdP에 접속을 한다. IdP에 접속을 하면 앞의 과정에서 이미 Session 또는 Cookie가 만들어져 있기 때문에 별도의 로그인 폼을 띄위지 않고, SAML response message와 함께, SpB로의 redirect URL을 전송한다. 
 4. Browser는 Sp B에 인증된 정보를 가지고 로그인한다.
 
 출처: http://bcho.tistory.com/755?category=481504 [조대협의 블로그]
+<br>
 
-#### 조금 더 디테일한 버전은 다음과 같다. 
+### 조금 더 디테일한 버전은 다음과 같다. 
+
 
 ![그림2](/images/saml_google.gif)
 
@@ -48,7 +57,8 @@ categories: SAML AWS
 
 출처: http://civan.tistory.com/177 [행복만땅 개발자]
 
-#### AWS와 연동은 아래 그림과 같은 과정으로 구현된다.
+
+### AWS와 연동은 아래 그림과 같은 과정으로 구현된다.
 
 ![그림3](/images/saml-based-federation.diagram.png)
 
