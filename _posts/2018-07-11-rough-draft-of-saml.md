@@ -5,7 +5,6 @@ date:   2018-07-11
 categories: SAML AWS
 ---
 
-
 ## SAML 이란? 
 
 **Security Asserting Markup Language**
@@ -18,7 +17,9 @@ categories: SAML AWS
 
 ## SAML을 통한 인증 프로세스 
 
-* 간략하게 설명한 인증 과정
+SAML 인증과정을 잘 설명한 블로그 글들이 있어 소개한다. 
+
+#### 간략하게 설명한 인증 과정
 
 **[과정1]**
 
@@ -38,10 +39,10 @@ categories: SAML AWS
 3. 브라우져는 redirect URL을 따라서 IdP에 접속을 한다. IdP에 접속을 하면 앞의 과정에서 이미 Session 또는 Cookie가 만들어져 있기 때문에 별도의 로그인 폼을 띄위지 않고, SAML response message와 함께, SpB로의 redirect URL을 전송한다. 
 4. Browser는 Sp B에 인증된 정보를 가지고 로그인한다.
 
-출처: http://bcho.tistory.com/755?category=481504 [조대협의 블로그]
-<br>
+(출처: http://bcho.tistory.com/755?category=481504 [조대협의 블로그])
+<br><br>
 
-* 조금 더 디테일한 버전은 다음과 같다. 
+#### 조금 더 디테일한 버전은 다음과 같다. 
 
 
 ![그림2](/images/saml_google.gif)
@@ -55,10 +56,10 @@ categories: SAML AWS
 7. ACS는 Service Provider가 운영하게 되는데 SAMLResponse를 확인하고 실제 서비스 사이트로 유저를 Forwarding한다.
 8. 유저는 로그인에 성공하고 서비스를 제공받는다.
 
-출처: http://civan.tistory.com/177 [행복만땅 개발자]
+(출처: http://civan.tistory.com/177 [행복만땅 개발자])
+<br><br>
 
-
-* AWS와 연동은 아래 그림과 같은 과정으로 구현된다.
+#### AWS와 연동은 아래 그림과 같은 과정으로 구현된다.
 
 ![그림3](/images/saml-based-federation.diagram.png)
 
@@ -68,3 +69,9 @@ categories: SAML AWS
 4. 클라이언트 앱이 AWS STS AssumeRoleWithSAML API를 호출하면서 SAML 공급자의 ARN, 수임할 역할의 ARN, IdP로부터 받은 SAML 어설션을 전달합니다.
 5. 클라이언트 앱에 대한 API 응답에는 임시 보안 자격 증명이 포함되어 있습니다.
 6. 클라이언트 앱은 임시 보안 자격 증명을 사용해 Amazon S3 API 작업을 호출합니다.
+
+(출처: https://docs.aws.amazon.com/ko_kr/IAM/latest/UserGuide/id_roles_providers_saml.html)
+
+saml이란 무엇인지 알기위해 매우 간략하고 기초적인 내용만 정리해봤다. 더 자세한 내용은 위에서 참조한 블로그에 자세히 나와있다. 특히 [행복만땅 개발자에 올라온 포스트][행복만땅블로그]에서는 실습까지 해볼 수 있다. 
+
+[행복만땅블로그]: http://civan.tistory.com/177
