@@ -18,7 +18,7 @@ categories: SAML AWS
 
 ## SAML을 통한 인증 프로세스 
 
-### 간단하지만 설명이 잘된 경우를 찾아냈다. (이해하기 쉽다)
+* 간략하게 설명한 인증 과정
 
 **[과정1]**
 
@@ -41,7 +41,7 @@ categories: SAML AWS
 출처: http://bcho.tistory.com/755?category=481504 [조대협의 블로그]
 <br>
 
-### 조금 더 디테일한 버전은 다음과 같다. 
+* 조금 더 디테일한 버전은 다음과 같다. 
 
 
 ![그림2](/images/saml_google.gif)
@@ -58,7 +58,7 @@ categories: SAML AWS
 출처: http://civan.tistory.com/177 [행복만땅 개발자]
 
 
-### AWS와 연동은 아래 그림과 같은 과정으로 구현된다.
+* AWS와 연동은 아래 그림과 같은 과정으로 구현된다.
 
 ![그림3](/images/saml-based-federation.diagram.png)
 
