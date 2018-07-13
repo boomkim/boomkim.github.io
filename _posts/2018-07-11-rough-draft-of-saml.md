@@ -2,7 +2,7 @@
 layout: post
 title:  "SAML에 대한 매우 개략적인 정리"
 date:   2018-07-11
-categories: SAML AWS
+categories: AWS SAML
 ---
 
 ## SAML 이란? 
@@ -72,6 +72,6 @@ SAML 인증과정을 잘 설명한 블로그 글들이 있어 소개한다.
 
 (출처: https://docs.aws.amazon.com/ko_kr/IAM/latest/UserGuide/id_roles_providers_saml.html)
 
-saml이란 무엇인지 알기위해 매우 간략하고 기초적인 내용만 정리해봤다. 더 자세한 내용은 위에서 참조한 블로그에 자세히 나와있다. 특히 [행복만땅 개발자에 올라온 포스트][행복만땅블로그]에서는 실습까지 해볼 수 있다. 
+saml이란 무엇인지 알기위해 매우 간략하고 기초적인 내용만 정리해봤다. 더 자세한 내용은 위에서 참조한 블로그에 자세히 나와있다. 특히 ["행복만땅 개발자" 블로그에 올라온 포스트][행복만땅블로그]에서는 실습까지 해볼 수 있다. 
 
 [행복만땅블로그]: http://civan.tistory.com/177
