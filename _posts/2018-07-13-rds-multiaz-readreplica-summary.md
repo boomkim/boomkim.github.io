@@ -21,7 +21,7 @@ categories: AWS RDS
 
 1. 원본 스냅샷 생성
 2. 스냅샷을 통해 복제본 인스턴스 생성 
-3. 비동기식 복제 
+3. 변경사항 발생 시 비동기식 복제 
 
 ### 기타 특징 
 
@@ -42,3 +42,5 @@ secondary(standby)노드에서 복제 가능 | 기본값으로 백업 설정 x
 최소 두개의 가용영역 | 단일리전/cross-AZ/cross-region 가능 
 업데이트 시 primary 에 적용 | 독립적으로 적용 가능 
 자동 장애 복구 | 장애 시 수동으로 승격 
+
+동기식 복제/ 비동기식 복제 차이점은 [여기](https://cloudbasic.net/white-papers/synchronous-vs-asynchronous-replication/)를 참고 
