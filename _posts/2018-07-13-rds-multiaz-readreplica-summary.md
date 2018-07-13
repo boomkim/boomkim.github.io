@@ -15,7 +15,7 @@ categories: AWS RDS
 
 ## 읽기 복제본
 
-![그림2](/images/readrepl.png)
+![그림2](/images/rds_readrepl.png)
 
 ### 생성과정
 
