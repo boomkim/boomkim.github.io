@@ -5,6 +5,8 @@ date:   2018-07-13
 categories: AWS RDS
 ---
 
+AWS RDS에는 가용성과 확장성을 위해 multi-az 라는 기능과 read replica라는 기능을 지원한다. 비슷하지만 다른 특징들을 갖고 있어 간단하게 정리해 보았다. 
+
 ## Multi-AZ 
 
 ![그림1](/images/rds_ha1.jpg)
