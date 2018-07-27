@@ -2,16 +2,16 @@
 layout: post
 title:  "자주쓰는 postgresql 쿼리"
 date:   2018-07-21
-categories: postgresql
+categories: database postgresql
 ---
 
 `set search_path to abc_schema`
 
 : 스키마 설정. <br>
 
-`describe table_a;`
+`describe table_a;` / `\d+ table_a`
 
-: describe 하면 해당 테이블에 관련된 인덱스 까지 다 나와서 좋다. <br>
+: describe 하면 해당 테이블에 관련된 인덱스 까지 다 나와서 좋다. *jdbc를 통한 클라이언트에서는 describe가 작동하지만 psql에서는 뒤의 명령어를 써야한다.* <br>
 
 `drop index indexname;`
 

@@ -19,46 +19,85 @@ import csv
 import random
 import datetime
 import timeit
+import argparse
 
-start = timeit.default_timer()
-file1 = open('mysql_d.csv','w', encoding='utf-8', newline='')
-wr = csv.writer(file1)
 
-extensions = ['hello','hi','bonjour','amazon','elastic','compute','gsneotek','everglow','line','kakaotalk','sql','test']
-texts = ['Amazon Elastic Compute Cloud (Amazon EC2) provides scalable computing capacity in the Amazon Web Services (AWS) cloud. Using Amazon EC2 eliminates your need to invest in hardware up front so you can develop and deploy applications faster. You can use Amazon EC2 to launch as many or as few virtual servers as you need configure security and networking and manage storage. Amazon EC2 enables you to scale up or down to handle changes in requirements or spikes in popularity reducing your need to forecast traffic.','First you need to get set up to use Amazon EC2. After you are set up you are ready to complete the Getting Started tutorial for Amazon EC2. Whenever you need more information about an Amazon EC2 feature you can read the technical documentation.','You can provision Amazon EC2 resources such as instances and volumes directly using Amazon EC2. You can also provision Amazon EC2 resources using other services in AWS. For more information see the following documentation:','If you prefer to build applications using language-specific APIs instead of submitting a request over HTTP or HTTPS AWS provides libraries sample code tutorials and other resources for software developers. These libraries provide basic functions that automate tasks such as cryptographically signing your requestsetrying requests and handling error responses making it is easier for you to get started. For more information see AWS SDKs and Tools.']
-words = texts[0].split()
+class Argparser:
+    def __init__(self):
+        self.parser = argparse.ArgumentParser()
+        self.init_parser()
 
-for number in range(0,1000):
-	val_ints = []
-	val_varchars = []
-	val_texts = []
-	val_dates = []
-	val_doubles = []
+    def init_parser(self):
+        parser = self.parser
+        parser.add_argument("-i", "--integers", help="how many integer value do you want to generate")
+        parser.add_argument("-ri", "--range-integer", help="describe range of integer")
+        parser.add_argument("-vc", "--varchars", help="how many varchar value do you want to generate")
+        parser.add_argument("-t", "--texts", help="how many text value do you want to generate")
+        parser.add_argument("-dt", "--dates", help="how many datetime value do you want to generate")
+        parser.add_argument("-d", "--doubles", help="how many double value do you want to generate")
+        parser.add_argument("-r", "--rows", help="describe number of rows")
+        parser.add_argument("-ta", "--textarrays", help="how many text arrays...")
+        parser.add_argument("-o", "--output", help="describe file name")
+        self.parser = parser
 
-	for k in range(0,3):
-		val_ints.append(random.randrange(0,10000))
 
-	for k in range(0,13):
-		val_varchars.append(random.choice(extensions))
+class Generator:
+    def __init__(self, args):
+        self.rows = int(args.rows) if args.rows else 1000
+        self.filename = args.output if args.output else "out.csv"
+        self.integers = int(args.integers) if args.integers else 5
+        self.varchars = int(args.varchars) if args.varchars else 5
+        self.texts = int(args.texts) if args.texts else 5
+        self.doubles = int(args.doubles) if args.doubles else 5
+        self.dates = int(args.dates) if args.dates else 1
+        self.textarrays = int(args.textarrays) if args.textarrays else 0
+        self.text_pool = ['Amazon Elastic Compute Cloud (Amazon EC2)',
+                          'First you need to get set up to use Amazon EC2.', 
+                          'You can provision Amazon EC2 resources such as instances and volumes.',
+                          'If you prefer to build applications using language-sp.']
+        self.word_pool = self.text_pool[0].split()
 
-	# for k in range(0,3):
-	# 	val_texts.append(random.choice(texts))
+    def generate(self):
+        f = open(self.filename, 'w', encoding='utf-8', newline='')
+        wr = csv.writer(f)
+        for i in range(0, self.rows):
+            idx = [i + 1]
+            val_ints = []
+            val_varchars = []
+            val_texts = []
+            val_doubles = []
+            val_dates = []
+            val_textarrays = []
 
-	for k in range(0,4):
-		val_dates.append(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
+            for j in range(0, self.integers):
+                val_ints.append(random.randrange(0, 10000))
+            for j in range(0, self.varchars):
+                val_varchars.append(random.choice(self.word_pool))
+            for j in range(0, self.texts):
+                val_texts.append(random.choice(self.text_pool))
+            for j in range(0, self.textarrays):
+                val_textarrays.append('{\"abc\",\"def\",\"ghi\"}')
+            for j in range(0, self.dates):
+                val_dates.append(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
+            for j in range(0, self.doubles):
+                val_doubles.append(random.random())
+            wr.writerow(idx + val_ints + val_varchars + val_texts + val_textarrays + val_dates + val_doubles)
+        f.close()
 
-	# for k in range(0,2):
-	# 	val_doubles.append(random.random())
 
-	wr.writerow(val_ints + val_varchars + val_dates)
-
-file1.close()
-stop = timeit.default_timer()
-print (stop - start)
-
+if __name__ == "__main__":
+    parser = Argparser()
+    args = parser.parser.parse_args()
+    print("Generating file...")
+    start = timeit.default_timer()
+    generator = Generator(args)
+    generator.generate()
+    stop = timeit.default_timer()
+    print(generator.filename + " is created. ")
+    print("It took " + str(stop - start) + " seconds to generate data.")
 ```
 
-### 간단하게 설명하자면, 
+### 간단하게 설명하자면... 
 
 **각 데이터에 맞는 값을 random모듈을 통해 생성하고 csv형태에 맞게 출력한다.**
 
