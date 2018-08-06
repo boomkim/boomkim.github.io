@@ -16,4 +16,4 @@ categories: activedirectory dns aws
 위키피디아에 [DNS 항목](https://en.wikipedia.org/wiki/Domain_Name_System#DNS_Protocol_transport)에도 다음과 같이 적혀있다. 
 >> DNS primarily uses the User Datagram Protocol (UDP) on port number 53 to serve requests.[3] DNS queries consist of a single UDP request from the client followed by a single UDP reply from the server. When the length of the answer exceeds 512 bytes and both client and server support EDNS, larger UDP packets are used. Otherwise, the query is sent again using the Transmission Control Protocol (TCP). TCP is also used for tasks such as zone transfers. Some resolver implementations use TCP for all queries.
 
-(지금보니 그 고수의 댓글ㄴ 위키피디아에서 그냥 퍼온 것...)
+(지금보니 그 고수의 댓글은 위키피디아에서 그냥 퍼온 것...)
