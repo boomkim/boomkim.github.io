@@ -23,4 +23,4 @@ categories: AWS EC2 T3
 
 정확한 사양은 더 테스트해봐야 알겠지만, 어쨌든 좋은소식임에는 분명하다. 
 
-https://aws.amazon.com/ko/blogs/aws/new-t3-instances-burstable-cost-effective-performance/
+참고: https://aws.amazon.com/ko/blogs/aws/new-t3-instances-burstable-cost-effective-performance/
