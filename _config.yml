@@ -16,14 +16,15 @@
 title: Everglow
 email: bhk3177@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  그냥 블로그
+  IT 전반적인 것들. 주로 AWS. 공부하면서 틈틈히 정리 중. 
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://boomkim.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  boomkim
 
 # Build settings
 markdown: kramdown
-theme: minima
+theme: jekyll-swiss
+theme_color : blue
 plugins:
   - jekyll-feed
 
@@ -31,6 +32,7 @@ google_analytics: UA-121973475-1
 disqus:
   shortname: everglow
 
+paginate: 5
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.
