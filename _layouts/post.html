@@ -10,12 +10,12 @@ layout: default
   <div class="prose" itemprop="articleBody">
       {{ content }}
   </div>
+  {%- if site.disqus.shortname -%} 
+    {%- include disqus_comments.html -%} 
+  {%- endif -%}
 
 </article>
 
-{%- if site.disqus.shortname -%} 
-	{%- include disqus_comments.html -%} 
-{%- endif -%}
 
 <div class="container mx-auto px-2 py-2 clearfix">
   {% include previous-next.html %}
