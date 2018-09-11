@@ -20,7 +20,7 @@ categories: reviewrepublic migragtion
 그래서 최적화 작업을 위해 첫번째 작업으로 
 1. Digital Ocean -> AWS
 2. Mlab -> Atlas
-잡았다. 
+이 정도로 잡았다. 
 
 이 과정에서 꽤 많은 이슈가 있었다. 그 이슈에 대해서는 다음 포스팅에... 
 
