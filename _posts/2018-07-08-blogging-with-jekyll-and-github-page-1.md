@@ -28,4 +28,5 @@ comments: true
 ### 사전 요구사항
 * 깃허브 계정
 
-
+........ 까지 작성했으나 이것 역시 나보다 잘 정리하신 분들이 있다. 링크로 대체한다. 
+깃헙페이지 만들기: http://blog.saltfactory.net/create-personal-web-site-using-with-github-pages/
