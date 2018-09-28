@@ -4,6 +4,7 @@ title:  "AWS RDS mysql - 다른 리전에 읽기복제본 생성: 버전이슈"
 date:   2018-09-28
 categories: AWS RDS mysql 
 ---
+![그림0](/images/readreplica.png)
 
 ### 읽기 복제본 생성 
 
