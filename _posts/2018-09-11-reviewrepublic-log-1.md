@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "reviewrepublic - 심폐소생술 (1)프로젝트 수락"
+title:  "reviewrepublic 심폐소생술 - (1)프로젝트 수락"
 date:   2018-09-11
 categories: reviewrepublic migragtion
 ---
