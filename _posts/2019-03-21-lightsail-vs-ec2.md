@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "AWS RDS mysql - 다른 리전에 읽기복제본 생성: 버전이슈"
-date:   2018-09-28
-categories: AWS RDS mysql 
+title:  "AWS Lightsail VS EC2"
+date:   2019-03-21
+categories: AWS Lightsail 
 ---
 
 ![그림0](/images/lightsail.jpeg)
