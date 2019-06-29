@@ -5,8 +5,6 @@ date:   2019-06-29
 categories: Bigdata AWS EMR
 ---
 
-# EMR의 Zeppelin을 통해 Athena 활용하기. 
-
 ## 들어가기 전에... 
 
 최근에 AWS Datascience 소그룹 모임의 자료를 쭉 보던 중 아주 정리가 잘 되어있는 자료를 보았습니다. [AWS 기반 지속 가능한 데이터 분석하기
@@ -16,8 +14,8 @@ categories: Bigdata AWS EMR
 
 특히, 위의 글에서 처럼 Spark을 EMR로 관리하고 그 노트북으로써 Zeppelin을 활용하는 환경이라면, Athena에도  접근이 가능하게 하는 것도 활용성을 높여줄 것 같습니다. **EMR이 제공하는 Zeppelin 만으로 ETL, 분석을 쉽게할 수 있도록 노트북 환경을 만들고 여차하면 시각화까지 해결하는거죠.** (물론 Zeppelin의 시각화에는 한계가 있습니다. Zeppelin은 노트북일 뿐 BI툴이 아니니까요) 
 
-(이 문단은 안읽으셔도 됩니다. 괜한 딴지니까요.)
-사실, Zeppelin을 이런 식으로 꽤나 중요하게 사용하고 싶다면 굳이 EMR에서 제공하는 Zeppelin을 이용하지 않아도 됩니다. EMR은 비싸니까요. EC2위에 직접 Zeppelin을 설치하고 따로 관리를 하는 편이 나을수도 있습니다. EMR은 사실 항시 유지하는 클러스터를 위한 솔루션이 아니니까요. 24X7 유지하는 클러스터를 위해서 EMR을 사용한다면 Multi-Master 기능을 고려할텐데 심지어 Multi-Master모드로 EMR을 올린다면 Zeppelin을 같이 사용할 수 없습니다. 이것저것 고려하니 복잡해졌네요. 그냥 AWS에서 EMR 프로비저닝 할때 Athena와의 연계를 미리 고려해서 Zeppelin에 Interpreter 하나만 추가해놔주면 고민이 쉽게 해결될것 같네요. 
+~~(이 문단은 안읽으셔도 됩니다. EMR, Zeppelin의 애매한 관계에 대한 넉두리입니다.)~~
+사실, Zeppelin을 이런 식으로 꽤나 중요하게 사용하고 싶다면 굳이 EMR에서 제공하는 Zeppelin을 이용하지 않아도 됩니다. EMR은 비싸니까요. EC2위에 직접 Zeppelin을 설치하고 따로 관리를 하는 편이 나을 수도 있습니다. EMR은 사실 항시 유지하는 클러스터를 위한 솔루션이 아닙니다. 반면에 Zeppelin을 멀티유저 환경에서 사용하면 항상 띄어놓는게 맞겠죠. 그래도 24X7 유지하는 클러스터를 위해서 EMR을 사용한다면 Multi-Master 기능을 고려할텐데 심지어 Multi-Master모드로 EMR을 올린다면 Zeppelin을 같이 사용할 수 없습니다. 그러니 조합이 꽤 애매합니다. 이것저것 고려하니 복잡해졌네요. 그냥 AWS에서 EMR 프로비저닝 할때 Athena와의 연계를 미리 고려해서 Zeppelin에 Interpreter 하나만 추가해놔주면 고민이 쉽게 해결될텐데... 
 
 이유야 어떻든 간에, 이 글의 목표는 **EMR에 올려진 Zeppelin에 Athena를 연결**시키는 겁니다. EC2에 Zeppelin이 올라가 있다고 해도 크게 달라지진 않을 것 같습니다. **Role을 이용한 권한 연결**이 핵심이니까요. 서론이 길었습니다. 얼른 본론으로 갑시다. 
 
@@ -135,6 +133,9 @@ Properties 에서
 Artifact는 jar파일을 받은 경로를 입력하면 됩니다. 
 
 `/usr/local/jar/AthenaJDBC42_2.0.7.jar`
+
+![그림2.5](/images/zeppelin-interpreter-properties.png)
+[properties 예시]
 
 *Save를 누르면 드디어! Athena를 사용할 Interpreter가 생성이 됩니다.*
 
