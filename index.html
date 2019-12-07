@@ -188,7 +188,7 @@
                 <time class="level-item has-text-grey" datetime="2019-11-03T15:00:00.000Z">2019-11-04</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/AWS/">AWS</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/AWS/Lambda/">Lambda</a>
+                <a class="has-link-grey -link" href="/categories/AWS/">AWS</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/AWS/Computing/">Computing</a>
                 </div>
                 
                 
@@ -298,7 +298,7 @@
                 <time class="level-item has-text-grey" datetime="2019-06-06T15:00:00.000Z">2019-06-07</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/AWS/">AWS</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/AWS/Elasticsearch/">Elasticsearch</a>
+                <a class="has-link-grey -link" href="/categories/AWS/">AWS</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/AWS/Data-Analytics/">Data Analytics</a>
                 </div>
                 
                 
@@ -352,7 +352,7 @@
                 <time class="level-item has-text-grey" datetime="2019-06-06T15:00:00.000Z">2019-06-07</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/AWS-Athena-Cloudfront/">AWS Athena Cloudfront</a>
+                <a class="has-link-grey -link" href="/categories/AWS/">AWS</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/AWS/Data-Analytics/">Data Analytics</a>
                 </div>
                 
                 
@@ -459,7 +459,7 @@
                 <time class="level-item has-text-grey" datetime="2019-05-23T15:00:00.000Z">2019-05-24</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/AWS-Athena-Zeppelin/">AWS Athena Zeppelin</a>
+                <a class="has-link-grey -link" href="/categories/AWS/">AWS</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/AWS/Data-Analytics/">Data Analytics</a>
                 </div>
                 
                 
@@ -590,7 +590,7 @@ order by TIME ASC;</code></pre><p>시계열 분석을 위해서는 위에 코드
                 <time class="level-item has-text-grey" datetime="2019-03-20T15:00:00.000Z">2019-03-21</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/AWS-Lightsail/">AWS Lightsail</a>
+                <a class="has-link-grey -link" href="/categories/AWS/">AWS</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/AWS/Computing/">Computing</a>
                 </div>
                 
                 
@@ -673,14 +673,14 @@ order by TIME ASC;</code></pre><p>시계열 분석을 위해서는 위에 코드
                 <time class="level-item has-text-grey" datetime="2018-09-27T15:00:00.000Z">2018-09-28</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/AWS-RDS-mysql/">AWS RDS mysql</a>
+                <a class="has-link-grey -link" href="/categories/AWS/">AWS</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/AWS/Database/">Database</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    5분 읽기 (대략 778 단어)
+                    5분 읽기 (대략 774 단어)
                 </span>
                 
                 
@@ -694,28 +694,28 @@ order by TIME ASC;</code></pre><p>시계열 분석을 위해서는 위에 코드
         </h1>
         <div class="content">
             <p><img src="/images/readreplica.png" alt="그림0"></p>
-<h3 id="읽기-복제본-생성"><a href="#읽기-복제본-생성" class="headerlink" title="읽기 복제본 생성"></a>읽기 복제본 생성</h3><p>다른 리전에 읽기복제본을 생성해야 될 때가 있다. 대충 추려보면 다음과 같은 경우. </p>
+<h2 id="읽기-복제본-생성"><a href="#읽기-복제본-생성" class="headerlink" title="읽기 복제본 생성"></a>읽기 복제본 생성</h2><p>다른 리전에 읽기복제본을 생성해야 될 때가 있다. 대충 추려보면 다음과 같은 경우. </p>
 <ol>
 <li>다른 리전에 데이터를 읽기만 하는 워크로드가 있는 경우 </li>
 <li>다른 리전에 DR 용으로 데이터를 보관하는 경우</li>
 </ol>
 <p>그럴때 RDS의 읽기복제본 생성 기능은 매우 간편하고 효과적이다. 파라미터 그룹을 만진다든지 하는 설정을 해줄 필요 없이 대상 리전에 서브넷 그룹만 잘 설정 되어 있으면 콘솔에서 클릭 몇번으로 복제본을 생성할 수 있다. </p>
-<p><strong>초간단 읽기복제본 생성 가이드</strong></p>
+<p><strong>읽기복제본 생성방법</strong></p>
 <ol>
 <li>생성할 지역 RDS에서 DB subnetgroup 생성</li>
 <li>원본 DB에서 Create read replica 클릭 후 설정. </li>
 </ol>
 <p>이렇게 해서 읽기 복제본은 한 인스턴스당 5개 까지 만들 수 있다. 그리고 만든 읽기 복제본을 multi-az 구성해 가용성을 높일수도 있다. 꽤 괜찮은 기능인듯? </p>
-<h3 id="그런데-이게-잘-안될-수도-있다"><a href="#그런데-이게-잘-안될-수도-있다" class="headerlink" title="그런데, 이게 잘 안될 수도 있다"></a>그런데, 이게 잘 안될 수도 있다</h3><p>테스트를 해봤다. 현재(2018년 9월 28일)기준 서울리전에서 mysql 5.7의 최신 버전은 5.7.23이다. 이 버전으로 mysql을 생성하고 도쿄리전에 read replica를 생성해 보겠다. </p>
+<h2 id="그런데-이게-잘-안될-수도-있다"><a href="#그런데-이게-잘-안될-수도-있다" class="headerlink" title="그런데, 이게 잘 안될 수도 있다"></a>그런데, 이게 잘 안될 수도 있다</h2><p>테스트를 해봤다. 현재(2018년 9월 28일)기준 서울리전에서 mysql 5.7의 최신 버전은 5.7.23이다. 이 버전으로 mysql을 생성하고 도쿄리전에 read replica를 생성해 보겠다. </p>
 <p><img src="/images/rds-replica-error.png" alt="그림1"><br>안된다…! </p>
 <p>그럼 다른 리전에는 될까? 싱가폴엔 된다. 버지니아 리전엔 안 된다. (다른 리전엔 거의 되는 듯 했다.) 뭐지 이게…? 도쿄리전과 버지니아 리전에 장애가 있나?</p>
-<h3 id="대체-왜그럴까"><a href="#대체-왜그럴까" class="headerlink" title="대체 왜그럴까?"></a>대체 왜그럴까?</h3><p>일단 에러를 추적해 보자. 에러는 다음과 같다.</p>
+<h2 id="대체-왜그럴까"><a href="#대체-왜그럴까" class="headerlink" title="대체 왜그럴까?"></a>대체 왜그럴까?</h2><p>일단 에러를 추적해 보자. 에러는 다음과 같다.</p>
 <p><em>Cannot find version 5.7.23 for mysql (Service: AmazonRDS; Status Code: 400; Error Code: InvalidParameterCombination; Request ID: ed9ba771-ee3e-4334-b868-e3b3082a4286)</em></p>
 <p>그니깐 5.7.23 버전을 못찾겠다는 말이다. </p>
 <p>대체 무슨 문제일까 찾아보니, <em>도쿄리전, 버지니아 리전 등에는 mysql 5.7.23이 없다.</em> 마찬가지로 mysql 5.6.41버전도 tokyo 리전엔 없어서 읽기 복제본 생성이 불가능 하다. 즉, 읽기 복제본을 만드려고 하는 mysql 버전이 해당 리전에 존재하지 않기 때문에 복제본을 생성할 수 가 없는 것이다.  </p>
 <p>아니 대체 왜? 보통 도쿄, 버지니아는 업데이트가 가장 빠른 지역이 아닌가. 그나마 의심해 볼수 있는건 최신버전을 RDS에 적용하는데 문제가 있다거나… 홀수 버전은 취급 안한다든가… 등을 의심해볼 수 있겠지만 무슨 이슈가 있는지 정확하게 파악기는 어렵다. 그냥 지금 상태로는 안되는 것이다. 따라서 마이너 버전 업데이트를 롤백하든지… 도쿄리전 등에 마이너 버전이 업데이트 되길 기다리든지 해야 한다.</p>
 <p>여튼 RDS에서 다른리전에 읽기복제본 생성시 주의사항 하나가 추가되었다.</p>
-<h3 id="대상-리전에-해당-mysql-버전이-있는지-확인할-것"><a href="#대상-리전에-해당-mysql-버전이-있는지-확인할-것" class="headerlink" title="대상 리전에 해당 mysql 버전이 있는지 확인할 것"></a>대상 리전에 해당 mysql 버전이 있는지 확인할 것</h3>
+<h2 id="대상-리전에-해당-mysql-버전이-있는지-확인할-것"><a href="#대상-리전에-해당-mysql-버전이-있는지-확인할-것" class="headerlink" title="대상 리전에 해당 mysql 버전이 있는지 확인할 것"></a>대상 리전에 해당 mysql 버전이 있는지 확인할 것</h2>
         </div>
         
         
@@ -740,7 +740,7 @@ order by TIME ASC;</code></pre><p>시계열 분석을 위해서는 위에 코드
                 <time class="level-item has-text-grey" datetime="2018-09-17T15:00:00.000Z">2018-09-18</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/reviewrepublic-migragtion/">reviewrepublic migragtion</a>
+                <a class="has-link-grey -link" href="/categories/Others/">Others</a>
                 </div>
                 
                 
@@ -807,7 +807,7 @@ order by TIME ASC;</code></pre><p>시계열 분석을 위해서는 위에 코드
                 <time class="level-item has-text-grey" datetime="2018-09-10T15:00:00.000Z">2018-09-11</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/reviewrepublic-migragtion/">reviewrepublic migragtion</a>
+                <a class="has-link-grey -link" href="/categories/Others/">Others</a>
                 </div>
                 
                 
@@ -935,7 +935,7 @@ order by TIME ASC;</code></pre><p>시계열 분석을 위해서는 위에 코드
                     </p>
                     <a href="/categories">
                         <p class="title has-text-weight-normal">
-                            21
+                            16
                         </p>
                     </a>
                 </div>
@@ -947,7 +947,7 @@ order by TIME ASC;</code></pre><p>시계열 분석을 위해서는 위에 코드
                     </p>
                     <a href="/tags">
                         <p class="title has-text-weight-normal">
-                            12
+                            47
                         </p>
                     </a>
                 </div>
@@ -1034,9 +1034,33 @@ order by TIME ASC;</code></pre><p>시계열 분석을 위해서는 위에 코드
                 <span class="level-item">AWS</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">3</span>
+                <span class="level-item tag">11</span>
             </span>
         </a><ul><li>
+        <a class="level is-marginless" href="/categories/AWS/Computing/">
+            <span class="level-start">
+                <span class="level-item">Computing</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">5</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/AWS/Data-Analytics/">
+            <span class="level-start">
+                <span class="level-item">Data Analytics</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/AWS/Database/">
+            <span class="level-start">
+                <span class="level-item">Database</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li><li>
         <a class="level is-marginless" href="/categories/AWS/EMR/">
             <span class="level-start">
                 <span class="level-item">EMR</span>
@@ -1044,87 +1068,55 @@ order by TIME ASC;</code></pre><p>시계열 분석을 위해서는 위에 코드
             <span class="level-end">
                 <span class="level-item tag">1</span>
             </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/AWS/Elasticsearch/">
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/Bigdata/">
             <span class="level-start">
-                <span class="level-item">Elasticsearch</span>
+                <span class="level-item">Bigdata</span>
             </span>
             <span class="level-end">
                 <span class="level-item tag">1</span>
             </span>
         </a></li><li>
-        <a class="level is-marginless" href="/categories/AWS/Lambda/">
+        <a class="level is-marginless" href="/categories/Blogging/">
             <span class="level-start">
-                <span class="level-item">Lambda</span>
+                <span class="level-item">Blogging</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Container/">
+            <span class="level-start">
+                <span class="level-item">Container</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/Container/Docker/">
+            <span class="level-start">
+                <span class="level-item">Docker</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/Database/">
+            <span class="level-start">
+                <span class="level-item">Database</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/Database/PostgreSQL/">
+            <span class="level-start">
+                <span class="level-item">PostgreSQL</span>
             </span>
             <span class="level-end">
                 <span class="level-item tag">1</span>
             </span>
         </a></li></ul></li><li>
-        <a class="level is-marginless" href="/categories/AWS-Athena-Cloudfront/">
-            <span class="level-start">
-                <span class="level-item">AWS Athena Cloudfront</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/AWS-Athena-Zeppelin/">
-            <span class="level-start">
-                <span class="level-item">AWS Athena Zeppelin</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/AWS-EC2-T3/">
-            <span class="level-start">
-                <span class="level-item">AWS EC2 T3</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/AWS-EC2-Windows/">
-            <span class="level-start">
-                <span class="level-item">AWS EC2 Windows</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/AWS-Lightsail/">
-            <span class="level-start">
-                <span class="level-item">AWS Lightsail</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/AWS-RDS/">
-            <span class="level-start">
-                <span class="level-item">AWS RDS</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/AWS-RDS-mysql/">
-            <span class="level-start">
-                <span class="level-item">AWS RDS mysql</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/AWS-SAML/">
-            <span class="level-start">
-                <span class="level-item">AWS SAML</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li><li>
         <a class="level is-marginless" href="/categories/Linux/">
             <span class="level-start">
                 <span class="level-item">Linux</span>
@@ -1133,65 +1125,33 @@ order by TIME ASC;</code></pre><p>시계열 분석을 위해서는 위에 코드
                 <span class="level-item tag">1</span>
             </span>
         </a></li><li>
-        <a class="level is-marginless" href="/categories/activedirectory-dns-aws/">
+        <a class="level is-marginless" href="/categories/Others/">
             <span class="level-start">
-                <span class="level-item">activedirectory dns aws</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/blog/">
-            <span class="level-start">
-                <span class="level-item">blog</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/database-postgresql/">
-            <span class="level-start">
-                <span class="level-item">database postgresql</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/docker-network-multihost/">
-            <span class="level-start">
-                <span class="level-item">docker network multihost</span>
+                <span class="level-item">Others</span>
             </span>
             <span class="level-end">
                 <span class="level-item tag">2</span>
             </span>
         </a></li><li>
-        <a class="level is-marginless" href="/categories/jekyll-github/">
+        <a class="level is-marginless" href="/categories/Security/">
             <span class="level-start">
-                <span class="level-item">jekyll github</span>
+                <span class="level-item">Security</span>
             </span>
             <span class="level-end">
                 <span class="level-item tag">1</span>
             </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/jekyll-theme-swiss/">
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/Security/SAML/">
             <span class="level-start">
-                <span class="level-item">jekyll theme swiss</span>
+                <span class="level-item">SAML</span>
             </span>
             <span class="level-end">
                 <span class="level-item tag">1</span>
             </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/python-bigdata/">
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/blog/">
             <span class="level-start">
-                <span class="level-item">python bigdata</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/reviewrepublic-migragtion/">
-            <span class="level-start">
-                <span class="level-item">reviewrepublic migragtion</span>
+                <span class="level-item">blog</span>
             </span>
             <span class="level-end">
                 <span class="level-item tag">2</span>
@@ -1207,7 +1167,7 @@ order by TIME ASC;</code></pre><p>시계열 분석을 위해서는 위에 코드
         <h3 class="menu-label">
             태그 클라우드
         </h3>
-        <a href="/tags/athena/" style="font-size: 10px;">athena</a> <a href="/tags/aws/" style="font-size: 20px;">aws</a> <a href="/tags/bigdata/" style="font-size: 20px;">bigdata</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/concurrency/" style="font-size: 10px;">concurrency</a> <a href="/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/icarus/" style="font-size: 10px;">icarus</a> <a href="/tags/lambda/" style="font-size: 10px;">lambda</a> <a href="/tags/lambda-edge/" style="font-size: 10px;">lambda@edge</a> <a href="/tags/storage/" style="font-size: 10px;">storage</a> <a href="/tags/zeppelin/" style="font-size: 10px;">zeppelin</a>
+        <a href="/tags/ALB/" style="font-size: 10px;">ALB</a> <a href="/tags/AWS/" style="font-size: 20px;">AWS</a> <a href="/tags/ActiveDirectory/" style="font-size: 12.5px;">ActiveDirectory</a> <a href="/tags/DigitalOcean/" style="font-size: 12.5px;">DigitalOcean</a> <a href="/tags/Docker/" style="font-size: 12.5px;">Docker</a> <a href="/tags/EC2/" style="font-size: 12.5px;">EC2</a> <a href="/tags/Jekyll/" style="font-size: 10px;">Jekyll</a> <a href="/tags/Overlay/" style="font-size: 12.5px;">Overlay</a> <a href="/tags/PostgreSQL/" style="font-size: 10px;">PostgreSQL</a> <a href="/tags/RDS/" style="font-size: 10px;">RDS</a> <a href="/tags/SAML/" style="font-size: 10px;">SAML</a> <a href="/tags/T3/" style="font-size: 10px;">T3</a> <a href="/tags/WindowsServer/" style="font-size: 12.5px;">WindowsServer</a> <a href="/tags/athena/" style="font-size: 15px;">athena</a> <a href="/tags/aws/" style="font-size: 15px;">aws</a> <a href="/tags/bandwidth/" style="font-size: 10px;">bandwidth</a> <a href="/tags/bigdata/" style="font-size: 17.5px;">bigdata</a> <a href="/tags/blog/" style="font-size: 12.5px;">blog</a> <a href="/tags/cloudfront/" style="font-size: 10px;">cloudfront</a> <a href="/tags/commands/" style="font-size: 10px;">commands</a> <a href="/tags/concurrency/" style="font-size: 10px;">concurrency</a> <a href="/tags/cpr/" style="font-size: 12.5px;">cpr</a> <a href="/tags/data/" style="font-size: 10px;">data</a> <a href="/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/tags/generate/" style="font-size: 10px;">generate</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/icarus/" style="font-size: 10px;">icarus</a> <a href="/tags/issue/" style="font-size: 10px;">issue</a> <a href="/tags/jekyll/" style="font-size: 10px;">jekyll</a> <a href="/tags/jekyll-swiss/" style="font-size: 10px;">jekyll-swiss</a> <a href="/tags/lambda/" style="font-size: 10px;">lambda</a> <a href="/tags/lambda-edge/" style="font-size: 10px;">lambda@edge</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/log/" style="font-size: 10px;">log</a> <a href="/tags/migration/" style="font-size: 12.5px;">migration</a> <a href="/tags/network/" style="font-size: 12.5px;">network</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/queries/" style="font-size: 10px;">queries</a> <a href="/tags/rds/" style="font-size: 10px;">rds</a> <a href="/tags/read-replica/" style="font-size: 10px;">read replica</a> <a href="/tags/readreplica/" style="font-size: 10px;">readreplica</a> <a href="/tags/revierepublic/" style="font-size: 10px;">revierepublic</a> <a href="/tags/reviewrepublic/" style="font-size: 10px;">reviewrepublic</a> <a href="/tags/serverless/" style="font-size: 10px;">serverless</a> <a href="/tags/storage/" style="font-size: 10px;">storage</a> <a href="/tags/theme/" style="font-size: 10px;">theme</a> <a href="/tags/zeppelin/" style="font-size: 15px;">zeppelin</a>
     </div>
 </div>
     
@@ -1252,7 +1212,7 @@ order by TIME ASC;</code></pre><p>시계열 분석을 위해서는 위에 코드
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-11-03T15:00:00.000Z">2019-11-04</time></div>
                     <a href="/2019/11/04/2019-11-04-lambda-with-sqs/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Lambda의 동시성에 대하여 - 1</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/AWS/">AWS</a> / <a class="has-link-grey -link" href="/categories/AWS/Lambda/">Lambda</a>
+                        <a class="has-link-grey -link" href="/categories/AWS/">AWS</a> / <a class="has-link-grey -link" href="/categories/AWS/Computing/">Computing</a>
                     </p>
                 </div>
             </div>
@@ -1290,7 +1250,7 @@ order by TIME ASC;</code></pre><p>시계열 분석을 위해서는 위에 코드
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-06T15:00:00.000Z">2019-06-07</time></div>
                     <a href="/2019/06/07/2019-06-20-amazon-elasticsearch-dedicated-master-free-storage/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Amazon Elasticsearch Dedicated Master의 스토리지 비용은?</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/AWS/">AWS</a> / <a class="has-link-grey -link" href="/categories/AWS/Elasticsearch/">Elasticsearch</a>
+                        <a class="has-link-grey -link" href="/categories/AWS/">AWS</a> / <a class="has-link-grey -link" href="/categories/AWS/Data-Analytics/">Data Analytics</a>
                     </p>
                 </div>
             </div>
@@ -1309,7 +1269,7 @@ order by TIME ASC;</code></pre><p>시계열 분석을 위해서는 위에 코드
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-06T15:00:00.000Z">2019-06-07</time></div>
                     <a href="/2019/06/07/2019-06-07-athena-cf-log-analysis/" class="title has-link-black-ter is-size-6 has-text-weight-normal">AWS Athena, CF Log 분석을 위한 쿼리 예시</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/AWS-Athena-Cloudfront/">AWS Athena Cloudfront</a>
+                        <a class="has-link-grey -link" href="/categories/AWS/">AWS</a> / <a class="has-link-grey -link" href="/categories/AWS/Data-Analytics/">Data Analytics</a>
                     </p>
                 </div>
             </div>
@@ -1428,29 +1388,141 @@ order by TIME ASC;</code></pre><p>시계열 분석을 위해서는 위에 코드
             <div class="field is-grouped is-grouped-multiline">
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/ALB/">
+                        <span class="tag">ALB</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/AWS/">
+                        <span class="tag">AWS</span>
+                        <span class="tag is-grey">8</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ActiveDirectory/">
+                        <span class="tag">ActiveDirectory</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/DigitalOcean/">
+                        <span class="tag">DigitalOcean</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Docker/">
+                        <span class="tag">Docker</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/EC2/">
+                        <span class="tag">EC2</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Jekyll/">
+                        <span class="tag">Jekyll</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Overlay/">
+                        <span class="tag">Overlay</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/PostgreSQL/">
+                        <span class="tag">PostgreSQL</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/RDS/">
+                        <span class="tag">RDS</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/SAML/">
+                        <span class="tag">SAML</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/T3/">
+                        <span class="tag">T3</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/WindowsServer/">
+                        <span class="tag">WindowsServer</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/athena/">
                         <span class="tag">athena</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag is-grey">4</span>
                     </a>
                 </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/aws/">
                         <span class="tag">aws</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/bandwidth/">
+                        <span class="tag">bandwidth</span>
+                        <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/bigdata/">
                         <span class="tag">bigdata</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag is-grey">5</span>
                     </a>
                 </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/blog/">
                         <span class="tag">blog</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/cloudfront/">
+                        <span class="tag">cloudfront</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/commands/">
+                        <span class="tag">commands</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1463,8 +1535,29 @@ order by TIME ASC;</code></pre><p>시계열 분석을 위해서는 위에 코드
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/cpr/">
+                        <span class="tag">cpr</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/data/">
+                        <span class="tag">data</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/elasticsearch/">
                         <span class="tag">elasticsearch</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/generate/">
+                        <span class="tag">generate</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1484,6 +1577,27 @@ order by TIME ASC;</code></pre><p>시계열 분석을 위해서는 위에 코드
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/issue/">
+                        <span class="tag">issue</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/jekyll/">
+                        <span class="tag">jekyll</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/jekyll-swiss/">
+                        <span class="tag">jekyll-swiss</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/lambda/">
                         <span class="tag">lambda</span>
                         <span class="tag is-grey">1</span>
@@ -1498,6 +1612,90 @@ order by TIME ASC;</code></pre><p>시계열 분석을 위해서는 위에 코드
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/linux/">
+                        <span class="tag">linux</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/log/">
+                        <span class="tag">log</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/migration/">
+                        <span class="tag">migration</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/network/">
+                        <span class="tag">network</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/python/">
+                        <span class="tag">python</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/queries/">
+                        <span class="tag">queries</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/rds/">
+                        <span class="tag">rds</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/read-replica/">
+                        <span class="tag">read replica</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/readreplica/">
+                        <span class="tag">readreplica</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/revierepublic/">
+                        <span class="tag">revierepublic</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/reviewrepublic/">
+                        <span class="tag">reviewrepublic</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/serverless/">
+                        <span class="tag">serverless</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/storage/">
                         <span class="tag">storage</span>
                         <span class="tag is-grey">1</span>
@@ -1505,9 +1703,16 @@ order by TIME ASC;</code></pre><p>시계열 분석을 위해서는 위에 코드
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/theme/">
+                        <span class="tag">theme</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/zeppelin/">
                         <span class="tag">zeppelin</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag is-grey">4</span>
                     </a>
                 </div>
                 
@@ -1565,7 +1770,7 @@ order by TIME ASC;</code></pre><p>시계열 분석을 위해서는 위에 코드
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-11-03T15:00:00.000Z">2019-11-04</time></div>
                     <a href="/2019/11/04/2019-11-04-lambda-with-sqs/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Lambda의 동시성에 대하여 - 1</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/AWS/">AWS</a> / <a class="has-link-grey -link" href="/categories/AWS/Lambda/">Lambda</a>
+                        <a class="has-link-grey -link" href="/categories/AWS/">AWS</a> / <a class="has-link-grey -link" href="/categories/AWS/Computing/">Computing</a>
                     </p>
                 </div>
             </div>
@@ -1603,7 +1808,7 @@ order by TIME ASC;</code></pre><p>시계열 분석을 위해서는 위에 코드
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-06T15:00:00.000Z">2019-06-07</time></div>
                     <a href="/2019/06/07/2019-06-20-amazon-elasticsearch-dedicated-master-free-storage/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Amazon Elasticsearch Dedicated Master의 스토리지 비용은?</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/AWS/">AWS</a> / <a class="has-link-grey -link" href="/categories/AWS/Elasticsearch/">Elasticsearch</a>
+                        <a class="has-link-grey -link" href="/categories/AWS/">AWS</a> / <a class="has-link-grey -link" href="/categories/AWS/Data-Analytics/">Data Analytics</a>
                     </p>
                 </div>
             </div>
@@ -1622,7 +1827,7 @@ order by TIME ASC;</code></pre><p>시계열 분석을 위해서는 위에 코드
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-06T15:00:00.000Z">2019-06-07</time></div>
                     <a href="/2019/06/07/2019-06-07-athena-cf-log-analysis/" class="title has-link-black-ter is-size-6 has-text-weight-normal">AWS Athena, CF Log 분석을 위한 쿼리 예시</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/AWS-Athena-Cloudfront/">AWS Athena Cloudfront</a>
+                        <a class="has-link-grey -link" href="/categories/AWS/">AWS</a> / <a class="has-link-grey -link" href="/categories/AWS/Data-Analytics/">Data Analytics</a>
                     </p>
                 </div>
             </div>
@@ -1741,29 +1946,141 @@ order by TIME ASC;</code></pre><p>시계열 분석을 위해서는 위에 코드
             <div class="field is-grouped is-grouped-multiline">
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/ALB/">
+                        <span class="tag">ALB</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/AWS/">
+                        <span class="tag">AWS</span>
+                        <span class="tag is-grey">8</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ActiveDirectory/">
+                        <span class="tag">ActiveDirectory</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/DigitalOcean/">
+                        <span class="tag">DigitalOcean</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Docker/">
+                        <span class="tag">Docker</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/EC2/">
+                        <span class="tag">EC2</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Jekyll/">
+                        <span class="tag">Jekyll</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Overlay/">
+                        <span class="tag">Overlay</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/PostgreSQL/">
+                        <span class="tag">PostgreSQL</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/RDS/">
+                        <span class="tag">RDS</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/SAML/">
+                        <span class="tag">SAML</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/T3/">
+                        <span class="tag">T3</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/WindowsServer/">
+                        <span class="tag">WindowsServer</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/athena/">
                         <span class="tag">athena</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag is-grey">4</span>
                     </a>
                 </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/aws/">
                         <span class="tag">aws</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/bandwidth/">
+                        <span class="tag">bandwidth</span>
+                        <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/bigdata/">
                         <span class="tag">bigdata</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag is-grey">5</span>
                     </a>
                 </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/blog/">
                         <span class="tag">blog</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/cloudfront/">
+                        <span class="tag">cloudfront</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/commands/">
+                        <span class="tag">commands</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1776,8 +2093,29 @@ order by TIME ASC;</code></pre><p>시계열 분석을 위해서는 위에 코드
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/cpr/">
+                        <span class="tag">cpr</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/data/">
+                        <span class="tag">data</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/elasticsearch/">
                         <span class="tag">elasticsearch</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/generate/">
+                        <span class="tag">generate</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1797,6 +2135,27 @@ order by TIME ASC;</code></pre><p>시계열 분석을 위해서는 위에 코드
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/issue/">
+                        <span class="tag">issue</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/jekyll/">
+                        <span class="tag">jekyll</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/jekyll-swiss/">
+                        <span class="tag">jekyll-swiss</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/lambda/">
                         <span class="tag">lambda</span>
                         <span class="tag is-grey">1</span>
@@ -1811,6 +2170,90 @@ order by TIME ASC;</code></pre><p>시계열 분석을 위해서는 위에 코드
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/linux/">
+                        <span class="tag">linux</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/log/">
+                        <span class="tag">log</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/migration/">
+                        <span class="tag">migration</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/network/">
+                        <span class="tag">network</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/python/">
+                        <span class="tag">python</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/queries/">
+                        <span class="tag">queries</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/rds/">
+                        <span class="tag">rds</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/read-replica/">
+                        <span class="tag">read replica</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/readreplica/">
+                        <span class="tag">readreplica</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/revierepublic/">
+                        <span class="tag">revierepublic</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/reviewrepublic/">
+                        <span class="tag">reviewrepublic</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/serverless/">
+                        <span class="tag">serverless</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/storage/">
                         <span class="tag">storage</span>
                         <span class="tag is-grey">1</span>
@@ -1818,9 +2261,16 @@ order by TIME ASC;</code></pre><p>시계열 분석을 위해서는 위에 코드
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/theme/">
+                        <span class="tag">theme</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/zeppelin/">
                         <span class="tag">zeppelin</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag is-grey">4</span>
                     </a>
                 </div>
                 

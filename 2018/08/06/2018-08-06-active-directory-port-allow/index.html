@@ -10,15 +10,16 @@
 <title>[ActiveDirectory] DC 구성시 허용해야 하는 포트  - Boomkim</title>
 
 
-    <meta name="description" content="Active Directory 글을 보고 AWS 상에서 AD를 구성하는 것을 테스트해보고 있다. 하지만 이 글은 AWS의 인프라를 기준으로 작성되어 있지 한다. 여기저기 찾아봤으나 aws 상에서 AD를 구성하는 예가 많지 않다. 사실 쉽게 AWS에서 quickstart로 나와있어서 굳이 구성 예제가 필요하지 않았던 것 같다. 그래도 사정상 테스트를 해야했기">
+    <meta name="description" content="Active Directory 글을 보고 AWS 상에서 AD를 구성하는 것을 테스트해보고 있다. 하지만 이 글은 AWS의 인프라를 기준으로 작성되어 있지 한다. 여기저기 찾아봤으나 aws 상에서 AD를 구성하는 예제가 많지 않다. 사실 쉽게 AWS에서 quickstart로 나와있어서 굳이 구성 예제가 필요하지 않았던 것 같다. 그래도 사정상 테스트를 해야했">
+<meta name="keywords" content="WindowsServer,ActiveDirectory">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[ActiveDirectory] DC 구성시 허용해야 하는 포트 ">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2018&#x2F;08&#x2F;06&#x2F;2018-08-06-active-directory-port-allow&#x2F;index.html">
 <meta property="og:site_name" content="Boomkim">
-<meta property="og:description" content="Active Directory 글을 보고 AWS 상에서 AD를 구성하는 것을 테스트해보고 있다. 하지만 이 글은 AWS의 인프라를 기준으로 작성되어 있지 한다. 여기저기 찾아봤으나 aws 상에서 AD를 구성하는 예가 많지 않다. 사실 쉽게 AWS에서 quickstart로 나와있어서 굳이 구성 예제가 필요하지 않았던 것 같다. 그래도 사정상 테스트를 해야했기">
+<meta property="og:description" content="Active Directory 글을 보고 AWS 상에서 AD를 구성하는 것을 테스트해보고 있다. 하지만 이 글은 AWS의 인프라를 기준으로 작성되어 있지 한다. 여기저기 찾아봤으나 aws 상에서 AD를 구성하는 예제가 많지 않다. 사실 쉽게 AWS에서 quickstart로 나와있어서 굳이 구성 예제가 필요하지 않았던 것 같다. 그래도 사정상 테스트를 해야했">
 <meta property="og:locale" content="ko">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;og_image.png">
-<meta property="og:updated_time" content="2019-12-04T01:55:44.020Z">
+<meta property="og:updated_time" content="2019-12-07T04:19:49.431Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;og_image.png">
 
@@ -72,7 +73,7 @@
 
 <link rel="stylesheet" href="/css/style.css">
 </head>
-<body class="is-3-column">
+<body class="is-2-column">
     <nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
@@ -114,6 +115,10 @@
                     
                 
                 
+                <a class="navbar-item is-hidden-tablet catalogue" title="카탈로그" href="javascript:;" target="_blank" rel="noopener">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
                 
                 <a class="navbar-item search" title="검색" href="javascript:;" target="_blank" rel="noopener">
                     <i class="fas fa-search"></i>
@@ -127,7 +132,7 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
+                <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main">
 <div class="card">
     
     <div class="card-content article ">
@@ -137,14 +142,14 @@
                 <time class="level-item has-text-grey" datetime="2018-08-05T15:00:00.000Z">2018-08-06</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/activedirectory-dns-aws/">activedirectory dns aws</a>
+                <a class="has-link-grey -link" href="/categories/AWS/">AWS</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/AWS/Computing/">Computing</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    4분 읽기 (대략 651 단어)
+                    4분 읽기 (대략 652 단어)
                 </span>
                 
                 
@@ -157,7 +162,7 @@
             
         </h1>
         <div class="content">
-            <p><a href="http://dianememory.tistory.com/5" target="_blank" rel="noopener">Active Directory</a> 글을 보고 AWS 상에서 AD를 구성하는 것을 테스트해보고 있다. 하지만 이 글은 AWS의 인프라를 기준으로 작성되어 있지 한다. 여기저기 찾아봤으나 aws 상에서 AD를 구성하는 예가 많지 않다. 사실 쉽게 AWS에서 quickstart로 나와있어서 굳이 구성 예제가 필요하지 않았던 것 같다. 그래도 사정상 테스트를 해야했기에… 일단은 부딪혀보기로 했다. </p>
+            <p><a href="http://dianememory.tistory.com/5" target="_blank" rel="noopener">Active Directory</a> 글을 보고 AWS 상에서 AD를 구성하는 것을 테스트해보고 있다. 하지만 이 글은 AWS의 인프라를 기준으로 작성되어 있지 한다. 여기저기 찾아봤으나 aws 상에서 AD를 구성하는 예제가 많지 않다. 사실 쉽게 AWS에서 quickstart로 나와있어서 굳이 구성 예제가 필요하지 않았던 것 같다. 그래도 사정상 테스트를 해야했기에… 일단은 부딪혀보기로 했다. </p>
 <p>첫번재 AD를 만드는 데에는 아무 문제가 없었으나 두번째 AD를 만드는 과정에서 문제가 생겼다. example.com 으로 도메인을 만들었는데 두번째 윈도우 서버에서 그 도메인을 찾지를 못한다. nslookup으로 질의해보니 dns가 응답하지 않는다. 뭐가 문제인지 모르겠다. tcp 포트도 다 열려있는데… 그래서 그냥 모든 트래픽을 허용해버렸다. 된다. </p>
 <p>모든 트래픽을 열어주는건 찜찜해서 dns가 어떤 포트를 쓰는지 궁금해졌다. 뒤져보니 나랑 비슷한 질문을 한 글을 발견했다. (<a href="https://social.technet.microsoft.com/Forums/windows/en-US/955244f1-867a-4f3b-a0a3-321f05982fa0/nslookup-how-to-set-to-tcp-from-udp?forum=win10itpronetworking" target="_blank" rel="noopener">질문: NSLookup, how to set to TCP from UDP?</a>)</p>
 <p>결론: <strong>그냥 udp 53 포트를 열어주면 되는 문제</strong>였다… 질문을 열어보면 <strong>dns는 주로 udp 53 포트를 사용하고 512 byte가 넘을때만 tcp를 사용한다</strong>고 친절하고 내공있는 답변이 적혀있다. 세상은 넓고 고수는 많다. 어쨌든 AWS 상에서 수동으로 AD를 구성하고, 이전하는 것 까지 테스트를 해보고 긴 포스트를 올려볼 예정이다. 물론, 예정일 뿐이다. </p>
@@ -169,6 +174,15 @@
 </blockquote>
 <p>(지금보니 그 고수의 댓글은 위키피디아에서 그냥 퍼온 것…) 그런데, <em>TCP 포트는 몇번 포트로 통신하는거지?</em> 그걸 알아야 여는 포트를 최소화 할수 있는데… </p>
 
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/ActiveDirectory/" rel="tag">ActiveDirectory</a>, <a class="has-link-grey -link" href="/tags/WindowsServer/" rel="tag">WindowsServer</a>
+                </div>
+            </div>
         </div>
         
         
@@ -238,139 +252,14 @@
 
 </div>
                 
+                
 
 
 
 
-<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+<div class="column is-4-tablet is-4-desktop is-4-widescreen  has-order-3 column-right ">
     
         
-<div class="card widget">
-    <div class="card-content">
-        <nav class="level">
-            <div class="level-item has-text-centered" style="flex-shrink: 1">
-                <div>
-                    
-                    <figure class="image is-128x128 has-mb-6">
-                        <img class="" src="/images/avatar.png" alt="Boom Kim">
-                    </figure>
-                    
-                    <p class="is-size-4 is-block">
-                        Boom Kim
-                    </p>
-                    
-                    
-                    <p class="is-size-6 is-block">
-                        아무거나 적어요
-                    </p>
-                    
-                    
-                </div>
-            </div>
-        </nav>
-        <nav class="level is-mobile">
-            <div class="level-item has-text-centered is-marginless">
-                <div>
-                    <p class="heading">
-                        포스트
-                    </p>
-                    <a href="/archives">
-                        <p class="title has-text-weight-normal">
-                            22
-                        </p>
-                    </a>
-                </div>
-            </div>
-            <div class="level-item has-text-centered is-marginless">
-                <div>
-                    <p class="heading">
-                        카테고리
-                    </p>
-                    <a href="/categories">
-                        <p class="title has-text-weight-normal">
-                            21
-                        </p>
-                    </a>
-                </div>
-            </div>
-            <div class="level-item has-text-centered is-marginless">
-                <div>
-                    <p class="heading">
-                        태그
-                    </p>
-                    <a href="/tags">
-                        <p class="title has-text-weight-normal">
-                            12
-                        </p>
-                    </a>
-                </div>
-            </div>
-        </nav>
-        
-        <div class="level">
-            <a class="level-item button is-link is-rounded" href="https://github.com/boomkim" target="_blank">
-                팔로우</a>
-        </div>
-        
-        
-        
-        <div class="level is-mobile">
-            
-            <a class="level-item button is-white is-marginless" target="_blank"
-                title="Github" href="https://github.com/boomkim">
-                
-                <i class="fab fa-github"></i>
-                
-            </a>
-            
-            <a class="level-item button is-white is-marginless" target="_blank"
-                title="RSS" href="/">
-                
-                <i class="fas fa-rss"></i>
-                
-            </a>
-            
-        </div>
-        
-    </div>
-</div>
-    
-        
-    
-        <div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-        <h3 class="menu-label">
-            링크
-        </h3>
-        <ul class="menu-list">
-        
-            <li>
-                <a class="level is-mobile" href="https://hexo.io" target="_blank">
-                    <span class="level-left">
-                        <span class="level-item">Hexo</span>
-                    </span>
-                    <span class="level-right">
-                        <span class="level-item tag">hexo.io</span>
-                    </span>
-                </a>
-            </li>
-        
-            <li>
-                <a class="level is-mobile" href="https://github.com/ppoffice" target="_blank">
-                    <span class="level-left">
-                        <span class="level-item">PPOffice</span>
-                    </span>
-                    <span class="level-right">
-                        <span class="level-item tag">github.com</span>
-                    </span>
-                </a>
-            </li>
-        
-        </ul>
-        </div>
-    </div>
-</div>
 
     
         
@@ -387,9 +276,33 @@
                 <span class="level-item">AWS</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">3</span>
+                <span class="level-item tag">11</span>
             </span>
         </a><ul><li>
+        <a class="level is-marginless" href="/categories/AWS/Computing/">
+            <span class="level-start">
+                <span class="level-item">Computing</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">5</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/AWS/Data-Analytics/">
+            <span class="level-start">
+                <span class="level-item">Data Analytics</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/AWS/Database/">
+            <span class="level-start">
+                <span class="level-item">Database</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li><li>
         <a class="level is-marginless" href="/categories/AWS/EMR/">
             <span class="level-start">
                 <span class="level-item">EMR</span>
@@ -397,87 +310,55 @@
             <span class="level-end">
                 <span class="level-item tag">1</span>
             </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/AWS/Elasticsearch/">
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/Bigdata/">
             <span class="level-start">
-                <span class="level-item">Elasticsearch</span>
+                <span class="level-item">Bigdata</span>
             </span>
             <span class="level-end">
                 <span class="level-item tag">1</span>
             </span>
         </a></li><li>
-        <a class="level is-marginless" href="/categories/AWS/Lambda/">
+        <a class="level is-marginless" href="/categories/Blogging/">
             <span class="level-start">
-                <span class="level-item">Lambda</span>
+                <span class="level-item">Blogging</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Container/">
+            <span class="level-start">
+                <span class="level-item">Container</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/Container/Docker/">
+            <span class="level-start">
+                <span class="level-item">Docker</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/Database/">
+            <span class="level-start">
+                <span class="level-item">Database</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/Database/PostgreSQL/">
+            <span class="level-start">
+                <span class="level-item">PostgreSQL</span>
             </span>
             <span class="level-end">
                 <span class="level-item tag">1</span>
             </span>
         </a></li></ul></li><li>
-        <a class="level is-marginless" href="/categories/AWS-Athena-Cloudfront/">
-            <span class="level-start">
-                <span class="level-item">AWS Athena Cloudfront</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/AWS-Athena-Zeppelin/">
-            <span class="level-start">
-                <span class="level-item">AWS Athena Zeppelin</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/AWS-EC2-T3/">
-            <span class="level-start">
-                <span class="level-item">AWS EC2 T3</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/AWS-EC2-Windows/">
-            <span class="level-start">
-                <span class="level-item">AWS EC2 Windows</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/AWS-Lightsail/">
-            <span class="level-start">
-                <span class="level-item">AWS Lightsail</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/AWS-RDS/">
-            <span class="level-start">
-                <span class="level-item">AWS RDS</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/AWS-RDS-mysql/">
-            <span class="level-start">
-                <span class="level-item">AWS RDS mysql</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/AWS-SAML/">
-            <span class="level-start">
-                <span class="level-item">AWS SAML</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li><li>
         <a class="level is-marginless" href="/categories/Linux/">
             <span class="level-start">
                 <span class="level-item">Linux</span>
@@ -486,698 +367,39 @@
                 <span class="level-item tag">1</span>
             </span>
         </a></li><li>
-        <a class="level is-marginless" href="/categories/activedirectory-dns-aws/">
+        <a class="level is-marginless" href="/categories/Others/">
             <span class="level-start">
-                <span class="level-item">activedirectory dns aws</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/blog/">
-            <span class="level-start">
-                <span class="level-item">blog</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/database-postgresql/">
-            <span class="level-start">
-                <span class="level-item">database postgresql</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/docker-network-multihost/">
-            <span class="level-start">
-                <span class="level-item">docker network multihost</span>
+                <span class="level-item">Others</span>
             </span>
             <span class="level-end">
                 <span class="level-item tag">2</span>
             </span>
         </a></li><li>
-        <a class="level is-marginless" href="/categories/jekyll-github/">
+        <a class="level is-marginless" href="/categories/Security/">
             <span class="level-start">
-                <span class="level-item">jekyll github</span>
+                <span class="level-item">Security</span>
             </span>
             <span class="level-end">
                 <span class="level-item tag">1</span>
             </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/jekyll-theme-swiss/">
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/Security/SAML/">
             <span class="level-start">
-                <span class="level-item">jekyll theme swiss</span>
+                <span class="level-item">SAML</span>
             </span>
             <span class="level-end">
                 <span class="level-item tag">1</span>
             </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/python-bigdata/">
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/blog/">
             <span class="level-start">
-                <span class="level-item">python bigdata</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/reviewrepublic-migragtion/">
-            <span class="level-start">
-                <span class="level-item">reviewrepublic migragtion</span>
+                <span class="level-item">blog</span>
             </span>
             <span class="level-end">
                 <span class="level-item tag">2</span>
             </span>
         </a></li>
             </ul>
-        </div>
-    </div>
-</div>
-    
-        <div class="card widget">
-    <div class="card-content">
-        <h3 class="menu-label">
-            태그 클라우드
-        </h3>
-        <a href="/tags/athena/" style="font-size: 10px;">athena</a> <a href="/tags/aws/" style="font-size: 20px;">aws</a> <a href="/tags/bigdata/" style="font-size: 20px;">bigdata</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/concurrency/" style="font-size: 10px;">concurrency</a> <a href="/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/icarus/" style="font-size: 10px;">icarus</a> <a href="/tags/lambda/" style="font-size: 10px;">lambda</a> <a href="/tags/lambda-edge/" style="font-size: 10px;">lambda@edge</a> <a href="/tags/storage/" style="font-size: 10px;">storage</a> <a href="/tags/zeppelin/" style="font-size: 10px;">zeppelin</a>
-    </div>
-</div>
-    
-    
-        <div class="column-right-shadow is-hidden-widescreen ">
-        
-            <div class="card widget">
-    <div class="card-content">
-        <h3 class="menu-label">
-            최근 글
-        </h3>
-        
-        <article class="media">
-            
-            <a href="/2019/12/04/2019-12-04-new-blog-hexo-icarus/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="블로그 개편">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-03T15:00:00.000Z">2019-12-04</time></div>
-                    <a href="/2019/12/04/2019-12-04-new-blog-hexo-icarus/" class="title has-link-black-ter is-size-6 has-text-weight-normal">블로그 개편</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/blog/">blog</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/11/04/2019-11-04-lambda-with-sqs/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Lambda의 동시성에 대하여 - 1">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-11-03T15:00:00.000Z">2019-11-04</time></div>
-                    <a href="/2019/11/04/2019-11-04-lambda-with-sqs/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Lambda의 동시성에 대하여 - 1</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/AWS/">AWS</a> / <a class="has-link-grey -link" href="/categories/AWS/Lambda/">Lambda</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/06/29/2019-06-29-EMR-Athena-Zepplin/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="EMR 에 올라간 Zeppelin 활용하여 Athena 이용하기. ">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-28T15:00:00.000Z">2019-06-29</time></div>
-                    <a href="/2019/06/29/2019-06-29-EMR-Athena-Zepplin/" class="title has-link-black-ter is-size-6 has-text-weight-normal">EMR 에 올라간 Zeppelin 활용하여 Athena 이용하기. </a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/AWS/">AWS</a> / <a class="has-link-grey -link" href="/categories/AWS/EMR/">EMR</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/06/07/2019-06-20-amazon-elasticsearch-dedicated-master-free-storage/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Amazon Elasticsearch Dedicated Master의 스토리지 비용은?">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-06T15:00:00.000Z">2019-06-07</time></div>
-                    <a href="/2019/06/07/2019-06-20-amazon-elasticsearch-dedicated-master-free-storage/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Amazon Elasticsearch Dedicated Master의 스토리지 비용은?</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/AWS/">AWS</a> / <a class="has-link-grey -link" href="/categories/AWS/Elasticsearch/">Elasticsearch</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/06/07/2019-06-07-athena-cf-log-analysis/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="AWS Athena, CF Log 분석을 위한 쿼리 예시">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-06T15:00:00.000Z">2019-06-07</time></div>
-                    <a href="/2019/06/07/2019-06-07-athena-cf-log-analysis/" class="title has-link-black-ter is-size-6 has-text-weight-normal">AWS Athena, CF Log 분석을 위한 쿼리 예시</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/AWS-Athena-Cloudfront/">AWS Athena Cloudfront</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-    </div>
-</div>
-        
-            <div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-        <h3 class="menu-label">
-            아카이브
-        </h3>
-        <ul class="menu-list">
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/12/">
-                <span class="level-start">
-                    <span class="level-item">12월 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">1</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/11/">
-                <span class="level-start">
-                    <span class="level-item">11월 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">1</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/06/">
-                <span class="level-start">
-                    <span class="level-item">6월 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">3</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/05/">
-                <span class="level-start">
-                    <span class="level-item">5월 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">1</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/03/">
-                <span class="level-start">
-                    <span class="level-item">3월 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">1</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2018/09/">
-                <span class="level-start">
-                    <span class="level-item">9월 2018</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">3</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2018/08/">
-                <span class="level-start">
-                    <span class="level-item">8월 2018</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">4</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2018/07/">
-                <span class="level-start">
-                    <span class="level-item">7월 2018</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">8</span>
-                </span>
-            </a>
-        </li>
-        
-        </ul>
-        </div>
-    </div>
-</div>
-        
-            <div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-            <h3 class="menu-label">
-                태그
-            </h3>
-            <div class="field is-grouped is-grouped-multiline">
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/athena/">
-                        <span class="tag">athena</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/aws/">
-                        <span class="tag">aws</span>
-                        <span class="tag is-grey">2</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/bigdata/">
-                        <span class="tag">bigdata</span>
-                        <span class="tag is-grey">2</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/blog/">
-                        <span class="tag">blog</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/concurrency/">
-                        <span class="tag">concurrency</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/elasticsearch/">
-                        <span class="tag">elasticsearch</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/hexo/">
-                        <span class="tag">hexo</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/icarus/">
-                        <span class="tag">icarus</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/lambda/">
-                        <span class="tag">lambda</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/lambda-edge/">
-                        <span class="tag">lambda@edge</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/storage/">
-                        <span class="tag">storage</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/zeppelin/">
-                        <span class="tag">zeppelin</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-            </div>
-        </div>
-    </div>
-</div>
-        
-        </div>
-    
-</div>
-
-                
-
-
-
-
-<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
-    
-        <div class="card widget">
-    <div class="card-content">
-        <h3 class="menu-label">
-            최근 글
-        </h3>
-        
-        <article class="media">
-            
-            <a href="/2019/12/04/2019-12-04-new-blog-hexo-icarus/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="블로그 개편">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-03T15:00:00.000Z">2019-12-04</time></div>
-                    <a href="/2019/12/04/2019-12-04-new-blog-hexo-icarus/" class="title has-link-black-ter is-size-6 has-text-weight-normal">블로그 개편</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/blog/">blog</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/11/04/2019-11-04-lambda-with-sqs/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Lambda의 동시성에 대하여 - 1">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-11-03T15:00:00.000Z">2019-11-04</time></div>
-                    <a href="/2019/11/04/2019-11-04-lambda-with-sqs/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Lambda의 동시성에 대하여 - 1</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/AWS/">AWS</a> / <a class="has-link-grey -link" href="/categories/AWS/Lambda/">Lambda</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/06/29/2019-06-29-EMR-Athena-Zepplin/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="EMR 에 올라간 Zeppelin 활용하여 Athena 이용하기. ">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-28T15:00:00.000Z">2019-06-29</time></div>
-                    <a href="/2019/06/29/2019-06-29-EMR-Athena-Zepplin/" class="title has-link-black-ter is-size-6 has-text-weight-normal">EMR 에 올라간 Zeppelin 활용하여 Athena 이용하기. </a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/AWS/">AWS</a> / <a class="has-link-grey -link" href="/categories/AWS/EMR/">EMR</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/06/07/2019-06-20-amazon-elasticsearch-dedicated-master-free-storage/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Amazon Elasticsearch Dedicated Master의 스토리지 비용은?">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-06T15:00:00.000Z">2019-06-07</time></div>
-                    <a href="/2019/06/07/2019-06-20-amazon-elasticsearch-dedicated-master-free-storage/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Amazon Elasticsearch Dedicated Master의 스토리지 비용은?</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/AWS/">AWS</a> / <a class="has-link-grey -link" href="/categories/AWS/Elasticsearch/">Elasticsearch</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/06/07/2019-06-07-athena-cf-log-analysis/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="AWS Athena, CF Log 분석을 위한 쿼리 예시">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-06T15:00:00.000Z">2019-06-07</time></div>
-                    <a href="/2019/06/07/2019-06-07-athena-cf-log-analysis/" class="title has-link-black-ter is-size-6 has-text-weight-normal">AWS Athena, CF Log 분석을 위한 쿼리 예시</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/AWS-Athena-Cloudfront/">AWS Athena Cloudfront</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-    </div>
-</div>
-    
-        <div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-        <h3 class="menu-label">
-            아카이브
-        </h3>
-        <ul class="menu-list">
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/12/">
-                <span class="level-start">
-                    <span class="level-item">12월 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">1</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/11/">
-                <span class="level-start">
-                    <span class="level-item">11월 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">1</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/06/">
-                <span class="level-start">
-                    <span class="level-item">6월 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">3</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/05/">
-                <span class="level-start">
-                    <span class="level-item">5월 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">1</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/03/">
-                <span class="level-start">
-                    <span class="level-item">3월 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">1</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2018/09/">
-                <span class="level-start">
-                    <span class="level-item">9월 2018</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">3</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2018/08/">
-                <span class="level-start">
-                    <span class="level-item">8월 2018</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">4</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2018/07/">
-                <span class="level-start">
-                    <span class="level-item">7월 2018</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">8</span>
-                </span>
-            </a>
-        </li>
-        
-        </ul>
-        </div>
-    </div>
-</div>
-    
-        <div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-            <h3 class="menu-label">
-                태그
-            </h3>
-            <div class="field is-grouped is-grouped-multiline">
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/athena/">
-                        <span class="tag">athena</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/aws/">
-                        <span class="tag">aws</span>
-                        <span class="tag is-grey">2</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/bigdata/">
-                        <span class="tag">bigdata</span>
-                        <span class="tag is-grey">2</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/blog/">
-                        <span class="tag">blog</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/concurrency/">
-                        <span class="tag">concurrency</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/elasticsearch/">
-                        <span class="tag">elasticsearch</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/hexo/">
-                        <span class="tag">hexo</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/icarus/">
-                        <span class="tag">icarus</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/lambda/">
-                        <span class="tag">lambda</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/lambda-edge/">
-                        <span class="tag">lambda@edge</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/storage/">
-                        <span class="tag">storage</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/zeppelin/">
-                        <span class="tag">zeppelin</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-            </div>
         </div>
     </div>
 </div>
