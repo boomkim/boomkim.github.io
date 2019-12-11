@@ -7,12 +7,12 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>카테고리: Bigdata - Boomkim</title>
+<title>카테고리: bigdata - Boomkim</title>
 
 
     <meta property="og:type" content="website">
 <meta property="og:title" content="Boomkim">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;categories&#x2F;Bigdata&#x2F;index.html">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;categories&#x2F;bigdata&#x2F;index.html">
 <meta property="og:site_name" content="Boomkim">
 <meta property="og:locale" content="ko">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;og_image.png">
@@ -83,7 +83,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="Boomkim" height="28">
+                <img src="/images/logo.png" alt="Boomkim" height="28">
             
             </a>
         </div>
@@ -138,7 +138,7 @@
         <ul>
             <li><a href="/categories">카테고리</a></li>
             
-            <li class="is-active"><a href="#" aria-current="page">Bigdata</a></li>
+            <li class="is-active"><a href="#" aria-current="page">bigdata</a></li>
         </ul>
         </nav>
     </div>
@@ -147,21 +147,27 @@
     
 <div class="card">
     
+    <div class="card-image">
+        <a href="/2019/12/11/2019-12-11-what-is-spark/" class="image is-7by1">
+            <img class="thumbnail" src="/images/2019/12/11/spark-main.jpeg" alt="스파크에 대한 아주 대략적인 정리">
+        </a>
+    </div>
+    
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2018-07-04T15:00:00.000Z">2018-07-05</time>
+                <time class="level-item has-text-grey" datetime="2019-12-10T15:00:00.000Z">2019-12-11</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/Bigdata/">Bigdata</a>
+                <a class="has-link-grey -link" href="/categories/bigdata/">bigdata</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/bigdata/spark/">spark</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    8분 읽기 (대략 1241 단어)
+                    20분 읽기 (대략 2951 단어)
                 </span>
                 
                 
@@ -170,41 +176,21 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2018/07/05/2018-07-05-python-generate-simple-data-in-csv/">[Python] 파이썬으로 간단한 테스트 데이터 생성하기 (csv)</a>
+                <a class="has-link-black-ter" href="/2019/12/11/2019-12-11-what-is-spark/">스파크에 대한 아주 대략적인 정리</a>
             
         </h1>
         <div class="content">
-            <p>테스트를 위한 데이터가 필요해서 데이터를 만들어야 할 때가 있다. 적은 양의 데이터는 수동으로 일일히 만들수도 있지만 데이터 양이 많아지면(1000건만 넘어가도…) 하나씩 만드는 건 너무 노가다.</p>
-<p>그럴 때 데이터가 복잡하지 않고 단순한 구성일 경우에는 파이썬을 이용해 간단하게 생성할 수 있다. </p>
-<h3 id="random-모듈을-이용해-간단하게-짠-코드"><a href="#random-모듈을-이용해-간단하게-짠-코드" class="headerlink" title="random 모듈을 이용해 간단하게 짠 코드"></a><em>random 모듈</em>을 이용해 간단하게 짠 코드</h3><p>아래의 코드는 <em>int형 데이터 3개, varchar 형 13개, datetime형 4개로 이루어진 레코드 1000개</em> 를 만들어서 csv 파일로 저장한다. </p>
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> csv</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> random</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> datetime</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> timeit</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> argparse</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Argparser</span>:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">        self.parser = argparse.ArgumentParser()</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">        self.init_parser()</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">init_parser</span><span class="hljs-params">(self)</span>:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">        parser = self.parser</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">        parser.add_argument(<span class="hljs-string">"-i"</span>, <span class="hljs-string">"--integers"</span>, help=<span class="hljs-string">"how many integer value do you want to generate"</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">        parser.add_argument(<span class="hljs-string">"-ri"</span>, <span class="hljs-string">"--range-integer"</span>, help=<span class="hljs-string">"describe range of integer"</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">        parser.add_argument(<span class="hljs-string">"-vc"</span>, <span class="hljs-string">"--varchars"</span>, help=<span class="hljs-string">"how many varchar value do you want to generate"</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line">        parser.add_argument(<span class="hljs-string">"-t"</span>, <span class="hljs-string">"--texts"</span>, help=<span class="hljs-string">"how many text value do you want to generate"</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line">        parser.add_argument(<span class="hljs-string">"-dt"</span>, <span class="hljs-string">"--dates"</span>, help=<span class="hljs-string">"how many datetime value do you want to generate"</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line">        parser.add_argument(<span class="hljs-string">"-d"</span>, <span class="hljs-string">"--doubles"</span>, help=<span class="hljs-string">"how many double value do you want to generate"</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><span class="line">        parser.add_argument(<span class="hljs-string">"-r"</span>, <span class="hljs-string">"--rows"</span>, help=<span class="hljs-string">"describe number of rows"</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><span class="line">        parser.add_argument(<span class="hljs-string">"-ta"</span>, <span class="hljs-string">"--textarrays"</span>, help=<span class="hljs-string">"how many text arrays..."</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">23</span></pre></td><td class="code"><pre><span class="line">        parser.add_argument(<span class="hljs-string">"-o"</span>, <span class="hljs-string">"--output"</span>, help=<span class="hljs-string">"describe file name"</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">24</span></pre></td><td class="code"><pre><span class="line">        self.parser = parser</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">25</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">26</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">27</span></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Generator</span>:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">28</span></pre></td><td class="code"><pre><span class="line">    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, args)</span>:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">29</span></pre></td><td class="code"><pre><span class="line">        self.rows = int(args.rows) <span class="hljs-keyword">if</span> args.rows <span class="hljs-keyword">else</span> <span class="hljs-number">1000</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">30</span></pre></td><td class="code"><pre><span class="line">        self.filename = args.output <span class="hljs-keyword">if</span> args.output <span class="hljs-keyword">else</span> <span class="hljs-string">"out.csv"</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">31</span></pre></td><td class="code"><pre><span class="line">        self.integers = int(args.integers) <span class="hljs-keyword">if</span> args.integers <span class="hljs-keyword">else</span> <span class="hljs-number">5</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">32</span></pre></td><td class="code"><pre><span class="line">        self.varchars = int(args.varchars) <span class="hljs-keyword">if</span> args.varchars <span class="hljs-keyword">else</span> <span class="hljs-number">5</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">33</span></pre></td><td class="code"><pre><span class="line">        self.texts = int(args.texts) <span class="hljs-keyword">if</span> args.texts <span class="hljs-keyword">else</span> <span class="hljs-number">5</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">34</span></pre></td><td class="code"><pre><span class="line">        self.doubles = int(args.doubles) <span class="hljs-keyword">if</span> args.doubles <span class="hljs-keyword">else</span> <span class="hljs-number">5</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">35</span></pre></td><td class="code"><pre><span class="line">        self.dates = int(args.dates) <span class="hljs-keyword">if</span> args.dates <span class="hljs-keyword">else</span> <span class="hljs-number">1</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">36</span></pre></td><td class="code"><pre><span class="line">        self.textarrays = int(args.textarrays) <span class="hljs-keyword">if</span> args.textarrays <span class="hljs-keyword">else</span> <span class="hljs-number">0</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">37</span></pre></td><td class="code"><pre><span class="line">        self.text_pool = [<span class="hljs-string">'Amazon Elastic Compute Cloud (Amazon EC2)'</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">38</span></pre></td><td class="code"><pre><span class="line">                          <span class="hljs-string">'First you need to get set up to use Amazon EC2.'</span>, </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">39</span></pre></td><td class="code"><pre><span class="line">                          <span class="hljs-string">'You can provision Amazon EC2 resources such as instances and volumes.'</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">40</span></pre></td><td class="code"><pre><span class="line">                          <span class="hljs-string">'If you prefer to build applications using language-sp.'</span>]</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">41</span></pre></td><td class="code"><pre><span class="line">        self.word_pool = self.text_pool[<span class="hljs-number">0</span>].split()</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">42</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">43</span></pre></td><td class="code"><pre><span class="line">    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">generate</span><span class="hljs-params">(self)</span>:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">44</span></pre></td><td class="code"><pre><span class="line">        f = open(self.filename, <span class="hljs-string">'w'</span>, encoding=<span class="hljs-string">'utf-8'</span>, newline=<span class="hljs-string">''</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">45</span></pre></td><td class="code"><pre><span class="line">        wr = csv.writer(f)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">46</span></pre></td><td class="code"><pre><span class="line">        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>, self.rows):</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">47</span></pre></td><td class="code"><pre><span class="line">            idx = [i + <span class="hljs-number">1</span>]</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">48</span></pre></td><td class="code"><pre><span class="line">            val_ints = []</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">49</span></pre></td><td class="code"><pre><span class="line">            val_varchars = []</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">50</span></pre></td><td class="code"><pre><span class="line">            val_texts = []</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">51</span></pre></td><td class="code"><pre><span class="line">            val_doubles = []</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">52</span></pre></td><td class="code"><pre><span class="line">            val_dates = []</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">53</span></pre></td><td class="code"><pre><span class="line">            val_textarrays = []</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">54</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">55</span></pre></td><td class="code"><pre><span class="line">            <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>, self.integers):</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">56</span></pre></td><td class="code"><pre><span class="line">                val_ints.append(random.randrange(<span class="hljs-number">0</span>, <span class="hljs-number">10000</span>))</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">57</span></pre></td><td class="code"><pre><span class="line">            <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>, self.varchars):</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">58</span></pre></td><td class="code"><pre><span class="line">                val_varchars.append(random.choice(self.word_pool))</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">59</span></pre></td><td class="code"><pre><span class="line">            <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>, self.texts):</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">60</span></pre></td><td class="code"><pre><span class="line">                val_texts.append(random.choice(self.text_pool))</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">61</span></pre></td><td class="code"><pre><span class="line">            <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>, self.textarrays):</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">62</span></pre></td><td class="code"><pre><span class="line">                val_textarrays.append(<span class="hljs-string">'&#123;\"abc\",\"def\",\"ghi\"&#125;'</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">63</span></pre></td><td class="code"><pre><span class="line">            <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>, self.dates):</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">64</span></pre></td><td class="code"><pre><span class="line">                val_dates.append(datetime.datetime.now().strftime(<span class="hljs-string">'%Y-%m-%d %H:%M:%S'</span>))</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">65</span></pre></td><td class="code"><pre><span class="line">            <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>, self.doubles):</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">66</span></pre></td><td class="code"><pre><span class="line">                val_doubles.append(random.random())</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">67</span></pre></td><td class="code"><pre><span class="line">            wr.writerow(idx + val_ints + val_varchars + val_texts + val_textarrays + val_dates + val_doubles)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">68</span></pre></td><td class="code"><pre><span class="line">        f.close()</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">69</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">70</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">71</span></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">"__main__"</span>:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">72</span></pre></td><td class="code"><pre><span class="line">    parser = Argparser()</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">73</span></pre></td><td class="code"><pre><span class="line">    args = parser.parser.parse_args()</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">74</span></pre></td><td class="code"><pre><span class="line">    print(<span class="hljs-string">"Generating file..."</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">75</span></pre></td><td class="code"><pre><span class="line">    start = timeit.default_timer()</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">76</span></pre></td><td class="code"><pre><span class="line">    generator = Generator(args)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">77</span></pre></td><td class="code"><pre><span class="line">    generator.generate()</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">78</span></pre></td><td class="code"><pre><span class="line">    stop = timeit.default_timer()</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">79</span></pre></td><td class="code"><pre><span class="line">    print(generator.filename + <span class="hljs-string">" is created. "</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">80</span></pre></td><td class="code"><pre><span class="line">    print(<span class="hljs-string">"It took "</span> + str(stop - start) + <span class="hljs-string">" seconds to generate data."</span>)</span></pre></td></tr></table></figure>
-
-<h3 id="간단하게-설명하자면…"><a href="#간단하게-설명하자면…" class="headerlink" title="간단하게 설명하자면…"></a>간단하게 설명하자면…</h3><p><strong>각 데이터에 맞는 값을 random모듈을 통해 생성하고 csv형태에 맞게 출력한다.</strong></p>
-<ul>
-<li><code>random.randrange()</code>를 이용해 int를 만들고</li>
-<li><code>random.choice()</code>를 통해 문자열을 만들고 </li>
-<li><code>datetime.datetime.now().strftime(&#39;%Y-%m-%d %H:%M:%S&#39;)</code> 을 이용해 현재 시간을 스트링으로 만든다</li>
-</ul>
-<p>너무 쉬워서 설명이 이게 끝이다. 여기에 코드를 추가해서 데이터에 변화를 줄 수도 있다. random모듈에 내장되어 있는 정규분포함수를 이용해 정규분포에 따르는 데이터를 만들수도 있고 랜덤함수 여러개를 사용해서 값을 좀더 풍성하게 바꿀 수도 있다.<br><br><br></p>
-<hr>
-<br>
-### 사이드 프로젝트...?
-
-<p>데이터 생성기를 만드는 건 간단하지만 활용도는 꽤 높은 것 같다. 위 코드는 그냥 하드 코딩이어서 재사용하려면 일일이 수정해 줘야 한다. 그런데 앞으로 쓸 일이 많아서 재사용할수 있는 형태로 만들어 보려고 한다. </p>
-<ol>
-<li>커맨드라인으로 커스터마이징이 가능한 파이썬 프로그램 </li>
-<li>웹을 통해 만들고자 하는 데이터의 정보/포맷을 입력하면 csv파일을 다운로드를 받을 수 있는 서비스 </li>
-</ol>
-<p>2번의 경우 고민할 것이 많아지겠지만(연산을 어디에서 할 것인지, 서버를 둘 것인지, 어떤 언어를 사용할 것인지 등등…) 사이드 프로젝트로 적당한 난이도와 규모가 아닐까 싶다. 필요한 사람도 꽤 있을 것 같고…<br><br><br></p>
-<hr>
-<br>
-#### 추가사항...
-
-<p>데이터를 만들다보니 많은 데이터를 만들경우 위 코드를 사용하면 시간이 너무 오래 걸린다(20개 컬럼 1억 5천만 줄 생성시 1시간 30분 이상 소요). cpu사양도 높으면 좋겠지만 파이썬은 기본적으로 한개의 쓰레드에서만 동작하니 아무리 cpu의 코어 수, 쓰레드 수가 많아도 쓰질 않으니 소용이 없다. 그래서 <strong>쓰레딩을 도입</strong>해보려고 한다. 다음 포스팅에서는 간단하게 쓰레딩을 도입해서 쓰레딩 도입 한 것과 안 한 것을 비교해 봐야겠다.</p>
-<p> <em>+ 만약에 이 코드를 c나 Java, go등의 언어로 짜면 성능이 얼마나 개선될까?</em></p>
-
+            <h2 id="들어가면서…"><a href="#들어가면서…" class="headerlink" title="들어가면서…"></a>들어가면서…</h2><p>스파크를 공부하고 있다. 공부하다 보니 스파크가 그렇게 어렵지도 않고, 그런데 활용성은 굉장히 좋고, 성능도 좋다는 생각이 든다. 여기서 포인트는 <code>그닥 어렵지 않다</code>는 점이다. 자료들이 주로 scala라는 생소한 언어로 설명이 되어있지만, scala가 별로 어렵지 않다. 언어자체가 직관적이면서 간결하다. 그리고 scala로 배우는 스파크도 그닥 어렵지가 않다. 많은 기능을 제공하고 좋은 성능을 제공하지만, 기능들의 추상화가 잘 되어있어서 단순히 api만 호출하면 된다. </p>
         </div>
         
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2019/12/11/2019-12-11-what-is-spark/#more">자세히 보기</a>
+                </div>
+            </div>
+        </div>
         
         
     </div>
@@ -233,7 +219,7 @@
                 <div>
                     
                     <figure class="image is-128x128 has-mb-6">
-                        <img class="" src="/images/avatar.png" alt="Boom Kim">
+                        <img class="" src="/images/logo.png" alt="Boom Kim">
                     </figure>
                     
                     <p class="is-size-4 is-block">
@@ -257,7 +243,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            22
+                            23
                         </p>
                     </a>
                 </div>
@@ -269,7 +255,7 @@
                     </p>
                     <a href="/categories">
                         <p class="title has-text-weight-normal">
-                            16
+                            18
                         </p>
                     </a>
                 </div>
@@ -281,7 +267,7 @@
                     </p>
                     <a href="/tags">
                         <p class="title has-text-weight-normal">
-                            47
+                            48
                         </p>
                     </a>
                 </div>
@@ -483,6 +469,22 @@
                 <span class="level-item tag">1</span>
             </span>
         </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/bigdata/">
+            <span class="level-start">
+                <span class="level-item">bigdata</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/bigdata/spark/">
+            <span class="level-start">
+                <span class="level-item">spark</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li></ul></li><li>
         <a class="level is-marginless" href="/categories/blog/">
             <span class="level-start">
                 <span class="level-item">blog</span>
@@ -501,7 +503,7 @@
         <h3 class="menu-label">
             태그 클라우드
         </h3>
-        <a href="/tags/ALB/" style="font-size: 10px;">ALB</a> <a href="/tags/AWS/" style="font-size: 20px;">AWS</a> <a href="/tags/ActiveDirectory/" style="font-size: 12.5px;">ActiveDirectory</a> <a href="/tags/DigitalOcean/" style="font-size: 12.5px;">DigitalOcean</a> <a href="/tags/Docker/" style="font-size: 12.5px;">Docker</a> <a href="/tags/EC2/" style="font-size: 12.5px;">EC2</a> <a href="/tags/Jekyll/" style="font-size: 10px;">Jekyll</a> <a href="/tags/Overlay/" style="font-size: 12.5px;">Overlay</a> <a href="/tags/PostgreSQL/" style="font-size: 10px;">PostgreSQL</a> <a href="/tags/RDS/" style="font-size: 10px;">RDS</a> <a href="/tags/SAML/" style="font-size: 10px;">SAML</a> <a href="/tags/T3/" style="font-size: 10px;">T3</a> <a href="/tags/WindowsServer/" style="font-size: 12.5px;">WindowsServer</a> <a href="/tags/athena/" style="font-size: 15px;">athena</a> <a href="/tags/aws/" style="font-size: 15px;">aws</a> <a href="/tags/bandwidth/" style="font-size: 10px;">bandwidth</a> <a href="/tags/bigdata/" style="font-size: 17.5px;">bigdata</a> <a href="/tags/blog/" style="font-size: 12.5px;">blog</a> <a href="/tags/cloudfront/" style="font-size: 10px;">cloudfront</a> <a href="/tags/commands/" style="font-size: 10px;">commands</a> <a href="/tags/concurrency/" style="font-size: 10px;">concurrency</a> <a href="/tags/cpr/" style="font-size: 12.5px;">cpr</a> <a href="/tags/data/" style="font-size: 10px;">data</a> <a href="/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/tags/generate/" style="font-size: 10px;">generate</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/icarus/" style="font-size: 10px;">icarus</a> <a href="/tags/issue/" style="font-size: 10px;">issue</a> <a href="/tags/jekyll/" style="font-size: 10px;">jekyll</a> <a href="/tags/jekyll-swiss/" style="font-size: 10px;">jekyll-swiss</a> <a href="/tags/lambda/" style="font-size: 10px;">lambda</a> <a href="/tags/lambda-edge/" style="font-size: 10px;">lambda@edge</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/log/" style="font-size: 10px;">log</a> <a href="/tags/migration/" style="font-size: 12.5px;">migration</a> <a href="/tags/network/" style="font-size: 12.5px;">network</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/queries/" style="font-size: 10px;">queries</a> <a href="/tags/rds/" style="font-size: 10px;">rds</a> <a href="/tags/read-replica/" style="font-size: 10px;">read replica</a> <a href="/tags/readreplica/" style="font-size: 10px;">readreplica</a> <a href="/tags/revierepublic/" style="font-size: 10px;">revierepublic</a> <a href="/tags/reviewrepublic/" style="font-size: 10px;">reviewrepublic</a> <a href="/tags/serverless/" style="font-size: 10px;">serverless</a> <a href="/tags/storage/" style="font-size: 10px;">storage</a> <a href="/tags/theme/" style="font-size: 10px;">theme</a> <a href="/tags/zeppelin/" style="font-size: 15px;">zeppelin</a>
+        <a href="/tags/ALB/" style="font-size: 10px;">ALB</a> <a href="/tags/AWS/" style="font-size: 20px;">AWS</a> <a href="/tags/ActiveDirectory/" style="font-size: 12.5px;">ActiveDirectory</a> <a href="/tags/DigitalOcean/" style="font-size: 12.5px;">DigitalOcean</a> <a href="/tags/Docker/" style="font-size: 12.5px;">Docker</a> <a href="/tags/EC2/" style="font-size: 12.5px;">EC2</a> <a href="/tags/Jekyll/" style="font-size: 10px;">Jekyll</a> <a href="/tags/Overlay/" style="font-size: 12.5px;">Overlay</a> <a href="/tags/PostgreSQL/" style="font-size: 10px;">PostgreSQL</a> <a href="/tags/RDS/" style="font-size: 10px;">RDS</a> <a href="/tags/SAML/" style="font-size: 10px;">SAML</a> <a href="/tags/T3/" style="font-size: 10px;">T3</a> <a href="/tags/WindowsServer/" style="font-size: 12.5px;">WindowsServer</a> <a href="/tags/athena/" style="font-size: 15px;">athena</a> <a href="/tags/aws/" style="font-size: 15px;">aws</a> <a href="/tags/bandwidth/" style="font-size: 10px;">bandwidth</a> <a href="/tags/bigdata/" style="font-size: 17.5px;">bigdata</a> <a href="/tags/blog/" style="font-size: 12.5px;">blog</a> <a href="/tags/cloudfront/" style="font-size: 10px;">cloudfront</a> <a href="/tags/commands/" style="font-size: 10px;">commands</a> <a href="/tags/concurrency/" style="font-size: 10px;">concurrency</a> <a href="/tags/cpr/" style="font-size: 12.5px;">cpr</a> <a href="/tags/data/" style="font-size: 10px;">data</a> <a href="/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/tags/generate/" style="font-size: 10px;">generate</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/icarus/" style="font-size: 10px;">icarus</a> <a href="/tags/issue/" style="font-size: 10px;">issue</a> <a href="/tags/jekyll/" style="font-size: 10px;">jekyll</a> <a href="/tags/jekyll-swiss/" style="font-size: 10px;">jekyll-swiss</a> <a href="/tags/lambda/" style="font-size: 10px;">lambda</a> <a href="/tags/lambda-edge/" style="font-size: 10px;">lambda@edge</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/log/" style="font-size: 10px;">log</a> <a href="/tags/migration/" style="font-size: 12.5px;">migration</a> <a href="/tags/network/" style="font-size: 12.5px;">network</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/queries/" style="font-size: 10px;">queries</a> <a href="/tags/rds/" style="font-size: 10px;">rds</a> <a href="/tags/read-replica/" style="font-size: 10px;">read replica</a> <a href="/tags/readreplica/" style="font-size: 10px;">readreplica</a> <a href="/tags/revierepublic/" style="font-size: 10px;">revierepublic</a> <a href="/tags/reviewrepublic/" style="font-size: 10px;">reviewrepublic</a> <a href="/tags/serverless/" style="font-size: 10px;">serverless</a> <a href="/tags/spark/" style="font-size: 10px;">spark</a> <a href="/tags/storage/" style="font-size: 10px;">storage</a> <a href="/tags/theme/" style="font-size: 10px;">theme</a> <a href="/tags/zeppelin/" style="font-size: 15px;">zeppelin</a>
     </div>
 </div>
     
@@ -513,6 +515,25 @@
         <h3 class="menu-label">
             최근 글
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/12/11/2019-12-11-what-is-spark/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/2019/12/11/spark-main.jpeg" alt="스파크에 대한 아주 대략적인 정리">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-10T15:00:00.000Z">2019-12-11</time></div>
+                    <a href="/2019/12/11/2019-12-11-what-is-spark/" class="title has-link-black-ter is-size-6 has-text-weight-normal">스파크에 대한 아주 대략적인 정리</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/bigdata/">bigdata</a> / <a class="has-link-grey -link" href="/categories/bigdata/spark/">spark</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -573,25 +594,6 @@
         
         <article class="media">
             
-            <a href="/2019/06/07/2019-06-20-amazon-elasticsearch-dedicated-master-free-storage/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Amazon Elasticsearch Dedicated Master의 스토리지 비용은?">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-06T15:00:00.000Z">2019-06-07</time></div>
-                    <a href="/2019/06/07/2019-06-20-amazon-elasticsearch-dedicated-master-free-storage/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Amazon Elasticsearch Dedicated Master의 스토리지 비용은?</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/AWS/">AWS</a> / <a class="has-link-grey -link" href="/categories/AWS/Data-Analytics/">Data Analytics</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
             <a href="/2019/06/07/2019-06-07-athena-cf-log-analysis/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="AWS Athena, CF Log 분석을 위한 쿼리 예시">
@@ -626,7 +628,7 @@
                     <span class="level-item">12월 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">1</span>
+                    <span class="level-item tag">2</span>
                 </span>
             </a>
         </li>
@@ -836,7 +838,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/bigdata/">
                         <span class="tag">bigdata</span>
-                        <span class="tag is-grey">5</span>
+                        <span class="tag is-grey">6</span>
                     </a>
                 </div>
                 
@@ -1025,6 +1027,13 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/serverless/">
                         <span class="tag">serverless</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/spark/">
+                        <span class="tag">spark</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1074,6 +1083,25 @@
         
         <article class="media">
             
+            <a href="/2019/12/11/2019-12-11-what-is-spark/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/2019/12/11/spark-main.jpeg" alt="스파크에 대한 아주 대략적인 정리">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-10T15:00:00.000Z">2019-12-11</time></div>
+                    <a href="/2019/12/11/2019-12-11-what-is-spark/" class="title has-link-black-ter is-size-6 has-text-weight-normal">스파크에 대한 아주 대략적인 정리</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/bigdata/">bigdata</a> / <a class="has-link-grey -link" href="/categories/bigdata/spark/">spark</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2019/12/04/2019-12-04-new-blog-hexo-icarus/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="블로그 개편">
@@ -1131,25 +1159,6 @@
         
         <article class="media">
             
-            <a href="/2019/06/07/2019-06-20-amazon-elasticsearch-dedicated-master-free-storage/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Amazon Elasticsearch Dedicated Master의 스토리지 비용은?">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-06T15:00:00.000Z">2019-06-07</time></div>
-                    <a href="/2019/06/07/2019-06-20-amazon-elasticsearch-dedicated-master-free-storage/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Amazon Elasticsearch Dedicated Master의 스토리지 비용은?</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/AWS/">AWS</a> / <a class="has-link-grey -link" href="/categories/AWS/Data-Analytics/">Data Analytics</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
             <a href="/2019/06/07/2019-06-07-athena-cf-log-analysis/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="AWS Athena, CF Log 분석을 위한 쿼리 예시">
@@ -1184,7 +1193,7 @@
                     <span class="level-item">12월 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">1</span>
+                    <span class="level-item tag">2</span>
                 </span>
             </a>
         </li>
@@ -1394,7 +1403,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/bigdata/">
                         <span class="tag">bigdata</span>
-                        <span class="tag is-grey">5</span>
+                        <span class="tag is-grey">6</span>
                     </a>
                 </div>
                 
@@ -1588,6 +1597,13 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/spark/">
+                        <span class="tag">spark</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/storage/">
                         <span class="tag">storage</span>
                         <span class="tag is-grey">1</span>
@@ -1625,7 +1641,550 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="Boomkim" height="28">
+                    <img src="/images/logo.png" alt="Boomkim" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2019 boomkim&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & <a
+                        href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("ko");</script>
+
+<script>
+var IcarusThemeSettings = {
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+    
+    
+<script src="/js/animation.js"></script>
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+<script src="/js/gallery.js" defer></script>
+
+    
+    
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" target="_blank" rel="noopener">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+    
+    
+<a id="back-to-top" title="Back to Top" href="javascript:;" target="_blank" rel="noopener">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="입력 하세요..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '포스트',
+                PAGES: '페이지',
+                CATEGORIES: '카테고리',
+                TAGS: '태그',
+                UNTITLED: '(제목없음)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>      </span>
+                <span class="level-end">
+                    <span class="level-item tag">8</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                태그
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ALB/">
+                        <span class="tag">ALB</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/AWS/">
+                        <span class="tag">AWS</span>
+                        <span class="tag is-grey">8</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ActiveDirectory/">
+                        <span class="tag">ActiveDirectory</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/DigitalOcean/">
+                        <span class="tag">DigitalOcean</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Docker/">
+                        <span class="tag">Docker</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/EC2/">
+                        <span class="tag">EC2</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Jekyll/">
+                        <span class="tag">Jekyll</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Overlay/">
+                        <span class="tag">Overlay</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/PostgreSQL/">
+                        <span class="tag">PostgreSQL</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/RDS/">
+                        <span class="tag">RDS</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/SAML/">
+                        <span class="tag">SAML</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/T3/">
+                        <span class="tag">T3</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/WindowsServer/">
+                        <span class="tag">WindowsServer</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/athena/">
+                        <span class="tag">athena</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/aws/">
+                        <span class="tag">aws</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/bandwidth/">
+                        <span class="tag">bandwidth</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/bigdata/">
+                        <span class="tag">bigdata</span>
+                        <span class="tag is-grey">6</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/blog/">
+                        <span class="tag">blog</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/cloudfront/">
+                        <span class="tag">cloudfront</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/commands/">
+                        <span class="tag">commands</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/concurrency/">
+                        <span class="tag">concurrency</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/cpr/">
+                        <span class="tag">cpr</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/data/">
+                        <span class="tag">data</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/elasticsearch/">
+                        <span class="tag">elasticsearch</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/generate/">
+                        <span class="tag">generate</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/hexo/">
+                        <span class="tag">hexo</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/icarus/">
+                        <span class="tag">icarus</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/issue/">
+                        <span class="tag">issue</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/jekyll/">
+                        <span class="tag">jekyll</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/jekyll-swiss/">
+                        <span class="tag">jekyll-swiss</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/lambda/">
+                        <span class="tag">lambda</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/lambda-edge/">
+                        <span class="tag">lambda@edge</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/linux/">
+                        <span class="tag">linux</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/log/">
+                        <span class="tag">log</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/migration/">
+                        <span class="tag">migration</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/network/">
+                        <span class="tag">network</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/python/">
+                        <span class="tag">python</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/queries/">
+                        <span class="tag">queries</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/rds/">
+                        <span class="tag">rds</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/read-replica/">
+                        <span class="tag">read replica</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/readreplica/">
+                        <span class="tag">readreplica</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/revierepublic/">
+                        <span class="tag">revierepublic</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/reviewrepublic/">
+                        <span class="tag">reviewrepublic</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/serverless/">
+                        <span class="tag">serverless</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/spark/">
+                        <span class="tag">spark</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/storage/">
+                        <span class="tag">storage</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/theme/">
+                        <span class="tag">theme</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/zeppelin/">
+                        <span class="tag">zeppelin</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.png" alt="Boomkim" height="28">
                 
                 </a>
                 <p class="is-size-7">

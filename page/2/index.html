@@ -83,7 +83,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="Boomkim" height="28">
+                <img src="/images/logo.png" alt="Boomkim" height="28">
             
             </a>
         </div>
@@ -133,6 +133,71 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
+    
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2018-09-10T15:00:00.000Z">2018-09-11</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Others/">Others</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    13분 읽기 (대략 1934 단어)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2018/09/11/2018-09-11-reviewrepublic-log-1/">reviewrepublic 심폐소생술 - (1)프로젝트 수락</a>
+            
+        </h1>
+        <div class="content">
+            <h2 id="서론"><a href="#서론" class="headerlink" title="서론"></a>서론</h2><p>페이스북에 <em>리뷰왕 김리뷰</em>라는 페이지가 있다. 갖가지 리뷰들이 올라오고 요새 올라오는 카드뉴스식의 리뷰를 선도한(…?) 페이지이다. 그 김리뷰가 <em>리뷰리퍼블릭</em>이라는 서비스를 만들었다. 사용자들이 리뷰를 작성해서 올리고 양질의 리뷰를 올릴수록 그 보상이 작성자에게 돌아가게끔 하겠다는 취지로 만들었다고 한다. 어쨋든 겉으로 보이는 형태는 조그만한 커뮤니티 앱이다. 어떻게 보면 sns같기도 하고. 어쨋든 그런 조그마한 커뮤니티 앱이 월 100만원 가량의 유지비가 나온다는 소식을 들었다. 서비스 유지비용이 월 100만원씩 나온다면 도저히 수지타산이 안나온다. 곧 망할 것 같았다. </p>
+<p>곧 망했다. 그래도 서비스는 사비로 유지되고 있었다. 그래서 비용을 줄이는 데에 도움이 되고 싶었다. 마침 클라우드 서비스를 공부하고 있기도 했고 공부하다가 실질적인 서비스를 운용해봐야 좀 더 실질적인 공부가 될 것 같기도 해서 덜컥 김리뷰계정에 메세지를 보냈다. “아무리 봐도 100만원은 오바다. 회사가 망하기도 했고 여러가지로 힘든상황인것 같지만 리뷰리퍼블릭의 취지 자체는 좋은것 같다. 나에게도 한 사이트의 비용구조 개선은 공부가 된다. 도와주겠다.” 라고 연락을 했다. 그러나 첫번째에는 답이 없었다. 다시 연락했고, 답이 왔다. 만나서 자세히 얘기해보기로 했다. </p>
+<p>만나서 계정정보들을 받고 살펴보니 왜 100만원이라는 돈이 나오는지는 알 것 같았다. 일단 이미지 서버비용(imgix)이 너무 많이 들고, 안쓰는 리소스들이 너무 많았다. 개발서버, 스테이징 서버들을 클라우드에 올려놓았지만… 개발자가 없는걸? 놀고 있는 서버들이 많았다. 일단 놀고있는 서버들만 정리하면 비용은 좀 줄일 수 있을 것 같았다. 그래서 흔쾌히 작업을 수락했고 금방 끝낼 수 있을것 같았다. </p>
+<p>착각이었다. 생각보다 복잡한 구조를 가진 어플리케이션이었고 많이 쓰이지 않는 프레임워크(meteor.js)로 제작되어있었다. 해당 프레임워크를 공부해야했고, 리소스들은 정리가 안되어 있었다. 오버스펙으로 인프라가 구성된 이유가 있었다. 어플리케이션 자체가 비효율적으로 제작되어 있었다. 그러니깐 애초의 생각처럼 <strong>인프라 구성만 바꾼다고 되는게 아니라 어플리케이션 자체를 수정</strong>해야 비용구조를 개선하고 퍼포먼스도 올릴 수 있는 프로젝트였던 것이다. 결국엔 소스코드까지 뒤져봐야했다. </p>
+<hr>
+<h2 id="누구나-처음엔-그럴듯한-계획을-갖고있다"><a href="#누구나-처음엔-그럴듯한-계획을-갖고있다" class="headerlink" title="누구나 처음엔 그럴듯한 계획을 갖고있다."></a>누구나 처음엔 그럴듯한 계획을 갖고있다.</h2><p><strong>일단 인프라부터 옮기자</strong></p>
+<p>그래도 하는 수 없이 일단 인프라 레벨에서부터 접근했다. 메인 어플리케이션이 돌고 있는 서버는 digital ocean이라는 클라우드 서비스를 통해서 운영되고 있었다. 디지털오션의 서비스 자체에는 큰 문제가 없었다. 어차피 복잡한 구조의 어플리케이션이 아니라 단순한 웹어플리케이션이기 때문에 어떤 서버를 이용하든지 큰 상관은 없다. 다만 문제는 서비스 규모에 비해서 지나치게 많은 리소스들이 사용되고 있었다. 아래 그림에서 보이겠지만 실제 서비스에 이용되는것은 로드밸런서 노릇을 하는 서버 한대와 그 밑에 웹서버가 동작하고있는 서버 4대, 즉 5대가 전부였지만, 배치서버, 검색서버, 스테이징 서버, 젠킨스 서버, 개발 서버 등 합쳐서 16개의 서버가 돌아가고 있었다. 돈이 많다면야 이렇게 해놓는게 관리나 개발차원에서 편하겠지만 이미 망해버린 상황에서는 많이 오바였다. 그래서 하나하나 서버들, 서버위에 올라간 코드들을 훑어보면서 실제 서비스와 연관이 없는 서버들은 일단 모두 정지시켰다.</p>
+<p>또 다른 문제점은 DB 서버였다. 리뷰리퍼블릭은 몽고DB를 사용하고 있는데 Mlab에서 제공하는 SaaS 형태의 서비스를 이용하고 있었다. 일단은 이 서비스가 매우 <em>창렬하다</em>는게 문제였다. 한달에 $180나 되는 비용을 지불하는데 거기에 돌아가는 인스턴스는 매우 낮은 스펙이었다. 또한 이 서비스를 이용하면 DB서버는 AWS 위에 올라가게 되는데 그렇게 되면 Digital Ocean &lt;-&gt; AWS 간의 구간에서 퍼블릭 인터넷망을 이용해야 했다. 보안상으로도, 네트워크적인 측면에서도 마이너스이다. </p>
+<p>결국 DB서버도 마이그레이션을 해야했고 그러던 와중 mongodb에서 직접 운영하는 SaaS형태의 서비스인 Atlas를 검토하게 되었다. 제공하는 기능도 Atlas가 더 많았고 결정적으로 같은 가격에 제공되는 인스턴스의 스펙이 Atlas가 훨씬 좋았다. 게다가 $100 무료쿠폰도 얻었다. 사실 MongoDB를 그냥 AWS 서버 위에 올려서 운영하는 것도 검토해봤지만 Atlas에서 제공하는 on-line 마이그레이션, 성능 모니터링, 자동 fail-over 등의 기능이 마음에 들었다. 내가 직접 관리하게 되면 저런것들을 다 수동으로 작업해야되는데 기본으로 제공해주니 엄청난 메리트였다. </p>
+<p>DB 서버를 마이그레이션 하기로 결정을 하고 나니 다시 어플리케이션서버가 Digital Ocean에 올라가있는 게 걸렸다. 사실 애초에 AWS로 옮길 생각이었다. 내가 편한 환경이기도 하고 Digital Ocean이 서울에 서버가 없기도 하고, 여타 기능에선 AWS가 압도적이기 때문. 또한 DB가 AWS에 올라가기 때문에 어플리케이션 서버도 AWS에 올라가있는 게 성능면에서나 안정성면에서나 훨씬 낫다. DB 서버가 위치하는 네트워크(VPC)와 어플리케이션 서버가 위치하는 네트워크 사이에 VPC Peering을 맺으면 AWS의 내부망을 이용할 수 있다.</p>
+<p>그래서 일단 기본적인 마이그레이션의 가닥은 다음과 같았다.  </p>
+<ol>
+<li>어플리케이션: Digital Ocean -&gt; AWS</li>
+<li>DB: Mlab -&gt; Atlas</li>
+</ol>
+<p>이러면 일단 인프라적으로는 비효율적인 부분을 많이 개선하는 것이라고 생각했다. <strong>(그럴리가…)</strong></p>
+<p>다음 포스팅에서는 Digital Ocean -&gt; AWS 로 옮기는 작업때 있었던 일들에 대해서 다뤄보겠다. </p>
+<h3 id="리뷰리퍼블릭의-기존-아키텍쳐"><a href="#리뷰리퍼블릭의-기존-아키텍쳐" class="headerlink" title="리뷰리퍼블릭의 기존 아키텍쳐"></a><strong>리뷰리퍼블릭의 기존 아키텍쳐</strong></h3><p><img src="/images/reviewrepublic-legacy.png" alt="그림1"></p>
+<p><br><br></p>
+<h3 id="리뷰리퍼블릭-변경-아키텍쳐"><a href="#리뷰리퍼블릭-변경-아키텍쳐" class="headerlink" title="리뷰리퍼블릭 변경 아키텍쳐"></a><strong>리뷰리퍼블릭 변경 아키텍쳐</strong></h3><p><img src="/images/reviewrepublic-tobe.png" alt="그림2"></p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
     
 <div class="card">
     
@@ -385,68 +450,6 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    4분 읽기 (대략 594 단어)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2018/07/27/2018-07-27-docker-overlay-bandwidth/">[docker] overlay network bandwidth test</a>
-            
-        </h1>
-        <div class="content">
-            <p>앞의 포스트에 이어 overlay network를 테스트해보다가 bandwidth가 궁금해졌다. 아무래도 네트워크 레이어를 하나 더 만드는 것이니 네트워크 성능이 노드들 끼리의 통신보다는 안 좋을 것이라 예상됐다. 찾아보니 예전 docker에서는 많게는 50% 정도까지 성능저하가 있었던 것 같다. </p>
-<p>테스트 환경: AWS EC2 t2.medium &lt;-&gt; t2.small</p>
-<p>테스트 방법: iperf3 을 사용했다. </p>
-<p>테스트 내용 </p>
-<ol>
-<li>ec2끼리 대역폭 테스트 </li>
-</ol>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">[ec2-user@ip-10-0-0-31 ~]$ iperf3 -c 10.0.0.209 -t 30</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">Connecting to host 10.0.0.209, port 5201</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">[  4] local 10.0.0.31 port 56086 connected to 10.0.0.209 port 5201</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">[ ID] Interval           Transfer     Bandwidth       Retr  Cwnd</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">[  4]   0.00-1.00   sec  83.7 MBytes   702 Mbits&#x2F;sec    0    362 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">[  4]   1.00-2.00   sec  75.9 MBytes   636 Mbits&#x2F;sec    0    362 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">[  4]   2.00-3.00   sec  87.3 MBytes   732 Mbits&#x2F;sec   43    659 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">[  4]   3.00-4.00   sec  88.1 MBytes   739 Mbits&#x2F;sec    0    659 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">[  4]   4.00-5.00   sec  87.5 MBytes   734 Mbits&#x2F;sec   60    560 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">[  4]   5.00-6.00   sec  93.5 MBytes   784 Mbits&#x2F;sec    0    560 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">[  4]   6.00-7.00   sec  92.5 MBytes   776 Mbits&#x2F;sec    0    560 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">[  4]   7.00-8.00   sec  93.0 MBytes   780 Mbits&#x2F;sec    0    560 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">[  4]   8.00-9.00   sec  89.6 MBytes   752 Mbits&#x2F;sec    0    560 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">[  4]   9.00-10.00  sec  90.3 MBytes   757 Mbits&#x2F;sec    0    720 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">[  4]  10.00-11.00  sec  90.7 MBytes   761 Mbits&#x2F;sec    0    720 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">[  4]  11.00-12.00  sec  91.3 MBytes   766 Mbits&#x2F;sec    0    720 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">[  4]  12.00-13.00  sec  95.1 MBytes   798 Mbits&#x2F;sec    0    720 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line">[  4]  13.00-14.00  sec  90.6 MBytes   760 Mbits&#x2F;sec    0    720 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line">[  4]  14.00-15.00  sec  91.2 MBytes   765 Mbits&#x2F;sec    0    720 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line">[  4]  15.00-16.00  sec  90.0 MBytes   755 Mbits&#x2F;sec    0    720 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><span class="line">[  4]  16.00-17.00  sec  92.3 MBytes   774 Mbits&#x2F;sec    0    775 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><span class="line">[  4]  17.00-18.00  sec  94.1 MBytes   789 Mbits&#x2F;sec   87    624 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">23</span></pre></td><td class="code"><pre><span class="line">[  4]  18.00-19.00  sec  91.2 MBytes   765 Mbits&#x2F;sec    0    675 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">24</span></pre></td><td class="code"><pre><span class="line">[  4]  19.00-20.00  sec  91.9 MBytes   771 Mbits&#x2F;sec    0    732 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">25</span></pre></td><td class="code"><pre><span class="line">[  4]  20.00-21.00  sec  91.3 MBytes   766 Mbits&#x2F;sec    0    732 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">26</span></pre></td><td class="code"><pre><span class="line">[  4]  21.00-22.00  sec  88.5 MBytes   742 Mbits&#x2F;sec    0    732 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">27</span></pre></td><td class="code"><pre><span class="line">[  4]  22.00-23.00  sec  89.9 MBytes   754 Mbits&#x2F;sec    0    732 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">28</span></pre></td><td class="code"><pre><span class="line">[  4]  23.00-24.00  sec  85.9 MBytes   720 Mbits&#x2F;sec    0    732 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">29</span></pre></td><td class="code"><pre><span class="line">[  4]  24.00-25.00  sec  92.6 MBytes   777 Mbits&#x2F;sec    0    732 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">30</span></pre></td><td class="code"><pre><span class="line">[  4]  25.00-26.00  sec  92.6 MBytes   777 Mbits&#x2F;sec    0    732 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">31</span></pre></td><td class="code"><pre><span class="line">[  4]  26.00-27.00  sec  90.9 MBytes   762 Mbits&#x2F;sec   65    585 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">32</span></pre></td><td class="code"><pre><span class="line">[  4]  27.00-28.00  sec  89.0 MBytes   747 Mbits&#x2F;sec    0    585 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">33</span></pre></td><td class="code"><pre><span class="line">[  4]  28.00-29.00  sec  90.0 MBytes   755 Mbits&#x2F;sec    0    663 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">34</span></pre></td><td class="code"><pre><span class="line">[  4]  29.00-30.00  sec  93.1 MBytes   781 Mbits&#x2F;sec    0    663 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">35</span></pre></td><td class="code"><pre><span class="line">- - - - - - - - - - - - - - - - - - - - - - - - -</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">36</span></pre></td><td class="code"><pre><span class="line">[ ID] Interval           Transfer     Bandwidth       Retr</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">37</span></pre></td><td class="code"><pre><span class="line">[  4]   0.00-30.00  sec  2.64 GBytes   756 Mbits&#x2F;sec  255             sender</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">38</span></pre></td><td class="code"><pre><span class="line">[  4]   0.00-30.00  sec  2.64 GBytes   756 Mbits&#x2F;sec                  receiver</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">39</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">40</span></pre></td><td class="code"><pre><span class="line">iperf Done.</span></pre></td></tr></table></figure>
-
-<p>평균 756Mbps 정도의 대역폭 </p>
-<ol start="2">
-<li>docker에서 overlay 모드로 만들었을 때의 노드끼리 대역폭 테스트</li>
-</ol>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">[ec2-user@ip-10-0-0-31 ~]$ docker exec -it 89c08bbec6d7 sh</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"># iperf3 -c 192.168.0.155 -t 30</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">Connecting to host 192.168.0.155, port 5201</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">[  4] local 192.168.0.154 port 47676 connected to 192.168.0.155 port 5201</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">[ ID] Interval           Transfer     Bandwidth       Retr  Cwnd</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">[  4]   0.00-1.00   sec  92.0 MBytes   771 Mbits&#x2F;sec    0   1.51 MBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">[  4]   1.00-2.00   sec  85.0 MBytes   713 Mbits&#x2F;sec    0   1.51 MBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">[  4]   2.00-3.00   sec  86.4 MBytes   725 Mbits&#x2F;sec    0   1.51 MBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">[  4]   3.00-4.00   sec  85.3 MBytes   716 Mbits&#x2F;sec    0   1.59 MBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">[  4]   4.00-5.00   sec  84.7 MBytes   710 Mbits&#x2F;sec    0   1.59 MBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">[  4]   5.00-6.00   sec  87.5 MBytes   734 Mbits&#x2F;sec    0   1.59 MBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">[  4]   6.00-7.00   sec  87.8 MBytes   737 Mbits&#x2F;sec    0   1.59 MBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">[  4]   7.00-8.00   sec  87.6 MBytes   735 Mbits&#x2F;sec    0   1.59 MBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">[  4]   8.00-9.00   sec  85.5 MBytes   717 Mbits&#x2F;sec    0   1.59 MBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">[  4]   9.00-10.00  sec  79.2 MBytes   665 Mbits&#x2F;sec  250    631 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">[  4]  10.00-11.00  sec  75.5 MBytes   633 Mbits&#x2F;sec    0    714 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">[  4]  11.00-12.00  sec  81.4 MBytes   683 Mbits&#x2F;sec    0    795 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line">[  4]  12.00-13.00  sec  86.2 MBytes   723 Mbits&#x2F;sec    0    871 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line">[  4]  13.00-14.00  sec  86.2 MBytes   723 Mbits&#x2F;sec    0    943 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line">[  4]  14.00-15.00  sec  83.5 MBytes   700 Mbits&#x2F;sec    0   1008 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><span class="line">[  4]  15.00-16.00  sec  83.9 MBytes   704 Mbits&#x2F;sec    0   1.04 MBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><span class="line">[  4]  16.00-17.00  sec  85.6 MBytes   718 Mbits&#x2F;sec    0   1.10 MBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">23</span></pre></td><td class="code"><pre><span class="line">[  4]  17.00-18.00  sec  88.8 MBytes   744 Mbits&#x2F;sec    0   1.16 MBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">24</span></pre></td><td class="code"><pre><span class="line">[  4]  18.00-19.00  sec  88.1 MBytes   739 Mbits&#x2F;sec    0   1.21 MBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">25</span></pre></td><td class="code"><pre><span class="line">[  4]  19.00-20.00  sec  87.9 MBytes   738 Mbits&#x2F;sec    0   1.26 MBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">26</span></pre></td><td class="code"><pre><span class="line">[  4]  20.00-21.00  sec  83.3 MBytes   699 Mbits&#x2F;sec    0   1.31 MBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">27</span></pre></td><td class="code"><pre><span class="line">[  4]  21.00-22.00  sec  84.5 MBytes   709 Mbits&#x2F;sec    0   1.35 MBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">28</span></pre></td><td class="code"><pre><span class="line">[  4]  22.00-23.00  sec  85.1 MBytes   714 Mbits&#x2F;sec    0   1.39 MBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">29</span></pre></td><td class="code"><pre><span class="line">[  4]  23.00-24.00  sec  87.8 MBytes   736 Mbits&#x2F;sec    0   1.44 MBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">30</span></pre></td><td class="code"><pre><span class="line">[  4]  24.00-25.00  sec  90.0 MBytes   755 Mbits&#x2F;sec    0   1.48 MBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">31</span></pre></td><td class="code"><pre><span class="line">[  4]  25.00-26.00  sec  86.1 MBytes   723 Mbits&#x2F;sec    0   1.51 MBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">32</span></pre></td><td class="code"><pre><span class="line">[  4]  26.00-27.00  sec  83.2 MBytes   698 Mbits&#x2F;sec    0   1.51 MBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">33</span></pre></td><td class="code"><pre><span class="line">[  4]  27.00-28.00  sec  81.5 MBytes   684 Mbits&#x2F;sec    0   1.51 MBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">34</span></pre></td><td class="code"><pre><span class="line">[  4]  28.00-29.00  sec  84.9 MBytes   712 Mbits&#x2F;sec    0   1.51 MBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">35</span></pre></td><td class="code"><pre><span class="line">[  4]  29.00-30.00  sec  84.1 MBytes   706 Mbits&#x2F;sec  214    595 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">36</span></pre></td><td class="code"><pre><span class="line">- - - - - - - - - - - - - - - - - - - - - - - - -</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">37</span></pre></td><td class="code"><pre><span class="line">[ ID] Interval           Transfer     Bandwidth       Retr</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">38</span></pre></td><td class="code"><pre><span class="line">[  4]   0.00-30.00  sec  2.50 GBytes   715 Mbits&#x2F;sec  464             sender</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">39</span></pre></td><td class="code"><pre><span class="line">[  4]   0.00-30.00  sec  2.50 GBytes   715 Mbits&#x2F;sec                  receiver</span></pre></td></tr></table></figure>
-
-<p>평균 715Mbps</p>
-<p>약 95% 정도의 성능을 보인다. 더 테스트해봐야 알겠지만 이 정도면 진짜 아주 괜찮은 성능이 아닌가 싶다. </p>
-
-        </div>
-        
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    
-<div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2018-07-26T15:00:00.000Z">2018-07-27</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/Container/">Container</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/Container/Docker/">Docker</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
                     5분 읽기 (대략 745 단어)
                 </span>
                 
@@ -482,6 +485,68 @@
 * 도커 공식 홈페이지 https://docs.docker.com/network/overlay/
 * 도커에서 만든 오버레이 네트워킹 데모 https://www.youtube.com/watch?v=nGSNULpHHZc
 </code></pre>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2018-07-26T15:00:00.000Z">2018-07-27</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Container/">Container</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/Container/Docker/">Docker</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    4분 읽기 (대략 594 단어)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2018/07/27/2018-07-27-docker-overlay-bandwidth/">[docker] overlay network bandwidth test</a>
+            
+        </h1>
+        <div class="content">
+            <p>앞의 포스트에 이어 overlay network를 테스트해보다가 bandwidth가 궁금해졌다. 아무래도 네트워크 레이어를 하나 더 만드는 것이니 네트워크 성능이 노드들 끼리의 통신보다는 안 좋을 것이라 예상됐다. 찾아보니 예전 docker에서는 많게는 50% 정도까지 성능저하가 있었던 것 같다. </p>
+<p>테스트 환경: AWS EC2 t2.medium &lt;-&gt; t2.small</p>
+<p>테스트 방법: iperf3 을 사용했다. </p>
+<p>테스트 내용 </p>
+<ol>
+<li>ec2끼리 대역폭 테스트 </li>
+</ol>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">[ec2-user@ip-10-0-0-31 ~]$ iperf3 -c 10.0.0.209 -t 30</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">Connecting to host 10.0.0.209, port 5201</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">[  4] local 10.0.0.31 port 56086 connected to 10.0.0.209 port 5201</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">[ ID] Interval           Transfer     Bandwidth       Retr  Cwnd</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">[  4]   0.00-1.00   sec  83.7 MBytes   702 Mbits&#x2F;sec    0    362 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">[  4]   1.00-2.00   sec  75.9 MBytes   636 Mbits&#x2F;sec    0    362 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">[  4]   2.00-3.00   sec  87.3 MBytes   732 Mbits&#x2F;sec   43    659 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">[  4]   3.00-4.00   sec  88.1 MBytes   739 Mbits&#x2F;sec    0    659 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">[  4]   4.00-5.00   sec  87.5 MBytes   734 Mbits&#x2F;sec   60    560 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">[  4]   5.00-6.00   sec  93.5 MBytes   784 Mbits&#x2F;sec    0    560 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">[  4]   6.00-7.00   sec  92.5 MBytes   776 Mbits&#x2F;sec    0    560 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">[  4]   7.00-8.00   sec  93.0 MBytes   780 Mbits&#x2F;sec    0    560 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">[  4]   8.00-9.00   sec  89.6 MBytes   752 Mbits&#x2F;sec    0    560 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">[  4]   9.00-10.00  sec  90.3 MBytes   757 Mbits&#x2F;sec    0    720 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">[  4]  10.00-11.00  sec  90.7 MBytes   761 Mbits&#x2F;sec    0    720 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">[  4]  11.00-12.00  sec  91.3 MBytes   766 Mbits&#x2F;sec    0    720 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">[  4]  12.00-13.00  sec  95.1 MBytes   798 Mbits&#x2F;sec    0    720 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line">[  4]  13.00-14.00  sec  90.6 MBytes   760 Mbits&#x2F;sec    0    720 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line">[  4]  14.00-15.00  sec  91.2 MBytes   765 Mbits&#x2F;sec    0    720 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line">[  4]  15.00-16.00  sec  90.0 MBytes   755 Mbits&#x2F;sec    0    720 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><span class="line">[  4]  16.00-17.00  sec  92.3 MBytes   774 Mbits&#x2F;sec    0    775 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><span class="line">[  4]  17.00-18.00  sec  94.1 MBytes   789 Mbits&#x2F;sec   87    624 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">23</span></pre></td><td class="code"><pre><span class="line">[  4]  18.00-19.00  sec  91.2 MBytes   765 Mbits&#x2F;sec    0    675 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">24</span></pre></td><td class="code"><pre><span class="line">[  4]  19.00-20.00  sec  91.9 MBytes   771 Mbits&#x2F;sec    0    732 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">25</span></pre></td><td class="code"><pre><span class="line">[  4]  20.00-21.00  sec  91.3 MBytes   766 Mbits&#x2F;sec    0    732 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">26</span></pre></td><td class="code"><pre><span class="line">[  4]  21.00-22.00  sec  88.5 MBytes   742 Mbits&#x2F;sec    0    732 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">27</span></pre></td><td class="code"><pre><span class="line">[  4]  22.00-23.00  sec  89.9 MBytes   754 Mbits&#x2F;sec    0    732 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">28</span></pre></td><td class="code"><pre><span class="line">[  4]  23.00-24.00  sec  85.9 MBytes   720 Mbits&#x2F;sec    0    732 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">29</span></pre></td><td class="code"><pre><span class="line">[  4]  24.00-25.00  sec  92.6 MBytes   777 Mbits&#x2F;sec    0    732 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">30</span></pre></td><td class="code"><pre><span class="line">[  4]  25.00-26.00  sec  92.6 MBytes   777 Mbits&#x2F;sec    0    732 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">31</span></pre></td><td class="code"><pre><span class="line">[  4]  26.00-27.00  sec  90.9 MBytes   762 Mbits&#x2F;sec   65    585 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">32</span></pre></td><td class="code"><pre><span class="line">[  4]  27.00-28.00  sec  89.0 MBytes   747 Mbits&#x2F;sec    0    585 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">33</span></pre></td><td class="code"><pre><span class="line">[  4]  28.00-29.00  sec  90.0 MBytes   755 Mbits&#x2F;sec    0    663 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">34</span></pre></td><td class="code"><pre><span class="line">[  4]  29.00-30.00  sec  93.1 MBytes   781 Mbits&#x2F;sec    0    663 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">35</span></pre></td><td class="code"><pre><span class="line">- - - - - - - - - - - - - - - - - - - - - - - - -</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">36</span></pre></td><td class="code"><pre><span class="line">[ ID] Interval           Transfer     Bandwidth       Retr</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">37</span></pre></td><td class="code"><pre><span class="line">[  4]   0.00-30.00  sec  2.64 GBytes   756 Mbits&#x2F;sec  255             sender</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">38</span></pre></td><td class="code"><pre><span class="line">[  4]   0.00-30.00  sec  2.64 GBytes   756 Mbits&#x2F;sec                  receiver</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">39</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">40</span></pre></td><td class="code"><pre><span class="line">iperf Done.</span></pre></td></tr></table></figure>
+
+<p>평균 756Mbps 정도의 대역폭 </p>
+<ol start="2">
+<li>docker에서 overlay 모드로 만들었을 때의 노드끼리 대역폭 테스트</li>
+</ol>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">[ec2-user@ip-10-0-0-31 ~]$ docker exec -it 89c08bbec6d7 sh</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"># iperf3 -c 192.168.0.155 -t 30</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">Connecting to host 192.168.0.155, port 5201</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">[  4] local 192.168.0.154 port 47676 connected to 192.168.0.155 port 5201</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">[ ID] Interval           Transfer     Bandwidth       Retr  Cwnd</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">[  4]   0.00-1.00   sec  92.0 MBytes   771 Mbits&#x2F;sec    0   1.51 MBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">[  4]   1.00-2.00   sec  85.0 MBytes   713 Mbits&#x2F;sec    0   1.51 MBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">[  4]   2.00-3.00   sec  86.4 MBytes   725 Mbits&#x2F;sec    0   1.51 MBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">[  4]   3.00-4.00   sec  85.3 MBytes   716 Mbits&#x2F;sec    0   1.59 MBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">[  4]   4.00-5.00   sec  84.7 MBytes   710 Mbits&#x2F;sec    0   1.59 MBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">[  4]   5.00-6.00   sec  87.5 MBytes   734 Mbits&#x2F;sec    0   1.59 MBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">[  4]   6.00-7.00   sec  87.8 MBytes   737 Mbits&#x2F;sec    0   1.59 MBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">[  4]   7.00-8.00   sec  87.6 MBytes   735 Mbits&#x2F;sec    0   1.59 MBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">[  4]   8.00-9.00   sec  85.5 MBytes   717 Mbits&#x2F;sec    0   1.59 MBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">[  4]   9.00-10.00  sec  79.2 MBytes   665 Mbits&#x2F;sec  250    631 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">[  4]  10.00-11.00  sec  75.5 MBytes   633 Mbits&#x2F;sec    0    714 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">[  4]  11.00-12.00  sec  81.4 MBytes   683 Mbits&#x2F;sec    0    795 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line">[  4]  12.00-13.00  sec  86.2 MBytes   723 Mbits&#x2F;sec    0    871 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line">[  4]  13.00-14.00  sec  86.2 MBytes   723 Mbits&#x2F;sec    0    943 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line">[  4]  14.00-15.00  sec  83.5 MBytes   700 Mbits&#x2F;sec    0   1008 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><span class="line">[  4]  15.00-16.00  sec  83.9 MBytes   704 Mbits&#x2F;sec    0   1.04 MBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><span class="line">[  4]  16.00-17.00  sec  85.6 MBytes   718 Mbits&#x2F;sec    0   1.10 MBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">23</span></pre></td><td class="code"><pre><span class="line">[  4]  17.00-18.00  sec  88.8 MBytes   744 Mbits&#x2F;sec    0   1.16 MBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">24</span></pre></td><td class="code"><pre><span class="line">[  4]  18.00-19.00  sec  88.1 MBytes   739 Mbits&#x2F;sec    0   1.21 MBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">25</span></pre></td><td class="code"><pre><span class="line">[  4]  19.00-20.00  sec  87.9 MBytes   738 Mbits&#x2F;sec    0   1.26 MBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">26</span></pre></td><td class="code"><pre><span class="line">[  4]  20.00-21.00  sec  83.3 MBytes   699 Mbits&#x2F;sec    0   1.31 MBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">27</span></pre></td><td class="code"><pre><span class="line">[  4]  21.00-22.00  sec  84.5 MBytes   709 Mbits&#x2F;sec    0   1.35 MBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">28</span></pre></td><td class="code"><pre><span class="line">[  4]  22.00-23.00  sec  85.1 MBytes   714 Mbits&#x2F;sec    0   1.39 MBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">29</span></pre></td><td class="code"><pre><span class="line">[  4]  23.00-24.00  sec  87.8 MBytes   736 Mbits&#x2F;sec    0   1.44 MBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">30</span></pre></td><td class="code"><pre><span class="line">[  4]  24.00-25.00  sec  90.0 MBytes   755 Mbits&#x2F;sec    0   1.48 MBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">31</span></pre></td><td class="code"><pre><span class="line">[  4]  25.00-26.00  sec  86.1 MBytes   723 Mbits&#x2F;sec    0   1.51 MBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">32</span></pre></td><td class="code"><pre><span class="line">[  4]  26.00-27.00  sec  83.2 MBytes   698 Mbits&#x2F;sec    0   1.51 MBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">33</span></pre></td><td class="code"><pre><span class="line">[  4]  27.00-28.00  sec  81.5 MBytes   684 Mbits&#x2F;sec    0   1.51 MBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">34</span></pre></td><td class="code"><pre><span class="line">[  4]  28.00-29.00  sec  84.9 MBytes   712 Mbits&#x2F;sec    0   1.51 MBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">35</span></pre></td><td class="code"><pre><span class="line">[  4]  29.00-30.00  sec  84.1 MBytes   706 Mbits&#x2F;sec  214    595 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">36</span></pre></td><td class="code"><pre><span class="line">- - - - - - - - - - - - - - - - - - - - - - - - -</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">37</span></pre></td><td class="code"><pre><span class="line">[ ID] Interval           Transfer     Bandwidth       Retr</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">38</span></pre></td><td class="code"><pre><span class="line">[  4]   0.00-30.00  sec  2.50 GBytes   715 Mbits&#x2F;sec  464             sender</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">39</span></pre></td><td class="code"><pre><span class="line">[  4]   0.00-30.00  sec  2.50 GBytes   715 Mbits&#x2F;sec                  receiver</span></pre></td></tr></table></figure>
+
+<p>평균 715Mbps</p>
+<p>약 95% 정도의 성능을 보인다. 더 테스트해봐야 알겠지만 이 정도면 진짜 아주 괜찮은 성능이 아닌가 싶다. </p>
+
         </div>
         
         
@@ -724,95 +789,6 @@
 
 
 
-    
-<div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2018-07-10T15:00:00.000Z">2018-07-11</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/Security/">Security</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/Security/SAML/">SAML</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    8분 읽기 (대략 1258 단어)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2018/07/11/2018-07-11-rough-draft-of-saml/">SAML에 대한 매우 개략적인 정리</a>
-            
-        </h1>
-        <div class="content">
-            <h2 id="SAML-이란"><a href="#SAML-이란" class="headerlink" title="SAML 이란?"></a>SAML 이란?</h2><p><strong>Security Asserting Markup Language</strong></p>
-<p>즉, <em>보안 인증에 관한 정보를 기술하는 마크업 언어</em> 정도로 생각하면 될 것 같다. 혹은 <strong>인증/인가 정보를 담은 XML</strong> 정도로 간단하게 생각하면 될 것 같다. </p>
-<h2 id="그렇다면-SAML은-어디에-쓰이는가"><a href="#그렇다면-SAML은-어디에-쓰이는가" class="headerlink" title="그렇다면 SAML은 어디에 쓰이는가?"></a>그렇다면 SAML은 어디에 쓰이는가?</h2><p><strong>SSO(Single Sign-On)을 구현하기 위해 쓰인다.</strong> SSO는 한 번의 로그인으로 여러개의 다른 도메인을 이용하려고 할때 필요한 기술이다. 예를 들어, 온프레미스에 이미 구축해 놓은 인증 시스템을 이용해서 AWS 리소스에 접근하려고 할때 AWS에 별도의 인증 시스템을 구축하지 않고 온프레미스의 인증을 그대로 쓰려고 할 때 사용한다. </p>
-<h2 id="SAML을-통한-인증-프로세스"><a href="#SAML을-통한-인증-프로세스" class="headerlink" title="SAML을 통한 인증 프로세스"></a>SAML을 통한 인증 프로세스</h2><p>SAML 인증과정을 잘 설명한 블로그 글들이 있어 소개한다. </p>
-<h4 id="간략하게-설명한-인증-과정"><a href="#간략하게-설명한-인증-과정" class="headerlink" title="간략하게 설명한 인증 과정"></a>간략하게 설명한 인증 과정</h4><p><strong>[과정1]</strong></p>
-<p><img src="/images/saml_bcho1.png" alt="그림1-1"></p>
-<ol>
-<li>Browser에서 사이트 SpA로 접속한다.</li>
-<li>사이트 SpA에는 로그인이 되어 있지 않기 때문에 (세션이 없어서). SpA에서는 SAML request를 만들어서, Browser에게로 redirect URL을 보낸다.</li>
-<li>Browser는 redirect URL에 따라 IdP에 접속하고, Idp에서 login form을 넣고 log in을 한다. 이때, IdP와 Brower 사이에 HttpSession 또는 Cookie로 Login에 대한 정보를 기록한다. 그리고 다시 사이트 SpA로의 SAML response를 포함한 redirect URL을 browser로 전송한다.</li>
-<li>Browser는 SAML reponse를 가지고 SpA로 접속하면, SpA에는 인증된 정보를 가지고 로그인 처리를 한다. ※ 이 과정에서는 바로 사이트 SpA의 사용자 페이지(예를 들어 /home)등으로 가는 것이 아니라, SAML에 의해서 미리 정의한 SpA의 SAML response 처리 URL로 갔다가 SAML response를 처리가 끝나면 인증 처리를 한후, 사용자 페이지(/home)으로 다시 redirect한다.</li>
-</ol>
-<p><strong>[과정2]</strong></p>
-<p><img src="/images/saml_bcho2.png" alt="그림1-2"></p>
-<ol>
-<li>사이트 SpA에서 로그인된 상태에서 SpB에 접속한다.</li>
-<li>사이트 SpB는 로그인이 되어 있지 않기 때문에, SAML 메시지를 만들어서 IdP의 login from으로 redirect URL을 보낸다.</li>
-<li>브라우져는 redirect URL을 따라서 IdP에 접속을 한다. IdP에 접속을 하면 앞의 과정에서 이미 Session 또는 Cookie가 만들어져 있기 때문에 별도의 로그인 폼을 띄위지 않고, SAML response message와 함께, SpB로의 redirect URL을 전송한다. </li>
-<li>Browser는 Sp B에 인증된 정보를 가지고 로그인한다.</li>
-</ol>
-<p>(출처: <a href="http://bcho.tistory.com/755?category=481504" target="_blank" rel="noopener">http://bcho.tistory.com/755?category=481504</a> [조대협의 블로그])<br><br><br></p>
-<h4 id="조금-더-디테일한-버전은-다음과-같다"><a href="#조금-더-디테일한-버전은-다음과-같다" class="headerlink" title="조금 더 디테일한 버전은 다음과 같다."></a>조금 더 디테일한 버전은 다음과 같다.</h4><p><img src="/images/saml_google.gif" alt="그림2"></p>
-<ol>
-<li>유저는 서비스 제공자(Service Provider)에게 접근한다. (서비스 이용을 위하여)</li>
-<li>서비스 제공자는 SAMLRequest를 생성한다. 생성된 SAMLRequest은 XML format의 텍스트로 구성된다.</li>
-<li>유저의 브라우저를 이용하여 인증 제공자(Identity Provider)로 Redirect 한다.</li>
-<li>인증 제공자(Identity Provider)는 SAMLRequest를 파싱하고 유저인증을 진행한다.</li>
-<li>인증제공자(Identity Provider)는 SAML Response를 생성한다.</li>
-<li>인증제공자(Identity Provider)는 유저 브라우저를 이용하여 SAMLResponse data를 ACS로 전달한다.</li>
-<li>ACS는 Service Provider가 운영하게 되는데 SAMLResponse를 확인하고 실제 서비스 사이트로 유저를 Forwarding한다.</li>
-<li>유저는 로그인에 성공하고 서비스를 제공받는다.</li>
-</ol>
-<p>(출처: <a href="http://civan.tistory.com/177" target="_blank" rel="noopener">http://civan.tistory.com/177</a> [행복만땅 개발자])<br><br><br></p>
-<h4 id="AWS와-연동은-아래-그림과-같은-과정으로-구현된다"><a href="#AWS와-연동은-아래-그림과-같은-과정으로-구현된다" class="headerlink" title="AWS와 연동은 아래 그림과 같은 과정으로 구현된다."></a>AWS와 연동은 아래 그림과 같은 과정으로 구현된다.</h4><p><img src="/images/saml-based-federation.diagram.png" alt="그림3"></p>
-<ol>
-<li>조직 내 사용자가 클라이언트 앱을 사용해 조직의 IdP로부터 인증을 요청합니다.</li>
-<li>IdP가 조직의 자격 증명 스토어를 이용하여 사용자를 인증합니다.</li>
-<li>IdP가 사용자에 대한 정보로 SAML 어설션을 만들어 클라이언트 앱으로 보냅니다.</li>
-<li>클라이언트 앱이 AWS STS AssumeRoleWithSAML API를 호출하면서 SAML 공급자의 ARN, 수임할 역할의 ARN, IdP로부터 받은 SAML 어설션을 전달합니다.</li>
-<li>클라이언트 앱에 대한 API 응답에는 임시 보안 자격 증명이 포함되어 있습니다.</li>
-<li>클라이언트 앱은 임시 보안 자격 증명을 사용해 Amazon S3 API 작업을 호출합니다.</li>
-</ol>
-<p>(출처: <a href="https://docs.aws.amazon.com/ko_kr/IAM/latest/UserGuide/id_roles_providers_saml.html" target="_blank" rel="noopener">https://docs.aws.amazon.com/ko_kr/IAM/latest/UserGuide/id_roles_providers_saml.html</a>)</p>
-<p>saml이란 무엇인지 알기위해 매우 간략하고 기초적인 내용만 정리해봤다. 더 자세한 내용은 위에서 참조한 블로그에 자세히 나와있다. 특히 <a href="http://civan.tistory.com/177" target="_blank" rel="noopener">“행복만땅 개발자” 블로그에 올라온 포스트</a>에서는 실습까지 해볼 수 있다. </p>
-
-        </div>
-        
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
 
     
 <div class="card card-transparent">
@@ -850,7 +826,7 @@
                 <div>
                     
                     <figure class="image is-128x128 has-mb-6">
-                        <img class="" src="/images/avatar.png" alt="Boom Kim">
+                        <img class="" src="/images/logo.png" alt="Boom Kim">
                     </figure>
                     
                     <p class="is-size-4 is-block">
@@ -874,7 +850,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            22
+                            23
                         </p>
                     </a>
                 </div>
@@ -886,7 +862,7 @@
                     </p>
                     <a href="/categories">
                         <p class="title has-text-weight-normal">
-                            16
+                            18
                         </p>
                     </a>
                 </div>
@@ -898,7 +874,7 @@
                     </p>
                     <a href="/tags">
                         <p class="title has-text-weight-normal">
-                            47
+                            48
                         </p>
                     </a>
                 </div>
@@ -1100,6 +1076,22 @@
                 <span class="level-item tag">1</span>
             </span>
         </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/bigdata/">
+            <span class="level-start">
+                <span class="level-item">bigdata</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/bigdata/spark/">
+            <span class="level-start">
+                <span class="level-item">spark</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li></ul></li><li>
         <a class="level is-marginless" href="/categories/blog/">
             <span class="level-start">
                 <span class="level-item">blog</span>
@@ -1118,7 +1110,7 @@
         <h3 class="menu-label">
             태그 클라우드
         </h3>
-        <a href="/tags/ALB/" style="font-size: 10px;">ALB</a> <a href="/tags/AWS/" style="font-size: 20px;">AWS</a> <a href="/tags/ActiveDirectory/" style="font-size: 12.5px;">ActiveDirectory</a> <a href="/tags/DigitalOcean/" style="font-size: 12.5px;">DigitalOcean</a> <a href="/tags/Docker/" style="font-size: 12.5px;">Docker</a> <a href="/tags/EC2/" style="font-size: 12.5px;">EC2</a> <a href="/tags/Jekyll/" style="font-size: 10px;">Jekyll</a> <a href="/tags/Overlay/" style="font-size: 12.5px;">Overlay</a> <a href="/tags/PostgreSQL/" style="font-size: 10px;">PostgreSQL</a> <a href="/tags/RDS/" style="font-size: 10px;">RDS</a> <a href="/tags/SAML/" style="font-size: 10px;">SAML</a> <a href="/tags/T3/" style="font-size: 10px;">T3</a> <a href="/tags/WindowsServer/" style="font-size: 12.5px;">WindowsServer</a> <a href="/tags/athena/" style="font-size: 15px;">athena</a> <a href="/tags/aws/" style="font-size: 15px;">aws</a> <a href="/tags/bandwidth/" style="font-size: 10px;">bandwidth</a> <a href="/tags/bigdata/" style="font-size: 17.5px;">bigdata</a> <a href="/tags/blog/" style="font-size: 12.5px;">blog</a> <a href="/tags/cloudfront/" style="font-size: 10px;">cloudfront</a> <a href="/tags/commands/" style="font-size: 10px;">commands</a> <a href="/tags/concurrency/" style="font-size: 10px;">concurrency</a> <a href="/tags/cpr/" style="font-size: 12.5px;">cpr</a> <a href="/tags/data/" style="font-size: 10px;">data</a> <a href="/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/tags/generate/" style="font-size: 10px;">generate</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/icarus/" style="font-size: 10px;">icarus</a> <a href="/tags/issue/" style="font-size: 10px;">issue</a> <a href="/tags/jekyll/" style="font-size: 10px;">jekyll</a> <a href="/tags/jekyll-swiss/" style="font-size: 10px;">jekyll-swiss</a> <a href="/tags/lambda/" style="font-size: 10px;">lambda</a> <a href="/tags/lambda-edge/" style="font-size: 10px;">lambda@edge</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/log/" style="font-size: 10px;">log</a> <a href="/tags/migration/" style="font-size: 12.5px;">migration</a> <a href="/tags/network/" style="font-size: 12.5px;">network</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/queries/" style="font-size: 10px;">queries</a> <a href="/tags/rds/" style="font-size: 10px;">rds</a> <a href="/tags/read-replica/" style="font-size: 10px;">read replica</a> <a href="/tags/readreplica/" style="font-size: 10px;">readreplica</a> <a href="/tags/revierepublic/" style="font-size: 10px;">revierepublic</a> <a href="/tags/reviewrepublic/" style="font-size: 10px;">reviewrepublic</a> <a href="/tags/serverless/" style="font-size: 10px;">serverless</a> <a href="/tags/storage/" style="font-size: 10px;">storage</a> <a href="/tags/theme/" style="font-size: 10px;">theme</a> <a href="/tags/zeppelin/" style="font-size: 15px;">zeppelin</a>
+        <a href="/tags/ALB/" style="font-size: 10px;">ALB</a> <a href="/tags/AWS/" style="font-size: 20px;">AWS</a> <a href="/tags/ActiveDirectory/" style="font-size: 12.5px;">ActiveDirectory</a> <a href="/tags/DigitalOcean/" style="font-size: 12.5px;">DigitalOcean</a> <a href="/tags/Docker/" style="font-size: 12.5px;">Docker</a> <a href="/tags/EC2/" style="font-size: 12.5px;">EC2</a> <a href="/tags/Jekyll/" style="font-size: 10px;">Jekyll</a> <a href="/tags/Overlay/" style="font-size: 12.5px;">Overlay</a> <a href="/tags/PostgreSQL/" style="font-size: 10px;">PostgreSQL</a> <a href="/tags/RDS/" style="font-size: 10px;">RDS</a> <a href="/tags/SAML/" style="font-size: 10px;">SAML</a> <a href="/tags/T3/" style="font-size: 10px;">T3</a> <a href="/tags/WindowsServer/" style="font-size: 12.5px;">WindowsServer</a> <a href="/tags/athena/" style="font-size: 15px;">athena</a> <a href="/tags/aws/" style="font-size: 15px;">aws</a> <a href="/tags/bandwidth/" style="font-size: 10px;">bandwidth</a> <a href="/tags/bigdata/" style="font-size: 17.5px;">bigdata</a> <a href="/tags/blog/" style="font-size: 12.5px;">blog</a> <a href="/tags/cloudfront/" style="font-size: 10px;">cloudfront</a> <a href="/tags/commands/" style="font-size: 10px;">commands</a> <a href="/tags/concurrency/" style="font-size: 10px;">concurrency</a> <a href="/tags/cpr/" style="font-size: 12.5px;">cpr</a> <a href="/tags/data/" style="font-size: 10px;">data</a> <a href="/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/tags/generate/" style="font-size: 10px;">generate</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/icarus/" style="font-size: 10px;">icarus</a> <a href="/tags/issue/" style="font-size: 10px;">issue</a> <a href="/tags/jekyll/" style="font-size: 10px;">jekyll</a> <a href="/tags/jekyll-swiss/" style="font-size: 10px;">jekyll-swiss</a> <a href="/tags/lambda/" style="font-size: 10px;">lambda</a> <a href="/tags/lambda-edge/" style="font-size: 10px;">lambda@edge</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/log/" style="font-size: 10px;">log</a> <a href="/tags/migration/" style="font-size: 12.5px;">migration</a> <a href="/tags/network/" style="font-size: 12.5px;">network</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/queries/" style="font-size: 10px;">queries</a> <a href="/tags/rds/" style="font-size: 10px;">rds</a> <a href="/tags/read-replica/" style="font-size: 10px;">read replica</a> <a href="/tags/readreplica/" style="font-size: 10px;">readreplica</a> <a href="/tags/revierepublic/" style="font-size: 10px;">revierepublic</a> <a href="/tags/reviewrepublic/" style="font-size: 10px;">reviewrepublic</a> <a href="/tags/serverless/" style="font-size: 10px;">serverless</a> <a href="/tags/spark/" style="font-size: 10px;">spark</a> <a href="/tags/storage/" style="font-size: 10px;">storage</a> <a href="/tags/theme/" style="font-size: 10px;">theme</a> <a href="/tags/zeppelin/" style="font-size: 15px;">zeppelin</a>
     </div>
 </div>
     
@@ -1130,6 +1122,25 @@
         <h3 class="menu-label">
             최근 글
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/12/11/2019-12-11-what-is-spark/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/2019/12/11/spark-main.jpeg" alt="스파크에 대한 아주 대략적인 정리">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-10T15:00:00.000Z">2019-12-11</time></div>
+                    <a href="/2019/12/11/2019-12-11-what-is-spark/" class="title has-link-black-ter is-size-6 has-text-weight-normal">스파크에 대한 아주 대략적인 정리</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/bigdata/">bigdata</a> / <a class="has-link-grey -link" href="/categories/bigdata/spark/">spark</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -1190,25 +1201,6 @@
         
         <article class="media">
             
-            <a href="/2019/06/07/2019-06-20-amazon-elasticsearch-dedicated-master-free-storage/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Amazon Elasticsearch Dedicated Master의 스토리지 비용은?">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-06T15:00:00.000Z">2019-06-07</time></div>
-                    <a href="/2019/06/07/2019-06-20-amazon-elasticsearch-dedicated-master-free-storage/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Amazon Elasticsearch Dedicated Master의 스토리지 비용은?</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/AWS/">AWS</a> / <a class="has-link-grey -link" href="/categories/AWS/Data-Analytics/">Data Analytics</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
             <a href="/2019/06/07/2019-06-07-athena-cf-log-analysis/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="AWS Athena, CF Log 분석을 위한 쿼리 예시">
@@ -1243,7 +1235,7 @@
                     <span class="level-item">12월 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">1</span>
+                    <span class="level-item tag">2</span>
                 </span>
             </a>
         </li>
@@ -1453,7 +1445,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/bigdata/">
                         <span class="tag">bigdata</span>
-                        <span class="tag is-grey">5</span>
+                        <span class="tag is-grey">6</span>
                     </a>
                 </div>
                 
@@ -1642,6 +1634,13 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/serverless/">
                         <span class="tag">serverless</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/spark/">
+                        <span class="tag">spark</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1691,6 +1690,25 @@
         
         <article class="media">
             
+            <a href="/2019/12/11/2019-12-11-what-is-spark/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/2019/12/11/spark-main.jpeg" alt="스파크에 대한 아주 대략적인 정리">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-10T15:00:00.000Z">2019-12-11</time></div>
+                    <a href="/2019/12/11/2019-12-11-what-is-spark/" class="title has-link-black-ter is-size-6 has-text-weight-normal">스파크에 대한 아주 대략적인 정리</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/bigdata/">bigdata</a> / <a class="has-link-grey -link" href="/categories/bigdata/spark/">spark</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2019/12/04/2019-12-04-new-blog-hexo-icarus/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="블로그 개편">
@@ -1748,25 +1766,6 @@
         
         <article class="media">
             
-            <a href="/2019/06/07/2019-06-20-amazon-elasticsearch-dedicated-master-free-storage/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Amazon Elasticsearch Dedicated Master의 스토리지 비용은?">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-06T15:00:00.000Z">2019-06-07</time></div>
-                    <a href="/2019/06/07/2019-06-20-amazon-elasticsearch-dedicated-master-free-storage/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Amazon Elasticsearch Dedicated Master의 스토리지 비용은?</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/AWS/">AWS</a> / <a class="has-link-grey -link" href="/categories/AWS/Data-Analytics/">Data Analytics</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
             <a href="/2019/06/07/2019-06-07-athena-cf-log-analysis/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="AWS Athena, CF Log 분석을 위한 쿼리 예시">
@@ -1801,7 +1800,7 @@
                     <span class="level-item">12월 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">1</span>
+                    <span class="level-item tag">2</span>
                 </span>
             </a>
         </li>
@@ -2011,7 +2010,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/bigdata/">
                         <span class="tag">bigdata</span>
-                        <span class="tag is-grey">5</span>
+                        <span class="tag is-grey">6</span>
                     </a>
                 </div>
                 
@@ -2205,6 +2204,13 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/spark/">
+                        <span class="tag">spark</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/storage/">
                         <span class="tag">storage</span>
                         <span class="tag is-grey">1</span>
@@ -2242,7 +2248,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="Boomkim" height="28">
+                    <img src="/images/logo.png" alt="Boomkim" height="28">
                 
                 </a>
                 <p class="is-size-7">
