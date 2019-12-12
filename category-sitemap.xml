@@ -2,132 +2,132 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     <url>
-        <loc>http://yoursite.com</loc>
+        <loc>https://boomkim.github.io</loc>
         <changefreq>daily</changefreq>
         <priority>1</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/categories/bigdata/spark/</loc>
+        <loc>https://boomkim.github.io/categories/bigdata/spark/</loc>
         <lastmod>2019-12-11T14:07:52.206Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/categories/bigdata/</loc>
+        <loc>https://boomkim.github.io/categories/bigdata/</loc>
         <lastmod>2019-12-11T14:07:52.206Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/categories/Bigdata/</loc>
+        <loc>https://boomkim.github.io/categories/Bigdata/</loc>
         <lastmod>2019-12-07T04:37:36.237Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/categories/blog/</loc>
+        <loc>https://boomkim.github.io/categories/blog/</loc>
         <lastmod>2019-12-07T04:36:35.900Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/categories/Security/SAML/</loc>
+        <loc>https://boomkim.github.io/categories/Security/SAML/</loc>
         <lastmod>2019-12-07T04:35:58.127Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/categories/Security/</loc>
+        <loc>https://boomkim.github.io/categories/Security/</loc>
         <lastmod>2019-12-07T04:35:58.127Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/categories/AWS/Database/</loc>
+        <loc>https://boomkim.github.io/categories/AWS/Database/</loc>
         <lastmod>2019-12-07T04:34:39.668Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/categories/AWS/</loc>
+        <loc>https://boomkim.github.io/categories/AWS/</loc>
         <lastmod>2019-12-07T04:34:39.668Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/categories/AWS/Data-Analytics/</loc>
+        <loc>https://boomkim.github.io/categories/AWS/Data-Analytics/</loc>
         <lastmod>2019-12-07T04:21:06.010Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/categories/AWS/EMR/</loc>
+        <loc>https://boomkim.github.io/categories/AWS/EMR/</loc>
         <lastmod>2019-12-07T04:21:03.794Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/categories/AWS/Computing/</loc>
+        <loc>https://boomkim.github.io/categories/AWS/Computing/</loc>
         <lastmod>2019-12-07T04:20:04.052Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/categories/Others/</loc>
+        <loc>https://boomkim.github.io/categories/Others/</loc>
         <lastmod>2019-12-07T04:20:02.103Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/categories/Database/PostgreSQL/</loc>
+        <loc>https://boomkim.github.io/categories/Database/PostgreSQL/</loc>
         <lastmod>2019-12-07T04:19:34.639Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/categories/Database/</loc>
+        <loc>https://boomkim.github.io/categories/Database/</loc>
         <lastmod>2019-12-07T04:19:34.639Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/categories/Linux/</loc>
+        <loc>https://boomkim.github.io/categories/Linux/</loc>
         <lastmod>2019-12-07T04:19:31.422Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/categories/Container/Docker/</loc>
+        <loc>https://boomkim.github.io/categories/Container/Docker/</loc>
         <lastmod>2019-12-07T04:14:43.278Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/categories/Container/</loc>
+        <loc>https://boomkim.github.io/categories/Container/</loc>
         <lastmod>2019-12-07T04:14:43.278Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/categories/Blogging/</loc>
+        <loc>https://boomkim.github.io/categories/Blogging/</loc>
         <lastmod>2019-12-07T04:07:05.244Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>

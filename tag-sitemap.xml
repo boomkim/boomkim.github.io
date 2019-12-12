@@ -3,336 +3,336 @@
 
 
     <url>
-        <loc>http://yoursite.com/tags/spark/</loc>
+        <loc>https://boomkim.github.io/tags/spark/</loc>
         <lastmod>2019-12-11T14:07:52.206Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/bigdata/</loc>
+        <loc>https://boomkim.github.io/tags/bigdata/</loc>
         <lastmod>2019-12-11T14:07:52.206Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/generate/</loc>
+        <loc>https://boomkim.github.io/tags/generate/</loc>
         <lastmod>2019-12-07T04:37:36.237Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/data/</loc>
+        <loc>https://boomkim.github.io/tags/data/</loc>
         <lastmod>2019-12-07T04:37:36.237Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/python/</loc>
+        <loc>https://boomkim.github.io/tags/python/</loc>
         <lastmod>2019-12-07T04:37:36.237Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/jekyll/</loc>
+        <loc>https://boomkim.github.io/tags/jekyll/</loc>
         <lastmod>2019-12-07T04:36:35.900Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/blog/</loc>
+        <loc>https://boomkim.github.io/tags/blog/</loc>
         <lastmod>2019-12-07T04:36:35.900Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/SAML/</loc>
+        <loc>https://boomkim.github.io/tags/SAML/</loc>
         <lastmod>2019-12-07T04:35:58.127Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/AWS/</loc>
+        <loc>https://boomkim.github.io/tags/AWS/</loc>
         <lastmod>2019-12-07T04:35:58.127Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/readreplica/</loc>
+        <loc>https://boomkim.github.io/tags/readreplica/</loc>
         <lastmod>2019-12-07T04:34:39.668Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/rds/</loc>
+        <loc>https://boomkim.github.io/tags/rds/</loc>
         <lastmod>2019-12-07T04:34:39.668Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/aws/</loc>
+        <loc>https://boomkim.github.io/tags/aws/</loc>
         <lastmod>2019-12-07T04:34:39.668Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/read-replica/</loc>
+        <loc>https://boomkim.github.io/tags/read-replica/</loc>
         <lastmod>2019-12-07T04:30:11.608Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/issue/</loc>
+        <loc>https://boomkim.github.io/tags/issue/</loc>
         <lastmod>2019-12-07T04:30:11.608Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/RDS/</loc>
+        <loc>https://boomkim.github.io/tags/RDS/</loc>
         <lastmod>2019-12-07T04:30:11.608Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/storage/</loc>
+        <loc>https://boomkim.github.io/tags/storage/</loc>
         <lastmod>2019-12-07T04:21:06.010Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/elasticsearch/</loc>
+        <loc>https://boomkim.github.io/tags/elasticsearch/</loc>
         <lastmod>2019-12-07T04:21:06.010Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/athena/</loc>
+        <loc>https://boomkim.github.io/tags/athena/</loc>
         <lastmod>2019-12-07T04:21:03.794Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/zeppelin/</loc>
+        <loc>https://boomkim.github.io/tags/zeppelin/</loc>
         <lastmod>2019-12-07T04:21:03.794Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/log/</loc>
+        <loc>https://boomkim.github.io/tags/log/</loc>
         <lastmod>2019-12-07T04:20:06.901Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/cloudfront/</loc>
+        <loc>https://boomkim.github.io/tags/cloudfront/</loc>
         <lastmod>2019-12-07T04:20:06.901Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/migration/</loc>
+        <loc>https://boomkim.github.io/tags/reviewrepublic/</loc>
         <lastmod>2019-12-07T04:20:02.103Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/DigitalOcean/</loc>
+        <loc>https://boomkim.github.io/tags/migration/</loc>
         <lastmod>2019-12-07T04:20:02.103Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/cpr/</loc>
+        <loc>https://boomkim.github.io/tags/DigitalOcean/</loc>
         <lastmod>2019-12-07T04:20:02.103Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/reviewrepublic/</loc>
+        <loc>https://boomkim.github.io/tags/cpr/</loc>
         <lastmod>2019-12-07T04:20:02.103Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/ActiveDirectory/</loc>
+        <loc>https://boomkim.github.io/tags/ActiveDirectory/</loc>
         <lastmod>2019-12-07T04:19:49.431Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/WindowsServer/</loc>
+        <loc>https://boomkim.github.io/tags/WindowsServer/</loc>
         <lastmod>2019-12-07T04:19:49.431Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/queries/</loc>
+        <loc>https://boomkim.github.io/tags/queries/</loc>
         <lastmod>2019-12-07T04:19:34.639Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/PostgreSQL/</loc>
+        <loc>https://boomkim.github.io/tags/PostgreSQL/</loc>
         <lastmod>2019-12-07T04:19:34.639Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/commands/</loc>
+        <loc>https://boomkim.github.io/tags/commands/</loc>
         <lastmod>2019-12-07T04:19:31.422Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/linux/</loc>
+        <loc>https://boomkim.github.io/tags/linux/</loc>
         <lastmod>2019-12-07T04:19:31.422Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/network/</loc>
+        <loc>https://boomkim.github.io/tags/network/</loc>
         <lastmod>2019-12-07T04:14:43.278Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/Overlay/</loc>
+        <loc>https://boomkim.github.io/tags/Overlay/</loc>
         <lastmod>2019-12-07T04:14:43.278Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/Docker/</loc>
+        <loc>https://boomkim.github.io/tags/Docker/</loc>
         <lastmod>2019-12-07T04:14:43.278Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/bandwidth/</loc>
+        <loc>https://boomkim.github.io/tags/bandwidth/</loc>
         <lastmod>2019-12-07T04:14:12.986Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/EC2/</loc>
+        <loc>https://boomkim.github.io/tags/EC2/</loc>
         <lastmod>2019-12-07T04:11:54.731Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/T3/</loc>
+        <loc>https://boomkim.github.io/tags/T3/</loc>
         <lastmod>2019-12-07T04:09:54.925Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/theme/</loc>
+        <loc>https://boomkim.github.io/tags/theme/</loc>
         <lastmod>2019-12-07T04:07:05.244Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/jekyll-swiss/</loc>
+        <loc>https://boomkim.github.io/tags/jekyll-swiss/</loc>
         <lastmod>2019-12-07T04:07:05.244Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/Jekyll/</loc>
+        <loc>https://boomkim.github.io/tags/Jekyll/</loc>
         <lastmod>2019-12-07T04:07:05.244Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/revierepublic/</loc>
+        <loc>https://boomkim.github.io/tags/revierepublic/</loc>
         <lastmod>2019-12-07T04:06:30.057Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/serverless/</loc>
+        <loc>https://boomkim.github.io/tags/serverless/</loc>
         <lastmod>2019-12-07T04:01:22.879Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/lambda-edge/</loc>
+        <loc>https://boomkim.github.io/tags/lambda-edge/</loc>
         <lastmod>2019-12-07T04:01:22.879Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/concurrency/</loc>
+        <loc>https://boomkim.github.io/tags/concurrency/</loc>
         <lastmod>2019-12-07T04:01:22.879Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/lambda/</loc>
+        <loc>https://boomkim.github.io/tags/lambda/</loc>
         <lastmod>2019-12-07T04:01:22.879Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/ALB/</loc>
+        <loc>https://boomkim.github.io/tags/ALB/</loc>
         <lastmod>2019-12-07T04:01:00.706Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/icarus/</loc>
+        <loc>https://boomkim.github.io/tags/icarus/</loc>
         <lastmod>2019-12-04T05:56:12.188Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/hexo/</loc>
+        <loc>https://boomkim.github.io/tags/hexo/</loc>
         <lastmod>2019-12-04T05:56:12.188Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>

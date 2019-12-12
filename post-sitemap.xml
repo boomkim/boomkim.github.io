@@ -2,13 +2,13 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     <url>
-        <loc>http://yoursite.com</loc>
+        <loc>https://boomkim.github.io</loc>
         <changefreq>daily</changefreq>
         <priority>1</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/2019/12/11/2019-12-11-what-is-spark/</loc>
+        <loc>https://boomkim.github.io/2019/12/11/2019-12-11-what-is-spark/</loc>
         <lastmod>2019-12-11T14:07:52.206Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -16,7 +16,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/2018/07/05/2018-07-05-python-generate-simple-data-in-csv/</loc>
+        <loc>https://boomkim.github.io/2018/07/05/2018-07-05-python-generate-simple-data-in-csv/</loc>
         <lastmod>2019-12-07T04:37:36.237Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -24,7 +24,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/2018/07/09/2018-07-08-blogging-with-jekyll-and-github-page-1/</loc>
+        <loc>https://boomkim.github.io/2018/07/09/2018-07-08-blogging-with-jekyll-and-github-page-1/</loc>
         <lastmod>2019-12-07T04:36:35.900Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -32,7 +32,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/2018/07/11/2018-07-11-rough-draft-of-saml/</loc>
+        <loc>https://boomkim.github.io/2018/07/11/2018-07-11-rough-draft-of-saml/</loc>
         <lastmod>2019-12-07T04:35:58.127Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -40,7 +40,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/2018/07/13/2018-07-13-rds-multiaz-readreplica-summary/</loc>
+        <loc>https://boomkim.github.io/2018/07/13/2018-07-13-rds-multiaz-readreplica-summary/</loc>
         <lastmod>2019-12-07T04:34:39.668Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -48,7 +48,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/2018/09/28/2018-09-28-cross-region-read-replica-version-issue/</loc>
+        <loc>https://boomkim.github.io/2018/09/28/2018-09-28-cross-region-read-replica-version-issue/</loc>
         <lastmod>2019-12-07T04:30:11.608Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -56,7 +56,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/2019/06/07/2019-06-20-amazon-elasticsearch-dedicated-master-free-storage/</loc>
+        <loc>https://boomkim.github.io/2019/06/07/2019-06-20-amazon-elasticsearch-dedicated-master-free-storage/</loc>
         <lastmod>2019-12-07T04:21:06.010Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -64,7 +64,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/2019/06/29/2019-06-29-EMR-Athena-Zepplin/</loc>
+        <loc>https://boomkim.github.io/2019/06/29/2019-06-29-EMR-Athena-Zepplin/</loc>
         <lastmod>2019-12-07T04:21:03.794Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -72,7 +72,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/2019/06/07/2019-06-07-athena-cf-log-analysis/</loc>
+        <loc>https://boomkim.github.io/2019/06/07/2019-06-07-athena-cf-log-analysis/</loc>
         <lastmod>2019-12-07T04:20:06.901Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -80,7 +80,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/2019/03/21/2019-03-21-lightsail-vs-ec2/</loc>
+        <loc>https://boomkim.github.io/2019/03/21/2019-03-21-lightsail-vs-ec2/</loc>
         <lastmod>2019-12-07T04:20:04.052Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -88,7 +88,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/2018/09/11/2018-09-11-reviewrepublic-log-1/</loc>
+        <loc>https://boomkim.github.io/2018/09/11/2018-09-11-reviewrepublic-log-1/</loc>
         <lastmod>2019-12-07T04:20:02.103Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -96,7 +96,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/2018/08/06/2018-08-06-active-directory-port-allow/</loc>
+        <loc>https://boomkim.github.io/2018/08/06/2018-08-06-active-directory-port-allow/</loc>
         <lastmod>2019-12-07T04:19:49.431Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -104,7 +104,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/2018/07/21/2018-07-21-postgre-sqls/</loc>
+        <loc>https://boomkim.github.io/2018/07/21/2018-07-21-postgre-sqls/</loc>
         <lastmod>2019-12-07T04:19:34.639Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -112,7 +112,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/2018/07/18/2018-07-18-linux-commands/</loc>
+        <loc>https://boomkim.github.io/2018/07/18/2018-07-18-linux-commands/</loc>
         <lastmod>2019-12-07T04:19:31.422Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -120,7 +120,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/2018/07/27/2018-07-27-docker-network-overlay/</loc>
+        <loc>https://boomkim.github.io/2018/07/27/2018-07-27-docker-network-overlay/</loc>
         <lastmod>2019-12-07T04:14:43.278Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -128,7 +128,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/2018/07/27/2018-07-27-docker-overlay-bandwidth/</loc>
+        <loc>https://boomkim.github.io/2018/07/27/2018-07-27-docker-overlay-bandwidth/</loc>
         <lastmod>2019-12-07T04:14:12.986Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -136,7 +136,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/2018/08/10/2018-08-08-copy-ad-joined-instance/</loc>
+        <loc>https://boomkim.github.io/2018/08/10/2018-08-08-copy-ad-joined-instance/</loc>
         <lastmod>2019-12-07T04:11:54.731Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -144,7 +144,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/2018/08/22/2018-08-22-t3-instance-launch/</loc>
+        <loc>https://boomkim.github.io/2018/08/22/2018-08-22-t3-instance-launch/</loc>
         <lastmod>2019-12-07T04:09:54.925Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -152,7 +152,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/2018/08/29/2018-08-29-new-theme-jekyll-swiss/</loc>
+        <loc>https://boomkim.github.io/2018/08/29/2018-08-29-new-theme-jekyll-swiss/</loc>
         <lastmod>2019-12-07T04:07:05.244Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -160,7 +160,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/2018/09/18/2018-09-18-reviewrepublic-log-2/</loc>
+        <loc>https://boomkim.github.io/2018/09/18/2018-09-18-reviewrepublic-log-2/</loc>
         <lastmod>2019-12-07T04:06:30.057Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -168,7 +168,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/2019/11/04/2019-11-04-lambda-with-sqs/</loc>
+        <loc>https://boomkim.github.io/2019/11/04/2019-11-04-lambda-with-sqs/</loc>
         <lastmod>2019-12-07T04:01:22.879Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -176,7 +176,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/2019/05/24/2019-05-24-athena-with-zeppelin/</loc>
+        <loc>https://boomkim.github.io/2019/05/24/2019-05-24-athena-with-zeppelin/</loc>
         <lastmod>2019-12-07T04:01:00.706Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -184,7 +184,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/2019/12/04/2019-12-04-new-blog-hexo-icarus/</loc>
+        <loc>https://boomkim.github.io/2019/12/04/2019-12-04-new-blog-hexo-icarus/</loc>
         <lastmod>2019-12-04T05:56:12.188Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
