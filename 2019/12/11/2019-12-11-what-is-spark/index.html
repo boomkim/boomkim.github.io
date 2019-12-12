@@ -19,7 +19,7 @@
 <meta property="og:description" content="들어가면서…스파크를 공부하고 있다. 공부하다 보니 스파크가 그렇게 어렵지도 않고, 그런데 활용성은 굉장히 좋고, 성능도 좋다는 생각이 든다. 여기서 포인트는 그닥 어렵지 않다는 점이다. 자료들이 주로 scala라는 생소한 언어로 설명이 되어있지만, scala가 별로 어렵지 않다. 언어자체가 직관적이면서 간결하다. 그리고 scala로 배우는 스파크도 그닥 어">
 <meta property="og:locale" content="ko">
 <meta property="og:image" content="https:&#x2F;&#x2F;boomkim.github.io&#x2F;images&#x2F;2019&#x2F;12&#x2F;11&#x2F;spark-main.jpeg">
-<meta property="og:updated_time" content="2019-12-11T14:07:52.206Z">
+<meta property="og:updated_time" content="2019-12-12T06:06:31.994Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;boomkim.github.io&#x2F;images&#x2F;2019&#x2F;12&#x2F;11&#x2F;spark-main.jpeg">
 
@@ -211,7 +211,7 @@
 <h3 id="단점"><a href="#단점" class="headerlink" title="단점"></a>단점</h3><p>우선 메모리를 사용하기 때문에 상대적으로 <code>비싸다</code>. 데이터를 모두 메모리에서 처리하기 때문에 클러스터의 메모리가 넉넉해야한다. </p>
 <p>엄밀한 의미에서의 스트리밍을 지원하지 않는다. 스파크에도 <code>Spark Streaming</code> 이라는게 있어서 스트리밍 데이터 처리를 지원하지만 (꽤 널리 쓰이지만) spark streaming은 micro batch로 구현이 된다. 즉 배치작업을 작게 하는 방식으로 스트리밍 처리를 구현한다. 이게 먹히는 워크로드도 있겠지만 초단위의 분석을 요구하는 워크로드에는 다른 솔루션(flink 등)이 필요하다. </p>
 <h2 id="정리"><a href="#정리" class="headerlink" title="정리"></a>정리</h2><p>스파크는 빅데이터를 입문하기에 적절한 쉽고 빠른 솔루션이다. 데이터를 메모리에 올려놓고 쓰기에 빠르고 이를 복원가능하도록 만들기 위해 RDD라고 불리는 것을 구현했다. 적용할 수 있는 범위도 넓지만 메모리를 쓰기때문에 클러스터에 메모리가 많이 필요하고, 아주 짧은 단위의 스트리밍 분석은 어렵다. 이 정도면 아주 대략적인 정리가 된듯 하다. 다음에는 조금 더 깊숙한 내용을 정리해보겠다. </p>
-<p>사실, 스파크의 특징에 대한 내용은 <a href="https://towardsdatascience.com/why-apache-spark-is-fast-and-how-to-make-it-run-faster-9d31bf3eae04" target="_blank" rel="noopener">이 글(Why Apache Spark is Fas and How to Make It Run Faster)</a>에 매우 잘 정리가 되어있다. 시간이 된다면 그냥 번역글을 쓰는 것도 큰 도움이 될듯…? </p>
+<p>사실, 스파크의 특징에 대한 내용은 <a href="https://towardsdatascience.com/why-apache-spark-is-fast-and-how-to-make-it-run-faster-9d31bf3eae04" target="_blank" rel="noopener">이 글(Why Apache Spark is Fast and How to Make It Run Faster)</a>에 매우 잘 정리가 되어있다. 시간이 된다면 그냥 번역글을 쓰는 것도 큰 도움이 될듯…? </p>
 
         </div>
         
