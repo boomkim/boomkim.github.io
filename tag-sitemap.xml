@@ -3,106 +3,204 @@
 
 
     <url>
-        <loc>https://boomkim.github.io/tags/spark/</loc>
-        <lastmod>2019-12-12T06:06:31.994Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://boomkim.github.io/tags/bigdata/</loc>
-        <lastmod>2019-12-12T06:06:31.994Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://boomkim.github.io/tags/generate/</loc>
-        <lastmod>2019-12-07T04:37:36.237Z</lastmod>
+        <lastmod>2019-12-13T08:56:47.889Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://boomkim.github.io/tags/data/</loc>
-        <lastmod>2019-12-07T04:37:36.237Z</lastmod>
+        <lastmod>2019-12-13T08:56:47.889Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://boomkim.github.io/tags/python/</loc>
-        <lastmod>2019-12-07T04:37:36.237Z</lastmod>
+        <lastmod>2019-12-13T08:56:47.889Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://boomkim.github.io/tags/jekyll/</loc>
-        <lastmod>2019-12-07T04:36:35.900Z</lastmod>
+        <lastmod>2019-12-13T08:56:29.329Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://boomkim.github.io/tags/blog/</loc>
-        <lastmod>2019-12-07T04:36:35.900Z</lastmod>
+        <lastmod>2019-12-13T08:56:29.329Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://boomkim.github.io/tags/SAML/</loc>
-        <lastmod>2019-12-07T04:35:58.127Z</lastmod>
+        <lastmod>2019-12-13T08:56:16.250Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://boomkim.github.io/tags/AWS/</loc>
-        <lastmod>2019-12-07T04:35:58.127Z</lastmod>
+        <lastmod>2019-12-13T08:56:16.250Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://boomkim.github.io/tags/readreplica/</loc>
-        <lastmod>2019-12-07T04:34:39.668Z</lastmod>
+        <lastmod>2019-12-13T08:55:35.462Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://boomkim.github.io/tags/rds/</loc>
-        <lastmod>2019-12-07T04:34:39.668Z</lastmod>
+        <lastmod>2019-12-13T08:55:35.462Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://boomkim.github.io/tags/aws/</loc>
-        <lastmod>2019-12-07T04:34:39.668Z</lastmod>
+        <lastmod>2019-12-13T08:55:35.462Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://boomkim.github.io/tags/network/</loc>
+        <lastmod>2019-12-13T08:53:47.480Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://boomkim.github.io/tags/Overlay/</loc>
+        <lastmod>2019-12-13T08:53:47.480Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://boomkim.github.io/tags/Docker/</loc>
+        <lastmod>2019-12-13T08:53:47.480Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://boomkim.github.io/tags/bandwidth/</loc>
+        <lastmod>2019-12-13T08:52:36.886Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://boomkim.github.io/tags/migration/</loc>
+        <lastmod>2019-12-13T08:51:38.567Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://boomkim.github.io/tags/DigitalOcean/</loc>
+        <lastmod>2019-12-13T08:51:38.567Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://boomkim.github.io/tags/cpr/</loc>
+        <lastmod>2019-12-13T08:51:38.567Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://boomkim.github.io/tags/reviewrepublic/</loc>
+        <lastmod>2019-12-13T08:51:38.567Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://boomkim.github.io/tags/revierepublic/</loc>
+        <lastmod>2019-12-13T08:51:23.974Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://boomkim.github.io/tags/read-replica/</loc>
-        <lastmod>2019-12-07T04:30:11.608Z</lastmod>
+        <lastmod>2019-12-13T08:51:15.048Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://boomkim.github.io/tags/issue/</loc>
-        <lastmod>2019-12-07T04:30:11.608Z</lastmod>
+        <lastmod>2019-12-13T08:51:15.048Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://boomkim.github.io/tags/RDS/</loc>
-        <lastmod>2019-12-07T04:30:11.608Z</lastmod>
+        <lastmod>2019-12-13T08:51:15.048Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://boomkim.github.io/tags/athena/</loc>
+        <lastmod>2019-12-13T08:50:55.389Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://boomkim.github.io/tags/zeppelin/</loc>
+        <lastmod>2019-12-13T08:50:55.389Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://boomkim.github.io/tags/bigdata/</loc>
+        <lastmod>2019-12-13T08:50:55.389Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://boomkim.github.io/tags/ALB/</loc>
+        <lastmod>2019-12-13T08:50:31.520Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://boomkim.github.io/tags/log/</loc>
+        <lastmod>2019-12-13T08:50:04.656Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://boomkim.github.io/tags/cloudfront/</loc>
+        <lastmod>2019-12-13T08:50:04.656Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://boomkim.github.io/tags/spark/</loc>
+        <lastmod>2019-12-12T06:06:31.994Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -117,62 +215,6 @@
     <url>
         <loc>https://boomkim.github.io/tags/elasticsearch/</loc>
         <lastmod>2019-12-07T04:21:06.010Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://boomkim.github.io/tags/athena/</loc>
-        <lastmod>2019-12-07T04:21:03.794Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://boomkim.github.io/tags/zeppelin/</loc>
-        <lastmod>2019-12-07T04:21:03.794Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://boomkim.github.io/tags/log/</loc>
-        <lastmod>2019-12-07T04:20:06.901Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://boomkim.github.io/tags/cloudfront/</loc>
-        <lastmod>2019-12-07T04:20:06.901Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://boomkim.github.io/tags/migration/</loc>
-        <lastmod>2019-12-07T04:20:02.103Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://boomkim.github.io/tags/DigitalOcean/</loc>
-        <lastmod>2019-12-07T04:20:02.103Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://boomkim.github.io/tags/cpr/</loc>
-        <lastmod>2019-12-07T04:20:02.103Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://boomkim.github.io/tags/reviewrepublic/</loc>
-        <lastmod>2019-12-07T04:20:02.103Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -220,34 +262,6 @@
     </url>
 
     <url>
-        <loc>https://boomkim.github.io/tags/network/</loc>
-        <lastmod>2019-12-07T04:14:43.278Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://boomkim.github.io/tags/Overlay/</loc>
-        <lastmod>2019-12-07T04:14:43.278Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://boomkim.github.io/tags/Docker/</loc>
-        <lastmod>2019-12-07T04:14:43.278Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://boomkim.github.io/tags/bandwidth/</loc>
-        <lastmod>2019-12-07T04:14:12.986Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://boomkim.github.io/tags/EC2/</loc>
         <lastmod>2019-12-07T04:11:54.731Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -283,13 +297,6 @@
     </url>
 
     <url>
-        <loc>https://boomkim.github.io/tags/revierepublic/</loc>
-        <lastmod>2019-12-07T04:06:30.057Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://boomkim.github.io/tags/serverless/</loc>
         <lastmod>2019-12-07T04:01:22.879Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -313,13 +320,6 @@
     <url>
         <loc>https://boomkim.github.io/tags/lambda/</loc>
         <lastmod>2019-12-07T04:01:22.879Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://boomkim.github.io/tags/ALB/</loc>
-        <lastmod>2019-12-07T04:01:00.706Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

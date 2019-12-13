@@ -8,16 +8,8 @@
     </url>
 
     <url>
-        <loc>https://boomkim.github.io/2019/12/11/2019-12-11-what-is-spark/</loc>
-        <lastmod>2019-12-12T06:06:31.994Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://boomkim.github.io/2018/07/05/2018-07-05-python-generate-simple-data-in-csv/</loc>
-        <lastmod>2019-12-07T04:37:36.237Z</lastmod>
+        <lastmod>2019-12-13T08:56:47.889Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -25,7 +17,7 @@
 
     <url>
         <loc>https://boomkim.github.io/2018/07/09/2018-07-08-blogging-with-jekyll-and-github-page-1/</loc>
-        <lastmod>2019-12-07T04:36:35.900Z</lastmod>
+        <lastmod>2019-12-13T08:56:29.329Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -33,7 +25,7 @@
 
     <url>
         <loc>https://boomkim.github.io/2018/07/11/2018-07-11-rough-draft-of-saml/</loc>
-        <lastmod>2019-12-07T04:35:58.127Z</lastmod>
+        <lastmod>2019-12-13T08:56:16.250Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -41,7 +33,39 @@
 
     <url>
         <loc>https://boomkim.github.io/2018/07/13/2018-07-13-rds-multiaz-readreplica-summary/</loc>
-        <lastmod>2019-12-07T04:34:39.668Z</lastmod>
+        <lastmod>2019-12-13T08:55:35.462Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://boomkim.github.io/2018/07/27/2018-07-27-docker-network-overlay/</loc>
+        <lastmod>2019-12-13T08:53:47.480Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://boomkim.github.io/2018/07/27/2018-07-27-docker-overlay-bandwidth/</loc>
+        <lastmod>2019-12-13T08:52:36.886Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://boomkim.github.io/2018/09/11/2018-09-11-reviewrepublic-log-1/</loc>
+        <lastmod>2019-12-13T08:51:38.567Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://boomkim.github.io/2018/09/18/2018-09-18-reviewrepublic-log-2/</loc>
+        <lastmod>2019-12-13T08:51:23.974Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -49,7 +73,39 @@
 
     <url>
         <loc>https://boomkim.github.io/2018/09/28/2018-09-28-cross-region-read-replica-version-issue/</loc>
-        <lastmod>2019-12-07T04:30:11.608Z</lastmod>
+        <lastmod>2019-12-13T08:51:15.048Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://boomkim.github.io/2019/03/21/2019-03-21-lightsail-vs-ec2/</loc>
+        <lastmod>2019-12-13T08:50:55.389Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://boomkim.github.io/2019/05/24/2019-05-24-athena-with-zeppelin/</loc>
+        <lastmod>2019-12-13T08:50:31.520Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://boomkim.github.io/2019/06/07/2019-06-07-athena-cf-log-analysis/</loc>
+        <lastmod>2019-12-13T08:50:04.656Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://boomkim.github.io/2019/12/11/2019-12-11-what-is-spark/</loc>
+        <lastmod>2019-12-12T06:06:31.994Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -66,30 +122,6 @@
     <url>
         <loc>https://boomkim.github.io/2019/06/29/2019-06-29-EMR-Athena-Zepplin/</loc>
         <lastmod>2019-12-07T04:21:03.794Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://boomkim.github.io/2019/06/07/2019-06-07-athena-cf-log-analysis/</loc>
-        <lastmod>2019-12-07T04:20:06.901Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://boomkim.github.io/2019/03/21/2019-03-21-lightsail-vs-ec2/</loc>
-        <lastmod>2019-12-07T04:20:04.052Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://boomkim.github.io/2018/09/11/2018-09-11-reviewrepublic-log-1/</loc>
-        <lastmod>2019-12-07T04:20:02.103Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -120,22 +152,6 @@
     </url>
 
     <url>
-        <loc>https://boomkim.github.io/2018/07/27/2018-07-27-docker-network-overlay/</loc>
-        <lastmod>2019-12-07T04:14:43.278Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://boomkim.github.io/2018/07/27/2018-07-27-docker-overlay-bandwidth/</loc>
-        <lastmod>2019-12-07T04:14:12.986Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://boomkim.github.io/2018/08/10/2018-08-08-copy-ad-joined-instance/</loc>
         <lastmod>2019-12-07T04:11:54.731Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -160,24 +176,8 @@
     </url>
 
     <url>
-        <loc>https://boomkim.github.io/2018/09/18/2018-09-18-reviewrepublic-log-2/</loc>
-        <lastmod>2019-12-07T04:06:30.057Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://boomkim.github.io/2019/11/04/2019-11-04-lambda-with-sqs/</loc>
         <lastmod>2019-12-07T04:01:22.879Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://boomkim.github.io/2019/05/24/2019-05-24-athena-with-zeppelin/</loc>
-        <lastmod>2019-12-07T04:01:00.706Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

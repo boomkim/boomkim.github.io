@@ -150,7 +150,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    13분 읽기 (대략 1934 단어)
+                    13분 읽기 (대략 1935 단어)
                 </span>
                 
                 
@@ -164,28 +164,16 @@
         </h1>
         <div class="content">
             <h2 id="서론"><a href="#서론" class="headerlink" title="서론"></a>서론</h2><p>페이스북에 <em>리뷰왕 김리뷰</em>라는 페이지가 있다. 갖가지 리뷰들이 올라오고 요새 올라오는 카드뉴스식의 리뷰를 선도한(…?) 페이지이다. 그 김리뷰가 <em>리뷰리퍼블릭</em>이라는 서비스를 만들었다. 사용자들이 리뷰를 작성해서 올리고 양질의 리뷰를 올릴수록 그 보상이 작성자에게 돌아가게끔 하겠다는 취지로 만들었다고 한다. 어쨋든 겉으로 보이는 형태는 조그만한 커뮤니티 앱이다. 어떻게 보면 sns같기도 하고. 어쨋든 그런 조그마한 커뮤니티 앱이 월 100만원 가량의 유지비가 나온다는 소식을 들었다. 서비스 유지비용이 월 100만원씩 나온다면 도저히 수지타산이 안나온다. 곧 망할 것 같았다. </p>
-<p>곧 망했다. 그래도 서비스는 사비로 유지되고 있었다. 그래서 비용을 줄이는 데에 도움이 되고 싶었다. 마침 클라우드 서비스를 공부하고 있기도 했고 공부하다가 실질적인 서비스를 운용해봐야 좀 더 실질적인 공부가 될 것 같기도 해서 덜컥 김리뷰계정에 메세지를 보냈다. “아무리 봐도 100만원은 오바다. 회사가 망하기도 했고 여러가지로 힘든상황인것 같지만 리뷰리퍼블릭의 취지 자체는 좋은것 같다. 나에게도 한 사이트의 비용구조 개선은 공부가 된다. 도와주겠다.” 라고 연락을 했다. 그러나 첫번째에는 답이 없었다. 다시 연락했고, 답이 왔다. 만나서 자세히 얘기해보기로 했다. </p>
-<p>만나서 계정정보들을 받고 살펴보니 왜 100만원이라는 돈이 나오는지는 알 것 같았다. 일단 이미지 서버비용(imgix)이 너무 많이 들고, 안쓰는 리소스들이 너무 많았다. 개발서버, 스테이징 서버들을 클라우드에 올려놓았지만… 개발자가 없는걸? 놀고 있는 서버들이 많았다. 일단 놀고있는 서버들만 정리하면 비용은 좀 줄일 수 있을 것 같았다. 그래서 흔쾌히 작업을 수락했고 금방 끝낼 수 있을것 같았다. </p>
-<p>착각이었다. 생각보다 복잡한 구조를 가진 어플리케이션이었고 많이 쓰이지 않는 프레임워크(meteor.js)로 제작되어있었다. 해당 프레임워크를 공부해야했고, 리소스들은 정리가 안되어 있었다. 오버스펙으로 인프라가 구성된 이유가 있었다. 어플리케이션 자체가 비효율적으로 제작되어 있었다. 그러니깐 애초의 생각처럼 <strong>인프라 구성만 바꾼다고 되는게 아니라 어플리케이션 자체를 수정</strong>해야 비용구조를 개선하고 퍼포먼스도 올릴 수 있는 프로젝트였던 것이다. 결국엔 소스코드까지 뒤져봐야했다. </p>
-<hr>
-<h2 id="누구나-처음엔-그럴듯한-계획을-갖고있다"><a href="#누구나-처음엔-그럴듯한-계획을-갖고있다" class="headerlink" title="누구나 처음엔 그럴듯한 계획을 갖고있다."></a>누구나 처음엔 그럴듯한 계획을 갖고있다.</h2><p><strong>일단 인프라부터 옮기자</strong></p>
-<p>그래도 하는 수 없이 일단 인프라 레벨에서부터 접근했다. 메인 어플리케이션이 돌고 있는 서버는 digital ocean이라는 클라우드 서비스를 통해서 운영되고 있었다. 디지털오션의 서비스 자체에는 큰 문제가 없었다. 어차피 복잡한 구조의 어플리케이션이 아니라 단순한 웹어플리케이션이기 때문에 어떤 서버를 이용하든지 큰 상관은 없다. 다만 문제는 서비스 규모에 비해서 지나치게 많은 리소스들이 사용되고 있었다. 아래 그림에서 보이겠지만 실제 서비스에 이용되는것은 로드밸런서 노릇을 하는 서버 한대와 그 밑에 웹서버가 동작하고있는 서버 4대, 즉 5대가 전부였지만, 배치서버, 검색서버, 스테이징 서버, 젠킨스 서버, 개발 서버 등 합쳐서 16개의 서버가 돌아가고 있었다. 돈이 많다면야 이렇게 해놓는게 관리나 개발차원에서 편하겠지만 이미 망해버린 상황에서는 많이 오바였다. 그래서 하나하나 서버들, 서버위에 올라간 코드들을 훑어보면서 실제 서비스와 연관이 없는 서버들은 일단 모두 정지시켰다.</p>
-<p>또 다른 문제점은 DB 서버였다. 리뷰리퍼블릭은 몽고DB를 사용하고 있는데 Mlab에서 제공하는 SaaS 형태의 서비스를 이용하고 있었다. 일단은 이 서비스가 매우 <em>창렬하다</em>는게 문제였다. 한달에 $180나 되는 비용을 지불하는데 거기에 돌아가는 인스턴스는 매우 낮은 스펙이었다. 또한 이 서비스를 이용하면 DB서버는 AWS 위에 올라가게 되는데 그렇게 되면 Digital Ocean &lt;-&gt; AWS 간의 구간에서 퍼블릭 인터넷망을 이용해야 했다. 보안상으로도, 네트워크적인 측면에서도 마이너스이다. </p>
-<p>결국 DB서버도 마이그레이션을 해야했고 그러던 와중 mongodb에서 직접 운영하는 SaaS형태의 서비스인 Atlas를 검토하게 되었다. 제공하는 기능도 Atlas가 더 많았고 결정적으로 같은 가격에 제공되는 인스턴스의 스펙이 Atlas가 훨씬 좋았다. 게다가 $100 무료쿠폰도 얻었다. 사실 MongoDB를 그냥 AWS 서버 위에 올려서 운영하는 것도 검토해봤지만 Atlas에서 제공하는 on-line 마이그레이션, 성능 모니터링, 자동 fail-over 등의 기능이 마음에 들었다. 내가 직접 관리하게 되면 저런것들을 다 수동으로 작업해야되는데 기본으로 제공해주니 엄청난 메리트였다. </p>
-<p>DB 서버를 마이그레이션 하기로 결정을 하고 나니 다시 어플리케이션서버가 Digital Ocean에 올라가있는 게 걸렸다. 사실 애초에 AWS로 옮길 생각이었다. 내가 편한 환경이기도 하고 Digital Ocean이 서울에 서버가 없기도 하고, 여타 기능에선 AWS가 압도적이기 때문. 또한 DB가 AWS에 올라가기 때문에 어플리케이션 서버도 AWS에 올라가있는 게 성능면에서나 안정성면에서나 훨씬 낫다. DB 서버가 위치하는 네트워크(VPC)와 어플리케이션 서버가 위치하는 네트워크 사이에 VPC Peering을 맺으면 AWS의 내부망을 이용할 수 있다.</p>
-<p>그래서 일단 기본적인 마이그레이션의 가닥은 다음과 같았다.  </p>
-<ol>
-<li>어플리케이션: Digital Ocean -&gt; AWS</li>
-<li>DB: Mlab -&gt; Atlas</li>
-</ol>
-<p>이러면 일단 인프라적으로는 비효율적인 부분을 많이 개선하는 것이라고 생각했다. <strong>(그럴리가…)</strong></p>
-<p>다음 포스팅에서는 Digital Ocean -&gt; AWS 로 옮기는 작업때 있었던 일들에 대해서 다뤄보겠다. </p>
-<h3 id="리뷰리퍼블릭의-기존-아키텍쳐"><a href="#리뷰리퍼블릭의-기존-아키텍쳐" class="headerlink" title="리뷰리퍼블릭의 기존 아키텍쳐"></a><strong>리뷰리퍼블릭의 기존 아키텍쳐</strong></h3><p><img src="/images/reviewrepublic-legacy.png" alt="그림1"></p>
-<p><br><br></p>
-<h3 id="리뷰리퍼블릭-변경-아키텍쳐"><a href="#리뷰리퍼블릭-변경-아키텍쳐" class="headerlink" title="리뷰리퍼블릭 변경 아키텍쳐"></a><strong>리뷰리퍼블릭 변경 아키텍쳐</strong></h3><p><img src="/images/reviewrepublic-tobe.png" alt="그림2"></p>
-
         </div>
         
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2018/09/11/2018-09-11-reviewrepublic-log-1/#more">자세히 보기</a>
+                </div>
+            </div>
+        </div>
         
         
     </div>
@@ -450,7 +438,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    5분 읽기 (대략 745 단어)
+                    4분 읽기 (대략 595 단어)
                 </span>
                 
                 
@@ -459,34 +447,23 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2018/07/27/2018-07-27-docker-network-overlay/">[docker] multihost networking - overlay</a>
+                <a class="has-link-black-ter" href="/2018/07/27/2018-07-27-docker-overlay-bandwidth/">[docker] overlay network bandwidth test</a>
             
         </h1>
         <div class="content">
-            <h2 id="도커-multi-host-networking-overlay"><a href="#도커-multi-host-networking-overlay" class="headerlink" title="도커 - multi-host networking: overlay"></a>도커 - multi-host networking: overlay</h2><p>여러 호스트를 이용하는 도커가 swarm을 이룰경우 서로 통신을 하려면 네트웍이 필요하다. 이때 각각 다른 호스트에서 생성된 컨테이너 사이에 네트워크를 생성해주는 것이 바로 overlay 네트워크 이다. </p>
-<p><img src="/images/overlay-network.png" alt="그림1"></p>
-<p><em>각각의 호스트에서 쓰고있는 네트워크와 상관없이 컨테이너 끼리의 사설망을 따로 만들어줌.</em></p>
-<p>예를들어 각각의 호스트 A가 10.0.0.3 B가 10.0.0.5 라는 사설 ip를 사용하고 있을때 overlay network로 전혀 다른 사설대역 192.168.0.0/24를 만들 수 있다. Docker Swarm 을 구성해놓은 상태에서 새로운 서비스를 생성할 때, 네트워크를 미리 만들어 둔 overlay 네트워크를 지정하면 overlay 네트워크를 사용하는 컨테이너가 각각 올라가고 해당 서브넷 내의 ip를 할당받는다. </p>
-<p>*<u>이때 주의해야 할 점은 tcp 2377, 7946, udp 7946, 4789 포트가 열려 있어야 한다.</u>*</p>
-<p><br><br></p>
-<h3 id="overlay-네트워크-생성하고-테스트해보기"><a href="#overlay-네트워크-생성하고-테스트해보기" class="headerlink" title="overlay 네트워크 생성하고 테스트해보기."></a>overlay 네트워크 생성하고 테스트해보기.</h3><p><strong>1.network 생성</strong></p>
-<p>네트워크를 생성하고</p>
-<p><code>docker network create --driver=overlay --subnet=192.168.0.0/24 mynet</code></p>
-<p>네트워크 생성 확인</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">[ec2-user@ip-10-0-0-209 ~]$ docker network ls</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">NETWORK ID          NAME                DRIVER              SCOPE</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">f2fd318ecc13        bridge              bridge              local</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">c9b6d1d75287        docker_gwbridge     bridge              local</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">54c54d828043        host                host                local</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">f400wz9js3cz        ingress             overlay             swarm</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">h919kze0tfxw        mynet               overlay             swarm</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">2e51e048bc49        none                null                local</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">&#96;&#96;&#96; </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">mynet 이 생성되었다. &lt;br&gt;&lt;br&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">**2.service 생성**</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">&#96;docker service create --name overlaytest --network mynet --replicas 3 tutum&#x2F;hello-world &#96; </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">tutum에서 제공하는 helloworld 이미지로 테스트 &lt;br&gt;&lt;br&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line">**3.네트워크 테스트** </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line">master노드에서 ps 실행 및 ip 확인</span></pre></td></tr></table></figure>
-<p>[ec2-user@ip-10-0-0-209 ~]$ docker ps<br>CONTAINER ID        IMAGE                      COMMAND                  CREATED             STATUS              PORTS               NAMES<br>3bf7f2ad2f5d        tutum/hello-world:latest   “/bin/sh -c ‘php-fpm…”   10 seconds ago      Up 9 seconds        80/tcp              hello.3.8h6n98b0pgqxmhamhlxz0fpnr<br>[ec2-user@ip-10-0-0-209 ~]$ docker exec -it 3bf7f2ad2f5d sh<br>/ # ifconfig<br>eth0      Link encap:Ethernet  HWaddr 02:42:C0:A8:00:95<br>          inet addr:192.168.0.149  Bcast:192.168.0.255  Mask:255.255.255.0<br>          UP BROADCAST RUNNING MULTICAST  MTU:1450  Metric:1<br>          RX packets:0 errors:0 dropped:0 overruns:0 frame:0<br>          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0<br>          collisions:0 txqueuelen:0<br>          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">worker노드에서 ps 실행 및 ip확인 및 ping</span></pre></td></tr></table></figure>
-<p>[ec2-user@ip-10-0-0-31 ~]$ docker ps<br>CONTAINER ID        IMAGE                      COMMAND                  CREATED              STATUS              PORTS               NAMES<br>5eb91ab17651        tutum/hello-world:latest   “/bin/sh -c ‘php-fpm…”   About a minute ago   Up About a minute   80/tcp              hello.2.usgapik37uc3qpd7tiirrsi5u<br>[ec2-user@ip-10-0-0-31 ~]$ docker exec -it 5eb91ab17651 sh<br>/ # ifconfig<br>eth0      Link encap:Ethernet  HWaddr 02:42:C0:A8:00:97<br>          inet addr:192.168.0.151  Bcast:192.168.0.255  Mask:255.255.255.0<br>          UP BROADCAST RUNNING MULTICAST  MTU:1450  Metric:1<br>          RX packets:0 errors:0 dropped:0 overruns:0 frame:0<br>          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0<br>          collisions:0 txqueuelen:0<br>          RX bytes:0 (0.0 B)  TX bytes:0 (0.0<br>/ # ping 192.168.0.149<br>PING 192.168.0.149 (192.168.0.149): 56 data bytes<br>64 bytes from 192.168.0.149: seq=0 ttl=255 time=0.534 ms<br>64 bytes from 192.168.0.149: seq=1 ttl=255 time=0.528 ms<br>64 bytes from 192.168.0.149: seq=2 ttl=255 time=0.492 ms<br>64 bytes from 192.168.0.149: seq=3 ttl=255 time=0.472 ms<br>64 bytes from 192.168.0.149: seq=4 ttl=255 time=0.497 ms<br>64 bytes from 192.168.0.149: seq=5 ttl=255 time=0.511 ms<br>64 bytes from 192.168.0.149: seq=6 ttl=255 time=0.456 ms<br>64 bytes from 192.168.0.149: seq=7 ttl=255 time=0.517 ms<br>64 bytes from 192.168.0.149: seq=8 ttl=255 time=0.491 ms<br>^C<br>— 192.168.0.149 ping statistics —<br>9 packets transmitted, 9 packets received, 0% packet loss<br>round-trip min/avg/max = 0.456/0.499/0.534 ms<br>/ # </p>
-<pre><code>
-콘테이너 끼리 사설 대역으로 통신이 되는것을 확인할 수 있다.  &lt;br&gt;&lt;br&gt;
-
-
-### 참고자료
-* 도커 공식 홈페이지 https://docs.docker.com/network/overlay/
-* 도커에서 만든 오버레이 네트워킹 데모 https://www.youtube.com/watch?v=nGSNULpHHZc
-</code></pre>
+            <p>앞의 포스트에 이어 overlay network를 테스트해보다가 bandwidth가 궁금해졌다. 아무래도 네트워크 레이어를 하나 더 만드는 것이니 네트워크 성능이 노드들 끼리의 통신보다는 안 좋을 것이라 예상됐다. 찾아보니 예전 docker에서는 많게는 50% 정도까지 성능저하가 있었던 것 같다. </p>
+<p>테스트 환경: AWS EC2 t2.medium &lt;-&gt; t2.small</p>
+<p>테스트 방법: iperf3 을 사용했다. </p>
         </div>
         
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2018/07/27/2018-07-27-docker-overlay-bandwidth/#more">자세히 보기</a>
+                </div>
+            </div>
+        </div>
         
         
     </div>
@@ -516,7 +493,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    4분 읽기 (대략 594 단어)
+                    5분 읽기 (대략 740 단어)
                 </span>
                 
                 
@@ -525,30 +502,24 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2018/07/27/2018-07-27-docker-overlay-bandwidth/">[docker] overlay network bandwidth test</a>
+                <a class="has-link-black-ter" href="/2018/07/27/2018-07-27-docker-network-overlay/">[docker] multihost networking - overlay</a>
             
         </h1>
         <div class="content">
-            <p>앞의 포스트에 이어 overlay network를 테스트해보다가 bandwidth가 궁금해졌다. 아무래도 네트워크 레이어를 하나 더 만드는 것이니 네트워크 성능이 노드들 끼리의 통신보다는 안 좋을 것이라 예상됐다. 찾아보니 예전 docker에서는 많게는 50% 정도까지 성능저하가 있었던 것 같다. </p>
-<p>테스트 환경: AWS EC2 t2.medium &lt;-&gt; t2.small</p>
-<p>테스트 방법: iperf3 을 사용했다. </p>
-<p>테스트 내용 </p>
-<ol>
-<li>ec2끼리 대역폭 테스트 </li>
-</ol>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">[ec2-user@ip-10-0-0-31 ~]$ iperf3 -c 10.0.0.209 -t 30</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">Connecting to host 10.0.0.209, port 5201</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">[  4] local 10.0.0.31 port 56086 connected to 10.0.0.209 port 5201</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">[ ID] Interval           Transfer     Bandwidth       Retr  Cwnd</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">[  4]   0.00-1.00   sec  83.7 MBytes   702 Mbits&#x2F;sec    0    362 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">[  4]   1.00-2.00   sec  75.9 MBytes   636 Mbits&#x2F;sec    0    362 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">[  4]   2.00-3.00   sec  87.3 MBytes   732 Mbits&#x2F;sec   43    659 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">[  4]   3.00-4.00   sec  88.1 MBytes   739 Mbits&#x2F;sec    0    659 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">[  4]   4.00-5.00   sec  87.5 MBytes   734 Mbits&#x2F;sec   60    560 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">[  4]   5.00-6.00   sec  93.5 MBytes   784 Mbits&#x2F;sec    0    560 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">[  4]   6.00-7.00   sec  92.5 MBytes   776 Mbits&#x2F;sec    0    560 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">[  4]   7.00-8.00   sec  93.0 MBytes   780 Mbits&#x2F;sec    0    560 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">[  4]   8.00-9.00   sec  89.6 MBytes   752 Mbits&#x2F;sec    0    560 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">[  4]   9.00-10.00  sec  90.3 MBytes   757 Mbits&#x2F;sec    0    720 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">[  4]  10.00-11.00  sec  90.7 MBytes   761 Mbits&#x2F;sec    0    720 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">[  4]  11.00-12.00  sec  91.3 MBytes   766 Mbits&#x2F;sec    0    720 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">[  4]  12.00-13.00  sec  95.1 MBytes   798 Mbits&#x2F;sec    0    720 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line">[  4]  13.00-14.00  sec  90.6 MBytes   760 Mbits&#x2F;sec    0    720 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line">[  4]  14.00-15.00  sec  91.2 MBytes   765 Mbits&#x2F;sec    0    720 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line">[  4]  15.00-16.00  sec  90.0 MBytes   755 Mbits&#x2F;sec    0    720 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><span class="line">[  4]  16.00-17.00  sec  92.3 MBytes   774 Mbits&#x2F;sec    0    775 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><span class="line">[  4]  17.00-18.00  sec  94.1 MBytes   789 Mbits&#x2F;sec   87    624 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">23</span></pre></td><td class="code"><pre><span class="line">[  4]  18.00-19.00  sec  91.2 MBytes   765 Mbits&#x2F;sec    0    675 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">24</span></pre></td><td class="code"><pre><span class="line">[  4]  19.00-20.00  sec  91.9 MBytes   771 Mbits&#x2F;sec    0    732 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">25</span></pre></td><td class="code"><pre><span class="line">[  4]  20.00-21.00  sec  91.3 MBytes   766 Mbits&#x2F;sec    0    732 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">26</span></pre></td><td class="code"><pre><span class="line">[  4]  21.00-22.00  sec  88.5 MBytes   742 Mbits&#x2F;sec    0    732 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">27</span></pre></td><td class="code"><pre><span class="line">[  4]  22.00-23.00  sec  89.9 MBytes   754 Mbits&#x2F;sec    0    732 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">28</span></pre></td><td class="code"><pre><span class="line">[  4]  23.00-24.00  sec  85.9 MBytes   720 Mbits&#x2F;sec    0    732 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">29</span></pre></td><td class="code"><pre><span class="line">[  4]  24.00-25.00  sec  92.6 MBytes   777 Mbits&#x2F;sec    0    732 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">30</span></pre></td><td class="code"><pre><span class="line">[  4]  25.00-26.00  sec  92.6 MBytes   777 Mbits&#x2F;sec    0    732 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">31</span></pre></td><td class="code"><pre><span class="line">[  4]  26.00-27.00  sec  90.9 MBytes   762 Mbits&#x2F;sec   65    585 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">32</span></pre></td><td class="code"><pre><span class="line">[  4]  27.00-28.00  sec  89.0 MBytes   747 Mbits&#x2F;sec    0    585 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">33</span></pre></td><td class="code"><pre><span class="line">[  4]  28.00-29.00  sec  90.0 MBytes   755 Mbits&#x2F;sec    0    663 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">34</span></pre></td><td class="code"><pre><span class="line">[  4]  29.00-30.00  sec  93.1 MBytes   781 Mbits&#x2F;sec    0    663 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">35</span></pre></td><td class="code"><pre><span class="line">- - - - - - - - - - - - - - - - - - - - - - - - -</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">36</span></pre></td><td class="code"><pre><span class="line">[ ID] Interval           Transfer     Bandwidth       Retr</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">37</span></pre></td><td class="code"><pre><span class="line">[  4]   0.00-30.00  sec  2.64 GBytes   756 Mbits&#x2F;sec  255             sender</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">38</span></pre></td><td class="code"><pre><span class="line">[  4]   0.00-30.00  sec  2.64 GBytes   756 Mbits&#x2F;sec                  receiver</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">39</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">40</span></pre></td><td class="code"><pre><span class="line">iperf Done.</span></pre></td></tr></table></figure>
-
-<p>평균 756Mbps 정도의 대역폭 </p>
-<ol start="2">
-<li>docker에서 overlay 모드로 만들었을 때의 노드끼리 대역폭 테스트</li>
-</ol>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">[ec2-user@ip-10-0-0-31 ~]$ docker exec -it 89c08bbec6d7 sh</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"># iperf3 -c 192.168.0.155 -t 30</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">Connecting to host 192.168.0.155, port 5201</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">[  4] local 192.168.0.154 port 47676 connected to 192.168.0.155 port 5201</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">[ ID] Interval           Transfer     Bandwidth       Retr  Cwnd</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">[  4]   0.00-1.00   sec  92.0 MBytes   771 Mbits&#x2F;sec    0   1.51 MBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">[  4]   1.00-2.00   sec  85.0 MBytes   713 Mbits&#x2F;sec    0   1.51 MBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">[  4]   2.00-3.00   sec  86.4 MBytes   725 Mbits&#x2F;sec    0   1.51 MBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">[  4]   3.00-4.00   sec  85.3 MBytes   716 Mbits&#x2F;sec    0   1.59 MBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">[  4]   4.00-5.00   sec  84.7 MBytes   710 Mbits&#x2F;sec    0   1.59 MBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">[  4]   5.00-6.00   sec  87.5 MBytes   734 Mbits&#x2F;sec    0   1.59 MBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">[  4]   6.00-7.00   sec  87.8 MBytes   737 Mbits&#x2F;sec    0   1.59 MBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">[  4]   7.00-8.00   sec  87.6 MBytes   735 Mbits&#x2F;sec    0   1.59 MBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">[  4]   8.00-9.00   sec  85.5 MBytes   717 Mbits&#x2F;sec    0   1.59 MBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">[  4]   9.00-10.00  sec  79.2 MBytes   665 Mbits&#x2F;sec  250    631 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">[  4]  10.00-11.00  sec  75.5 MBytes   633 Mbits&#x2F;sec    0    714 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">[  4]  11.00-12.00  sec  81.4 MBytes   683 Mbits&#x2F;sec    0    795 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line">[  4]  12.00-13.00  sec  86.2 MBytes   723 Mbits&#x2F;sec    0    871 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line">[  4]  13.00-14.00  sec  86.2 MBytes   723 Mbits&#x2F;sec    0    943 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line">[  4]  14.00-15.00  sec  83.5 MBytes   700 Mbits&#x2F;sec    0   1008 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><span class="line">[  4]  15.00-16.00  sec  83.9 MBytes   704 Mbits&#x2F;sec    0   1.04 MBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><span class="line">[  4]  16.00-17.00  sec  85.6 MBytes   718 Mbits&#x2F;sec    0   1.10 MBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">23</span></pre></td><td class="code"><pre><span class="line">[  4]  17.00-18.00  sec  88.8 MBytes   744 Mbits&#x2F;sec    0   1.16 MBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">24</span></pre></td><td class="code"><pre><span class="line">[  4]  18.00-19.00  sec  88.1 MBytes   739 Mbits&#x2F;sec    0   1.21 MBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">25</span></pre></td><td class="code"><pre><span class="line">[  4]  19.00-20.00  sec  87.9 MBytes   738 Mbits&#x2F;sec    0   1.26 MBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">26</span></pre></td><td class="code"><pre><span class="line">[  4]  20.00-21.00  sec  83.3 MBytes   699 Mbits&#x2F;sec    0   1.31 MBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">27</span></pre></td><td class="code"><pre><span class="line">[  4]  21.00-22.00  sec  84.5 MBytes   709 Mbits&#x2F;sec    0   1.35 MBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">28</span></pre></td><td class="code"><pre><span class="line">[  4]  22.00-23.00  sec  85.1 MBytes   714 Mbits&#x2F;sec    0   1.39 MBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">29</span></pre></td><td class="code"><pre><span class="line">[  4]  23.00-24.00  sec  87.8 MBytes   736 Mbits&#x2F;sec    0   1.44 MBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">30</span></pre></td><td class="code"><pre><span class="line">[  4]  24.00-25.00  sec  90.0 MBytes   755 Mbits&#x2F;sec    0   1.48 MBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">31</span></pre></td><td class="code"><pre><span class="line">[  4]  25.00-26.00  sec  86.1 MBytes   723 Mbits&#x2F;sec    0   1.51 MBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">32</span></pre></td><td class="code"><pre><span class="line">[  4]  26.00-27.00  sec  83.2 MBytes   698 Mbits&#x2F;sec    0   1.51 MBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">33</span></pre></td><td class="code"><pre><span class="line">[  4]  27.00-28.00  sec  81.5 MBytes   684 Mbits&#x2F;sec    0   1.51 MBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">34</span></pre></td><td class="code"><pre><span class="line">[  4]  28.00-29.00  sec  84.9 MBytes   712 Mbits&#x2F;sec    0   1.51 MBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">35</span></pre></td><td class="code"><pre><span class="line">[  4]  29.00-30.00  sec  84.1 MBytes   706 Mbits&#x2F;sec  214    595 KBytes       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">36</span></pre></td><td class="code"><pre><span class="line">- - - - - - - - - - - - - - - - - - - - - - - - -</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">37</span></pre></td><td class="code"><pre><span class="line">[ ID] Interval           Transfer     Bandwidth       Retr</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">38</span></pre></td><td class="code"><pre><span class="line">[  4]   0.00-30.00  sec  2.50 GBytes   715 Mbits&#x2F;sec  464             sender</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">39</span></pre></td><td class="code"><pre><span class="line">[  4]   0.00-30.00  sec  2.50 GBytes   715 Mbits&#x2F;sec                  receiver</span></pre></td></tr></table></figure>
-
-<p>평균 715Mbps</p>
-<p>약 95% 정도의 성능을 보인다. 더 테스트해봐야 알겠지만 이 정도면 진짜 아주 괜찮은 성능이 아닌가 싶다. </p>
-
+            <p>여러 호스트를 이용하는 도커가 swarm을 이룰경우 서로 통신을 하려면 네트웍이 필요하다. 이때 각각 다른 호스트에서 생성된 컨테이너 사이에 네트워크를 생성해주는 것이 바로 overlay 네트워크 이다. </p>
+<p><img src="/images/overlay-network.png" alt="그림1"></p>
+<p><em>각각의 호스트에서 쓰고있는 네트워크와 상관없이 컨테이너 끼리의 사설망을 따로 만들어줌.</em></p>
+<p>예를들어 각각의 호스트 A가 10.0.0.3 B가 10.0.0.5 라는 사설 ip를 사용하고 있을때 overlay network로 전혀 다른 사설대역 192.168.0.0/24를 만들 수 있다. Docker Swarm 을 구성해놓은 상태에서 새로운 서비스를 생성할 때, 네트워크를 미리 만들어 둔 overlay 네트워크를 지정하면 overlay 네트워크를 사용하는 컨테이너가 각각 올라가고 해당 서브넷 내의 ip를 할당받는다. </p>
         </div>
         
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2018/07/27/2018-07-27-docker-network-overlay/#more">자세히 보기</a>
+                </div>
+            </div>
+        </div>
         
         
     </div>
@@ -714,69 +685,17 @@
             
         </h1>
         <div class="content">
-            <p>AWS RDS에는 가용성과 확장성을 위해 multi-az 라는 기능과 read replica라는 기능을 지원한다. 비슷하지만 다른 특징들을 갖고 있어 간단하게 정리해 보았다. </p>
-<h2 id="Multi-AZ"><a href="#Multi-AZ" class="headerlink" title="Multi-AZ"></a>Multi-AZ</h2><p><img src="/images/rds_ha1.jpg" alt="그림1"></p>
-<ul>
-<li>Active - Standby 구조 </li>
-<li>자동 장애 복구 </li>
-<li>동기식 복제 (Synchronous replication)</li>
-</ul>
-<p>위의 그림과 같이 원본 서버에 문제가 생기면 동기식으로 복제된 slave 인스턴스가 master로 자동으로 승격된다. 승격은 내부적으로 마스터를 바라보던 db instance의 도메인 엔드포인트가 slave를 가리킴으로써 구현된다. </p>
-<h2 id="읽기-복제본"><a href="#읽기-복제본" class="headerlink" title="읽기 복제본"></a>읽기 복제본</h2><p><img src="/images/rds_readrepl.png" alt="그림2"></p>
-<h3 id="생성과정"><a href="#생성과정" class="headerlink" title="생성과정"></a>생성과정</h3><ol>
-<li>원본 스냅샷 생성</li>
-<li>스냅샷을 통해 복제본 인스턴스 생성 </li>
-<li>변경사항 발생 시 비동기식 복제 </li>
-</ol>
-<h3 id="기타-특징"><a href="#기타-특징" class="headerlink" title="기타 특징"></a>기타 특징</h3><p><em>읽기복제본은 multi-az에 비해 자잘한 기능들이 많다.</em></p>
-<h4 id="순환복제-지원-X"><a href="#순환복제-지원-X" class="headerlink" title="순환복제 지원 X "></a><u>순환복제 지원 X </u></h4><p>a에서 복제본 b를 만들고 b에서 다시 a로 복제하는 것이 불가능하다. a에서 b라는 복제본을 만들면 b에서는 다시 새로운 복제본(b’, b’’ 등)을 만드는 것은 가능하다. </p>
-<h4 id="체인식-복제-가능-단-체인당-4대까지"><a href="#체인식-복제-가능-단-체인당-4대까지" class="headerlink" title=" 체인식 복제 가능 (단 체인당 4대까지 )"></a><u> 체인식 복제 가능 (단 체인당 4대까지 )</u></h4><p>위에서 말했듯이 a에서 복제본 a’를 생성하고 a’에서 a’’를 생성하는 것이 가능하고 한 체인에 총 4대의 인스턴스까지 연결할 수 있다. 즉, a - a’ - a’’ - a’’’ 까지 가능하다는 말. </p>
-<h4 id="mysql-binlog-mariadb-gtid"><a href="#mysql-binlog-mariadb-gtid" class="headerlink" title=" mysql - binlog mariadb - gtid "></a><u> mysql - binlog mariadb - gtid </u></h4><p>mysql은 복제시 원본에서 binarylog를 받아 복제본에다가 쓰는 작업을 통해 복제작업을 한다. 즉 복제본에서도 똑같이 쓰기 작업이 이루어져야 복제가 완료된다. mariadb는 gtid라는 방식을 사용한다고 한다. <em>gtid가 어떤 방식인지는 다음에 알아보는걸로…</em></p>
-<h4 id="read-only-0-으로-설정시-인덱스-설정등-쓰기-작업-가능"><a href="#read-only-0-으로-설정시-인덱스-설정등-쓰기-작업-가능" class="headerlink" title=" read-only:0 으로 설정시 인덱스 설정등 쓰기 작업 가능 "></a><u> read-only:0 으로 설정시 인덱스 설정등 쓰기 작업 가능 </u></h4><p>읽기복제본이지만 쓰기가 아예 안되는 것은 아닌가 보다. 읽기 복제본의 읽기 성능 향상 등을 위해 read-only 기능을 끌 수 있게 되어있다. 이 기능을 껐을 때 쓰기가 어디까지 되는지는 테스트 해봐야 알것 같다. </p>
-<h4 id="복제본-자체를-multi-az-로-이중화-구성-가능"><a href="#복제본-자체를-multi-az-로-이중화-구성-가능" class="headerlink" title="복제본 자체를 multi-az 로 이중화 구성 가능 "></a><u>복제본 자체를 multi-az 로 이중화 구성 가능 </u></h4><p>말 그대로, 복제본 또한 multi-az 기능으로 slave노드를 만들어서 이중화 구성이 가능</p>
-<h4 id="외부에서-복제-외부로-복제-가능"><a href="#외부에서-복제-외부로-복제-가능" class="headerlink" title="외부에서 복제/ 외부로 복제 가능 "></a><u>외부에서 복제/ 외부로 복제 가능 </u></h4><p>온프레미스에 있는 db의 복제본을 rds에 올려 사용할 수 있고 반대로 rds에 있는 db를 온프레미스에 복제해서 사용할 수도 있다. 이중화 구성, DR 구성을 위한 옵션인 것 같다. 물론 부하 분산도 되고. </p>
-<h4 id="Multi-AZ-vs-읽기-복제본"><a href="#Multi-AZ-vs-읽기-복제본" class="headerlink" title="Multi-AZ vs 읽기 복제본 "></a><u>Multi-AZ vs 읽기 복제본 </u></h4><p>AWS의 자료를 바탕으로 표로 정리해 보았다. </p>
-<table>
-<thead>
-<tr>
-<th>Multi-AZ</th>
-<th>읽기 복제본</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>동기식 복제</td>
-<td>비동기식 복제</td>
-</tr>
-<tr>
-<td>active-standby</td>
-<td>읽기 부하 분산</td>
-</tr>
-<tr>
-<td>secondary(standby)노드에서 복제 가능</td>
-<td>기본값으로 백업 설정 x</td>
-</tr>
-<tr>
-<td>최소 두개의 가용영역</td>
-<td>단일리전/cross-AZ/cross-region 가능</td>
-</tr>
-<tr>
-<td>업데이트 시 primary 에 적용</td>
-<td>독립적으로 적용 가능</td>
-</tr>
-<tr>
-<td>자동 장애 복구</td>
-<td>장애 시 수동으로 승격</td>
-</tr>
-</tbody></table>
-<p>동기식 복제/ 비동기식 복제 차이점은 <a href="https://cloudbasic.net/white-papers/synchronous-vs-asynchronous-replication/" target="_blank" rel="noopener">여기</a>를 참고 </p>
-<p>참고자료</p>
-<ul>
-<li><a href="https://docs.aws.amazon.com/ko_kr/AmazonRDS/latest/UserGuide/USER_ReadRepl.html" target="_blank" rel="noopener">AWS RDS Documentation - 읽기복제본 작업</a></li>
-<li><a href="https://www.slideshare.net/AmazonWebServices/dat302deep-dive-on-amazon-relational-database-service-rds?qid=5a05e0f6-fec2-4451-a0cd-e3769a0f0b7d&v=&b=&from_search=7" target="_blank" rel="noopener">Deep Dive on Amazon RDS</a></li>
-</ul>
-
+            <p>AWS RDS에는 가용성과 확장성을 위해 multi-az 라는 기능과 read replica라는 기능을 지원한다. 비슷하지만 다른 특징들을 갖고 있어 간단하게 정리해둔다.</p>
         </div>
         
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2018/07/13/2018-07-13-rds-multiaz-readreplica-summary/#more">자세히 보기</a>
+                </div>
+            </div>
+        </div>
         
         
     </div>
@@ -910,42 +829,6 @@
 </div>
     
         
-    
-        <div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-        <h3 class="menu-label">
-            링크
-        </h3>
-        <ul class="menu-list">
-        
-            <li>
-                <a class="level is-mobile" href="https://hexo.io" target="_blank">
-                    <span class="level-left">
-                        <span class="level-item">Hexo</span>
-                    </span>
-                    <span class="level-right">
-                        <span class="level-item tag">hexo.io</span>
-                    </span>
-                </a>
-            </li>
-        
-            <li>
-                <a class="level is-mobile" href="https://github.com/ppoffice" target="_blank">
-                    <span class="level-left">
-                        <span class="level-item">PPOffice</span>
-                    </span>
-                    <span class="level-right">
-                        <span class="level-item tag">github.com</span>
-                    </span>
-                </a>
-            </li>
-        
-        </ul>
-        </div>
-    </div>
-</div>
-
     
         
 <div class="card widget">
@@ -1201,16 +1084,16 @@
         
         <article class="media">
             
-            <a href="/2019/06/07/2019-06-07-athena-cf-log-analysis/" class="media-left">
+            <a href="/2019/06/07/2019-06-20-amazon-elasticsearch-dedicated-master-free-storage/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="AWS Athena, CF Log 분석을 위한 쿼리 예시">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Amazon Elasticsearch Dedicated Master의 스토리지 비용은?">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-06T15:00:00.000Z">2019-06-07</time></div>
-                    <a href="/2019/06/07/2019-06-07-athena-cf-log-analysis/" class="title has-link-black-ter is-size-6 has-text-weight-normal">AWS Athena, CF Log 분석을 위한 쿼리 예시</a>
+                    <a href="/2019/06/07/2019-06-20-amazon-elasticsearch-dedicated-master-free-storage/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Amazon Elasticsearch Dedicated Master의 스토리지 비용은?</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/AWS/">AWS</a> / <a class="has-link-grey -link" href="/categories/AWS/Data-Analytics/">Data Analytics</a>
                     </p>
@@ -1766,16 +1649,16 @@
         
         <article class="media">
             
-            <a href="/2019/06/07/2019-06-07-athena-cf-log-analysis/" class="media-left">
+            <a href="/2019/06/07/2019-06-20-amazon-elasticsearch-dedicated-master-free-storage/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="AWS Athena, CF Log 분석을 위한 쿼리 예시">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Amazon Elasticsearch Dedicated Master의 스토리지 비용은?">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-06T15:00:00.000Z">2019-06-07</time></div>
-                    <a href="/2019/06/07/2019-06-07-athena-cf-log-analysis/" class="title has-link-black-ter is-size-6 has-text-weight-normal">AWS Athena, CF Log 분석을 위한 쿼리 예시</a>
+                    <a href="/2019/06/07/2019-06-20-amazon-elasticsearch-dedicated-master-free-storage/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Amazon Elasticsearch Dedicated Master의 스토리지 비용은?</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/AWS/">AWS</a> / <a class="has-link-grey -link" href="/categories/AWS/Data-Analytics/">Data Analytics</a>
                     </p>

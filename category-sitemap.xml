@@ -8,6 +8,83 @@
     </url>
 
     <url>
+        <loc>https://boomkim.github.io/categories/Bigdata/</loc>
+        <lastmod>2019-12-13T08:56:47.889Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://boomkim.github.io/categories/blog/</loc>
+        <lastmod>2019-12-13T08:56:29.329Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://boomkim.github.io/categories/Security/SAML/</loc>
+        <lastmod>2019-12-13T08:56:16.250Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://boomkim.github.io/categories/Security/</loc>
+        <lastmod>2019-12-13T08:56:16.250Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://boomkim.github.io/categories/AWS/Database/</loc>
+        <lastmod>2019-12-13T08:55:35.462Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://boomkim.github.io/categories/AWS/</loc>
+        <lastmod>2019-12-13T08:55:35.462Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://boomkim.github.io/categories/Container/Docker/</loc>
+        <lastmod>2019-12-13T08:53:47.480Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://boomkim.github.io/categories/Container/</loc>
+        <lastmod>2019-12-13T08:53:47.480Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://boomkim.github.io/categories/Others/</loc>
+        <lastmod>2019-12-13T08:51:38.567Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://boomkim.github.io/categories/AWS/Computing/</loc>
+        <lastmod>2019-12-13T08:50:55.389Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://boomkim.github.io/categories/AWS/Data-Analytics/</loc>
+        <lastmod>2019-12-13T08:50:31.520Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://boomkim.github.io/categories/bigdata/spark/</loc>
         <lastmod>2019-12-12T06:06:31.994Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -22,71 +99,8 @@
     </url>
 
     <url>
-        <loc>https://boomkim.github.io/categories/Bigdata/</loc>
-        <lastmod>2019-12-07T04:37:36.237Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://boomkim.github.io/categories/blog/</loc>
-        <lastmod>2019-12-07T04:36:35.900Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://boomkim.github.io/categories/Security/SAML/</loc>
-        <lastmod>2019-12-07T04:35:58.127Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://boomkim.github.io/categories/Security/</loc>
-        <lastmod>2019-12-07T04:35:58.127Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://boomkim.github.io/categories/AWS/Database/</loc>
-        <lastmod>2019-12-07T04:34:39.668Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://boomkim.github.io/categories/AWS/</loc>
-        <lastmod>2019-12-07T04:34:39.668Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://boomkim.github.io/categories/AWS/Data-Analytics/</loc>
-        <lastmod>2019-12-07T04:21:06.010Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://boomkim.github.io/categories/AWS/EMR/</loc>
         <lastmod>2019-12-07T04:21:03.794Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://boomkim.github.io/categories/AWS/Computing/</loc>
-        <lastmod>2019-12-07T04:20:04.052Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://boomkim.github.io/categories/Others/</loc>
-        <lastmod>2019-12-07T04:20:02.103Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -108,20 +122,6 @@
     <url>
         <loc>https://boomkim.github.io/categories/Linux/</loc>
         <lastmod>2019-12-07T04:19:31.422Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://boomkim.github.io/categories/Container/Docker/</loc>
-        <lastmod>2019-12-07T04:14:43.278Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://boomkim.github.io/categories/Container/</loc>
-        <lastmod>2019-12-07T04:14:43.278Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

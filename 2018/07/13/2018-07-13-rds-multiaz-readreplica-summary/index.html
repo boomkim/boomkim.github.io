@@ -10,16 +10,16 @@
 <title>RDS(MySQL, MariaDB) - Multi-AZ / Read Replica (읽기전용 복제본) 관련 정리 - Boomkim</title>
 
 
-    <meta name="description" content="AWS RDS에는 가용성과 확장성을 위해 multi-az 라는 기능과 read replica라는 기능을 지원한다. 비슷하지만 다른 특징들을 갖고 있어 간단하게 정리해 보았다.  Multi-AZ  Active - Standby 구조  자동 장애 복구  동기식 복제 (Synchronous replication)  위의 그림과 같이 원본 서버에 문제가 생기면 동">
+    <meta name="description" content="AWS RDS에는 가용성과 확장성을 위해 multi-az 라는 기능과 read replica라는 기능을 지원한다. 비슷하지만 다른 특징들을 갖고 있어 간단하게 정리해둔다.">
 <meta name="keywords" content="aws,rds,readreplica">
 <meta property="og:type" content="article">
 <meta property="og:title" content="RDS(MySQL, MariaDB) - Multi-AZ &#x2F; Read Replica (읽기전용 복제본) 관련 정리">
 <meta property="og:url" content="https:&#x2F;&#x2F;boomkim.github.io&#x2F;2018&#x2F;07&#x2F;13&#x2F;2018-07-13-rds-multiaz-readreplica-summary&#x2F;index.html">
 <meta property="og:site_name" content="Boomkim">
-<meta property="og:description" content="AWS RDS에는 가용성과 확장성을 위해 multi-az 라는 기능과 read replica라는 기능을 지원한다. 비슷하지만 다른 특징들을 갖고 있어 간단하게 정리해 보았다.  Multi-AZ  Active - Standby 구조  자동 장애 복구  동기식 복제 (Synchronous replication)  위의 그림과 같이 원본 서버에 문제가 생기면 동">
+<meta property="og:description" content="AWS RDS에는 가용성과 확장성을 위해 multi-az 라는 기능과 read replica라는 기능을 지원한다. 비슷하지만 다른 특징들을 갖고 있어 간단하게 정리해둔다.">
 <meta property="og:locale" content="ko">
 <meta property="og:image" content="https:&#x2F;&#x2F;boomkim.github.io&#x2F;images&#x2F;og_image.png">
-<meta property="og:updated_time" content="2019-12-07T04:34:39.668Z">
+<meta property="og:updated_time" content="2019-12-13T08:55:35.462Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;boomkim.github.io&#x2F;images&#x2F;og_image.png">
 
@@ -170,7 +170,9 @@
             
         </h1>
         <div class="content">
-            <p>AWS RDS에는 가용성과 확장성을 위해 multi-az 라는 기능과 read replica라는 기능을 지원한다. 비슷하지만 다른 특징들을 갖고 있어 간단하게 정리해 보았다. </p>
+            <p>AWS RDS에는 가용성과 확장성을 위해 multi-az 라는 기능과 read replica라는 기능을 지원한다. 비슷하지만 다른 특징들을 갖고 있어 간단하게 정리해둔다.</p>
+<a id="more"></a>
+
 <h2 id="Multi-AZ"><a href="#Multi-AZ" class="headerlink" title="Multi-AZ"></a>Multi-AZ</h2><p><img src="/images/rds_ha1.jpg" alt="그림1"></p>
 <ul>
 <li>Active - Standby 구조 </li>

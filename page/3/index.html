@@ -150,7 +150,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    8분 읽기 (대략 1258 단어)
+                    8분 읽기 (대략 1259 단어)
                 </span>
                 
                 
@@ -166,50 +166,16 @@
             <h2 id="SAML-이란"><a href="#SAML-이란" class="headerlink" title="SAML 이란?"></a>SAML 이란?</h2><p><strong>Security Asserting Markup Language</strong></p>
 <p>즉, <em>보안 인증에 관한 정보를 기술하는 마크업 언어</em> 정도로 생각하면 될 것 같다. 혹은 <strong>인증/인가 정보를 담은 XML</strong> 정도로 간단하게 생각하면 될 것 같다. </p>
 <h2 id="그렇다면-SAML은-어디에-쓰이는가"><a href="#그렇다면-SAML은-어디에-쓰이는가" class="headerlink" title="그렇다면 SAML은 어디에 쓰이는가?"></a>그렇다면 SAML은 어디에 쓰이는가?</h2><p><strong>SSO(Single Sign-On)을 구현하기 위해 쓰인다.</strong> SSO는 한 번의 로그인으로 여러개의 다른 도메인을 이용하려고 할때 필요한 기술이다. 예를 들어, 온프레미스에 이미 구축해 놓은 인증 시스템을 이용해서 AWS 리소스에 접근하려고 할때 AWS에 별도의 인증 시스템을 구축하지 않고 온프레미스의 인증을 그대로 쓰려고 할 때 사용한다. </p>
-<h2 id="SAML을-통한-인증-프로세스"><a href="#SAML을-통한-인증-프로세스" class="headerlink" title="SAML을 통한 인증 프로세스"></a>SAML을 통한 인증 프로세스</h2><p>SAML 인증과정을 잘 설명한 블로그 글들이 있어 소개한다. </p>
-<h4 id="간략하게-설명한-인증-과정"><a href="#간략하게-설명한-인증-과정" class="headerlink" title="간략하게 설명한 인증 과정"></a>간략하게 설명한 인증 과정</h4><p><strong>[과정1]</strong></p>
-<p><img src="/images/saml_bcho1.png" alt="그림1-1"></p>
-<ol>
-<li>Browser에서 사이트 SpA로 접속한다.</li>
-<li>사이트 SpA에는 로그인이 되어 있지 않기 때문에 (세션이 없어서). SpA에서는 SAML request를 만들어서, Browser에게로 redirect URL을 보낸다.</li>
-<li>Browser는 redirect URL에 따라 IdP에 접속하고, Idp에서 login form을 넣고 log in을 한다. 이때, IdP와 Brower 사이에 HttpSession 또는 Cookie로 Login에 대한 정보를 기록한다. 그리고 다시 사이트 SpA로의 SAML response를 포함한 redirect URL을 browser로 전송한다.</li>
-<li>Browser는 SAML reponse를 가지고 SpA로 접속하면, SpA에는 인증된 정보를 가지고 로그인 처리를 한다. ※ 이 과정에서는 바로 사이트 SpA의 사용자 페이지(예를 들어 /home)등으로 가는 것이 아니라, SAML에 의해서 미리 정의한 SpA의 SAML response 처리 URL로 갔다가 SAML response를 처리가 끝나면 인증 처리를 한후, 사용자 페이지(/home)으로 다시 redirect한다.</li>
-</ol>
-<p><strong>[과정2]</strong></p>
-<p><img src="/images/saml_bcho2.png" alt="그림1-2"></p>
-<ol>
-<li>사이트 SpA에서 로그인된 상태에서 SpB에 접속한다.</li>
-<li>사이트 SpB는 로그인이 되어 있지 않기 때문에, SAML 메시지를 만들어서 IdP의 login from으로 redirect URL을 보낸다.</li>
-<li>브라우져는 redirect URL을 따라서 IdP에 접속을 한다. IdP에 접속을 하면 앞의 과정에서 이미 Session 또는 Cookie가 만들어져 있기 때문에 별도의 로그인 폼을 띄위지 않고, SAML response message와 함께, SpB로의 redirect URL을 전송한다. </li>
-<li>Browser는 Sp B에 인증된 정보를 가지고 로그인한다.</li>
-</ol>
-<p>(출처: <a href="http://bcho.tistory.com/755?category=481504" target="_blank" rel="noopener">http://bcho.tistory.com/755?category=481504</a> [조대협의 블로그])<br><br><br></p>
-<h4 id="조금-더-디테일한-버전은-다음과-같다"><a href="#조금-더-디테일한-버전은-다음과-같다" class="headerlink" title="조금 더 디테일한 버전은 다음과 같다."></a>조금 더 디테일한 버전은 다음과 같다.</h4><p><img src="/images/saml_google.gif" alt="그림2"></p>
-<ol>
-<li>유저는 서비스 제공자(Service Provider)에게 접근한다. (서비스 이용을 위하여)</li>
-<li>서비스 제공자는 SAMLRequest를 생성한다. 생성된 SAMLRequest은 XML format의 텍스트로 구성된다.</li>
-<li>유저의 브라우저를 이용하여 인증 제공자(Identity Provider)로 Redirect 한다.</li>
-<li>인증 제공자(Identity Provider)는 SAMLRequest를 파싱하고 유저인증을 진행한다.</li>
-<li>인증제공자(Identity Provider)는 SAML Response를 생성한다.</li>
-<li>인증제공자(Identity Provider)는 유저 브라우저를 이용하여 SAMLResponse data를 ACS로 전달한다.</li>
-<li>ACS는 Service Provider가 운영하게 되는데 SAMLResponse를 확인하고 실제 서비스 사이트로 유저를 Forwarding한다.</li>
-<li>유저는 로그인에 성공하고 서비스를 제공받는다.</li>
-</ol>
-<p>(출처: <a href="http://civan.tistory.com/177" target="_blank" rel="noopener">http://civan.tistory.com/177</a> [행복만땅 개발자])<br><br><br></p>
-<h4 id="AWS와-연동은-아래-그림과-같은-과정으로-구현된다"><a href="#AWS와-연동은-아래-그림과-같은-과정으로-구현된다" class="headerlink" title="AWS와 연동은 아래 그림과 같은 과정으로 구현된다."></a>AWS와 연동은 아래 그림과 같은 과정으로 구현된다.</h4><p><img src="/images/saml-based-federation.diagram.png" alt="그림3"></p>
-<ol>
-<li>조직 내 사용자가 클라이언트 앱을 사용해 조직의 IdP로부터 인증을 요청합니다.</li>
-<li>IdP가 조직의 자격 증명 스토어를 이용하여 사용자를 인증합니다.</li>
-<li>IdP가 사용자에 대한 정보로 SAML 어설션을 만들어 클라이언트 앱으로 보냅니다.</li>
-<li>클라이언트 앱이 AWS STS AssumeRoleWithSAML API를 호출하면서 SAML 공급자의 ARN, 수임할 역할의 ARN, IdP로부터 받은 SAML 어설션을 전달합니다.</li>
-<li>클라이언트 앱에 대한 API 응답에는 임시 보안 자격 증명이 포함되어 있습니다.</li>
-<li>클라이언트 앱은 임시 보안 자격 증명을 사용해 Amazon S3 API 작업을 호출합니다.</li>
-</ol>
-<p>(출처: <a href="https://docs.aws.amazon.com/ko_kr/IAM/latest/UserGuide/id_roles_providers_saml.html" target="_blank" rel="noopener">https://docs.aws.amazon.com/ko_kr/IAM/latest/UserGuide/id_roles_providers_saml.html</a>)</p>
-<p>saml이란 무엇인지 알기위해 매우 간략하고 기초적인 내용만 정리해봤다. 더 자세한 내용은 위에서 참조한 블로그에 자세히 나와있다. 특히 <a href="http://civan.tistory.com/177" target="_blank" rel="noopener">“행복만땅 개발자” 블로그에 올라온 포스트</a>에서는 실습까지 해볼 수 있다. </p>
-
         </div>
         
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2018/07/11/2018-07-11-rough-draft-of-saml/#more">자세히 보기</a>
+                </div>
+            </div>
+        </div>
         
         
     </div>
@@ -239,7 +205,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    3분 읽기 (대략 456 단어)
+                    3분 읽기 (대략 457 단어)
                 </span>
                 
                 
@@ -253,27 +219,16 @@
         </h1>
         <div class="content">
             <p>사실 인터넷에 github page와 jekyll을 이용한 블로그 만들기에 관한 글은 많다. 근데 생각보다 각각의 연동이 잘 정리되어 있는 글은 없는 것 같아서 정리할 겸 올려본다.</p>
-<p>목차</p>
-<ol>
-<li>github page</li>
-<li>jekyll</li>
-<li>google analytics</li>
-<li>disqus</li>
-</ol>
-<p>이 블로그는 <strong>gitgub page</strong>와 <strong>jekyll</strong>이라는 것을 이용해서 만들었다. 네이버, 티스토리 등이 간편하게 블로그를 만들 수 있게 서비스해주고 있지만 네이버의 경우 커스터마이징이 힘들고 결정적으로 <strong>구글에서 검색 노출이 안된다.</strong> 티스토리를 많이들 이용하지만 초대권 받는것도 귀찮고 왠지 뭔가 다르고 힙…한 것은 없을까 찾아보다가 github에서 정적 웹페이지를 호스팅해주는 github page라는 서비스를 이용해보기로 했다. </p>
-<h3 id="github-page"><a href="#github-page" class="headerlink" title="github page"></a>github page</h3><p>깃허브는 많이 들어봤을 것이다. 깃헙페이지는 그 깃허브에서 제공하는 정적 웹페이지 호스팅 서비스이다. 정적으로 웹페이지를 올리면 그것들을 인터넷 상에 게시해 주는 서비스이다. 깃허브 페이지를 이용하면 정적인 웹페이지를 무료로 호스팅할 수 있고 <code>*.github.io</code>라는 힙한 도메인 주소를 얻을 수 있다. </p>
-<p>다음 순서를 따라가면서 간단하게 깃헙페이지를 어떻게 이용하는지 알아보자. </p>
-<ol>
-<li>깃헙 페이지 만들기 </li>
-<li>index.html </li>
-</ol>
-<h3 id="사전-요구사항"><a href="#사전-요구사항" class="headerlink" title="사전 요구사항"></a>사전 요구사항</h3><ul>
-<li>깃허브 계정</li>
-</ul>
-<p>…….. 까지 작성했으나 이것 역시 나보다 잘 정리하신 분들이 있다. 링크로 대체한다.<br>깃헙페이지 만들기: <a href="http://blog.saltfactory.net/create-personal-web-site-using-with-github-pages/" target="_blank" rel="noopener">http://blog.saltfactory.net/create-personal-web-site-using-with-github-pages/</a></p>
-
         </div>
         
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2018/07/09/2018-07-08-blogging-with-jekyll-and-github-page-1/#more">자세히 보기</a>
+                </div>
+            </div>
+        </div>
         
         
     </div>
@@ -303,7 +258,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    8분 읽기 (대략 1241 단어)
+                    8분 읽기 (대략 1242 단어)
                 </span>
                 
                 
@@ -318,35 +273,16 @@
         <div class="content">
             <p>테스트를 위한 데이터가 필요해서 데이터를 만들어야 할 때가 있다. 적은 양의 데이터는 수동으로 일일히 만들수도 있지만 데이터 양이 많아지면(1000건만 넘어가도…) 하나씩 만드는 건 너무 노가다.</p>
 <p>그럴 때 데이터가 복잡하지 않고 단순한 구성일 경우에는 파이썬을 이용해 간단하게 생성할 수 있다. </p>
-<h3 id="random-모듈을-이용해-간단하게-짠-코드"><a href="#random-모듈을-이용해-간단하게-짠-코드" class="headerlink" title="random 모듈을 이용해 간단하게 짠 코드"></a><em>random 모듈</em>을 이용해 간단하게 짠 코드</h3><p>아래의 코드는 <em>int형 데이터 3개, varchar 형 13개, datetime형 4개로 이루어진 레코드 1000개</em> 를 만들어서 csv 파일로 저장한다. </p>
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> csv</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> random</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> datetime</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> timeit</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> argparse</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Argparser</span>:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">        self.parser = argparse.ArgumentParser()</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">        self.init_parser()</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">init_parser</span><span class="hljs-params">(self)</span>:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">        parser = self.parser</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">        parser.add_argument(<span class="hljs-string">"-i"</span>, <span class="hljs-string">"--integers"</span>, help=<span class="hljs-string">"how many integer value do you want to generate"</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">        parser.add_argument(<span class="hljs-string">"-ri"</span>, <span class="hljs-string">"--range-integer"</span>, help=<span class="hljs-string">"describe range of integer"</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">        parser.add_argument(<span class="hljs-string">"-vc"</span>, <span class="hljs-string">"--varchars"</span>, help=<span class="hljs-string">"how many varchar value do you want to generate"</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line">        parser.add_argument(<span class="hljs-string">"-t"</span>, <span class="hljs-string">"--texts"</span>, help=<span class="hljs-string">"how many text value do you want to generate"</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line">        parser.add_argument(<span class="hljs-string">"-dt"</span>, <span class="hljs-string">"--dates"</span>, help=<span class="hljs-string">"how many datetime value do you want to generate"</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line">        parser.add_argument(<span class="hljs-string">"-d"</span>, <span class="hljs-string">"--doubles"</span>, help=<span class="hljs-string">"how many double value do you want to generate"</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><span class="line">        parser.add_argument(<span class="hljs-string">"-r"</span>, <span class="hljs-string">"--rows"</span>, help=<span class="hljs-string">"describe number of rows"</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><span class="line">        parser.add_argument(<span class="hljs-string">"-ta"</span>, <span class="hljs-string">"--textarrays"</span>, help=<span class="hljs-string">"how many text arrays..."</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">23</span></pre></td><td class="code"><pre><span class="line">        parser.add_argument(<span class="hljs-string">"-o"</span>, <span class="hljs-string">"--output"</span>, help=<span class="hljs-string">"describe file name"</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">24</span></pre></td><td class="code"><pre><span class="line">        self.parser = parser</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">25</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">26</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">27</span></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Generator</span>:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">28</span></pre></td><td class="code"><pre><span class="line">    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, args)</span>:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">29</span></pre></td><td class="code"><pre><span class="line">        self.rows = int(args.rows) <span class="hljs-keyword">if</span> args.rows <span class="hljs-keyword">else</span> <span class="hljs-number">1000</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">30</span></pre></td><td class="code"><pre><span class="line">        self.filename = args.output <span class="hljs-keyword">if</span> args.output <span class="hljs-keyword">else</span> <span class="hljs-string">"out.csv"</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">31</span></pre></td><td class="code"><pre><span class="line">        self.integers = int(args.integers) <span class="hljs-keyword">if</span> args.integers <span class="hljs-keyword">else</span> <span class="hljs-number">5</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">32</span></pre></td><td class="code"><pre><span class="line">        self.varchars = int(args.varchars) <span class="hljs-keyword">if</span> args.varchars <span class="hljs-keyword">else</span> <span class="hljs-number">5</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">33</span></pre></td><td class="code"><pre><span class="line">        self.texts = int(args.texts) <span class="hljs-keyword">if</span> args.texts <span class="hljs-keyword">else</span> <span class="hljs-number">5</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">34</span></pre></td><td class="code"><pre><span class="line">        self.doubles = int(args.doubles) <span class="hljs-keyword">if</span> args.doubles <span class="hljs-keyword">else</span> <span class="hljs-number">5</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">35</span></pre></td><td class="code"><pre><span class="line">        self.dates = int(args.dates) <span class="hljs-keyword">if</span> args.dates <span class="hljs-keyword">else</span> <span class="hljs-number">1</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">36</span></pre></td><td class="code"><pre><span class="line">        self.textarrays = int(args.textarrays) <span class="hljs-keyword">if</span> args.textarrays <span class="hljs-keyword">else</span> <span class="hljs-number">0</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">37</span></pre></td><td class="code"><pre><span class="line">        self.text_pool = [<span class="hljs-string">'Amazon Elastic Compute Cloud (Amazon EC2)'</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">38</span></pre></td><td class="code"><pre><span class="line">                          <span class="hljs-string">'First you need to get set up to use Amazon EC2.'</span>, </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">39</span></pre></td><td class="code"><pre><span class="line">                          <span class="hljs-string">'You can provision Amazon EC2 resources such as instances and volumes.'</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">40</span></pre></td><td class="code"><pre><span class="line">                          <span class="hljs-string">'If you prefer to build applications using language-sp.'</span>]</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">41</span></pre></td><td class="code"><pre><span class="line">        self.word_pool = self.text_pool[<span class="hljs-number">0</span>].split()</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">42</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">43</span></pre></td><td class="code"><pre><span class="line">    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">generate</span><span class="hljs-params">(self)</span>:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">44</span></pre></td><td class="code"><pre><span class="line">        f = open(self.filename, <span class="hljs-string">'w'</span>, encoding=<span class="hljs-string">'utf-8'</span>, newline=<span class="hljs-string">''</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">45</span></pre></td><td class="code"><pre><span class="line">        wr = csv.writer(f)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">46</span></pre></td><td class="code"><pre><span class="line">        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>, self.rows):</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">47</span></pre></td><td class="code"><pre><span class="line">            idx = [i + <span class="hljs-number">1</span>]</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">48</span></pre></td><td class="code"><pre><span class="line">            val_ints = []</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">49</span></pre></td><td class="code"><pre><span class="line">            val_varchars = []</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">50</span></pre></td><td class="code"><pre><span class="line">            val_texts = []</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">51</span></pre></td><td class="code"><pre><span class="line">            val_doubles = []</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">52</span></pre></td><td class="code"><pre><span class="line">            val_dates = []</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">53</span></pre></td><td class="code"><pre><span class="line">            val_textarrays = []</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">54</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">55</span></pre></td><td class="code"><pre><span class="line">            <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>, self.integers):</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">56</span></pre></td><td class="code"><pre><span class="line">                val_ints.append(random.randrange(<span class="hljs-number">0</span>, <span class="hljs-number">10000</span>))</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">57</span></pre></td><td class="code"><pre><span class="line">            <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>, self.varchars):</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">58</span></pre></td><td class="code"><pre><span class="line">                val_varchars.append(random.choice(self.word_pool))</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">59</span></pre></td><td class="code"><pre><span class="line">            <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>, self.texts):</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">60</span></pre></td><td class="code"><pre><span class="line">                val_texts.append(random.choice(self.text_pool))</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">61</span></pre></td><td class="code"><pre><span class="line">            <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>, self.textarrays):</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">62</span></pre></td><td class="code"><pre><span class="line">                val_textarrays.append(<span class="hljs-string">'&#123;\"abc\",\"def\",\"ghi\"&#125;'</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">63</span></pre></td><td class="code"><pre><span class="line">            <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>, self.dates):</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">64</span></pre></td><td class="code"><pre><span class="line">                val_dates.append(datetime.datetime.now().strftime(<span class="hljs-string">'%Y-%m-%d %H:%M:%S'</span>))</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">65</span></pre></td><td class="code"><pre><span class="line">            <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>, self.doubles):</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">66</span></pre></td><td class="code"><pre><span class="line">                val_doubles.append(random.random())</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">67</span></pre></td><td class="code"><pre><span class="line">            wr.writerow(idx + val_ints + val_varchars + val_texts + val_textarrays + val_dates + val_doubles)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">68</span></pre></td><td class="code"><pre><span class="line">        f.close()</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">69</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">70</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">71</span></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">"__main__"</span>:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">72</span></pre></td><td class="code"><pre><span class="line">    parser = Argparser()</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">73</span></pre></td><td class="code"><pre><span class="line">    args = parser.parser.parse_args()</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">74</span></pre></td><td class="code"><pre><span class="line">    print(<span class="hljs-string">"Generating file..."</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">75</span></pre></td><td class="code"><pre><span class="line">    start = timeit.default_timer()</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">76</span></pre></td><td class="code"><pre><span class="line">    generator = Generator(args)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">77</span></pre></td><td class="code"><pre><span class="line">    generator.generate()</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">78</span></pre></td><td class="code"><pre><span class="line">    stop = timeit.default_timer()</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">79</span></pre></td><td class="code"><pre><span class="line">    print(generator.filename + <span class="hljs-string">" is created. "</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">80</span></pre></td><td class="code"><pre><span class="line">    print(<span class="hljs-string">"It took "</span> + str(stop - start) + <span class="hljs-string">" seconds to generate data."</span>)</span></pre></td></tr></table></figure>
-
-<h3 id="간단하게-설명하자면…"><a href="#간단하게-설명하자면…" class="headerlink" title="간단하게 설명하자면…"></a>간단하게 설명하자면…</h3><p><strong>각 데이터에 맞는 값을 random모듈을 통해 생성하고 csv형태에 맞게 출력한다.</strong></p>
-<ul>
-<li><code>random.randrange()</code>를 이용해 int를 만들고</li>
-<li><code>random.choice()</code>를 통해 문자열을 만들고 </li>
-<li><code>datetime.datetime.now().strftime(&#39;%Y-%m-%d %H:%M:%S&#39;)</code> 을 이용해 현재 시간을 스트링으로 만든다</li>
-</ul>
-<p>너무 쉬워서 설명이 이게 끝이다. 여기에 코드를 추가해서 데이터에 변화를 줄 수도 있다. random모듈에 내장되어 있는 정규분포함수를 이용해 정규분포에 따르는 데이터를 만들수도 있고 랜덤함수 여러개를 사용해서 값을 좀더 풍성하게 바꿀 수도 있다.<br><br><br></p>
-<hr>
-<br>
-### 사이드 프로젝트...?
-
-<p>데이터 생성기를 만드는 건 간단하지만 활용도는 꽤 높은 것 같다. 위 코드는 그냥 하드 코딩이어서 재사용하려면 일일이 수정해 줘야 한다. 그런데 앞으로 쓸 일이 많아서 재사용할수 있는 형태로 만들어 보려고 한다. </p>
-<ol>
-<li>커맨드라인으로 커스터마이징이 가능한 파이썬 프로그램 </li>
-<li>웹을 통해 만들고자 하는 데이터의 정보/포맷을 입력하면 csv파일을 다운로드를 받을 수 있는 서비스 </li>
-</ol>
-<p>2번의 경우 고민할 것이 많아지겠지만(연산을 어디에서 할 것인지, 서버를 둘 것인지, 어떤 언어를 사용할 것인지 등등…) 사이드 프로젝트로 적당한 난이도와 규모가 아닐까 싶다. 필요한 사람도 꽤 있을 것 같고…<br><br><br></p>
-<hr>
-<br>
-#### 추가사항...
-
-<p>데이터를 만들다보니 많은 데이터를 만들경우 위 코드를 사용하면 시간이 너무 오래 걸린다(20개 컬럼 1억 5천만 줄 생성시 1시간 30분 이상 소요). cpu사양도 높으면 좋겠지만 파이썬은 기본적으로 한개의 쓰레드에서만 동작하니 아무리 cpu의 코어 수, 쓰레드 수가 많아도 쓰질 않으니 소용이 없다. 그래서 <strong>쓰레딩을 도입</strong>해보려고 한다. 다음 포스팅에서는 간단하게 쓰레딩을 도입해서 쓰레딩 도입 한 것과 안 한 것을 비교해 봐야겠다.</p>
-<p> <em>+ 만약에 이 코드를 c나 Java, go등의 언어로 짜면 성능이 얼마나 개선될까?</em></p>
-
         </div>
         
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2018/07/05/2018-07-05-python-generate-simple-data-in-csv/#more">자세히 보기</a>
+                </div>
+            </div>
+        </div>
         
         
     </div>
@@ -480,42 +416,6 @@
 </div>
     
         
-    
-        <div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-        <h3 class="menu-label">
-            링크
-        </h3>
-        <ul class="menu-list">
-        
-            <li>
-                <a class="level is-mobile" href="https://hexo.io" target="_blank">
-                    <span class="level-left">
-                        <span class="level-item">Hexo</span>
-                    </span>
-                    <span class="level-right">
-                        <span class="level-item tag">hexo.io</span>
-                    </span>
-                </a>
-            </li>
-        
-            <li>
-                <a class="level is-mobile" href="https://github.com/ppoffice" target="_blank">
-                    <span class="level-left">
-                        <span class="level-item">PPOffice</span>
-                    </span>
-                    <span class="level-right">
-                        <span class="level-item tag">github.com</span>
-                    </span>
-                </a>
-            </li>
-        
-        </ul>
-        </div>
-    </div>
-</div>
-
     
         
 <div class="card widget">
@@ -771,16 +671,16 @@
         
         <article class="media">
             
-            <a href="/2019/06/07/2019-06-07-athena-cf-log-analysis/" class="media-left">
+            <a href="/2019/06/07/2019-06-20-amazon-elasticsearch-dedicated-master-free-storage/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="AWS Athena, CF Log 분석을 위한 쿼리 예시">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Amazon Elasticsearch Dedicated Master의 스토리지 비용은?">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-06T15:00:00.000Z">2019-06-07</time></div>
-                    <a href="/2019/06/07/2019-06-07-athena-cf-log-analysis/" class="title has-link-black-ter is-size-6 has-text-weight-normal">AWS Athena, CF Log 분석을 위한 쿼리 예시</a>
+                    <a href="/2019/06/07/2019-06-20-amazon-elasticsearch-dedicated-master-free-storage/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Amazon Elasticsearch Dedicated Master의 스토리지 비용은?</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/AWS/">AWS</a> / <a class="has-link-grey -link" href="/categories/AWS/Data-Analytics/">Data Analytics</a>
                     </p>
@@ -1336,16 +1236,16 @@
         
         <article class="media">
             
-            <a href="/2019/06/07/2019-06-07-athena-cf-log-analysis/" class="media-left">
+            <a href="/2019/06/07/2019-06-20-amazon-elasticsearch-dedicated-master-free-storage/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="AWS Athena, CF Log 분석을 위한 쿼리 예시">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Amazon Elasticsearch Dedicated Master의 스토리지 비용은?">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-06T15:00:00.000Z">2019-06-07</time></div>
-                    <a href="/2019/06/07/2019-06-07-athena-cf-log-analysis/" class="title has-link-black-ter is-size-6 has-text-weight-normal">AWS Athena, CF Log 분석을 위한 쿼리 예시</a>
+                    <a href="/2019/06/07/2019-06-20-amazon-elasticsearch-dedicated-master-free-storage/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Amazon Elasticsearch Dedicated Master의 스토리지 비용은?</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/AWS/">AWS</a> / <a class="has-link-grey -link" href="/categories/AWS/Data-Analytics/">Data Analytics</a>
                     </p>

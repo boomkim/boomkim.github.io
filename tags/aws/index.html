@@ -7,12 +7,12 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>태그: aws - Boomkim</title>
+<title>태그: AWS - Boomkim</title>
 
 
     <meta property="og:type" content="website">
 <meta property="og:title" content="Boomkim">
-<meta property="og:url" content="https:&#x2F;&#x2F;boomkim.github.io&#x2F;tags&#x2F;aws&#x2F;index.html">
+<meta property="og:url" content="https:&#x2F;&#x2F;boomkim.github.io&#x2F;tags&#x2F;AWS&#x2F;index.html">
 <meta property="og:site_name" content="Boomkim">
 <meta property="og:locale" content="ko">
 <meta property="og:image" content="https:&#x2F;&#x2F;boomkim.github.io&#x2F;images&#x2F;og_image.png">
@@ -137,7 +137,7 @@
         <nav class="breadcrumb" aria-label="breadcrumbs">
         <ul>
             <li><a href="/tags">태그</a></li>
-            <li class="is-active"><a href="#" aria-current="page">aws</a></li>
+            <li class="is-active"><a href="#" aria-current="page">AWS</a></li>
         </ul>
         </nav>
     </div>
@@ -150,17 +150,17 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-06-06T15:00:00.000Z">2019-06-07</time>
+                <time class="level-item has-text-grey" datetime="2019-06-28T15:00:00.000Z">2019-06-29</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/AWS/">AWS</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/AWS/Data-Analytics/">Data Analytics</a>
+                <a class="has-link-grey -link" href="/categories/AWS/">AWS</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/AWS/EMR/">EMR</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    9분 읽기 (대략 1286 단어)
+                    15분 읽기 (대략 2176 단어)
                 </span>
                 
                 
@@ -169,126 +169,19 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2019/06/07/2019-06-07-athena-cf-log-analysis/">AWS Athena, CF Log 분석을 위한 쿼리 예시</a>
+                <a class="has-link-black-ter" href="/2019/06/29/2019-06-29-EMR-Athena-Zepplin/">EMR 에 올라간 Zeppelin 활용하여 Athena 이용하기. </a>
             
         </h1>
         <div class="content">
-            <h1 id="AWS-Athena-Cloudfront-Log-분석을-위한-쿼리-예시"><a href="#AWS-Athena-Cloudfront-Log-분석을-위한-쿼리-예시" class="headerlink" title="AWS Athena, Cloudfront Log 분석을 위한 쿼리 예시"></a>AWS Athena, Cloudfront Log 분석을 위한 쿼리 예시</h1><p>Cloudfront는 고맙게도 Edge단에서 발생하는 처리 로그들을 모아서 제공해 줍니다. CF Log는 기본적으로 S3에 gz 형태로 압축되엇 제공이 되고<br>다음과 같은 DDL을 통해 테이블을 정의하면 Athena에서 조회할 수 있습니다. </p>
-<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">EXTERNAL</span> <span class="hljs-keyword">TABLE</span> <span class="hljs-keyword">IF</span> <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">EXISTS</span> default.cloudfront_logs (</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  <span class="hljs-string">`date`</span> <span class="hljs-built_in">DATE</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">  <span class="hljs-built_in">time</span> <span class="hljs-keyword">STRING</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">  location <span class="hljs-keyword">STRING</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">  <span class="hljs-keyword">bytes</span> <span class="hljs-built_in">BIGINT</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">  request_ip <span class="hljs-keyword">STRING</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">  method <span class="hljs-keyword">STRING</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">  host <span class="hljs-keyword">STRING</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">  uri <span class="hljs-keyword">STRING</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">  <span class="hljs-keyword">status</span> <span class="hljs-built_in">INT</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">  referrer <span class="hljs-keyword">STRING</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">  user_agent <span class="hljs-keyword">STRING</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">  query_string <span class="hljs-keyword">STRING</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">  cookie <span class="hljs-keyword">STRING</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">  result_type <span class="hljs-keyword">STRING</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">  request_id <span class="hljs-keyword">STRING</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">  host_header <span class="hljs-keyword">STRING</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line">  request_protocol <span class="hljs-keyword">STRING</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line">  request_bytes <span class="hljs-built_in">BIGINT</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line">  time_taken <span class="hljs-built_in">FLOAT</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><span class="line">  xforwarded_for <span class="hljs-keyword">STRING</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><span class="line">  ssl_protocol <span class="hljs-keyword">STRING</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">23</span></pre></td><td class="code"><pre><span class="line">  ssl_cipher <span class="hljs-keyword">STRING</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">24</span></pre></td><td class="code"><pre><span class="line">  response_result_type <span class="hljs-keyword">STRING</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">25</span></pre></td><td class="code"><pre><span class="line">  http_version <span class="hljs-keyword">STRING</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">26</span></pre></td><td class="code"><pre><span class="line">  fle_status <span class="hljs-keyword">STRING</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">27</span></pre></td><td class="code"><pre><span class="line">  fle_encrypted_fields <span class="hljs-built_in">INT</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">28</span></pre></td><td class="code"><pre><span class="line">)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">29</span></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">ROW</span> <span class="hljs-keyword">FORMAT</span> <span class="hljs-keyword">DELIMITED</span> </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">30</span></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">FIELDS</span> <span class="hljs-keyword">TERMINATED</span> <span class="hljs-keyword">BY</span> <span class="hljs-string">'\t'</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">31</span></pre></td><td class="code"><pre><span class="line">LOCATION <span class="hljs-string">'s3://CloudFront_bucket_name/AWSLogs/ACCOUNT_ID/'</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">32</span></pre></td><td class="code"><pre><span class="line">TBLPROPERTIES ( <span class="hljs-string">'skip.header.line.count'</span>=<span class="hljs-string">'2'</span> )</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">33</span></pre></td><td class="code"><pre><span class="line"><span class="hljs-string">``</span><span class="hljs-string">` </span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">34</span></pre></td><td class="code"><pre><span class="line"><span class="hljs-string">출처: https://docs.aws.amazon.com/ko_kr/athena/latest/ug/cloudfront-logs.html</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">35</span></pre></td><td class="code"><pre><span class="line"><span class="hljs-string"></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">36</span></pre></td><td class="code"><pre><span class="line"><span class="hljs-string">위의 쿼리문에서 다른것은 수정할 것 없이 `</span>LOCATION<span class="hljs-string">` 뒤의 s3 버킷 주소만 자신의 버킷에 맞게 수정해주면 됩니다. </span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">37</span></pre></td><td class="code"><pre><span class="line"><span class="hljs-string"></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">38</span></pre></td><td class="code"><pre><span class="line"><span class="hljs-string">이렇게 테이블 정의를 하고 나면 필요에 따라 쿼리를 날려 CF로그를 분석 할 수 있습니다. CF Cache Statistics 등에서도 통계를 제공해주기 때문에 통계에 관한 쿼리가 별로 필요하지 않을 수도 있지만, 따로 대시보드를 구성해 시각화 툴과 연계한다던가 할때는 필요할만한 것들을 모아봤습니다. Troubleshooting이 필요할 때는 그때그때 상황에 맞게 쿼리를 해야해서 예시를 들기가 어렵네요. 아래 예시 쿼리들은 참고만 하시고 필요에 맞게 변경해서 사용하시기 바랍니다. </span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">39</span></pre></td><td class="code"><pre><span class="line"><span class="hljs-string"></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">40</span></pre></td><td class="code"><pre><span class="line"><span class="hljs-string"># 쿼리 예시 </span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">41</span></pre></td><td class="code"><pre><span class="line"><span class="hljs-string"></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">42</span></pre></td><td class="code"><pre><span class="line"><span class="hljs-string">## 일별 사용량 (GB)</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">43</span></pre></td><td class="code"><pre><span class="line"><span class="hljs-string">`</span><span class="hljs-string">``</span><span class="hljs-keyword">SQL</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">44</span></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">SELECT</span> </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">45</span></pre></td><td class="code"><pre><span class="line">	<span class="hljs-built_in">date</span>, <span class="hljs-keyword">sum</span>(<span class="hljs-keyword">bytes</span>)/<span class="hljs-number">1024</span>/<span class="hljs-number">1024</span>/<span class="hljs-number">1024</span> <span class="hljs-keyword">as</span> GB  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">46</span></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">FROM</span> </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">47</span></pre></td><td class="code"><pre><span class="line">	<span class="hljs-string">"sample_db"</span>.<span class="hljs-string">"cloudfront_logs"</span> </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">48</span></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">49</span></pre></td><td class="code"><pre><span class="line">	<span class="hljs-built_in">date</span>;</span></pre></td></tr></table></figure>
-
-<h2 id="CloudFront-응답-별-카운트"><a href="#CloudFront-응답-별-카운트" class="headerlink" title="CloudFront 응답 별 카운트"></a>CloudFront 응답 별 카운트</h2><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">SELECT</span> </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">	response_result_type, <span class="hljs-keyword">count</span>(*) <span class="hljs-keyword">as</span> cnt </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">FROM</span> </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">	<span class="hljs-string">"sample_db"</span>.<span class="hljs-string">"cloudfront_logs"</span> </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">	response_result_type</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">	cnt <span class="hljs-keyword">DESC</span>;</span></pre></td></tr></table></figure>
-
-<h2 id="에러의-응답-코드-별-조회"><a href="#에러의-응답-코드-별-조회" class="headerlink" title="에러의 응답 코드 별 조회"></a>에러의 응답 코드 별 조회</h2><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">SELECT</span> </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">	<span class="hljs-keyword">status</span>, <span class="hljs-keyword">count</span>(*) <span class="hljs-keyword">as</span> cnt</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">FROM</span> </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">	<span class="hljs-string">"sample_db"</span>.<span class="hljs-string">"cloudfront_logs"</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">WHERE</span> </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">	result_type = <span class="hljs-string">'Error'</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">	<span class="hljs-keyword">status</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">	cnt <span class="hljs-keyword">DESC</span>;</span></pre></td></tr></table></figure>
-
-<h2 id="상위-20개-에러-4XX-5XX-uri"><a href="#상위-20개-에러-4XX-5XX-uri" class="headerlink" title="상위 20개 에러(4XX,5XX) uri"></a>상위 20개 에러(4XX,5XX) uri</h2><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">SELECT</span> </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">	uri, <span class="hljs-keyword">count</span>(*) <span class="hljs-keyword">as</span> cnt </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">FROM</span> </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">	<span class="hljs-string">"sample_db"</span>.<span class="hljs-string">"cloudfront_logs"</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">WHERE</span> </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">	result_type = <span class="hljs-string">'Error'</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">	uri</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">	cnt <span class="hljs-keyword">DESC</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">limit</span> <span class="hljs-number">20</span>;</span></pre></td></tr></table></figure>
-
-<h2 id="상위-20개-요청ip-count"><a href="#상위-20개-요청ip-count" class="headerlink" title="상위 20개 요청ip count"></a>상위 20개 요청ip count</h2><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">SELECT</span> </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">	request_ip, <span class="hljs-keyword">COUNT</span>(*) <span class="hljs-keyword">AS</span> cnt </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">FROM</span> </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">	cloudfront_logs</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">	request_ip</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">	cnt <span class="hljs-keyword">DESC</span>;</span></pre></td></tr></table></figure>
-
-<h2 id="상위-20-Referrer-Count"><a href="#상위-20-Referrer-Count" class="headerlink" title="상위 20 Referrer Count"></a>상위 20 Referrer Count</h2><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">SELECT</span> </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">	referrer, <span class="hljs-keyword">count</span>(*) <span class="hljs-keyword">as</span> cnt </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">FROM</span> </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">	<span class="hljs-string">"sample_db"</span>.<span class="hljs-string">"cloudfront_logs"</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">	referrer</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">	cnt <span class="hljs-keyword">DESC</span> </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">LIMIT</span> <span class="hljs-number">20</span>;</span></pre></td></tr></table></figure>
-
-
-<h1 id="시계열-분석-예시"><a href="#시계열-분석-예시" class="headerlink" title="시계열 분석 예시"></a>시계열 분석 예시</h1><p>시계열 분석을 위해서는 기본 테이블에 저장된 date, time의 데이터를 concat(), from_iso8601_timestamp(), date_trunc() 등을 이용해 변환해주어야 합니다.<br>Athena는 Select 절에서 Alias가 잘 만들어지지 않아서 cte를 쓰는 편이 편합니다. </p>
-<h2 id="CTE-예시"><a href="#CTE-예시" class="headerlink" title="CTE 예시"></a>CTE 예시</h2><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">WITH</span> cte <span class="hljs-keyword">AS</span> (</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">	<span class="hljs-keyword">SELECT</span> from_iso8601_timestamp(<span class="hljs-keyword">concat</span>(<span class="hljs-keyword">concat</span>(<span class="hljs-keyword">date_format</span>(<span class="hljs-built_in">date</span>, <span class="hljs-string">'%Y-%m-%d'</span>), <span class="hljs-string">'T'</span>), <span class="hljs-built_in">time</span>)) <span class="hljs-keyword">AS</span> ts</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    <span class="hljs-keyword">FROM</span> <span class="hljs-string">"sample_db"</span>.<span class="hljs-string">"cloudfront_logs"</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">)</span></pre></td></tr></table></figure>
-
-<h2 id="5월-29일-UTC-기준-시간별-요청수-오름차순"><a href="#5월-29일-UTC-기준-시간별-요청수-오름차순" class="headerlink" title="5월 29일(UTC 기준) 시간별 요청수, 오름차순"></a>5월 29일(UTC 기준) 시간별 요청수, 오름차순</h2><figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">WITH</span> cte <span class="hljs-keyword">AS</span> (</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">	<span class="hljs-keyword">SELECT</span> from_iso8601_timestamp(<span class="hljs-keyword">concat</span>(<span class="hljs-keyword">concat</span>(<span class="hljs-keyword">date_format</span>(<span class="hljs-built_in">date</span>, <span class="hljs-string">'%Y-%m-%d'</span>), <span class="hljs-string">'T'</span>), <span class="hljs-built_in">time</span>)) <span class="hljs-keyword">AS</span> ts</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    <span class="hljs-keyword">FROM</span> <span class="hljs-string">"sample_db"</span>.<span class="hljs-string">"cloudfront_logs"</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">)<span class="hljs-keyword">SELECT</span> </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">	date_trunc(<span class="hljs-string">'hour'</span>,ts) <span class="hljs-keyword">as</span> <span class="hljs-built_in">TIME</span>, <span class="hljs-keyword">count</span>(*) <span class="hljs-keyword">as</span> CNT</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">FROM</span> cte</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">WHERE</span> </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">	ts &gt;= from_iso8601_timestamp(<span class="hljs-string">'2019-05-29T00:00:00'</span>) <span class="hljs-keyword">AND</span> </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">	ts &lt; from_iso8601_timestamp(<span class="hljs-string">'2019-05-30T00:00:00'</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">	date_trunc(<span class="hljs-string">'hour'</span>,ts)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">	date_trunc(<span class="hljs-string">'hour'</span>,ts);</span></pre></td></tr></table></figure>
-
-<h2 id="5월-29일-UTC-기준-시간별-전송량-Gb"><a href="#5월-29일-UTC-기준-시간별-전송량-Gb" class="headerlink" title="5월 29일(UTC 기준) 시간별 전송량(Gb)"></a>5월 29일(UTC 기준) 시간별 전송량(Gb)</h2><pre><code class="SQL"><span class="keyword">WITH</span> cte <span class="keyword">AS</span> (
-    <span class="keyword">SELECT</span> from_iso8601_timestamp(<span class="keyword">concat</span>(<span class="keyword">concat</span>(<span class="keyword">date_format</span>(<span class="built_in">date</span>, <span class="string">'%Y-%m-%d'</span>), <span class="string">'T'</span>), <span class="built_in">time</span>)), <span class="keyword">bytes</span> <span class="keyword">AS</span> ts
-    <span class="keyword">FROM</span> <span class="string">"sample_db"</span>.<span class="string">"cloudfront_logs"</span>
-)<span class="keyword">SELECT</span> 
-    date_trunc(<span class="string">'hour'</span>,ts) <span class="keyword">as</span> <span class="built_in">TIME</span>, <span class="keyword">sum</span>(<span class="keyword">bytes</span>)/<span class="number">1024</span>/<span class="number">1024</span>/<span class="number">1024</span> <span class="keyword">as</span> Gb
-<span class="keyword">FROM</span> cte
-<span class="keyword">WHERE</span> 
-    ts &gt;= from_iso8601_timestamp(<span class="string">'2019-05-29T00:00:00'</span>)<span class="keyword">AND</span> 
-    ts &lt; from_iso8601_timestamp(<span class="string">'2019-05-30T00:00:00'</span>)
-<span class="keyword">GROUP</span> <span class="keyword">BY</span> 
-    date_trunc(<span class="string">'hour'</span>,ts)
-<span class="keyword">ORDER</span> <span class="keyword">BY</span> 
-    date_trunc(<span class="string">'hour'</span>,ts);</code></pre>
-<h2 id="5월-29일-UTC-기준-시간별-에러수"><a href="#5월-29일-UTC-기준-시간별-에러수" class="headerlink" title="5월 29일(UTC 기준) 시간별 에러수"></a>5월 29일(UTC 기준) 시간별 에러수</h2><pre><code class="SQL"><span class="keyword">WITH</span> cte <span class="keyword">AS</span> (
-    <span class="keyword">SELECT</span> from_iso8601_timestamp(<span class="keyword">concat</span>(<span class="keyword">concat</span>(<span class="keyword">date_format</span>(<span class="built_in">date</span>, <span class="string">'%Y-%m-%d'</span>), <span class="string">'T'</span>), <span class="built_in">time</span>)) <span class="keyword">AS</span> ts
-    <span class="keyword">FROM</span> <span class="string">"sample_db"</span>.<span class="string">"cloudfront_logs"</span>
-)<span class="keyword">SELECT</span> 
-    date_trunc(<span class="string">'hour'</span>,ts) <span class="keyword">as</span> <span class="built_in">TIME</span>, <span class="keyword">count</span>(*) <span class="keyword">as</span> CNT
-<span class="keyword">FROM</span> 
-    cte
-<span class="keyword">WHERE</span> 
-    ts &gt;= from_iso8601_timestamp(<span class="string">'2019-05-29T00:00:00'</span>) <span class="keyword">AND</span> 
-    ts &lt; from_iso8601_timestamp(<span class="string">'2019-05-30T00:00:00'</span>) <span class="keyword">AND</span> 
-    result_type = <span class="string">'Error'</span>
-<span class="keyword">GROUP</span> <span class="keyword">BY</span> 
-    date_trunc(<span class="string">'hour'</span>,ts)
-<span class="keyword">ORDER</span> <span class="keyword">BY</span> 
-    date_trunc(<span class="string">'hour'</span>,ts);</code></pre>
-<h2 id="시간별-평균-전송시간"><a href="#시간별-평균-전송시간" class="headerlink" title="시간별 평균 전송시간"></a>시간별 평균 전송시간</h2><pre><code class="SQL"><span class="keyword">WITH</span> cte <span class="keyword">AS</span> (
-    <span class="keyword">SELECT</span> from_iso8601_timestamp(<span class="keyword">concat</span>(<span class="keyword">concat</span>(<span class="keyword">date_format</span>(<span class="built_in">date</span>, <span class="string">'%Y-%m-%d'</span>), <span class="string">'T'</span>), <span class="built_in">time</span>)) <span class="keyword">AS</span> ts, time_taken
-    <span class="keyword">FROM</span> <span class="string">"sample_db"</span>.<span class="string">"cloudfront_logs"</span>
-)<span class="keyword">SELECT</span> 
-    date_trunc(<span class="string">'hour'</span>,ts) <span class="keyword">as</span> <span class="built_in">TIME</span>, <span class="keyword">avg</span>(time_taken) <span class="keyword">as</span> avg_time
-<span class="keyword">FROM</span> cte
-<span class="keyword">WHERE</span> 
-    ts &gt;= from_iso8601_timestamp(<span class="string">'2018-05-29T00:00:00'</span>) <span class="keyword">AND</span> 
-    ts &lt; from_iso8601_timestamp(<span class="string">'2019-05-30T00:00:00'</span>)
-<span class="keyword">GROUP</span> <span class="keyword">BY</span> 
-    date_trunc(<span class="string">'hour'</span>,ts)
-<span class="keyword">ORDER</span> <span class="keyword">BY</span> 
-    date_trunc(<span class="string">'hour'</span>,ts);</code></pre>
-<h2 id="주의할-점"><a href="#주의할-점" class="headerlink" title="주의할 점"></a>주의할 점</h2><p>Athena는 스캔한 데이터의 양에 비례해서 과금이 됩니다. 그런데 Cloudfront Log는 보통 양이 상당히 많은데도 데이터가 파티셔닝되지 않고 하나의 버킷에 통째로 저장이 되죠. <b>결국 Cloudfront의 Log 양이 상당해지면 Athena가 스캔하는 데이터의 양도 늘어나고 그러면 성능도 느려지겠죠.</b></p>
-<p>따라서 데이터의 양이 많아지는 경우, 파티셔닝을 고려해봐야 합니다. 여기 <a href="https://aws.amazon.com/ko/blogs/big-data/analyze-your-amazon-cloudfront-access-logs-at-scale/" target="_blank" rel="noopener">AWS 블로그</a>에서 Cloudfront로그를 파티셔닝하고, 파싱해서 더 많은 정보를 부여 (예를들어, bot인지 아닌지 여부를 판단해서 isBot이라는 column을 추가)하는 예제를 만들어 놓았네요. 따라해보진 않았지만 꽤 유용할것 같습니다. 글이 포스팅된지 꽤 된것 같은데 한국어로 번역된글도 없는걸 보니 한번 따라해보면서 번역글을 작성해도 괜찮겠네요. </p>
-
-        </div>
-        
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    
-<div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-06-06T15:00:00.000Z">2019-06-07</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/AWS/">AWS</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/AWS/Data-Analytics/">Data Analytics</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    3분 읽기 (대략 462 단어)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/06/07/2019-06-20-amazon-elasticsearch-dedicated-master-free-storage/">Amazon Elasticsearch Dedicated Master의 스토리지 비용은?</a>
-            
-        </h1>
-        <div class="content">
-            <h1 id="Amazon-Elasticsearch-Dedicated-Master의-스토리지-비용은"><a href="#Amazon-Elasticsearch-Dedicated-Master의-스토리지-비용은" class="headerlink" title="Amazon Elasticsearch Dedicated Master의 스토리지 비용은?"></a>Amazon Elasticsearch Dedicated Master의 스토리지 비용은?</h1><p>Amazon Elasticsearch 에는 Dedicated Master를 설정해줄 수 있습니다. 마스터노드의 기능만 하는 노드를 따로 빼서 클러스터의 안정성을 높이는 방안입니다. Elastic의 문서에도 클러스터의 사이즈가 큰 경우 마스터 노드를 분리하는 것을 권장하고 있네요. (참고: <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-node.html" target="_blank" rel="noopener">https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-node.html</a>)</p>
-<p>오늘 내용은 Dedicated Master에 대한 디테일한 내용이 아니라 비용에 관한 간단한 얘기입니다. </p>
+            <h2 id="들어가기-전에…"><a href="#들어가기-전에…" class="headerlink" title="들어가기 전에…"></a>들어가기 전에…</h2><p>최근에 AWS Datascience 소그룹 모임의 자료를 쭉 보던 중 아주 정리가 잘 되어있는 자료를 보았습니다. <a href="https://github.com/awskrug/datascience-group/tree/master/workshop-sustainable_data_analysis" target="_blank" rel="noopener">AWS 기반 지속 가능한 데이터 분석하기
+</a> 라는 자료인데 <a href="https://www.bigdatahub.co.kr/index.do" target="_blank" rel="noopener">SK 빅데이터 허브</a>에서 제공하는 배달 업종 통화 기록을 베이스로 spark로 데이터를 변환하고 athena, Presto, tableau 를 이용해서 시각화 하는 내용을 담고 있습니다. ETL 부터 시각화까지의 내용을 아주 재밌는 데이터와 함께 잘 정리한 글입니다. (AWS 데이터사이언스 모임은 가보지 않았지만 언젠간 한번 꼭 참석하리라 마음을 먹은지 벌써 몇달째… )</p>
         </div>
         
         
         <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/06/07/2019-06-20-amazon-elasticsearch-dedicated-master-free-storage/#more">자세히 보기</a>
+                <a class="button is-size-7 is-light" href="/2019/06/29/2019-06-29-EMR-Athena-Zepplin/#more">자세히 보기</a>
                 </div>
             </div>
         </div>
@@ -311,17 +204,17 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-03-20T15:00:00.000Z">2019-03-21</time>
+                <time class="level-item has-text-grey" datetime="2019-05-23T15:00:00.000Z">2019-05-24</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/AWS/">AWS</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/AWS/Computing/">Computing</a>
+                <a class="has-link-grey -link" href="/categories/AWS/">AWS</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/AWS/Data-Analytics/">Data Analytics</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    11분 읽기 (대략 1611 단어)
+                    16분 읽기 (대략 2333 단어)
                 </span>
                 
                 
@@ -330,51 +223,22 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2019/03/21/2019-03-21-lightsail-vs-ec2/">AWS Lightsail VS EC2</a>
+                <a class="has-link-black-ter" href="/2019/05/24/2019-05-24-athena-with-zeppelin/">AWS Athena, Zeppelin과 함께 사용하기 (feat. ALB 로그분석)</a>
             
         </h1>
         <div class="content">
-            <p><img src="/images/lightsail.jpeg" alt="그림0"></p>
-<h1 id="Lightsail-VS-EC2"><a href="#Lightsail-VS-EC2" class="headerlink" title="Lightsail VS EC2"></a>Lightsail VS EC2</h1><h2 id="Amazon-Lightsail"><a href="#Amazon-Lightsail" class="headerlink" title="Amazon Lightsail?"></a>Amazon Lightsail?</h2><p>Lightsail 이라는 서비스가 나온지는 좀 되었다. 간단하게 소개하면 <strong>아마존에서 제공하는 웹 호스팅 서비스</strong> 이다. 기본적인 컨셉 자체는 AWS라는 복잡하고 어려운 클라우드 어쩌구를 몰라도 웹호스팅을 다른 업체만큼 싸게 제공해주는 데 목적이 있는 듯하다. 영세한 웹호스팅업계에 AWS라는 공룡이 침입한 게 아닌가 싶다. Digital Oceans 같은 호스팅업체와 제공하는 서비스와 심지어 UI까지 비슷하다. Digital Oceans는 점점 클라우드 업체처럼 되어가고 있고 아마존은 호스팅 업계의 영역까지 군침을 흘리고 있는 모양새다. </p>
-<p>어쨌든 Lightsail은 그저 ‘아마존의 웹호스팅 서비스’라는 것이 중요하다. </p>
-<p>그런데, AWS를 사용하고 있는 사람 입장에서는 그럼 AWS에서 EC2를 사용하는것과 Lightsail에서 사용하는 것과 뭐가 다른지가 궁금하다. 간단하게 그 차이점을 정리해보려고 한다. </p>
-<h2 id="Lightsail-VS-EC2-1"><a href="#Lightsail-VS-EC2-1" class="headerlink" title="Lightsail VS EC2"></a>Lightsail VS EC2</h2><p>어차피 요금과 기능이 제일 중요하다. 두 가지만 살펴보자. </p>
-<ul>
-<li>요금 </li>
-<li>기능 </li>
-</ul>
-<h3 id="요금"><a href="#요금" class="headerlink" title="요금"></a>요금</h3><p>왠만한 조건에서는 Lightsail이 더 싸다. </p>
-<p>Lightsail은 2GB 메모리, 즉 T2.small 기준으로 $10의 요금을 받는다. 여기에는 60GB의 SSD EBS 볼륨도 포함되어 있고 심지어, 트래픽 요금까지 포함되어있다. </p>
-<p>EC2에서 t2.small을 3년 약정으로 잡고 (no-upfront), 60gb EBS를 잡으면 $12.62 가 나온다. 물론 여기에 트래픽비용은 별도다. </p>
-<p>그러니 <strong>한달 내내 사용할거면 무조건 Lightsail이 싸다.</strong> (한달 내내 사용하는거니 스팟은 고려하지 않는다.)</p>
-<p>그러나, 한달 내내 사용하는게 아니라면? </p>
-<p>그럼 얘기가 달라진다. 일단, Lightsail은 월별 과금이다. 즉, 한번키면 ec2 처럼 stop-start가 안된다. ec2에서 자랑하는 초당 과금 뭐 그런거 없다. 그냥 월에 $10씩 꼬박꼬박 내면된다. 즉, ec2를 딱 필요한 시간에만 쓴다면 ec2가 훨씬 적게 나올 가능성이 있다는 말이다. 관리를 잘해주면 ec2는 사용한 만큼만 과금이 되니 굉장히 적은 비용으로 운용이 가능하다. </p>
-<p><del>그러나 매번 껐다 키기는 귀찮다. 이거 잘 지키는 팀 잘 못봤다. (스크립트로 짜놓지 않는이상. )</del> </p>
-<h3 id="기능"><a href="#기능" class="headerlink" title="기능"></a>기능</h3><p>먼저 EC2에선 되지만 Lightsail에서 안되는 기능들은 대략 다음과 같다. </p>
-<ul>
-<li>vpc관련 기능이 제한적</li>
-<li>인스턴스 타입 변경 </li>
-<li>정기적인 스냅샷 생성 </li>
-<li>디테일한 보안그룹설정 </li>
-<li>IAM role 부여</li>
-<li>여러 로드밸런서 옵션 (예: NLB)</li>
-</ul>
-<p>등 뭔가 디테일하고 딥한 옵션은 제공하지 않는다. 대신 일반적인 웹호스팅에서 제공하는 기능들은 대부분 제공한다. </p>
-<p>또한 Lightsail에서 특별히 제공해주는 기능도 있다. </p>
-<ul>
-<li>웹 SSH 콘솔</li>
-<li>VPC Peering </li>
-</ul>
-<p>웹 콘솔은 디지털 오션같은데에서 기본으로 제공해주는 서비스라 AWS에서도 그냥 제공해주는 것 같다. EC2에서 비슷한 기능을 이용하려면 꽤나 복잡한 과정을 거쳐야한다.</p>
-<p>거기에 내 생각에 매력인 옵션은 바로 ‘VPC peering’ 기능이다. Lightsail에서 인스턴스를 생성하면 그게 어떤 VPC에 생기는지 알수 없다. 그렇지만, Lightsail에서는 내 VPC와 Peering할수 있는 기능을 제공한다. 이 기능 덕분에 Lightsail의 활용성이 엄청 높아지는 것 같다. </p>
-<h2 id="사설-및-정리"><a href="#사설-및-정리" class="headerlink" title="사설 및 정리"></a>사설 및 정리</h2><p>사실 이번에 개인적으로 Jira를 사용하려고 작은 EC2를 하나 띄워놨다. 근데 이게 아무리 생각해도 비용적으로 비효율적인게 t2.medium을 띄워놨는데 이게 한달에 거의 4만원 돈이다. 이럴 거면 그냥 jira cloud를 이용하는게 낫다. 이것보다 더 저렴한 옵션은 없나 찾아보던 중에 Lightsail을 발견했다. 구축한 Jira를 옮기는게 귀찮아서 지금 당장 Lightsail을 쓰진 않겠지만 다른 프로젝트를 할때는 충분히 고려할 만한 옵션인 듯 하다. </p>
-<p>단독으로 웹서버를 띄우는 등의 간단하고 작은 규모의 서비스에게 Lightsail은 굉장히 매력적인 옵션으로 보인다. 가격이 거의 절반 가격이고, 매달 일정한 금액이 나오기 때문에 비용관리 측면에서도 유리하다. 트래픽도 기본 1TB씩 제공하기 때문에 크게 부족할 일이 없을 것 같다. DB 등 중요한 인프라는 기존 AWS 서비스를 사용해서 관리하고 이에 대한 연결은 Lightsail과 VPC Peering을 이용해서 가능하다. 뭔가 엄청난 트래픽이 예상되는 서비스만 아니면 왠만한 서비스에서 모두 고려할 만 하다. </p>
-<p>물론 안정적인 서비스를 원하는 팀에게는 추천하기 애매하다. 일단 SLA를 제공하지 않고, t2타입의 특성상 장애가 발생할 가능성이 있다. 또한 VPC 관리 등이 되지 않기 때문에 뭔가 불투명하고 막연하다. 웹호스팅에 익숙한 업체들이야 상관 없겠지만, 아닌 경우 뭔가 보안에 취약해보이고, 허접한 서비스 같아보인다. $10~$20 가 중요하지 않은 업체는 그냥, m5.large를 multi-az 구성해서 튼튼하게 가는게 여러가지로 낫다. </p>
-<p>즉, 만원 이만원이 중요하고, 매달 일정한(그리고 아주 작은) 요금이 나오길 바라는 팀, 예를들어 스타트업은 Lightsail을 적극 고려하시길. 또한 개인 웹사이트 등을 고려하는데 뭔가 AWS를 사용해보고 싶다면, 사용해볼만하다. 다른 호스팅업체보다는 약간 비싸지만 무지막지하게 비싼 가격은 아니라고 생각하고, 다른 클라우드에 비하면 싸다. </p>
-<p>끝.</p>
-
+            <h1 id="Athena-심플하고-강력하지만-아쉬운-인터페이스"><a href="#Athena-심플하고-강력하지만-아쉬운-인터페이스" class="headerlink" title="Athena, 심플하고 강력하지만 아쉬운 인터페이스"></a>Athena, 심플하고 강력하지만 아쉬운 인터페이스</h1><p>이번 포스팅에서는 Athena 와 Zeppelin을 엮어서 사용하는 방법에 대해서 정리하려고 합니다. Athena는 써보면 써볼수록 요물이라는 생각이 드는 제품입니다. S3에 데이터만 잘 저장해 놓으면 그걸 SQL문으로 빠르게 쿼리할 수 있다는 컨셉이 간단하지만 강력하네요. 다른 분산처리 플랫폼도 많지만, 일단 간단하게 시작하기에는 Athena가 최적인것 같아요. </p>
+<p>다만, Athena가 워낙 심플한 구조를 갖고 있고 제공해주는 기능도 심플하다 보니 조금 아쉬운점도 있는데요, 일단 제 생각에 가장 아쉬운 점은 <code>인터페이스</code> 입니다. ‘대화형 쿼리’ 라는 컨셉으로 단순한 쿼리창만 갖고 있지만, 사실 ‘대화형’ 이라는 말처럼 채팅기록이 남진 않는게 제 생각엔 커다란 단점인 것 같아요. 우리나라 정서가 워낙 UI에 이것저것 많은 기능을 좋아해서 상대적으로 AWS의 UI가 좀 빈약하다는 느낌을 많이 받는데 Athena의 인터페이스도 그 중 하나인 것 같습니다. 그래도 ‘대화형’이라는 컨셉을 완성하기 위해서는 조금 더 인터페이스가 발전해야 할 것 같다고 생각합니다. </p>
         </div>
         
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2019/05/24/2019-05-24-athena-with-zeppelin/#more">자세히 보기</a>
+                </div>
+            </div>
+        </div>
         
         
     </div>
@@ -394,7 +258,7 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2018-07-12T15:00:00.000Z">2018-07-13</time>
+                <time class="level-item has-text-grey" datetime="2018-09-27T15:00:00.000Z">2018-09-28</time>
                 
                 <div class="level-item">
                 <a class="has-link-grey -link" href="/categories/AWS/">AWS</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/AWS/Database/">Database</a>
@@ -404,7 +268,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    6분 읽기 (대략 938 단어)
+                    5분 읽기 (대략 768 단어)
                 </span>
                 
                 
@@ -413,73 +277,305 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2018/07/13/2018-07-13-rds-multiaz-readreplica-summary/">RDS(MySQL, MariaDB) - Multi-AZ / Read Replica (읽기전용 복제본) 관련 정리</a>
+                <a class="has-link-black-ter" href="/2018/09/28/2018-09-28-cross-region-read-replica-version-issue/">AWS RDS mysql - 다른 리전에 읽기복제본 생성: 버전이슈</a>
             
         </h1>
         <div class="content">
-            <p>AWS RDS에는 가용성과 확장성을 위해 multi-az 라는 기능과 read replica라는 기능을 지원한다. 비슷하지만 다른 특징들을 갖고 있어 간단하게 정리해 보았다. </p>
-<h2 id="Multi-AZ"><a href="#Multi-AZ" class="headerlink" title="Multi-AZ"></a>Multi-AZ</h2><p><img src="/images/rds_ha1.jpg" alt="그림1"></p>
-<ul>
-<li>Active - Standby 구조 </li>
-<li>자동 장애 복구 </li>
-<li>동기식 복제 (Synchronous replication)</li>
-</ul>
-<p>위의 그림과 같이 원본 서버에 문제가 생기면 동기식으로 복제된 slave 인스턴스가 master로 자동으로 승격된다. 승격은 내부적으로 마스터를 바라보던 db instance의 도메인 엔드포인트가 slave를 가리킴으로써 구현된다. </p>
-<h2 id="읽기-복제본"><a href="#읽기-복제본" class="headerlink" title="읽기 복제본"></a>읽기 복제본</h2><p><img src="/images/rds_readrepl.png" alt="그림2"></p>
-<h3 id="생성과정"><a href="#생성과정" class="headerlink" title="생성과정"></a>생성과정</h3><ol>
-<li>원본 스냅샷 생성</li>
-<li>스냅샷을 통해 복제본 인스턴스 생성 </li>
-<li>변경사항 발생 시 비동기식 복제 </li>
+            <p><img src="/images/readreplica.png" alt="그림0"></p>
+<p>다른 리전에 읽기복제본을 생성해야 될 때가 있다. 대충 추려보면 다음과 같은 경우. </p>
+<ol>
+<li>다른 리전에 데이터를 읽기만 하는 워크로드가 있는 경우 </li>
+<li>다른 리전에 DR 용으로 데이터를 보관하는 경우</li>
 </ol>
-<h3 id="기타-특징"><a href="#기타-특징" class="headerlink" title="기타 특징"></a>기타 특징</h3><p><em>읽기복제본은 multi-az에 비해 자잘한 기능들이 많다.</em></p>
-<h4 id="순환복제-지원-X"><a href="#순환복제-지원-X" class="headerlink" title="순환복제 지원 X "></a><u>순환복제 지원 X </u></h4><p>a에서 복제본 b를 만들고 b에서 다시 a로 복제하는 것이 불가능하다. a에서 b라는 복제본을 만들면 b에서는 다시 새로운 복제본(b’, b’’ 등)을 만드는 것은 가능하다. </p>
-<h4 id="체인식-복제-가능-단-체인당-4대까지"><a href="#체인식-복제-가능-단-체인당-4대까지" class="headerlink" title=" 체인식 복제 가능 (단 체인당 4대까지 )"></a><u> 체인식 복제 가능 (단 체인당 4대까지 )</u></h4><p>위에서 말했듯이 a에서 복제본 a’를 생성하고 a’에서 a’’를 생성하는 것이 가능하고 한 체인에 총 4대의 인스턴스까지 연결할 수 있다. 즉, a - a’ - a’’ - a’’’ 까지 가능하다는 말. </p>
-<h4 id="mysql-binlog-mariadb-gtid"><a href="#mysql-binlog-mariadb-gtid" class="headerlink" title=" mysql - binlog mariadb - gtid "></a><u> mysql - binlog mariadb - gtid </u></h4><p>mysql은 복제시 원본에서 binarylog를 받아 복제본에다가 쓰는 작업을 통해 복제작업을 한다. 즉 복제본에서도 똑같이 쓰기 작업이 이루어져야 복제가 완료된다. mariadb는 gtid라는 방식을 사용한다고 한다. <em>gtid가 어떤 방식인지는 다음에 알아보는걸로…</em></p>
-<h4 id="read-only-0-으로-설정시-인덱스-설정등-쓰기-작업-가능"><a href="#read-only-0-으로-설정시-인덱스-설정등-쓰기-작업-가능" class="headerlink" title=" read-only:0 으로 설정시 인덱스 설정등 쓰기 작업 가능 "></a><u> read-only:0 으로 설정시 인덱스 설정등 쓰기 작업 가능 </u></h4><p>읽기복제본이지만 쓰기가 아예 안되는 것은 아닌가 보다. 읽기 복제본의 읽기 성능 향상 등을 위해 read-only 기능을 끌 수 있게 되어있다. 이 기능을 껐을 때 쓰기가 어디까지 되는지는 테스트 해봐야 알것 같다. </p>
-<h4 id="복제본-자체를-multi-az-로-이중화-구성-가능"><a href="#복제본-자체를-multi-az-로-이중화-구성-가능" class="headerlink" title="복제본 자체를 multi-az 로 이중화 구성 가능 "></a><u>복제본 자체를 multi-az 로 이중화 구성 가능 </u></h4><p>말 그대로, 복제본 또한 multi-az 기능으로 slave노드를 만들어서 이중화 구성이 가능</p>
-<h4 id="외부에서-복제-외부로-복제-가능"><a href="#외부에서-복제-외부로-복제-가능" class="headerlink" title="외부에서 복제/ 외부로 복제 가능 "></a><u>외부에서 복제/ 외부로 복제 가능 </u></h4><p>온프레미스에 있는 db의 복제본을 rds에 올려 사용할 수 있고 반대로 rds에 있는 db를 온프레미스에 복제해서 사용할 수도 있다. 이중화 구성, DR 구성을 위한 옵션인 것 같다. 물론 부하 분산도 되고. </p>
-<h4 id="Multi-AZ-vs-읽기-복제본"><a href="#Multi-AZ-vs-읽기-복제본" class="headerlink" title="Multi-AZ vs 읽기 복제본 "></a><u>Multi-AZ vs 읽기 복제본 </u></h4><p>AWS의 자료를 바탕으로 표로 정리해 보았다. </p>
-<table>
-<thead>
-<tr>
-<th>Multi-AZ</th>
-<th>읽기 복제본</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>동기식 복제</td>
-<td>비동기식 복제</td>
-</tr>
-<tr>
-<td>active-standby</td>
-<td>읽기 부하 분산</td>
-</tr>
-<tr>
-<td>secondary(standby)노드에서 복제 가능</td>
-<td>기본값으로 백업 설정 x</td>
-</tr>
-<tr>
-<td>최소 두개의 가용영역</td>
-<td>단일리전/cross-AZ/cross-region 가능</td>
-</tr>
-<tr>
-<td>업데이트 시 primary 에 적용</td>
-<td>독립적으로 적용 가능</td>
-</tr>
-<tr>
-<td>자동 장애 복구</td>
-<td>장애 시 수동으로 승격</td>
-</tr>
-</tbody></table>
-<p>동기식 복제/ 비동기식 복제 차이점은 <a href="https://cloudbasic.net/white-papers/synchronous-vs-asynchronous-replication/" target="_blank" rel="noopener">여기</a>를 참고 </p>
-<p>참고자료</p>
-<ul>
-<li><a href="https://docs.aws.amazon.com/ko_kr/AmazonRDS/latest/UserGuide/USER_ReadRepl.html" target="_blank" rel="noopener">AWS RDS Documentation - 읽기복제본 작업</a></li>
-<li><a href="https://www.slideshare.net/AmazonWebServices/dat302deep-dive-on-amazon-relational-database-service-rds?qid=5a05e0f6-fec2-4451-a0cd-e3769a0f0b7d&v=&b=&from_search=7" target="_blank" rel="noopener">Deep Dive on Amazon RDS</a></li>
-</ul>
+<p>그럴때 RDS의 읽기복제본 생성 기능은 매우 간편하고 효과적이다. 파라미터 그룹을 만진다든지 하는 설정을 해줄 필요 없이 대상 리전에 서브넷 그룹만 잘 설정 되어 있으면 콘솔에서 클릭 몇번으로 복제본을 생성할 수 있다. </p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2018/09/28/2018-09-28-cross-region-read-replica-version-issue/#more">자세히 보기</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2018-09-17T15:00:00.000Z">2018-09-18</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Others/">Others</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    11분 읽기 (대략 1693 단어)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2018/09/18/2018-09-18-reviewrepublic-log-2/">reviewrepublic 심폐소생술 - (2)DigitalOcean -&gt; AWS</a>
+            
+        </h1>
+        <div class="content">
+            <p>이번 편에선 DigitalOcean 에서 AWS로 서버들을 옮기는 과정을 적어본다. </p>
+<p>전에도 말했지만 리뷰리퍼블릭의 어플리케이션은 meteor.js 라는 프레임워크 (조금 더 정확하게는 meteor.js + react.js) 위에서 돌아간다. 이 프레임워크 덕분에 마이그레이션이 두배는 더 어려워졌다. 일단 익숙한 방식 (어디 한 express.js 나 스프링 MVC 정도 사용할 줄 알았는데…)이 아니기에 이 프레임워크의 전체적인 개념부터 어떤식으로 배포가 되는지를 파악해야 했다. </p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2018/09/18/2018-09-18-reviewrepublic-log-2/#more">자세히 보기</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2018-09-10T15:00:00.000Z">2018-09-11</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Others/">Others</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    13분 읽기 (대략 1935 단어)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2018/09/11/2018-09-11-reviewrepublic-log-1/">reviewrepublic 심폐소생술 - (1)프로젝트 수락</a>
+            
+        </h1>
+        <div class="content">
+            <h2 id="서론"><a href="#서론" class="headerlink" title="서론"></a>서론</h2><p>페이스북에 <em>리뷰왕 김리뷰</em>라는 페이지가 있다. 갖가지 리뷰들이 올라오고 요새 올라오는 카드뉴스식의 리뷰를 선도한(…?) 페이지이다. 그 김리뷰가 <em>리뷰리퍼블릭</em>이라는 서비스를 만들었다. 사용자들이 리뷰를 작성해서 올리고 양질의 리뷰를 올릴수록 그 보상이 작성자에게 돌아가게끔 하겠다는 취지로 만들었다고 한다. 어쨋든 겉으로 보이는 형태는 조그만한 커뮤니티 앱이다. 어떻게 보면 sns같기도 하고. 어쨋든 그런 조그마한 커뮤니티 앱이 월 100만원 가량의 유지비가 나온다는 소식을 들었다. 서비스 유지비용이 월 100만원씩 나온다면 도저히 수지타산이 안나온다. 곧 망할 것 같았다. </p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2018/09/11/2018-09-11-reviewrepublic-log-1/#more">자세히 보기</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2018-08-21T15:00:00.000Z">2018-08-22</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/AWS/">AWS</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/AWS/Computing/">Computing</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    3분 읽기 (대략 502 단어)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2018/08/22/2018-08-22-t3-instance-launch/">[EC2 - T3] T3 인스턴스 출시!!!!!!!</a>
+            
+        </h1>
+        <div class="content">
+            <p>대박사건. EC2 인스턴스 타입 중 작은타입을 지원하고, 테스트용, 혹은 작은규모의 로직을 돌리기에 적합하던 t타입의 인스턴스 중 3세대가 나왔다. 이전 세대인 t2 타입은 2014년에 처음 나왔고 2016년에 다양한 사이즈들이 추가됐다. </p>
+<p><em>그러니깐, 4년만에 t타입의 새로운 세대가 나온 것.</em></p>
+<p>당연히 t2 타입보다 <strong>성능은 올라가고, 가격은 떨어졌다.</strong> 버지니아 기준으로 가격은 10%정도 저렴하다.<br><img src="/images/t2t3-pricing.png" alt="그림1"></p>
+<p> <em>아쉽게도 서울리전은 아직 지원이 안됨.</em> </p>
+<br>
+**사실 cpu 성능보다 더 기대가 되는것은 네트워크 성능.** m4에서 m5로 업그레이드가 됐을 때 cpu 성능도 증가했지만, 기본 네트워크성능이 많이 향상되었다.(관련글: [EC2 인스턴스의 타입별 대역폭을 살펴보자](https://blog.wisen.co.kr/?p=7751))
+
+<p>마찬가지로 t2에서 t3로 업그레이드 되면서 기본 네트워크 성능이 향상될 것으로 보인다. </p>
+<p><img src="/images/t2t3-performance.png" alt="그림2"><br><em>(low to moderate -&gt; up to 5 Gigabit)</em> </p>
+<br>
+이전 t2 인스턴스의 한계라면 cpu 성능이나 불안정성도 한 몫했지만 단순 웹서버로 사용하기에 아쉬웠던 점은 아무래도 네트워크 성능. 작은규모의 웹사이트의 경우 m5.large 정도의 스펙이 불필요하지만 네트워크 성능 때문에 어쩔 수 없이 m5를 선택하기도 했다. 만약 t3에서 네트워크 성능이 일정 기준치 이상으로 향상되었다면 t3 타입은 꽤 매력적인 인스턴스 타입이 될 것 같다. 
+
+<p>정확한 사양은 더 테스트해봐야 알겠지만, 어쨌든 좋은소식임에는 분명하다. </p>
+<p>참고: <a href="https://aws.amazon.com/ko/blogs/aws/new-t3-instances-burstable-cost-effective-performance/" target="_blank" rel="noopener">https://aws.amazon.com/ko/blogs/aws/new-t3-instances-burstable-cost-effective-performance/</a></p>
 
         </div>
         
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2018-08-09T15:00:00.000Z">2018-08-10</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/AWS/">AWS</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/AWS/Computing/">Computing</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    2분 읽기 (대략 371 단어)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2018/08/10/2018-08-08-copy-ad-joined-instance/">[EC2 - Windows Server] AD가 join되어 있을 때 인스턴스 복제하기 </a>
+            
+        </h1>
+        <div class="content">
+            <p>AWS 상에서 Windows 서버를 복제하는 일은 Linux 서버를 복제하는 것보다 까다롭다. Linux 서버의 경우 ami만 생성하면 되지만, Windows 서버의 경우 ami 생성 후 다시 그 ami를 통해 인스턴스를 실행하면 여러가지 에러를 맞닥트리게 된다. 특히 AD Domain에 접속되어 있는 윈도우즈 서버를 그대로 ami를 떠서 복제한 경우 제대로 인스턴스가 실행되지 않는다. AD에 조인되어 있는 경우 컴퓨터의 sid 등을 통해 도메인의 멤버인지 확인하는데 ami로 복제하게 되면 이런 값들이 중복이 되서 충돌이 생기기 때문이다. <em>이런 경우 Sysprep 이라는 작업을 통해 시스템에 관한 정보를 초기화 한 후 ami를 생성해야한다.</em></p>
+<p>대략적인 순서는 다음과 같다.</p>
+<ol>
+<li>네트워크 설정 초기화 (ip, dns 모두 자동)</li>
+<li>sysprep</li>
+<li>ami 생성</li>
+<li>ami 복제 (선택사항)</li>
+<li>해당 ami로 인스턴스 실행 </li>
+<li>AD join </li>
+</ol>
+<p>여기서 주의해야할 것은 sysprep 과정에서 시스템이 초기화된다는 것이다. sysprep은 시스템에 관련된 정보들을 초기화한다. 예를들어 sid, 도메인 정보 등이 초기화된다. </p>
+<p><em>따라서 무작정 sysprep을 돌렸다간 해당 인스턴스를 복구 불가능한 상태로 만들수도 있다.</em></p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2018-07-10T15:00:00.000Z">2018-07-11</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Security/">Security</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/Security/SAML/">SAML</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    8분 읽기 (대략 1259 단어)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2018/07/11/2018-07-11-rough-draft-of-saml/">SAML에 대한 매우 개략적인 정리</a>
+            
+        </h1>
+        <div class="content">
+            <h2 id="SAML-이란"><a href="#SAML-이란" class="headerlink" title="SAML 이란?"></a>SAML 이란?</h2><p><strong>Security Asserting Markup Language</strong></p>
+<p>즉, <em>보안 인증에 관한 정보를 기술하는 마크업 언어</em> 정도로 생각하면 될 것 같다. 혹은 <strong>인증/인가 정보를 담은 XML</strong> 정도로 간단하게 생각하면 될 것 같다. </p>
+<h2 id="그렇다면-SAML은-어디에-쓰이는가"><a href="#그렇다면-SAML은-어디에-쓰이는가" class="headerlink" title="그렇다면 SAML은 어디에 쓰이는가?"></a>그렇다면 SAML은 어디에 쓰이는가?</h2><p><strong>SSO(Single Sign-On)을 구현하기 위해 쓰인다.</strong> SSO는 한 번의 로그인으로 여러개의 다른 도메인을 이용하려고 할때 필요한 기술이다. 예를 들어, 온프레미스에 이미 구축해 놓은 인증 시스템을 이용해서 AWS 리소스에 접근하려고 할때 AWS에 별도의 인증 시스템을 구축하지 않고 온프레미스의 인증을 그대로 쓰려고 할 때 사용한다. </p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2018/07/11/2018-07-11-rough-draft-of-saml/#more">자세히 보기</a>
+                </div>
+            </div>
+        </div>
         
         
     </div>
@@ -592,42 +688,6 @@
 </div>
     
         
-    
-        <div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-        <h3 class="menu-label">
-            링크
-        </h3>
-        <ul class="menu-list">
-        
-            <li>
-                <a class="level is-mobile" href="https://hexo.io" target="_blank">
-                    <span class="level-left">
-                        <span class="level-item">Hexo</span>
-                    </span>
-                    <span class="level-right">
-                        <span class="level-item tag">hexo.io</span>
-                    </span>
-                </a>
-            </li>
-        
-            <li>
-                <a class="level is-mobile" href="https://github.com/ppoffice" target="_blank">
-                    <span class="level-left">
-                        <span class="level-item">PPOffice</span>
-                    </span>
-                    <span class="level-right">
-                        <span class="level-item tag">github.com</span>
-                    </span>
-                </a>
-            </li>
-        
-        </ul>
-        </div>
-    </div>
-</div>
-
     
         
 <div class="card widget">
@@ -883,16 +943,16 @@
         
         <article class="media">
             
-            <a href="/2019/06/07/2019-06-07-athena-cf-log-analysis/" class="media-left">
+            <a href="/2019/06/07/2019-06-20-amazon-elasticsearch-dedicated-master-free-storage/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="AWS Athena, CF Log 분석을 위한 쿼리 예시">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Amazon Elasticsearch Dedicated Master의 스토리지 비용은?">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-06T15:00:00.000Z">2019-06-07</time></div>
-                    <a href="/2019/06/07/2019-06-07-athena-cf-log-analysis/" class="title has-link-black-ter is-size-6 has-text-weight-normal">AWS Athena, CF Log 분석을 위한 쿼리 예시</a>
+                    <a href="/2019/06/07/2019-06-20-amazon-elasticsearch-dedicated-master-free-storage/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Amazon Elasticsearch Dedicated Master의 스토리지 비용은?</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/AWS/">AWS</a> / <a class="has-link-grey -link" href="/categories/AWS/Data-Analytics/">Data Analytics</a>
                     </p>
@@ -1448,16 +1508,16 @@
         
         <article class="media">
             
-            <a href="/2019/06/07/2019-06-07-athena-cf-log-analysis/" class="media-left">
+            <a href="/2019/06/07/2019-06-20-amazon-elasticsearch-dedicated-master-free-storage/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="AWS Athena, CF Log 분석을 위한 쿼리 예시">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Amazon Elasticsearch Dedicated Master의 스토리지 비용은?">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-06T15:00:00.000Z">2019-06-07</time></div>
-                    <a href="/2019/06/07/2019-06-07-athena-cf-log-analysis/" class="title has-link-black-ter is-size-6 has-text-weight-normal">AWS Athena, CF Log 분석을 위한 쿼리 예시</a>
+                    <a href="/2019/06/07/2019-06-20-amazon-elasticsearch-dedicated-master-free-storage/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Amazon Elasticsearch Dedicated Master의 스토리지 비용은?</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/AWS/">AWS</a> / <a class="has-link-grey -link" href="/categories/AWS/Data-Analytics/">Data Analytics</a>
                     </p>

@@ -173,69 +173,17 @@
             
         </h1>
         <div class="content">
-            <p>AWS RDS에는 가용성과 확장성을 위해 multi-az 라는 기능과 read replica라는 기능을 지원한다. 비슷하지만 다른 특징들을 갖고 있어 간단하게 정리해 보았다. </p>
-<h2 id="Multi-AZ"><a href="#Multi-AZ" class="headerlink" title="Multi-AZ"></a>Multi-AZ</h2><p><img src="/images/rds_ha1.jpg" alt="그림1"></p>
-<ul>
-<li>Active - Standby 구조 </li>
-<li>자동 장애 복구 </li>
-<li>동기식 복제 (Synchronous replication)</li>
-</ul>
-<p>위의 그림과 같이 원본 서버에 문제가 생기면 동기식으로 복제된 slave 인스턴스가 master로 자동으로 승격된다. 승격은 내부적으로 마스터를 바라보던 db instance의 도메인 엔드포인트가 slave를 가리킴으로써 구현된다. </p>
-<h2 id="읽기-복제본"><a href="#읽기-복제본" class="headerlink" title="읽기 복제본"></a>읽기 복제본</h2><p><img src="/images/rds_readrepl.png" alt="그림2"></p>
-<h3 id="생성과정"><a href="#생성과정" class="headerlink" title="생성과정"></a>생성과정</h3><ol>
-<li>원본 스냅샷 생성</li>
-<li>스냅샷을 통해 복제본 인스턴스 생성 </li>
-<li>변경사항 발생 시 비동기식 복제 </li>
-</ol>
-<h3 id="기타-특징"><a href="#기타-특징" class="headerlink" title="기타 특징"></a>기타 특징</h3><p><em>읽기복제본은 multi-az에 비해 자잘한 기능들이 많다.</em></p>
-<h4 id="순환복제-지원-X"><a href="#순환복제-지원-X" class="headerlink" title="순환복제 지원 X "></a><u>순환복제 지원 X </u></h4><p>a에서 복제본 b를 만들고 b에서 다시 a로 복제하는 것이 불가능하다. a에서 b라는 복제본을 만들면 b에서는 다시 새로운 복제본(b’, b’’ 등)을 만드는 것은 가능하다. </p>
-<h4 id="체인식-복제-가능-단-체인당-4대까지"><a href="#체인식-복제-가능-단-체인당-4대까지" class="headerlink" title=" 체인식 복제 가능 (단 체인당 4대까지 )"></a><u> 체인식 복제 가능 (단 체인당 4대까지 )</u></h4><p>위에서 말했듯이 a에서 복제본 a’를 생성하고 a’에서 a’’를 생성하는 것이 가능하고 한 체인에 총 4대의 인스턴스까지 연결할 수 있다. 즉, a - a’ - a’’ - a’’’ 까지 가능하다는 말. </p>
-<h4 id="mysql-binlog-mariadb-gtid"><a href="#mysql-binlog-mariadb-gtid" class="headerlink" title=" mysql - binlog mariadb - gtid "></a><u> mysql - binlog mariadb - gtid </u></h4><p>mysql은 복제시 원본에서 binarylog를 받아 복제본에다가 쓰는 작업을 통해 복제작업을 한다. 즉 복제본에서도 똑같이 쓰기 작업이 이루어져야 복제가 완료된다. mariadb는 gtid라는 방식을 사용한다고 한다. <em>gtid가 어떤 방식인지는 다음에 알아보는걸로…</em></p>
-<h4 id="read-only-0-으로-설정시-인덱스-설정등-쓰기-작업-가능"><a href="#read-only-0-으로-설정시-인덱스-설정등-쓰기-작업-가능" class="headerlink" title=" read-only:0 으로 설정시 인덱스 설정등 쓰기 작업 가능 "></a><u> read-only:0 으로 설정시 인덱스 설정등 쓰기 작업 가능 </u></h4><p>읽기복제본이지만 쓰기가 아예 안되는 것은 아닌가 보다. 읽기 복제본의 읽기 성능 향상 등을 위해 read-only 기능을 끌 수 있게 되어있다. 이 기능을 껐을 때 쓰기가 어디까지 되는지는 테스트 해봐야 알것 같다. </p>
-<h4 id="복제본-자체를-multi-az-로-이중화-구성-가능"><a href="#복제본-자체를-multi-az-로-이중화-구성-가능" class="headerlink" title="복제본 자체를 multi-az 로 이중화 구성 가능 "></a><u>복제본 자체를 multi-az 로 이중화 구성 가능 </u></h4><p>말 그대로, 복제본 또한 multi-az 기능으로 slave노드를 만들어서 이중화 구성이 가능</p>
-<h4 id="외부에서-복제-외부로-복제-가능"><a href="#외부에서-복제-외부로-복제-가능" class="headerlink" title="외부에서 복제/ 외부로 복제 가능 "></a><u>외부에서 복제/ 외부로 복제 가능 </u></h4><p>온프레미스에 있는 db의 복제본을 rds에 올려 사용할 수 있고 반대로 rds에 있는 db를 온프레미스에 복제해서 사용할 수도 있다. 이중화 구성, DR 구성을 위한 옵션인 것 같다. 물론 부하 분산도 되고. </p>
-<h4 id="Multi-AZ-vs-읽기-복제본"><a href="#Multi-AZ-vs-읽기-복제본" class="headerlink" title="Multi-AZ vs 읽기 복제본 "></a><u>Multi-AZ vs 읽기 복제본 </u></h4><p>AWS의 자료를 바탕으로 표로 정리해 보았다. </p>
-<table>
-<thead>
-<tr>
-<th>Multi-AZ</th>
-<th>읽기 복제본</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>동기식 복제</td>
-<td>비동기식 복제</td>
-</tr>
-<tr>
-<td>active-standby</td>
-<td>읽기 부하 분산</td>
-</tr>
-<tr>
-<td>secondary(standby)노드에서 복제 가능</td>
-<td>기본값으로 백업 설정 x</td>
-</tr>
-<tr>
-<td>최소 두개의 가용영역</td>
-<td>단일리전/cross-AZ/cross-region 가능</td>
-</tr>
-<tr>
-<td>업데이트 시 primary 에 적용</td>
-<td>독립적으로 적용 가능</td>
-</tr>
-<tr>
-<td>자동 장애 복구</td>
-<td>장애 시 수동으로 승격</td>
-</tr>
-</tbody></table>
-<p>동기식 복제/ 비동기식 복제 차이점은 <a href="https://cloudbasic.net/white-papers/synchronous-vs-asynchronous-replication/" target="_blank" rel="noopener">여기</a>를 참고 </p>
-<p>참고자료</p>
-<ul>
-<li><a href="https://docs.aws.amazon.com/ko_kr/AmazonRDS/latest/UserGuide/USER_ReadRepl.html" target="_blank" rel="noopener">AWS RDS Documentation - 읽기복제본 작업</a></li>
-<li><a href="https://www.slideshare.net/AmazonWebServices/dat302deep-dive-on-amazon-relational-database-service-rds?qid=5a05e0f6-fec2-4451-a0cd-e3769a0f0b7d&v=&b=&from_search=7" target="_blank" rel="noopener">Deep Dive on Amazon RDS</a></li>
-</ul>
-
+            <p>AWS RDS에는 가용성과 확장성을 위해 multi-az 라는 기능과 read replica라는 기능을 지원한다. 비슷하지만 다른 특징들을 갖고 있어 간단하게 정리해둔다.</p>
         </div>
         
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2018/07/13/2018-07-13-rds-multiaz-readreplica-summary/#more">자세히 보기</a>
+                </div>
+            </div>
+        </div>
         
         
     </div>
@@ -348,42 +296,6 @@
 </div>
     
         
-    
-        <div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-        <h3 class="menu-label">
-            링크
-        </h3>
-        <ul class="menu-list">
-        
-            <li>
-                <a class="level is-mobile" href="https://hexo.io" target="_blank">
-                    <span class="level-left">
-                        <span class="level-item">Hexo</span>
-                    </span>
-                    <span class="level-right">
-                        <span class="level-item tag">hexo.io</span>
-                    </span>
-                </a>
-            </li>
-        
-            <li>
-                <a class="level is-mobile" href="https://github.com/ppoffice" target="_blank">
-                    <span class="level-left">
-                        <span class="level-item">PPOffice</span>
-                    </span>
-                    <span class="level-right">
-                        <span class="level-item tag">github.com</span>
-                    </span>
-                </a>
-            </li>
-        
-        </ul>
-        </div>
-    </div>
-</div>
-
     
         
 <div class="card widget">
@@ -639,16 +551,16 @@
         
         <article class="media">
             
-            <a href="/2019/06/07/2019-06-07-athena-cf-log-analysis/" class="media-left">
+            <a href="/2019/06/07/2019-06-20-amazon-elasticsearch-dedicated-master-free-storage/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="AWS Athena, CF Log 분석을 위한 쿼리 예시">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Amazon Elasticsearch Dedicated Master의 스토리지 비용은?">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-06T15:00:00.000Z">2019-06-07</time></div>
-                    <a href="/2019/06/07/2019-06-07-athena-cf-log-analysis/" class="title has-link-black-ter is-size-6 has-text-weight-normal">AWS Athena, CF Log 분석을 위한 쿼리 예시</a>
+                    <a href="/2019/06/07/2019-06-20-amazon-elasticsearch-dedicated-master-free-storage/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Amazon Elasticsearch Dedicated Master의 스토리지 비용은?</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/AWS/">AWS</a> / <a class="has-link-grey -link" href="/categories/AWS/Data-Analytics/">Data Analytics</a>
                     </p>
@@ -1204,16 +1116,16 @@
         
         <article class="media">
             
-            <a href="/2019/06/07/2019-06-07-athena-cf-log-analysis/" class="media-left">
+            <a href="/2019/06/07/2019-06-20-amazon-elasticsearch-dedicated-master-free-storage/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="AWS Athena, CF Log 분석을 위한 쿼리 예시">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Amazon Elasticsearch Dedicated Master의 스토리지 비용은?">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-06T15:00:00.000Z">2019-06-07</time></div>
-                    <a href="/2019/06/07/2019-06-07-athena-cf-log-analysis/" class="title has-link-black-ter is-size-6 has-text-weight-normal">AWS Athena, CF Log 분석을 위한 쿼리 예시</a>
+                    <a href="/2019/06/07/2019-06-20-amazon-elasticsearch-dedicated-master-free-storage/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Amazon Elasticsearch Dedicated Master의 스토리지 비용은?</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/AWS/">AWS</a> / <a class="has-link-grey -link" href="/categories/AWS/Data-Analytics/">Data Analytics</a>
                     </p>

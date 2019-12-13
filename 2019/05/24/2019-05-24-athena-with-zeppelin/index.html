@@ -19,7 +19,7 @@
 <meta property="og:description" content="Athena, 심플하고 강력하지만 아쉬운 인터페이스이번 포스팅에서는 Athena 와 Zeppelin을 엮어서 사용하는 방법에 대해서 정리하려고 합니다. Athena는 써보면 써볼수록 요물이라는 생각이 드는 제품입니다. S3에 데이터만 잘 저장해 놓으면 그걸 SQL문으로 빠르게 쿼리할 수 있다는 컨셉이 간단하지만 강력하네요. 다른 분산처리 플랫폼도 많지만,">
 <meta property="og:locale" content="ko">
 <meta property="og:image" content="https:&#x2F;&#x2F;boomkim.github.io&#x2F;images&#x2F;og_image.png">
-<meta property="og:updated_time" content="2019-12-07T04:01:00.706Z">
+<meta property="og:updated_time" content="2019-12-13T08:50:31.520Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;boomkim.github.io&#x2F;images&#x2F;og_image.png">
 
@@ -157,7 +157,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    16분 읽기 (대략 2332 단어)
+                    16분 읽기 (대략 2333 단어)
                 </span>
                 
                 
@@ -172,6 +172,8 @@
         <div class="content">
             <h1 id="Athena-심플하고-강력하지만-아쉬운-인터페이스"><a href="#Athena-심플하고-강력하지만-아쉬운-인터페이스" class="headerlink" title="Athena, 심플하고 강력하지만 아쉬운 인터페이스"></a>Athena, 심플하고 강력하지만 아쉬운 인터페이스</h1><p>이번 포스팅에서는 Athena 와 Zeppelin을 엮어서 사용하는 방법에 대해서 정리하려고 합니다. Athena는 써보면 써볼수록 요물이라는 생각이 드는 제품입니다. S3에 데이터만 잘 저장해 놓으면 그걸 SQL문으로 빠르게 쿼리할 수 있다는 컨셉이 간단하지만 강력하네요. 다른 분산처리 플랫폼도 많지만, 일단 간단하게 시작하기에는 Athena가 최적인것 같아요. </p>
 <p>다만, Athena가 워낙 심플한 구조를 갖고 있고 제공해주는 기능도 심플하다 보니 조금 아쉬운점도 있는데요, 일단 제 생각에 가장 아쉬운 점은 <code>인터페이스</code> 입니다. ‘대화형 쿼리’ 라는 컨셉으로 단순한 쿼리창만 갖고 있지만, 사실 ‘대화형’ 이라는 말처럼 채팅기록이 남진 않는게 제 생각엔 커다란 단점인 것 같아요. 우리나라 정서가 워낙 UI에 이것저것 많은 기능을 좋아해서 상대적으로 AWS의 UI가 좀 빈약하다는 느낌을 많이 받는데 Athena의 인터페이스도 그 중 하나인 것 같습니다. 그래도 ‘대화형’이라는 컨셉을 완성하기 위해서는 조금 더 인터페이스가 발전해야 할 것 같다고 생각합니다. </p>
+<a id="more"></a>
+
 <p>예를들어, 웹로그를 분석하는 과정에서 <em>이전 쿼리의 결과를 들고 있어야 하는 경우<em>가 있습니다. 다음과 같이 요청수 top 10의 정보를 받아왔다고 합시다. </em></em></p>
 <pre><code>-- 요청수 top 10 client ip
 select client_ip, count(*) as requests from &quot;logs&quot;.&quot;alb_logs_apache&quot;
@@ -281,9 +283,9 @@ order by TIME ASC;</code></pre><p>시계열 분석을 위해서는 위에 코드
     <div class="level post-navigation is-flex-wrap is-mobile">
         
         <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/06/07/2019-06-20-amazon-elasticsearch-dedicated-master-free-storage/">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/06/07/2019-06-07-athena-cf-log-analysis/">
                 <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">Amazon Elasticsearch Dedicated Master의 스토리지 비용은?</span>
+                <span class="level-item">AWS Athena, CF Log 분석을 위한 쿼리 예시</span>
             </a>
         </div>
         
