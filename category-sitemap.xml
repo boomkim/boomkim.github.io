@@ -8,6 +8,20 @@
     </url>
 
     <url>
+        <loc>https://boomkim.github.io/categories/bigdata/spark/</loc>
+        <lastmod>2019-12-17T09:15:50.055Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://boomkim.github.io/categories/bigdata/</loc>
+        <lastmod>2019-12-17T09:15:50.055Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://boomkim.github.io/categories/Bigdata/</loc>
         <lastmod>2019-12-13T08:56:47.889Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -80,20 +94,6 @@
     <url>
         <loc>https://boomkim.github.io/categories/AWS/Data-Analytics/</loc>
         <lastmod>2019-12-13T08:50:31.520Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://boomkim.github.io/categories/bigdata/spark/</loc>
-        <lastmod>2019-12-12T06:06:31.994Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://boomkim.github.io/categories/bigdata/</loc>
-        <lastmod>2019-12-12T06:06:31.994Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
