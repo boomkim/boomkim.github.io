@@ -8,6 +8,14 @@
     </url>
 
     <url>
+        <loc>https://boomkim.github.io/2019/12/11/2019-12-11-what-is-spark/</loc>
+        <lastmod>2019-12-17T09:30:41.520Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://boomkim.github.io/2019/12/17/2019-12-17-zeppelin-stopped-sparkcontext/</loc>
         <lastmod>2019-12-17T09:17:12.935Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -106,14 +114,6 @@
     <url>
         <loc>https://boomkim.github.io/2019/06/07/2019-06-07-athena-cf-log-analysis/</loc>
         <lastmod>2019-12-13T08:50:04.656Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://boomkim.github.io/2019/12/11/2019-12-11-what-is-spark/</loc>
-        <lastmod>2019-12-12T06:06:31.994Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

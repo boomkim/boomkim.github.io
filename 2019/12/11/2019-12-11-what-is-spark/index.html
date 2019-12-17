@@ -10,16 +10,16 @@
 <title>스파크에 대한 아주 대략적인 정리 - Boomkim</title>
 
 
-    <meta name="description" content="들어가면서…스파크를 공부하고 있다. 공부하다 보니 스파크가 그렇게 어렵지도 않고, 그런데 활용성은 굉장히 좋고, 성능도 좋다는 생각이 든다. 여기서 포인트는 그닥 어렵지 않다는 점이다. 자료들이 주로 scala라는 생소한 언어로 설명이 되어있지만, scala가 별로 어렵지 않다. 언어자체가 직관적이면서 간결하다. 그리고 scala로 배우는 스파크도 그닥 어">
+    <meta name="description" content="빅데이터를 공부해야할 일이 생겨서, 하둡을 먼저 공부했다. 쌩으로 클러스터를 만들고, 설정값을 변경해보고… 그렇게 클러스터를 만드는 일부터 맵리듀스 어플리케이션을 만드는 일까지 공부하는게 쉽지만은 않았다. 여기서 약간 빅데이터의 벽(?)같은걸 1차로 느꼈다.  그러다가 스파크를 만났다. 공부하다 보니 스파크가 그렇게 어렵지도 않고, 그런데 활용성은 굉장히">
 <meta name="keywords" content="bigdata,spark">
 <meta property="og:type" content="article">
 <meta property="og:title" content="스파크에 대한 아주 대략적인 정리">
 <meta property="og:url" content="https:&#x2F;&#x2F;boomkim.github.io&#x2F;2019&#x2F;12&#x2F;11&#x2F;2019-12-11-what-is-spark&#x2F;index.html">
 <meta property="og:site_name" content="Boomkim">
-<meta property="og:description" content="들어가면서…스파크를 공부하고 있다. 공부하다 보니 스파크가 그렇게 어렵지도 않고, 그런데 활용성은 굉장히 좋고, 성능도 좋다는 생각이 든다. 여기서 포인트는 그닥 어렵지 않다는 점이다. 자료들이 주로 scala라는 생소한 언어로 설명이 되어있지만, scala가 별로 어렵지 않다. 언어자체가 직관적이면서 간결하다. 그리고 scala로 배우는 스파크도 그닥 어">
+<meta property="og:description" content="빅데이터를 공부해야할 일이 생겨서, 하둡을 먼저 공부했다. 쌩으로 클러스터를 만들고, 설정값을 변경해보고… 그렇게 클러스터를 만드는 일부터 맵리듀스 어플리케이션을 만드는 일까지 공부하는게 쉽지만은 않았다. 여기서 약간 빅데이터의 벽(?)같은걸 1차로 느꼈다.  그러다가 스파크를 만났다. 공부하다 보니 스파크가 그렇게 어렵지도 않고, 그런데 활용성은 굉장히">
 <meta property="og:locale" content="ko">
 <meta property="og:image" content="https:&#x2F;&#x2F;boomkim.github.io&#x2F;images&#x2F;2019&#x2F;12&#x2F;11&#x2F;spark-main.jpeg">
-<meta property="og:updated_time" content="2019-12-12T06:06:31.994Z">
+<meta property="og:updated_time" content="2019-12-17T09:30:41.520Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;boomkim.github.io&#x2F;images&#x2F;2019&#x2F;12&#x2F;11&#x2F;spark-main.jpeg">
 
@@ -163,7 +163,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    20분 읽기 (대략 2951 단어)
+                    20분 읽기 (대략 3043 단어)
                 </span>
                 
                 
@@ -176,11 +176,15 @@
             
         </h1>
         <div class="content">
-            <h2 id="들어가면서…"><a href="#들어가면서…" class="headerlink" title="들어가면서…"></a>들어가면서…</h2><p>스파크를 공부하고 있다. 공부하다 보니 스파크가 그렇게 어렵지도 않고, 그런데 활용성은 굉장히 좋고, 성능도 좋다는 생각이 든다. 여기서 포인트는 <code>그닥 어렵지 않다</code>는 점이다. 자료들이 주로 scala라는 생소한 언어로 설명이 되어있지만, scala가 별로 어렵지 않다. 언어자체가 직관적이면서 간결하다. 그리고 scala로 배우는 스파크도 그닥 어렵지가 않다. 많은 기능을 제공하고 좋은 성능을 제공하지만, 기능들의 추상화가 잘 되어있어서 단순히 api만 호출하면 된다. </p>
+            <p>빅데이터를 공부해야할 일이 생겨서, 하둡을 먼저 공부했다. 쌩으로 클러스터를 만들고, 설정값을 변경해보고… 그렇게 클러스터를 만드는 일부터 맵리듀스 어플리케이션을 만드는 일까지 공부하는게 쉽지만은 않았다. 여기서 약간 빅데이터의 벽(?)같은걸 1차로 느꼈다. </p>
+<p>그러다가 스파크를 만났다. 공부하다 보니 스파크가 그렇게 어렵지도 않고, 그런데 활용성은 굉장히 좋고, 성능도 좋다는 생각이 든다. 여기서 포인트는 <code>그닥 어렵지 않다</code>는 점이다. 자료들이 주로 scala라는 생소한 언어로 설명이 되어있지만, scala가 별로 어렵지 않다. 언어자체가 직관적이면서 간결하다. 그리고 scala로 배우는 스파크도 그닥 어렵지가 않다. 많은 기능을 제공하고 좋은 성능을 제공하지만, 기능들의 추상화가 잘 되어있어서 단순히 api만 호출하면 된다. </p>
+<p>이거 사긴데? 쉽고 빠른 빅데이터 처리 엔진이라니… </p>
+<p>그 동안 하둡을 공부하면서 느낀 어떤 답답함 같은게 해소되는 느낌이랄까… 맵리듀스를 짜면서 뭔가 병렬처리로 성능이 향상된다는건 알겠는데 번거로운 기분이었다. 물론 하둡에는 맵리듀스 외에도 빠르게 분석할 수 있는 엔진들이 있지만, 그 중에 스파크가 가장 매력적으로 보인다. </p>
 <a id="more"></a>
-<p>그래서 스파크에 대해 정리해보려고 한다. 빅데이터 빅데이터 말이 많지만 스파크를 통하면 금방 입문할 수 있을것 같다. 솔직히 하둡을 공부할 때는 일단 하둡 클러스터를 만드는 것부터가 엄청난 관문이었다. (물론 cloudera, emr 같은 서비스한테 만들어달라고 하면된다.) 게다가 맵리듀스 어플리케이션을 만들때도 java에 대한 이해가 약간은 필요했다. 맵리듀스에 익숙해 질때쯤 뭔가 하이브라든지 피그라든지 하는 훨씬 편하고 빠르다는 걸 다시 배우니 현타가 온다. 사실 그 과정에서 스파크를 만나는 것 같기도 한데. 그냥 스파크로 입문을 해도 나는 괜찮을 것 같다. 마치 C, Java 등을 먼저 배웠지만 python을 보니 약간 현타가 오는것과 비슷한 기분이랄까. 심지어 python은 성능이 안 좋다고 까이기라도 하지만, 스파크는 성능문제로 까일 일은 없다. </p>
-<p>서론이 길었다. 어쨌든 나는 <code>스파크로 빅데이터를 시작하는 것도 좋다</code>고 생각한다. 그래서 정리를 시작한다. </p>
-<p><em>나랑 비슷한 생각을 하셨는지 <a href="https://wikidocs.net/book/2350" target="_blank" rel="noopener">빅데이터 - 스칼라, 스파크로 시작하기</a>라는 책도 공개되어 있다. 아마 앞으로 정리할 내용들이 이 책을 상당부분 참고할수도 있고, 유사할 수도 있다.</em> </p>
+
+<p>쉽고 빠른 빅데이터 처리엔진 스파크, 그래서 나는 <code>스파크로 빅데이터를 시작하는 것도 좋다</code>고 생각한다. 스파크가 하둡의 모든것을 대체하지는 못하지만, 스파크를 중심으로 빅데이터 처리에 필요한 것들을 배워나가는 것이 효율?이 좋을 것 같다는 생각이다. 스파크의 이러저러한 기능들을 살펴보다보면, 빅데이터 처리라는 뭔가 좀 높아보이는 벽을 좀 간단하게 넘을 수 있지 않을까 한다. </p>
+<p><em>나랑 비슷한 생각을 하셨는지 <a href="https://wikidocs.net/book/2350" target="_blank" rel="noopener">빅데이터 - 스칼라, 스파크로 시작하기</a>라는 책도 공개되어 있다. 아마 앞으로 정리할 내용들이 이 책을 상당부분 참고할 것 같고, 그렇기 때문에 유사할 수도 있다.</em> </p>
+<p>그래서 이 글에는 일단 스파크에 대한 전반적인 내용을 담아보려고 한다. </p>
 <h2 id="빅데이터-그리고-하둡"><a href="#빅데이터-그리고-하둡" class="headerlink" title="빅데이터 그리고 하둡"></a>빅데이터 그리고 하둡</h2><p>스파크가 뭔지를 설명하려면 어쩔 수 없이 하둡얘기를 해야한다. 어쩔 수 없는건 아니고 그냥 이게 설명이 편하다. 심지어 스파크 홈페이지에서도   맨 처음 나오는 설명이 하둡보다 100배 빠르다는 설명이다. </p>
 <p><img src="/images/2019/12/11/100x.png" alt="참고: https://spark.apache.org/"></p>
 <p>하둡보다 100배나 빠르다는데 하둡은 뭘까. 하둡을 얘기하려면 빅데이터를 얘기해야한다. 하둡이 빅데이터 처리를 위한 플랫폼이니까. </p>
@@ -273,36 +277,32 @@
                     카탈로그
                 </h3>
                 <ul class="menu-list"><li>
-        <a class="is-flex" href="#들어가면서…">
-        <span class="has-mr-6">1</span>
-        <span>들어가면서…</span>
-        </a></li><li>
         <a class="is-flex" href="#빅데이터-그리고-하둡">
-        <span class="has-mr-6">2</span>
+        <span class="has-mr-6">1</span>
         <span>빅데이터 그리고 하둡</span>
         </a><ul class="menu-list"><li>
         <a class="is-flex" href="#빅데이터란-무엇인가…">
-        <span class="has-mr-6">2.1</span>
+        <span class="has-mr-6">1.1</span>
         <span>빅데이터란 무엇인가…?</span>
         </a></li><li>
         <a class="is-flex" href="#‘뭔가-다른-처리방법’-gt-하둡">
-        <span class="has-mr-6">2.2</span>
+        <span class="has-mr-6">1.2</span>
         <span>‘뭔가 다른 처리방법’ =&gt; 하둡</span>
         </a></li></ul></li><li>
         <a class="is-flex" href="#스파크">
-        <span class="has-mr-6">3</span>
+        <span class="has-mr-6">2</span>
         <span>스파크</span>
         </a><ul class="menu-list"><li>
         <a class="is-flex" href="#장점">
-        <span class="has-mr-6">3.1</span>
+        <span class="has-mr-6">2.1</span>
         <span>장점</span>
         </a></li><li>
         <a class="is-flex" href="#단점">
-        <span class="has-mr-6">3.2</span>
+        <span class="has-mr-6">2.2</span>
         <span>단점</span>
         </a></li></ul></li><li>
         <a class="is-flex" href="#정리">
-        <span class="has-mr-6">4</span>
+        <span class="has-mr-6">3</span>
         <span>정리</span>
         </a></li></ul>
             </div>
