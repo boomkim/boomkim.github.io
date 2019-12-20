@@ -3,6 +3,34 @@
 
 
     <url>
+        <loc>https://boomkim.github.io/tags/athena/</loc>
+        <lastmod>2019-12-20T08:36:08.287Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://boomkim.github.io/tags/zeppelin/</loc>
+        <lastmod>2019-12-20T08:36:08.287Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://boomkim.github.io/tags/bigdata/</loc>
+        <lastmod>2019-12-20T08:36:08.287Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://boomkim.github.io/tags/AWS/</loc>
+        <lastmod>2019-12-20T08:36:08.287Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://boomkim.github.io/tags/security/</loc>
         <lastmod>2019-12-20T08:35:18.749Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -45,21 +73,7 @@
     </url>
 
     <url>
-        <loc>https://boomkim.github.io/tags/bigdata/</loc>
-        <lastmod>2019-12-17T09:35:19.204Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://boomkim.github.io/tags/troubleshooting/</loc>
-        <lastmod>2019-12-17T09:17:12.935Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://boomkim.github.io/tags/zeppelin/</loc>
         <lastmod>2019-12-17T09:17:12.935Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -102,13 +116,6 @@
 
     <url>
         <loc>https://boomkim.github.io/tags/SAML/</loc>
-        <lastmod>2019-12-13T08:56:16.250Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://boomkim.github.io/tags/AWS/</loc>
         <lastmod>2019-12-13T08:56:16.250Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -164,13 +171,6 @@
     </url>
 
     <url>
-        <loc>https://boomkim.github.io/tags/reviewrepublic/</loc>
-        <lastmod>2019-12-13T08:51:38.567Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://boomkim.github.io/tags/migration/</loc>
         <lastmod>2019-12-13T08:51:38.567Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -186,6 +186,13 @@
 
     <url>
         <loc>https://boomkim.github.io/tags/cpr/</loc>
+        <lastmod>2019-12-13T08:51:38.567Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://boomkim.github.io/tags/reviewrepublic/</loc>
         <lastmod>2019-12-13T08:51:38.567Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -215,13 +222,6 @@
     <url>
         <loc>https://boomkim.github.io/tags/RDS/</loc>
         <lastmod>2019-12-13T08:51:15.048Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://boomkim.github.io/tags/athena/</loc>
-        <lastmod>2019-12-13T08:50:55.389Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
