@@ -147,6 +147,77 @@
     
 <div class="card">
     
+    <div class="card-image">
+        <a href="/2019/12/20/2019-12-20-bastion-host-port-forwarding/" class="image is-7by1">
+            <img class="thumbnail" src="/images/aws-logo-2.png" alt="bastion host 포트 포워딩 ssh">
+        </a>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-12-19T15:00:00.000Z">2019-12-20</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/AWS/">AWS</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/AWS/Computing/">Computing</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    3분 읽기 (대략 389 단어)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/12/20/2019-12-20-bastion-host-port-forwarding/">bastion host 포트 포워딩 ssh</a>
+            
+        </h1>
+        <div class="content">
+            <p>aws 상에서 보안을 위해 그림과 같이 실제 사용하는 인스턴스는 private subnet에 숨기고, public에 bastion host 라는 걸 둬서 접근하는 방식이 있다.</p>
+<p><img src="/images/2019/12/20/bastionhost.png" alt></p>
+<p>이렇게 하면 관리할 구멍을 하나만 만들고 그 외에는 접근이 원천적으로 불가능해지기 때문에 보안적으로는 좋아지긴 하는데… 그 내부로 접근하기가 매우 귀찮아지는 단점이 있다. </p>
+<p>결국 private subnet 안에 있는 인스턴스에 접근하려면 배스쳔호스트를 거쳐야 하는데,<br>매번 그 명령어를 까먹어서 기록해둔다. </p>
+<p>방법은 아래와 같다 </p>
+<hr>
+<h3 id="1-타겟의-22번-포트를-배스천호스트를-통해-로컬-내컴퓨터-의-33322-포트로-포워딩"><a href="#1-타겟의-22번-포트를-배스천호스트를-통해-로컬-내컴퓨터-의-33322-포트로-포워딩" class="headerlink" title="1.타겟의 22번 포트를 배스천호스트를 통해 로컬(내컴퓨터)의 33322 포트로 포워딩"></a>1.타겟의 22번 포트를 배스천호스트를 통해 로컬(내컴퓨터)의 33322 포트로 포워딩</h3><figure class="highlight sh hljs"><figcaption><span>포트 포워딩 </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">ssh -i <span class="hljs-string">"bastion-host-key.pem"</span> -N -L 33322:&#123;target-private-ip&#125;:22 ec2-user@&#123;bastion-host-public-ip&#125;</span></pre></td></tr></table></figure>
+
+<p><em>(주의) 새 터미널을 띄운 후</em></p>
+<h3 id="2-로컬호스트의-33322포트를-이용해-타겟으로-접속"><a href="#2-로컬호스트의-33322포트를-이용해-타겟으로-접속" class="headerlink" title="2.로컬호스트의 33322포트를 이용해 타겟으로 접속"></a>2.로컬호스트의 33322포트를 이용해 타겟으로 접속</h3><figure class="highlight sh hljs"><figcaption><span>접속 </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">ssh -i <span class="hljs-string">"target-key.pem"</span> -p 33322 &#123;target-user(대체로 ec2-user)&#125;@localhost</span></pre></td></tr></table></figure>
+
+<p>타겟의 22번 포트를 배스천호스트를 통해 로컬(내컴퓨터)의 33322 포트로 포워딩</p>
+<p>(용어정리)</p>
+<ul>
+<li><code>bastion-host-key.pem</code>: bastion host에 접근할 수 있는 key,</li>
+<li><code>target-private-ip</code>: 최종 접속할 인스턴스의 프라이빗 ip, </li>
+<li><code>target-key.pem</code>: bastion host의 key, </li>
+<li><code>bastion-host-public-ip</code>: 말 그대로 bastion host의 퍼블릭 ip </li>
+</ul>
+<p>33322포트는 임의로 정한것이며 아무거나 남는 포트를 정하면 된다.<br>끝. </p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
@@ -271,7 +342,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    3분 읽기 (대략 462 단어)
+                    9분 읽기 (대략 1287 단어)
                 </span>
                 
                 
@@ -280,19 +351,18 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2019/06/07/2019-06-20-amazon-elasticsearch-dedicated-master-free-storage/">Amazon Elasticsearch Dedicated Master의 스토리지 비용은?</a>
+                <a class="has-link-black-ter" href="/2019/06/07/2019-06-07-athena-cf-log-analysis/">AWS Athena, CF Log 분석을 위한 쿼리 예시</a>
             
         </h1>
         <div class="content">
-            <h1 id="Amazon-Elasticsearch-Dedicated-Master의-스토리지-비용은"><a href="#Amazon-Elasticsearch-Dedicated-Master의-스토리지-비용은" class="headerlink" title="Amazon Elasticsearch Dedicated Master의 스토리지 비용은?"></a>Amazon Elasticsearch Dedicated Master의 스토리지 비용은?</h1><p>Amazon Elasticsearch 에는 Dedicated Master를 설정해줄 수 있습니다. 마스터노드의 기능만 하는 노드를 따로 빼서 클러스터의 안정성을 높이는 방안입니다. Elastic의 문서에도 클러스터의 사이즈가 큰 경우 마스터 노드를 분리하는 것을 권장하고 있네요. (참고: <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-node.html" target="_blank" rel="noopener">https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-node.html</a>)</p>
-<p>오늘 내용은 Dedicated Master에 대한 디테일한 내용이 아니라 비용에 관한 간단한 얘기입니다. </p>
+            <h1 id="AWS-Athena-Cloudfront-Log-분석을-위한-쿼리-예시"><a href="#AWS-Athena-Cloudfront-Log-분석을-위한-쿼리-예시" class="headerlink" title="AWS Athena, Cloudfront Log 분석을 위한 쿼리 예시"></a>AWS Athena, Cloudfront Log 분석을 위한 쿼리 예시</h1><p>Cloudfront는 고맙게도 Edge단에서 발생하는 처리 로그들을 모아서 제공해 줍니다. CF Log는 기본적으로 S3에 gz 형태로 압축되엇 제공이 되고<br>다음과 같은 DDL을 통해 테이블을 정의하면 Athena에서 조회할 수 있습니다. </p>
         </div>
         
         
         <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/06/07/2019-06-20-amazon-elasticsearch-dedicated-master-free-storage/#more">자세히 보기</a>
+                <a class="button is-size-7 is-light" href="/2019/06/07/2019-06-07-athena-cf-log-analysis/#more">자세히 보기</a>
                 </div>
             </div>
         </div>
@@ -325,7 +395,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    9분 읽기 (대략 1287 단어)
+                    3분 읽기 (대략 462 단어)
                 </span>
                 
                 
@@ -334,18 +404,19 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2019/06/07/2019-06-07-athena-cf-log-analysis/">AWS Athena, CF Log 분석을 위한 쿼리 예시</a>
+                <a class="has-link-black-ter" href="/2019/06/07/2019-06-20-amazon-elasticsearch-dedicated-master-free-storage/">Amazon Elasticsearch Dedicated Master의 스토리지 비용은?</a>
             
         </h1>
         <div class="content">
-            <h1 id="AWS-Athena-Cloudfront-Log-분석을-위한-쿼리-예시"><a href="#AWS-Athena-Cloudfront-Log-분석을-위한-쿼리-예시" class="headerlink" title="AWS Athena, Cloudfront Log 분석을 위한 쿼리 예시"></a>AWS Athena, Cloudfront Log 분석을 위한 쿼리 예시</h1><p>Cloudfront는 고맙게도 Edge단에서 발생하는 처리 로그들을 모아서 제공해 줍니다. CF Log는 기본적으로 S3에 gz 형태로 압축되엇 제공이 되고<br>다음과 같은 DDL을 통해 테이블을 정의하면 Athena에서 조회할 수 있습니다. </p>
+            <h1 id="Amazon-Elasticsearch-Dedicated-Master의-스토리지-비용은"><a href="#Amazon-Elasticsearch-Dedicated-Master의-스토리지-비용은" class="headerlink" title="Amazon Elasticsearch Dedicated Master의 스토리지 비용은?"></a>Amazon Elasticsearch Dedicated Master의 스토리지 비용은?</h1><p>Amazon Elasticsearch 에는 Dedicated Master를 설정해줄 수 있습니다. 마스터노드의 기능만 하는 노드를 따로 빼서 클러스터의 안정성을 높이는 방안입니다. Elastic의 문서에도 클러스터의 사이즈가 큰 경우 마스터 노드를 분리하는 것을 권장하고 있네요. (참고: <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-node.html" target="_blank" rel="noopener">https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-node.html</a>)</p>
+<p>오늘 내용은 Dedicated Master에 대한 디테일한 내용이 아니라 비용에 관한 간단한 얘기입니다. </p>
         </div>
         
         
         <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/06/07/2019-06-07-athena-cf-log-analysis/#more">자세히 보기</a>
+                <a class="button is-size-7 is-light" href="/2019/06/07/2019-06-20-amazon-elasticsearch-dedicated-master-free-storage/#more">자세히 보기</a>
                 </div>
             </div>
         </div>
@@ -646,62 +717,6 @@
 
 
 
-    
-<div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2018-08-05T15:00:00.000Z">2018-08-06</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/AWS/">AWS</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/AWS/Computing/">Computing</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    4분 읽기 (대략 652 단어)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2018/08/06/2018-08-06-active-directory-port-allow/">[ActiveDirectory] DC 구성시 허용해야 하는 포트 </a>
-            
-        </h1>
-        <div class="content">
-            <p><a href="http://dianememory.tistory.com/5" target="_blank" rel="noopener">Active Directory</a> 글을 보고 AWS 상에서 AD를 구성하는 것을 테스트해보고 있다. 하지만 이 글은 AWS의 인프라를 기준으로 작성되어 있지 한다. 여기저기 찾아봤으나 aws 상에서 AD를 구성하는 예제가 많지 않다. 사실 쉽게 AWS에서 quickstart로 나와있어서 굳이 구성 예제가 필요하지 않았던 것 같다. 그래도 사정상 테스트를 해야했기에… 일단은 부딪혀보기로 했다. </p>
-<p>첫번재 AD를 만드는 데에는 아무 문제가 없었으나 두번째 AD를 만드는 과정에서 문제가 생겼다. example.com 으로 도메인을 만들었는데 두번째 윈도우 서버에서 그 도메인을 찾지를 못한다. nslookup으로 질의해보니 dns가 응답하지 않는다. 뭐가 문제인지 모르겠다. tcp 포트도 다 열려있는데… 그래서 그냥 모든 트래픽을 허용해버렸다. 된다. </p>
-<p>모든 트래픽을 열어주는건 찜찜해서 dns가 어떤 포트를 쓰는지 궁금해졌다. 뒤져보니 나랑 비슷한 질문을 한 글을 발견했다. (<a href="https://social.technet.microsoft.com/Forums/windows/en-US/955244f1-867a-4f3b-a0a3-321f05982fa0/nslookup-how-to-set-to-tcp-from-udp?forum=win10itpronetworking" target="_blank" rel="noopener">질문: NSLookup, how to set to TCP from UDP?</a>)</p>
-<p>결론: <strong>그냥 udp 53 포트를 열어주면 되는 문제</strong>였다… 질문을 열어보면 <strong>dns는 주로 udp 53 포트를 사용하고 512 byte가 넘을때만 tcp를 사용한다</strong>고 친절하고 내공있는 답변이 적혀있다. 세상은 넓고 고수는 많다. 어쨌든 AWS 상에서 수동으로 AD를 구성하고, 이전하는 것 까지 테스트를 해보고 긴 포스트를 올려볼 예정이다. 물론, 예정일 뿐이다. </p>
-<p>위키피디아에 <a href="https://en.wikipedia.org/wiki/Domain_Name_System#DNS_Protocol_transport" target="_blank" rel="noopener">DNS 항목</a>에도 다음과 같이 적혀있다. </p>
-<blockquote>
-<blockquote>
-<p>DNS primarily uses the User Datagram Protocol (UDP) on port number 53 to serve requests.[3] DNS queries consist of a single UDP request from the client followed by a single UDP reply from the server. When the length of the answer exceeds 512 bytes and both client and server support EDNS, larger UDP packets are used. Otherwise, the query is sent again using the Transmission Control Protocol (TCP). TCP is also used for tasks such as zone transfers. Some resolver implementations use TCP for all queries.</p>
-</blockquote>
-</blockquote>
-<p>(지금보니 그 고수의 댓글은 위키피디아에서 그냥 퍼온 것…) 그런데, <em>TCP 포트는 몇번 포트로 통신하는거지?</em> 그걸 알아야 여는 포트를 최소화 할수 있는데… </p>
-
-        </div>
-        
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
 
     
 <div class="card card-transparent">
@@ -761,7 +776,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            24
+                            25
                         </p>
                     </a>
                 </div>
@@ -785,7 +800,7 @@
                     </p>
                     <a href="/tags">
                         <p class="title has-text-weight-normal">
-                            49
+                            54
                         </p>
                     </a>
                 </div>
@@ -836,7 +851,7 @@
                 <span class="level-item">AWS</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">11</span>
+                <span class="level-item tag">12</span>
             </span>
         </a><ul><li>
         <a class="level is-marginless" href="/categories/AWS/Computing/">
@@ -844,7 +859,7 @@
                 <span class="level-item">Computing</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">5</span>
+                <span class="level-item tag">6</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/AWS/Data-Analytics/">
@@ -985,7 +1000,7 @@
         <h3 class="menu-label">
             태그 클라우드
         </h3>
-        <a href="/tags/ALB/" style="font-size: 10px;">ALB</a> <a href="/tags/AWS/" style="font-size: 20px;">AWS</a> <a href="/tags/ActiveDirectory/" style="font-size: 12px;">ActiveDirectory</a> <a href="/tags/DigitalOcean/" style="font-size: 12px;">DigitalOcean</a> <a href="/tags/Docker/" style="font-size: 12px;">Docker</a> <a href="/tags/EC2/" style="font-size: 12px;">EC2</a> <a href="/tags/Jekyll/" style="font-size: 10px;">Jekyll</a> <a href="/tags/Overlay/" style="font-size: 12px;">Overlay</a> <a href="/tags/PostgreSQL/" style="font-size: 10px;">PostgreSQL</a> <a href="/tags/RDS/" style="font-size: 10px;">RDS</a> <a href="/tags/SAML/" style="font-size: 10px;">SAML</a> <a href="/tags/T3/" style="font-size: 10px;">T3</a> <a href="/tags/WindowsServer/" style="font-size: 12px;">WindowsServer</a> <a href="/tags/athena/" style="font-size: 14px;">athena</a> <a href="/tags/aws/" style="font-size: 14px;">aws</a> <a href="/tags/bandwidth/" style="font-size: 10px;">bandwidth</a> <a href="/tags/bigdata/" style="font-size: 18px;">bigdata</a> <a href="/tags/blog/" style="font-size: 12px;">blog</a> <a href="/tags/cloudfront/" style="font-size: 10px;">cloudfront</a> <a href="/tags/commands/" style="font-size: 10px;">commands</a> <a href="/tags/concurrency/" style="font-size: 10px;">concurrency</a> <a href="/tags/cpr/" style="font-size: 12px;">cpr</a> <a href="/tags/data/" style="font-size: 10px;">data</a> <a href="/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/tags/generate/" style="font-size: 10px;">generate</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/icarus/" style="font-size: 10px;">icarus</a> <a href="/tags/issue/" style="font-size: 10px;">issue</a> <a href="/tags/jekyll/" style="font-size: 10px;">jekyll</a> <a href="/tags/jekyll-swiss/" style="font-size: 10px;">jekyll-swiss</a> <a href="/tags/lambda/" style="font-size: 10px;">lambda</a> <a href="/tags/lambda-edge/" style="font-size: 10px;">lambda@edge</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/log/" style="font-size: 10px;">log</a> <a href="/tags/migration/" style="font-size: 12px;">migration</a> <a href="/tags/network/" style="font-size: 12px;">network</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/queries/" style="font-size: 10px;">queries</a> <a href="/tags/rds/" style="font-size: 10px;">rds</a> <a href="/tags/read-replica/" style="font-size: 10px;">read replica</a> <a href="/tags/readreplica/" style="font-size: 10px;">readreplica</a> <a href="/tags/revierepublic/" style="font-size: 10px;">revierepublic</a> <a href="/tags/reviewrepublic/" style="font-size: 10px;">reviewrepublic</a> <a href="/tags/serverless/" style="font-size: 10px;">serverless</a> <a href="/tags/spark/" style="font-size: 12px;">spark</a> <a href="/tags/storage/" style="font-size: 10px;">storage</a> <a href="/tags/theme/" style="font-size: 10px;">theme</a> <a href="/tags/troubleshooting/" style="font-size: 10px;">troubleshooting</a> <a href="/tags/zeppelin/" style="font-size: 16px;">zeppelin</a>
+        <a href="/tags/ALB/" style="font-size: 10px;">ALB</a> <a href="/tags/AWS/" style="font-size: 20px;">AWS</a> <a href="/tags/ActiveDirectory/" style="font-size: 12px;">ActiveDirectory</a> <a href="/tags/DigitalOcean/" style="font-size: 12px;">DigitalOcean</a> <a href="/tags/Docker/" style="font-size: 12px;">Docker</a> <a href="/tags/EC2/" style="font-size: 12px;">EC2</a> <a href="/tags/Jekyll/" style="font-size: 10px;">Jekyll</a> <a href="/tags/Overlay/" style="font-size: 12px;">Overlay</a> <a href="/tags/PostgreSQL/" style="font-size: 10px;">PostgreSQL</a> <a href="/tags/RDS/" style="font-size: 10px;">RDS</a> <a href="/tags/SAML/" style="font-size: 10px;">SAML</a> <a href="/tags/T3/" style="font-size: 10px;">T3</a> <a href="/tags/WindowsServer/" style="font-size: 12px;">WindowsServer</a> <a href="/tags/athena/" style="font-size: 14px;">athena</a> <a href="/tags/aws/" style="font-size: 14px;">aws</a> <a href="/tags/bandwidth/" style="font-size: 10px;">bandwidth</a> <a href="/tags/bastionhost/" style="font-size: 10px;">bastionhost</a> <a href="/tags/bigdata/" style="font-size: 18px;">bigdata</a> <a href="/tags/blog/" style="font-size: 12px;">blog</a> <a href="/tags/cloudfront/" style="font-size: 10px;">cloudfront</a> <a href="/tags/commands/" style="font-size: 10px;">commands</a> <a href="/tags/concurrency/" style="font-size: 10px;">concurrency</a> <a href="/tags/cpr/" style="font-size: 12px;">cpr</a> <a href="/tags/data/" style="font-size: 10px;">data</a> <a href="/tags/ec2/" style="font-size: 10px;">ec2</a> <a href="/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/tags/generate/" style="font-size: 10px;">generate</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/icarus/" style="font-size: 10px;">icarus</a> <a href="/tags/issue/" style="font-size: 10px;">issue</a> <a href="/tags/jekyll/" style="font-size: 10px;">jekyll</a> <a href="/tags/jekyll-swiss/" style="font-size: 10px;">jekyll-swiss</a> <a href="/tags/lambda/" style="font-size: 10px;">lambda</a> <a href="/tags/lambda-edge/" style="font-size: 10px;">lambda@edge</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/log/" style="font-size: 10px;">log</a> <a href="/tags/migration/" style="font-size: 12px;">migration</a> <a href="/tags/network/" style="font-size: 12px;">network</a> <a href="/tags/portfowarding/" style="font-size: 10px;">portfowarding</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/queries/" style="font-size: 10px;">queries</a> <a href="/tags/rds/" style="font-size: 10px;">rds</a> <a href="/tags/read-replica/" style="font-size: 10px;">read replica</a> <a href="/tags/readreplica/" style="font-size: 10px;">readreplica</a> <a href="/tags/revierepublic/" style="font-size: 10px;">revierepublic</a> <a href="/tags/reviewrepublic/" style="font-size: 10px;">reviewrepublic</a> <a href="/tags/security/" style="font-size: 10px;">security</a> <a href="/tags/serverless/" style="font-size: 10px;">serverless</a> <a href="/tags/spark/" style="font-size: 12px;">spark</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/storage/" style="font-size: 10px;">storage</a> <a href="/tags/theme/" style="font-size: 10px;">theme</a> <a href="/tags/troubleshooting/" style="font-size: 10px;">troubleshooting</a> <a href="/tags/zeppelin/" style="font-size: 16px;">zeppelin</a>
     </div>
 </div>
     
@@ -997,6 +1012,25 @@
         <h3 class="menu-label">
             최근 글
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/12/20/2019-12-20-bastion-host-port-forwarding/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/aws-logo-2.png" alt="bastion host 포트 포워딩 ssh">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-19T15:00:00.000Z">2019-12-20</time></div>
+                    <a href="/2019/12/20/2019-12-20-bastion-host-port-forwarding/" class="title has-link-black-ter is-size-6 has-text-weight-normal">bastion host 포트 포워딩 ssh</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/AWS/">AWS</a> / <a class="has-link-grey -link" href="/categories/AWS/Computing/">Computing</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -1074,25 +1108,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2019/06/29/2019-06-29-EMR-Athena-Zepplin/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="EMR 에 올라간 Zeppelin 활용하여 Athena 이용하기. ">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-28T15:00:00.000Z">2019-06-29</time></div>
-                    <a href="/2019/06/29/2019-06-29-EMR-Athena-Zepplin/" class="title has-link-black-ter is-size-6 has-text-weight-normal">EMR 에 올라간 Zeppelin 활용하여 Athena 이용하기. </a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/AWS/">AWS</a> / <a class="has-link-grey -link" href="/categories/AWS/EMR/">EMR</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
         
@@ -1110,7 +1125,7 @@
                     <span class="level-item">12월 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">3</span>
+                    <span class="level-item tag">4</span>
                 </span>
             </a>
         </li>
@@ -1318,6 +1333,13 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/bastionhost/">
+                        <span class="tag">bastionhost</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/bigdata/">
                         <span class="tag">bigdata</span>
                         <span class="tag is-grey">7</span>
@@ -1362,6 +1384,13 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/data/">
                         <span class="tag">data</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ec2/">
+                        <span class="tag">ec2</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1458,6 +1487,13 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/portfowarding/">
+                        <span class="tag">portfowarding</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/python/">
                         <span class="tag">python</span>
                         <span class="tag is-grey">1</span>
@@ -1507,6 +1543,13 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/security/">
+                        <span class="tag">security</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/serverless/">
                         <span class="tag">serverless</span>
                         <span class="tag is-grey">1</span>
@@ -1517,6 +1560,13 @@
                     <a class="tags has-addons" href="/tags/spark/">
                         <span class="tag">spark</span>
                         <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ssh/">
+                        <span class="tag">ssh</span>
+                        <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
@@ -1572,6 +1622,25 @@
         
         <article class="media">
             
+            <a href="/2019/12/20/2019-12-20-bastion-host-port-forwarding/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/aws-logo-2.png" alt="bastion host 포트 포워딩 ssh">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-19T15:00:00.000Z">2019-12-20</time></div>
+                    <a href="/2019/12/20/2019-12-20-bastion-host-port-forwarding/" class="title has-link-black-ter is-size-6 has-text-weight-normal">bastion host 포트 포워딩 ssh</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/AWS/">AWS</a> / <a class="has-link-grey -link" href="/categories/AWS/Computing/">Computing</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2019/12/17/2019-12-17-zeppelin-stopped-sparkcontext/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/troubleshooting.jpg" alt="문제 해결: Cannot Call methods on a stopped SparkContext">
@@ -1646,25 +1715,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2019/06/29/2019-06-29-EMR-Athena-Zepplin/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="EMR 에 올라간 Zeppelin 활용하여 Athena 이용하기. ">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-28T15:00:00.000Z">2019-06-29</time></div>
-                    <a href="/2019/06/29/2019-06-29-EMR-Athena-Zepplin/" class="title has-link-black-ter is-size-6 has-text-weight-normal">EMR 에 올라간 Zeppelin 활용하여 Athena 이용하기. </a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/AWS/">AWS</a> / <a class="has-link-grey -link" href="/categories/AWS/EMR/">EMR</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
     
@@ -1682,7 +1732,7 @@
                     <span class="level-item">12월 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">3</span>
+                    <span class="level-item tag">4</span>
                 </span>
             </a>
         </li>
@@ -1890,6 +1940,13 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/bastionhost/">
+                        <span class="tag">bastionhost</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/bigdata/">
                         <span class="tag">bigdata</span>
                         <span class="tag is-grey">7</span>
@@ -1934,6 +1991,13 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/data/">
                         <span class="tag">data</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ec2/">
+                        <span class="tag">ec2</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -2030,6 +2094,13 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/portfowarding/">
+                        <span class="tag">portfowarding</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/python/">
                         <span class="tag">python</span>
                         <span class="tag is-grey">1</span>
@@ -2079,6 +2150,13 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/security/">
+                        <span class="tag">security</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/serverless/">
                         <span class="tag">serverless</span>
                         <span class="tag is-grey">1</span>
@@ -2089,6 +2167,13 @@
                     <a class="tags has-addons" href="/tags/spark/">
                         <span class="tag">spark</span>
                         <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ssh/">
+                        <span class="tag">ssh</span>
+                        <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 

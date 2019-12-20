@@ -8,6 +8,20 @@
     </url>
 
     <url>
+        <loc>https://boomkim.github.io/categories/AWS/Computing/</loc>
+        <lastmod>2019-12-20T08:35:18.749Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://boomkim.github.io/categories/AWS/</loc>
+        <lastmod>2019-12-20T08:35:18.749Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://boomkim.github.io/categories/bigdata/spark/</loc>
         <lastmod>2019-12-17T09:35:19.204Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -57,13 +71,6 @@
     </url>
 
     <url>
-        <loc>https://boomkim.github.io/categories/AWS/</loc>
-        <lastmod>2019-12-13T08:55:35.462Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://boomkim.github.io/categories/Container/Docker/</loc>
         <lastmod>2019-12-13T08:53:47.480Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -80,13 +87,6 @@
     <url>
         <loc>https://boomkim.github.io/categories/Others/</loc>
         <lastmod>2019-12-13T08:51:38.567Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://boomkim.github.io/categories/AWS/Computing/</loc>
-        <lastmod>2019-12-13T08:50:55.389Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
