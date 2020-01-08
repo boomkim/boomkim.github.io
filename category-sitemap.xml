@@ -8,43 +8,43 @@
     </url>
 
     <url>
-        <loc>https://boomkim.github.io/categories/AWS/Data-Analytics/</loc>
-        <lastmod>2019-12-20T08:36:08.287Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://boomkim.github.io/categories/AWS/</loc>
-        <lastmod>2019-12-20T08:36:08.287Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://boomkim.github.io/categories/AWS/Computing/</loc>
-        <lastmod>2019-12-20T08:35:18.749Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://boomkim.github.io/categories/bigdata/spark/</loc>
-        <lastmod>2019-12-17T09:35:19.204Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://boomkim.github.io/categories/bigdata/</loc>
-        <lastmod>2019-12-17T09:35:19.204Z</lastmod>
+        <loc>https://boomkim.github.io/categories/Bigdata/Airflow/</loc>
+        <lastmod>2020-01-08T06:05:18.734Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://boomkim.github.io/categories/Bigdata/</loc>
-        <lastmod>2019-12-13T08:56:47.889Z</lastmod>
+        <lastmod>2020-01-08T06:05:18.734Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://boomkim.github.io/categories/AWS/Computing/</loc>
+        <lastmod>2020-01-08T05:40:05.384Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://boomkim.github.io/categories/AWS/</loc>
+        <lastmod>2020-01-08T05:40:05.384Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://boomkim.github.io/categories/Bigdata/Spark/</loc>
+        <lastmod>2020-01-08T02:24:39.044Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://boomkim.github.io/categories/AWS/Data-Analytics/</loc>
+        <lastmod>2019-12-20T08:36:08.287Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

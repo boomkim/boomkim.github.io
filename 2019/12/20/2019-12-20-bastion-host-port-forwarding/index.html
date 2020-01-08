@@ -7,19 +7,19 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>bastion host 포트 포워딩 ssh - Boomkim</title>
+<title>Bastion Host를 통해 내부 서버에 SSH 접속하기 (터널링) - Boomkim</title>
 
 
     <meta name="description" content="aws 상에서 보안을 위해 그림과 같이 실제 사용하는 인스턴스는 private subnet에 숨기고, public에 bastion host 라는 걸 둬서 접근하는 방식이 있다.  이렇게 하면 관리할 구멍을 하나만 만들고 그 외에는 접근이 원천적으로 불가능해지기 때문에 보안적으로는 좋아지긴 하는데… 그 내부로 접근하기가 매우 귀찮아지는 단점이 있다.  결국">
 <meta name="keywords" content="ec2,bastionhost,ssh,portfowarding,security">
 <meta property="og:type" content="article">
-<meta property="og:title" content="bastion host 포트 포워딩 ssh">
+<meta property="og:title" content="Bastion Host를 통해 내부 서버에 SSH 접속하기 (터널링)">
 <meta property="og:url" content="https:&#x2F;&#x2F;boomkim.github.io&#x2F;2019&#x2F;12&#x2F;20&#x2F;2019-12-20-bastion-host-port-forwarding&#x2F;index.html">
 <meta property="og:site_name" content="Boomkim">
 <meta property="og:description" content="aws 상에서 보안을 위해 그림과 같이 실제 사용하는 인스턴스는 private subnet에 숨기고, public에 bastion host 라는 걸 둬서 접근하는 방식이 있다.  이렇게 하면 관리할 구멍을 하나만 만들고 그 외에는 접근이 원천적으로 불가능해지기 때문에 보안적으로는 좋아지긴 하는데… 그 내부로 접근하기가 매우 귀찮아지는 단점이 있다.  결국">
 <meta property="og:locale" content="ko">
 <meta property="og:image" content="https:&#x2F;&#x2F;boomkim.github.io&#x2F;images&#x2F;aws-logo-2.png">
-<meta property="og:updated_time" content="2019-12-20T08:35:18.749Z">
+<meta property="og:updated_time" content="2020-01-08T05:40:05.384Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;boomkim.github.io&#x2F;images&#x2F;aws-logo-2.png">
 
@@ -87,7 +87,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.png" alt="bastion host 포트 포워딩 ssh" height="28">
+                <img src="/images/logo.png" alt="Bastion Host를 통해 내부 서버에 SSH 접속하기 (터널링)" height="28">
             
             </a>
         </div>
@@ -141,7 +141,7 @@
     
     <div class="card-image">
         <span  class="image is-7by1">
-            <img class="thumbnail" src="/images/aws-logo-2.png" alt="bastion host 포트 포워딩 ssh">
+            <img class="thumbnail" src="/images/aws-logo-2.png" alt="Bastion Host를 통해 내부 서버에 SSH 접속하기 (터널링)">
         </span>
     </div>
     
@@ -168,7 +168,7 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                bastion host 포트 포워딩 ssh
+                Bastion Host를 통해 내부 서버에 SSH 접속하기 (터널링)
             
         </h1>
         <div class="content">
@@ -215,6 +215,13 @@
 
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/01/08/2020-01-08-airflow-install-amazon-linux-2/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">Amazon Linux 2에 Airflow 설치하기</span>
+            </a>
+        </div>
         
         
         <div class="level-end">
@@ -285,9 +292,25 @@
                 <span class="level-item">Bigdata</span>
             </span>
             <span class="level-end">
+                <span class="level-item tag">4</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/Bigdata/Airflow/">
+            <span class="level-start">
+                <span class="level-item">Airflow</span>
+            </span>
+            <span class="level-end">
                 <span class="level-item tag">1</span>
             </span>
         </a></li><li>
+        <a class="level is-marginless" href="/categories/Bigdata/Spark/">
+            <span class="level-start">
+                <span class="level-item">Spark</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li></ul></li><li>
         <a class="level is-marginless" href="/categories/Blogging/">
             <span class="level-start">
                 <span class="level-item">Blogging</span>
@@ -360,22 +383,6 @@
                 <span class="level-item tag">1</span>
             </span>
         </a></li></ul></li><li>
-        <a class="level is-marginless" href="/categories/bigdata/">
-            <span class="level-start">
-                <span class="level-item">bigdata</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">2</span>
-            </span>
-        </a><ul><li>
-        <a class="level is-marginless" href="/categories/bigdata/spark/">
-            <span class="level-start">
-                <span class="level-item">spark</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">2</span>
-            </span>
-        </a></li></ul></li><li>
         <a class="level is-marginless" href="/categories/blog/">
             <span class="level-start">
                 <span class="level-item">blog</span>
@@ -401,11 +408,11 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.png" alt="bastion host 포트 포워딩 ssh" height="28">
+                    <img src="/images/logo.png" alt="Bastion Host를 통해 내부 서버에 SSH 접속하기 (터널링)" height="28">
                 
                 </a>
                 <p class="is-size-7">
-                &copy; 2019 boomkim&nbsp;
+                &copy; 2020 boomkim&nbsp;
                 Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & <a
                         href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
                 

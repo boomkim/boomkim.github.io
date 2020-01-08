@@ -163,7 +163,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    5분 읽기 (대략 740 단어)
+                    4분 읽기 (대략 595 단어)
                 </span>
                 
                 
@@ -172,21 +172,20 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2018/07/27/2018-07-27-docker-network-overlay/">[docker] multihost networking - overlay</a>
+                <a class="has-link-black-ter" href="/2018/07/27/2018-07-27-docker-overlay-bandwidth/">[docker] overlay network bandwidth test</a>
             
         </h1>
         <div class="content">
-            <p>여러 호스트를 이용하는 도커가 swarm을 이룰경우 서로 통신을 하려면 네트웍이 필요하다. 이때 각각 다른 호스트에서 생성된 컨테이너 사이에 네트워크를 생성해주는 것이 바로 overlay 네트워크 이다. </p>
-<p><img src="/images/overlay-network.png" alt="그림1"></p>
-<p><em>각각의 호스트에서 쓰고있는 네트워크와 상관없이 컨테이너 끼리의 사설망을 따로 만들어줌.</em></p>
-<p>예를들어 각각의 호스트 A가 10.0.0.3 B가 10.0.0.5 라는 사설 ip를 사용하고 있을때 overlay network로 전혀 다른 사설대역 192.168.0.0/24를 만들 수 있다. Docker Swarm 을 구성해놓은 상태에서 새로운 서비스를 생성할 때, 네트워크를 미리 만들어 둔 overlay 네트워크를 지정하면 overlay 네트워크를 사용하는 컨테이너가 각각 올라가고 해당 서브넷 내의 ip를 할당받는다. </p>
+            <p>앞의 포스트에 이어 overlay network를 테스트해보다가 bandwidth가 궁금해졌다. 아무래도 네트워크 레이어를 하나 더 만드는 것이니 네트워크 성능이 노드들 끼리의 통신보다는 안 좋을 것이라 예상됐다. 찾아보니 예전 docker에서는 많게는 50% 정도까지 성능저하가 있었던 것 같다. </p>
+<p>테스트 환경: AWS EC2 t2.medium &lt;-&gt; t2.small</p>
+<p>테스트 방법: iperf3 을 사용했다. </p>
         </div>
         
         
         <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2018/07/27/2018-07-27-docker-network-overlay/#more">자세히 보기</a>
+                <a class="button is-size-7 is-light" href="/2018/07/27/2018-07-27-docker-overlay-bandwidth/#more">자세히 보기</a>
                 </div>
             </div>
         </div>
@@ -219,7 +218,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    4분 읽기 (대략 595 단어)
+                    5분 읽기 (대략 740 단어)
                 </span>
                 
                 
@@ -228,20 +227,21 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2018/07/27/2018-07-27-docker-overlay-bandwidth/">[docker] overlay network bandwidth test</a>
+                <a class="has-link-black-ter" href="/2018/07/27/2018-07-27-docker-network-overlay/">[docker] multihost networking - overlay</a>
             
         </h1>
         <div class="content">
-            <p>앞의 포스트에 이어 overlay network를 테스트해보다가 bandwidth가 궁금해졌다. 아무래도 네트워크 레이어를 하나 더 만드는 것이니 네트워크 성능이 노드들 끼리의 통신보다는 안 좋을 것이라 예상됐다. 찾아보니 예전 docker에서는 많게는 50% 정도까지 성능저하가 있었던 것 같다. </p>
-<p>테스트 환경: AWS EC2 t2.medium &lt;-&gt; t2.small</p>
-<p>테스트 방법: iperf3 을 사용했다. </p>
+            <p>여러 호스트를 이용하는 도커가 swarm을 이룰경우 서로 통신을 하려면 네트웍이 필요하다. 이때 각각 다른 호스트에서 생성된 컨테이너 사이에 네트워크를 생성해주는 것이 바로 overlay 네트워크 이다. </p>
+<p><img src="/images/overlay-network.png" alt="그림1"></p>
+<p><em>각각의 호스트에서 쓰고있는 네트워크와 상관없이 컨테이너 끼리의 사설망을 따로 만들어줌.</em></p>
+<p>예를들어 각각의 호스트 A가 10.0.0.3 B가 10.0.0.5 라는 사설 ip를 사용하고 있을때 overlay network로 전혀 다른 사설대역 192.168.0.0/24를 만들 수 있다. Docker Swarm 을 구성해놓은 상태에서 새로운 서비스를 생성할 때, 네트워크를 미리 만들어 둔 overlay 네트워크를 지정하면 overlay 네트워크를 사용하는 컨테이너가 각각 올라가고 해당 서브넷 내의 ip를 할당받는다. </p>
         </div>
         
         
         <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2018/07/27/2018-07-27-docker-overlay-bandwidth/#more">자세히 보기</a>
+                <a class="button is-size-7 is-light" href="/2018/07/27/2018-07-27-docker-network-overlay/#more">자세히 보기</a>
                 </div>
             </div>
         </div>
@@ -297,7 +297,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            25
+                            26
                         </p>
                     </a>
                 </div>
@@ -321,7 +321,7 @@
                     </p>
                     <a href="/tags">
                         <p class="title has-text-weight-normal">
-                            54
+                            56
                         </p>
                     </a>
                 </div>
@@ -404,9 +404,25 @@
                 <span class="level-item">Bigdata</span>
             </span>
             <span class="level-end">
+                <span class="level-item tag">4</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/Bigdata/Airflow/">
+            <span class="level-start">
+                <span class="level-item">Airflow</span>
+            </span>
+            <span class="level-end">
                 <span class="level-item tag">1</span>
             </span>
         </a></li><li>
+        <a class="level is-marginless" href="/categories/Bigdata/Spark/">
+            <span class="level-start">
+                <span class="level-item">Spark</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li></ul></li><li>
         <a class="level is-marginless" href="/categories/Blogging/">
             <span class="level-start">
                 <span class="level-item">Blogging</span>
@@ -479,22 +495,6 @@
                 <span class="level-item tag">1</span>
             </span>
         </a></li></ul></li><li>
-        <a class="level is-marginless" href="/categories/bigdata/">
-            <span class="level-start">
-                <span class="level-item">bigdata</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">2</span>
-            </span>
-        </a><ul><li>
-        <a class="level is-marginless" href="/categories/bigdata/spark/">
-            <span class="level-start">
-                <span class="level-item">spark</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">2</span>
-            </span>
-        </a></li></ul></li><li>
         <a class="level is-marginless" href="/categories/blog/">
             <span class="level-start">
                 <span class="level-item">blog</span>
@@ -513,7 +513,7 @@
         <h3 class="menu-label">
             태그 클라우드
         </h3>
-        <a href="/tags/ALB/" style="font-size: 10px;">ALB</a> <a href="/tags/AWS/" style="font-size: 20px;">AWS</a> <a href="/tags/ActiveDirectory/" style="font-size: 12px;">ActiveDirectory</a> <a href="/tags/DigitalOcean/" style="font-size: 12px;">DigitalOcean</a> <a href="/tags/Docker/" style="font-size: 12px;">Docker</a> <a href="/tags/EC2/" style="font-size: 12px;">EC2</a> <a href="/tags/Jekyll/" style="font-size: 10px;">Jekyll</a> <a href="/tags/Overlay/" style="font-size: 12px;">Overlay</a> <a href="/tags/PostgreSQL/" style="font-size: 10px;">PostgreSQL</a> <a href="/tags/RDS/" style="font-size: 10px;">RDS</a> <a href="/tags/SAML/" style="font-size: 10px;">SAML</a> <a href="/tags/T3/" style="font-size: 10px;">T3</a> <a href="/tags/WindowsServer/" style="font-size: 12px;">WindowsServer</a> <a href="/tags/athena/" style="font-size: 14px;">athena</a> <a href="/tags/aws/" style="font-size: 14px;">aws</a> <a href="/tags/bandwidth/" style="font-size: 10px;">bandwidth</a> <a href="/tags/bastionhost/" style="font-size: 10px;">bastionhost</a> <a href="/tags/bigdata/" style="font-size: 18px;">bigdata</a> <a href="/tags/blog/" style="font-size: 12px;">blog</a> <a href="/tags/cloudfront/" style="font-size: 10px;">cloudfront</a> <a href="/tags/commands/" style="font-size: 10px;">commands</a> <a href="/tags/concurrency/" style="font-size: 10px;">concurrency</a> <a href="/tags/cpr/" style="font-size: 12px;">cpr</a> <a href="/tags/data/" style="font-size: 10px;">data</a> <a href="/tags/ec2/" style="font-size: 10px;">ec2</a> <a href="/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/tags/generate/" style="font-size: 10px;">generate</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/icarus/" style="font-size: 10px;">icarus</a> <a href="/tags/issue/" style="font-size: 10px;">issue</a> <a href="/tags/jekyll/" style="font-size: 10px;">jekyll</a> <a href="/tags/jekyll-swiss/" style="font-size: 10px;">jekyll-swiss</a> <a href="/tags/lambda/" style="font-size: 10px;">lambda</a> <a href="/tags/lambda-edge/" style="font-size: 10px;">lambda@edge</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/log/" style="font-size: 10px;">log</a> <a href="/tags/migration/" style="font-size: 12px;">migration</a> <a href="/tags/network/" style="font-size: 12px;">network</a> <a href="/tags/portfowarding/" style="font-size: 10px;">portfowarding</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/queries/" style="font-size: 10px;">queries</a> <a href="/tags/rds/" style="font-size: 10px;">rds</a> <a href="/tags/read-replica/" style="font-size: 10px;">read replica</a> <a href="/tags/readreplica/" style="font-size: 10px;">readreplica</a> <a href="/tags/revierepublic/" style="font-size: 10px;">revierepublic</a> <a href="/tags/reviewrepublic/" style="font-size: 10px;">reviewrepublic</a> <a href="/tags/security/" style="font-size: 10px;">security</a> <a href="/tags/serverless/" style="font-size: 10px;">serverless</a> <a href="/tags/spark/" style="font-size: 12px;">spark</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/storage/" style="font-size: 10px;">storage</a> <a href="/tags/theme/" style="font-size: 10px;">theme</a> <a href="/tags/troubleshooting/" style="font-size: 10px;">troubleshooting</a> <a href="/tags/zeppelin/" style="font-size: 16px;">zeppelin</a>
+        <a href="/tags/ALB/" style="font-size: 10px;">ALB</a> <a href="/tags/AWS/" style="font-size: 20px;">AWS</a> <a href="/tags/ActiveDirectory/" style="font-size: 12px;">ActiveDirectory</a> <a href="/tags/AmazonLinux2/" style="font-size: 10px;">AmazonLinux2</a> <a href="/tags/DigitalOcean/" style="font-size: 12px;">DigitalOcean</a> <a href="/tags/Docker/" style="font-size: 12px;">Docker</a> <a href="/tags/EC2/" style="font-size: 14px;">EC2</a> <a href="/tags/Jekyll/" style="font-size: 10px;">Jekyll</a> <a href="/tags/Overlay/" style="font-size: 12px;">Overlay</a> <a href="/tags/PostgreSQL/" style="font-size: 10px;">PostgreSQL</a> <a href="/tags/RDS/" style="font-size: 10px;">RDS</a> <a href="/tags/SAML/" style="font-size: 10px;">SAML</a> <a href="/tags/T3/" style="font-size: 10px;">T3</a> <a href="/tags/WindowsServer/" style="font-size: 12px;">WindowsServer</a> <a href="/tags/airflow/" style="font-size: 10px;">airflow</a> <a href="/tags/athena/" style="font-size: 16px;">athena</a> <a href="/tags/aws/" style="font-size: 16px;">aws</a> <a href="/tags/bandwidth/" style="font-size: 10px;">bandwidth</a> <a href="/tags/bastionhost/" style="font-size: 10px;">bastionhost</a> <a href="/tags/bigdata/" style="font-size: 20px;">bigdata</a> <a href="/tags/blog/" style="font-size: 12px;">blog</a> <a href="/tags/cloudfront/" style="font-size: 10px;">cloudfront</a> <a href="/tags/commands/" style="font-size: 10px;">commands</a> <a href="/tags/concurrency/" style="font-size: 10px;">concurrency</a> <a href="/tags/cpr/" style="font-size: 12px;">cpr</a> <a href="/tags/data/" style="font-size: 10px;">data</a> <a href="/tags/ec2/" style="font-size: 10px;">ec2</a> <a href="/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/tags/generate/" style="font-size: 10px;">generate</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/icarus/" style="font-size: 10px;">icarus</a> <a href="/tags/issue/" style="font-size: 10px;">issue</a> <a href="/tags/jekyll/" style="font-size: 10px;">jekyll</a> <a href="/tags/jekyll-swiss/" style="font-size: 10px;">jekyll-swiss</a> <a href="/tags/lambda/" style="font-size: 10px;">lambda</a> <a href="/tags/lambda-edge/" style="font-size: 10px;">lambda@edge</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/log/" style="font-size: 10px;">log</a> <a href="/tags/migration/" style="font-size: 12px;">migration</a> <a href="/tags/network/" style="font-size: 12px;">network</a> <a href="/tags/portfowarding/" style="font-size: 10px;">portfowarding</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/queries/" style="font-size: 10px;">queries</a> <a href="/tags/rds/" style="font-size: 10px;">rds</a> <a href="/tags/read-replica/" style="font-size: 10px;">read replica</a> <a href="/tags/readreplica/" style="font-size: 10px;">readreplica</a> <a href="/tags/revierepublic/" style="font-size: 10px;">revierepublic</a> <a href="/tags/reviewrepublic/" style="font-size: 10px;">reviewrepublic</a> <a href="/tags/security/" style="font-size: 10px;">security</a> <a href="/tags/serverless/" style="font-size: 10px;">serverless</a> <a href="/tags/spark/" style="font-size: 12px;">spark</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/storage/" style="font-size: 10px;">storage</a> <a href="/tags/theme/" style="font-size: 10px;">theme</a> <a href="/tags/troubleshooting/" style="font-size: 10px;">troubleshooting</a> <a href="/tags/zeppelin/" style="font-size: 18px;">zeppelin</a>
     </div>
 </div>
     
@@ -528,16 +528,35 @@
         
         <article class="media">
             
+            <a href="/2020/01/08/2020-01-08-airflow-install-amazon-linux-2/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/2020/01/08/airflow.png" alt="Amazon Linux 2에 Airflow 설치하기">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-07T15:00:00.000Z">2020-01-08</time></div>
+                    <a href="/2020/01/08/2020-01-08-airflow-install-amazon-linux-2/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Amazon Linux 2에 Airflow 설치하기</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Bigdata/">Bigdata</a> / <a class="has-link-grey -link" href="/categories/Bigdata/Airflow/">Airflow</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2019/12/20/2019-12-20-bastion-host-port-forwarding/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/aws-logo-2.png" alt="bastion host 포트 포워딩 ssh">
+                    <img class="thumbnail" src="/images/aws-logo-2.png" alt="Bastion Host를 통해 내부 서버에 SSH 접속하기 (터널링)">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-19T15:00:00.000Z">2019-12-20</time></div>
-                    <a href="/2019/12/20/2019-12-20-bastion-host-port-forwarding/" class="title has-link-black-ter is-size-6 has-text-weight-normal">bastion host 포트 포워딩 ssh</a>
+                    <a href="/2019/12/20/2019-12-20-bastion-host-port-forwarding/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Bastion Host를 통해 내부 서버에 SSH 접속하기 (터널링)</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/AWS/">AWS</a> / <a class="has-link-grey -link" href="/categories/AWS/Computing/">Computing</a>
                     </p>
@@ -558,7 +577,7 @@
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-16T15:00:00.000Z">2019-12-17</time></div>
                     <a href="/2019/12/17/2019-12-17-zeppelin-stopped-sparkcontext/" class="title has-link-black-ter is-size-6 has-text-weight-normal">문제 해결: Cannot Call methods on a stopped SparkContext</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/bigdata/">bigdata</a> / <a class="has-link-grey -link" href="/categories/bigdata/spark/">spark</a>
+                        <a class="has-link-grey -link" href="/categories/Bigdata/">Bigdata</a> / <a class="has-link-grey -link" href="/categories/Bigdata/Spark/">Spark</a>
                     </p>
                 </div>
             </div>
@@ -577,7 +596,7 @@
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-10T15:00:00.000Z">2019-12-11</time></div>
                     <a href="/2019/12/11/2019-12-11-what-is-spark/" class="title has-link-black-ter is-size-6 has-text-weight-normal">스파크에 대한 아주 대략적인 정리</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/bigdata/">bigdata</a> / <a class="has-link-grey -link" href="/categories/bigdata/spark/">spark</a>
+                        <a class="has-link-grey -link" href="/categories/Bigdata/">Bigdata</a> / <a class="has-link-grey -link" href="/categories/Bigdata/Spark/">Spark</a>
                     </p>
                 </div>
             </div>
@@ -602,25 +621,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2019/11/04/2019-11-04-lambda-with-sqs/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Lambda의 동시성에 대하여 - 1">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-11-03T15:00:00.000Z">2019-11-04</time></div>
-                    <a href="/2019/11/04/2019-11-04-lambda-with-sqs/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Lambda의 동시성에 대하여 - 1</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/AWS/">AWS</a> / <a class="has-link-grey -link" href="/categories/AWS/Computing/">Computing</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
         
@@ -631,6 +631,17 @@
             아카이브
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/01/">
+                <span class="level-start">
+                    <span class="level-item">1월 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2019/12/">
@@ -755,6 +766,13 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/AmazonLinux2/">
+                        <span class="tag">AmazonLinux2</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/DigitalOcean/">
                         <span class="tag">DigitalOcean</span>
                         <span class="tag is-grey">2</span>
@@ -771,7 +789,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/EC2/">
                         <span class="tag">EC2</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag is-grey">3</span>
                     </a>
                 </div>
                 
@@ -825,6 +843,13 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/airflow/">
+                        <span class="tag">airflow</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/athena/">
                         <span class="tag">athena</span>
                         <span class="tag is-grey">4</span>
@@ -855,7 +880,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/bigdata/">
                         <span class="tag">bigdata</span>
-                        <span class="tag is-grey">7</span>
+                        <span class="tag is-grey">8</span>
                     </a>
                 </div>
                 
@@ -1135,16 +1160,35 @@
         
         <article class="media">
             
+            <a href="/2020/01/08/2020-01-08-airflow-install-amazon-linux-2/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/2020/01/08/airflow.png" alt="Amazon Linux 2에 Airflow 설치하기">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-07T15:00:00.000Z">2020-01-08</time></div>
+                    <a href="/2020/01/08/2020-01-08-airflow-install-amazon-linux-2/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Amazon Linux 2에 Airflow 설치하기</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Bigdata/">Bigdata</a> / <a class="has-link-grey -link" href="/categories/Bigdata/Airflow/">Airflow</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2019/12/20/2019-12-20-bastion-host-port-forwarding/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/aws-logo-2.png" alt="bastion host 포트 포워딩 ssh">
+                    <img class="thumbnail" src="/images/aws-logo-2.png" alt="Bastion Host를 통해 내부 서버에 SSH 접속하기 (터널링)">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-19T15:00:00.000Z">2019-12-20</time></div>
-                    <a href="/2019/12/20/2019-12-20-bastion-host-port-forwarding/" class="title has-link-black-ter is-size-6 has-text-weight-normal">bastion host 포트 포워딩 ssh</a>
+                    <a href="/2019/12/20/2019-12-20-bastion-host-port-forwarding/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Bastion Host를 통해 내부 서버에 SSH 접속하기 (터널링)</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/AWS/">AWS</a> / <a class="has-link-grey -link" href="/categories/AWS/Computing/">Computing</a>
                     </p>
@@ -1165,7 +1209,7 @@
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-16T15:00:00.000Z">2019-12-17</time></div>
                     <a href="/2019/12/17/2019-12-17-zeppelin-stopped-sparkcontext/" class="title has-link-black-ter is-size-6 has-text-weight-normal">문제 해결: Cannot Call methods on a stopped SparkContext</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/bigdata/">bigdata</a> / <a class="has-link-grey -link" href="/categories/bigdata/spark/">spark</a>
+                        <a class="has-link-grey -link" href="/categories/Bigdata/">Bigdata</a> / <a class="has-link-grey -link" href="/categories/Bigdata/Spark/">Spark</a>
                     </p>
                 </div>
             </div>
@@ -1184,7 +1228,7 @@
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-10T15:00:00.000Z">2019-12-11</time></div>
                     <a href="/2019/12/11/2019-12-11-what-is-spark/" class="title has-link-black-ter is-size-6 has-text-weight-normal">스파크에 대한 아주 대략적인 정리</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/bigdata/">bigdata</a> / <a class="has-link-grey -link" href="/categories/bigdata/spark/">spark</a>
+                        <a class="has-link-grey -link" href="/categories/Bigdata/">Bigdata</a> / <a class="has-link-grey -link" href="/categories/Bigdata/Spark/">Spark</a>
                     </p>
                 </div>
             </div>
@@ -1209,25 +1253,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2019/11/04/2019-11-04-lambda-with-sqs/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Lambda의 동시성에 대하여 - 1">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-11-03T15:00:00.000Z">2019-11-04</time></div>
-                    <a href="/2019/11/04/2019-11-04-lambda-with-sqs/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Lambda의 동시성에 대하여 - 1</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/AWS/">AWS</a> / <a class="has-link-grey -link" href="/categories/AWS/Computing/">Computing</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
     
@@ -1238,6 +1263,17 @@
             아카이브
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/01/">
+                <span class="level-start">
+                    <span class="level-item">1월 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2019/12/">
@@ -1362,6 +1398,13 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/AmazonLinux2/">
+                        <span class="tag">AmazonLinux2</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/DigitalOcean/">
                         <span class="tag">DigitalOcean</span>
                         <span class="tag is-grey">2</span>
@@ -1378,7 +1421,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/EC2/">
                         <span class="tag">EC2</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag is-grey">3</span>
                     </a>
                 </div>
                 
@@ -1432,6 +1475,13 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/airflow/">
+                        <span class="tag">airflow</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/athena/">
                         <span class="tag">athena</span>
                         <span class="tag is-grey">4</span>
@@ -1462,7 +1512,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/bigdata/">
                         <span class="tag">bigdata</span>
-                        <span class="tag is-grey">7</span>
+                        <span class="tag is-grey">8</span>
                     </a>
                 </div>
                 
@@ -1739,7 +1789,7 @@
                 
                 </a>
                 <p class="is-size-7">
-                &copy; 2019 boomkim&nbsp;
+                &copy; 2020 boomkim&nbsp;
                 Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & <a
                         href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
                 

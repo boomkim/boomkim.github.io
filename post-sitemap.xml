@@ -8,8 +8,8 @@
     </url>
 
     <url>
-        <loc>https://boomkim.github.io/2019/06/29/2019-06-29-EMR-Athena-Zepplin/</loc>
-        <lastmod>2019-12-20T08:36:08.287Z</lastmod>
+        <loc>https://boomkim.github.io/2020/01/08/2020-01-08-airflow-install-amazon-linux-2/</loc>
+        <lastmod>2020-01-08T06:05:18.734Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -17,7 +17,7 @@
 
     <url>
         <loc>https://boomkim.github.io/2019/12/20/2019-12-20-bastion-host-port-forwarding/</loc>
-        <lastmod>2019-12-20T08:35:18.749Z</lastmod>
+        <lastmod>2020-01-08T05:40:05.384Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -25,7 +25,7 @@
 
     <url>
         <loc>https://boomkim.github.io/2019/12/11/2019-12-11-what-is-spark/</loc>
-        <lastmod>2019-12-17T09:35:19.204Z</lastmod>
+        <lastmod>2020-01-08T02:24:39.044Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -33,7 +33,15 @@
 
     <url>
         <loc>https://boomkim.github.io/2019/12/17/2019-12-17-zeppelin-stopped-sparkcontext/</loc>
-        <lastmod>2019-12-17T09:17:12.935Z</lastmod>
+        <lastmod>2020-01-08T02:24:37.176Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://boomkim.github.io/2019/06/29/2019-06-29-EMR-Athena-Zepplin/</loc>
+        <lastmod>2019-12-20T08:36:08.287Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
