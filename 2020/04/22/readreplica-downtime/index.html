@@ -10,16 +10,16 @@
 <title>RDS, DocumentDB 는 Readreplica 생성시 다운타임이 발생하나요? - Boomkim</title>
 
 
-    <meta name="description" content="TL;DR RDS의 경우 single-az에 스냅샷을 한번도 생성한적이 없으면 I&#x2F;O 지연이 발생할 수 있음  Aurora, Document DB 는 공유스토리지 덕분에 single instance인 경우에도 순단이 발생하지 않음.   Readreplica, 읽기 부하 분산RDS, Document DB 등 AWS에서 제공하는 관리형 DB는 Readrepli">
+    <meta name="description" content="TL;DR RDS의 경우 single-az에 스냅샷을 한번도 생성한적이 없으면 I&#x2F;O 지연이 발생할 수 있음  Aurora, Document DB 는 공유스토리지 덕분에 single instance인 경우에도 순단이 발생하지 않음.">
 <meta name="keywords" content="readreplica,AWS,RDS,DocumentDB">
 <meta property="og:type" content="article">
 <meta property="og:title" content="RDS, DocumentDB 는 Readreplica 생성시 다운타임이 발생하나요?">
 <meta property="og:url" content="https:&#x2F;&#x2F;boomkim.github.io&#x2F;2020&#x2F;04&#x2F;22&#x2F;readreplica-downtime&#x2F;index.html">
 <meta property="og:site_name" content="Boomkim">
-<meta property="og:description" content="TL;DR RDS의 경우 single-az에 스냅샷을 한번도 생성한적이 없으면 I&#x2F;O 지연이 발생할 수 있음  Aurora, Document DB 는 공유스토리지 덕분에 single instance인 경우에도 순단이 발생하지 않음.   Readreplica, 읽기 부하 분산RDS, Document DB 등 AWS에서 제공하는 관리형 DB는 Readrepli">
+<meta property="og:description" content="TL;DR RDS의 경우 single-az에 스냅샷을 한번도 생성한적이 없으면 I&#x2F;O 지연이 발생할 수 있음  Aurora, Document DB 는 공유스토리지 덕분에 single instance인 경우에도 순단이 발생하지 않음.">
 <meta property="og:locale" content="ko">
 <meta property="og:image" content="https:&#x2F;&#x2F;boomkim.github.io&#x2F;images&#x2F;2020&#x2F;04&#x2F;rds-readreplica.png">
-<meta property="og:updated_time" content="2020-04-22T11:57:18.232Z">
+<meta property="og:updated_time" content="2020-04-22T13:41:06.852Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;boomkim.github.io&#x2F;images&#x2F;2020&#x2F;04&#x2F;rds-readreplica.png">
 
@@ -123,6 +123,10 @@
                     
                 
                 
+                <a class="navbar-item is-hidden-tablet catalogue" title="카탈로그" href="javascript:;" target="_blank" rel="noopener">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
                 
                 <a class="navbar-item search" title="검색" href="javascript:;" target="_blank" rel="noopener">
                     <i class="fas fa-search"></i>
@@ -159,7 +163,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    5분 읽기 (대략 810 단어)
+                    6분 읽기 (대략 970 단어)
                 </span>
                 
                 
@@ -176,33 +180,31 @@
 <li>RDS의 경우 single-az에 스냅샷을 한번도 생성한적이 없으면 I/O 지연이 발생할 수 있음 </li>
 <li>Aurora, Document DB 는 공유스토리지 덕분에 single instance인 경우에도 순단이 발생하지 않음. </li>
 </ul>
+<a id="more"></a>
+
 <h2 id="Readreplica-읽기-부하-분산"><a href="#Readreplica-읽기-부하-분산" class="headerlink" title="Readreplica, 읽기 부하 분산"></a>Readreplica, 읽기 부하 분산</h2><p>RDS, Document DB 등 AWS에서 제공하는 관리형 DB는 Readreplica를 손쉽게 만드는 기능을 제공합니다. </p>
 <p><img src="/images/2020/04/rds-readreplica.png" alt="rds-readreplica"></p>
 <p>‘읽기복제본’이라는 이름처럼 이렇게 생긴 복제본은 읽기 전용이기 때문에 쓰기 부하분산은 불가능하지만 읽기 부하는 충분히 분산시킬 수 있습니다. 그래서 수평확장이 어려운 DB에 그나마 읽기 성능만이라도 수평확장하기 위해서 많이 사용하죠.</p>
-<h2 id="그런데-혹시…"><a href="#그런데-혹시…" class="headerlink" title="그런데 혹시…"></a>그런데 혹시…</h2><p>얼마 전 이런 질문을 받았습니다. </p>
-<p><strong>“읽기복제본 생성시에 순단이 발생하나요?”</strong></p>
-<p>‘에이 설마…’ 라고 생각했지만, 그래도 확인이 필요했습니다. 급하게 AWS 문서를 뒤져봤고 문서에서도 뭔가 <em>‘순단따윈 없습니다’</em> 라는 명백하고 시원한 문구가 안보여 support 엔지니어에게 물어보기로 했습니다. </p>
+<h2 id="그런데-혹시…-읽기복제본-생성시에-순단이-발생하나요"><a href="#그런데-혹시…-읽기복제본-생성시에-순단이-발생하나요" class="headerlink" title="그런데 혹시… 읽기복제본 생성시에 순단이 발생하나요?"></a>그런데 혹시… 읽기복제본 생성시에 순단이 발생하나요?</h2><p>얼마 전 이런 질문을 받았습니다. </p>
+<p><em>‘에이 설마…’</em> 라고 생각했지만, 그래도 확인이 필요했습니다. 급하게 AWS 문서를 뒤져봤고 문서에서도 뭔가 <em>‘순단따윈 없습니다’</em> 라는 명백하고 시원한 문구가 안보여 support 엔지니어에게 물어보기로 했습니다. </p>
 <p>(서포트 케이스 내용)</p>
 <blockquote>
 <p>나: RR 만들때 순단 없어?<br>AWS: 응 없어.<br>(아니 그렇게 단호하게..?)<br>나: 아니… 문서보니깐 RDS는 snapshot 이용해서 readreplica 만든다고 되어 있고, snapshot 만들때 뭔가 하드웨어적으로 부하가 발생할것 같은데 정말 없어…?<br>AWS: 응 없어. </p>
 </blockquote>
-<h3 id="그래서-AWS-서포트-엔지니어가-답변한-내용을-정리하면"><a href="#그래서-AWS-서포트-엔지니어가-답변한-내용을-정리하면" class="headerlink" title="그래서 AWS 서포트 엔지니어가 답변한 내용을 정리하면"></a>그래서 AWS 서포트 엔지니어가 답변한 내용을 정리하면</h3><ol>
-<li><p>readreplica 만들 때 snapshot을 이용하는건 맞음. single AZ로 설정되어 있는 경우 snapshot 생성시에 I/O 중단(suspension)이 발생할 수 있지만 생성된 스냅샷이 있으면 증분식으로 스냅샷이 생성되므로 I/O 중단이 크지 않고, I/O 중단이 DB 중단을 의미하는 건 아님. (아마 read/write latency가 발생하겠죠?)</p>
-</li>
-<li><p>multi-az로 설정되어 있는 경우 마스터가 아닌 stand-by 인스턴스에서 스냅샷을 생성하기 때문에 master에 영향 없음 </p>
-</li>
-<li><p>aurora는 공유 스토리지를 사용하는 아키텍처이고 따라서 readreplica 생성시에 스냅샷을 사용하지 않음. 결국 master에 영향 없음. </p>
-</li>
-<li><p>DocumentDB도 공유 스토리지를 사용하므로 마찬가지. </p>
-</li>
-</ol>
-<p>즉, readreplica 생성 시에 마스터 DB에 지연이 생길 수 있는 조건은 </p>
+<h3 id="그래서-AWS-서포트-엔지니어가-답변한-내용을-정리해보면"><a href="#그래서-AWS-서포트-엔지니어가-답변한-내용을-정리해보면" class="headerlink" title="그래서 AWS 서포트 엔지니어가 답변한 내용을 정리해보면"></a>그래서 AWS 서포트 엔지니어가 답변한 내용을 정리해보면</h3><h4 id="Single-AZ로-구성된-RDS의-경우-I-O-Suspension이-발생할-수-있음"><a href="#Single-AZ로-구성된-RDS의-경우-I-O-Suspension이-발생할-수-있음" class="headerlink" title="Single-AZ로 구성된 RDS의 경우 I/O Suspension이 발생할 수 있음."></a>Single-AZ로 구성된 RDS의 경우 I/O Suspension이 발생할 수 있음.</h4><p>single AZ로 설정되어 있는 경우 snapshot 생성시에 I/O 중단(suspension)이 발생할 수 있지만 생성된 스냅샷이 있으면 증분식으로 스냅샷이 생성되므로 괜찮고, I/O 중단이 발생하더라도 DB가 중단되지는 않음. </p>
+<p>근데 사실 이 I/O Suspension이 되면 거의 DB가 일을 못하기 때문에 중단이라고 봐도 되지 않을까 싶네요. </p>
+<h4 id="Multi-AZ로-설정되어-있는-경우-마스터가-아닌-stand-by-인스턴스에서-스냅샷을-생성하기-때문에-master에-영향-없음"><a href="#Multi-AZ로-설정되어-있는-경우-마스터가-아닌-stand-by-인스턴스에서-스냅샷을-생성하기-때문에-master에-영향-없음" class="headerlink" title="Multi-AZ로 설정되어 있는 경우 마스터가 아닌 stand-by 인스턴스에서 스냅샷을 생성하기 때문에 master에 영향 없음"></a>Multi-AZ로 설정되어 있는 경우 마스터가 아닌 stand-by 인스턴스에서 스냅샷을 생성하기 때문에 master에 영향 없음</h4><p>이래서 multi-az가 중요합니다. multi-az 안쓸거면 사실 RDS 쓸 이유가 거의 없습니다. </p>
+<h4 id="Aurora-사용시-Master에-영향-없음"><a href="#Aurora-사용시-Master에-영향-없음" class="headerlink" title="Aurora 사용시 Master에 영향 없음"></a>Aurora 사용시 Master에 영향 없음</h4><p>Aurora는 공유 스토리지를 사용하는 아키텍처이고 따라서 readreplica 생성시에 스냅샷을 사용하지 않음. 결국 master에 영향 없음. </p>
+<h4 id="DocumentDB도-공유-스토리지를-사용하므로-마찬가지"><a href="#DocumentDB도-공유-스토리지를-사용하므로-마찬가지" class="headerlink" title="DocumentDB도 공유 스토리지를 사용하므로 마찬가지."></a>DocumentDB도 공유 스토리지를 사용하므로 마찬가지.</h4><p>DocumentDB의 강점도 역시 공유스토리지. 공유스토리지에 따른 이점으로 readreplica생성이 자유롭습니다.</p>
+<p>즉, <strong>웬만한 운영환경에서는 Readreplica 생성한다고 DB에 중단이 생기지는 않습니다.</strong> </p>
+<p>다음과 같은 극악의 조건을 갖춰야만 순단을 경험할 수 있는데…</p>
 <ol>
 <li>Aurora/DocDB 등 공유스토리지를 아닌 RDS를 </li>
 <li>이중화따위 고려하지 않고 Single-AZ 로 구성되어있어서 stand-by 인스턴스가 없으며</li>
 <li>백업따위 한적이 없어서 snapshot이 없다. </li>
 </ol>
-<p>위의 세가지 조건을 모두 만족해야 체감이 될만한 중단을 느낄 수 있습니다. 그런데 저 3가지를 모두 만족하는 조건이라면… 정말 초저비용으로 서비스를 만들었으며 의도적으로 백업을 안하도록 설정해야하는건데… <del>그러지 마요 제발</del></p>
+<p>위의 세가지 조건을 모두 만족해야 체감이 될 만한 중단을 느낄 수 있습니다. 그런데 저 3가지를 모두 만족하는 조건이라면… 정말 초저비용으로 서비스를 만들었으며 의도적으로 백업을 안하도록 설정해야하는건데… <del>그러지 마요 제발</del></p>
+<p>아님 그냥 EC2에 올리는 편이 백배 낫습니다. </p>
 
         </div>
         
@@ -249,6 +251,50 @@
 <div class="column is-4-tablet is-4-desktop is-4-widescreen  has-order-3 column-right ">
     
         
+
+    <div class="card widget" id="toc">
+        <div class="card-content">
+            <div class="menu">
+                <h3 class="menu-label">
+                    카탈로그
+                </h3>
+                <ul class="menu-list"><li>
+        <a class="is-flex" href="#TL-DR">
+        <span class="has-mr-6">1</span>
+        <span>TL;DR</span>
+        </a></li><li>
+        <a class="is-flex" href="#Readreplica-읽기-부하-분산">
+        <span class="has-mr-6">2</span>
+        <span>Readreplica, 읽기 부하 분산</span>
+        </a></li><li>
+        <a class="is-flex" href="#그런데-혹시…-읽기복제본-생성시에-순단이-발생하나요">
+        <span class="has-mr-6">3</span>
+        <span>그런데 혹시… 읽기복제본 생성시에 순단이 발생하나요?</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#그래서-AWS-서포트-엔지니어가-답변한-내용을-정리해보면">
+        <span class="has-mr-6">3.1</span>
+        <span>그래서 AWS 서포트 엔지니어가 답변한 내용을 정리해보면</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#Single-AZ로-구성된-RDS의-경우-I-O-Suspension이-발생할-수-있음">
+        <span class="has-mr-6">3.1.1</span>
+        <span>Single-AZ로 구성된 RDS의 경우 I/O Suspension이 발생할 수 있음.</span>
+        </a></li><li>
+        <a class="is-flex" href="#Multi-AZ로-설정되어-있는-경우-마스터가-아닌-stand-by-인스턴스에서-스냅샷을-생성하기-때문에-master에-영향-없음">
+        <span class="has-mr-6">3.1.2</span>
+        <span>Multi-AZ로 설정되어 있는 경우 마스터가 아닌 stand-by 인스턴스에서 스냅샷을 생성하기 때문에 master에 영향 없음</span>
+        </a></li><li>
+        <a class="is-flex" href="#Aurora-사용시-Master에-영향-없음">
+        <span class="has-mr-6">3.1.3</span>
+        <span>Aurora 사용시 Master에 영향 없음</span>
+        </a></li><li>
+        <a class="is-flex" href="#DocumentDB도-공유-스토리지를-사용하므로-마찬가지">
+        <span class="has-mr-6">3.1.4</span>
+        <span>DocumentDB도 공유 스토리지를 사용하므로 마찬가지.</span>
+        </a></li></ul></li></ul></li></ul>
+            </div>
+        </div>
+    </div>
+
     
         
 <div class="card widget">
