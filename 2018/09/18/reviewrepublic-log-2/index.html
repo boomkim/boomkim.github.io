@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html  lang="ko">
+<head>
+    <meta charset="utf-8" />
+
+<meta name="generator" content="Hexo 4.0.0" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<title>reviewrepublic 심폐소생술 - (2)DigitalOcean -&gt; AWS - Boomkim</title>
+
+
+    <meta name="description" content="이번 편에선 DigitalOcean 에서 AWS로 서버들을 옮기는 과정을 적어본다.  전에도 말했지만 리뷰리퍼블릭의 어플리케이션은 meteor.js 라는 프레임워크 (조금 더 정확하게는 meteor.js + react.js) 위에서 돌아간다. 이 프레임워크 덕분에 마이그레이션이 두배는 더 어려워졌다. 일단 익숙한 방식 (어디 한 express.js 나 스프">
+<meta name="keywords" content="AWS,cpr,DigitalOcean,migration,revierepublic">
+<meta property="og:type" content="article">
+<meta property="og:title" content="reviewrepublic 심폐소생술 - (2)DigitalOcean -&gt; AWS">
+<meta property="og:url" content="https:&#x2F;&#x2F;boomkim.github.io&#x2F;2018&#x2F;09&#x2F;18&#x2F;reviewrepublic-log-2&#x2F;index.html">
+<meta property="og:site_name" content="Boomkim">
+<meta property="og:description" content="이번 편에선 DigitalOcean 에서 AWS로 서버들을 옮기는 과정을 적어본다.  전에도 말했지만 리뷰리퍼블릭의 어플리케이션은 meteor.js 라는 프레임워크 (조금 더 정확하게는 meteor.js + react.js) 위에서 돌아간다. 이 프레임워크 덕분에 마이그레이션이 두배는 더 어려워졌다. 일단 익숙한 방식 (어디 한 express.js 나 스프">
+<meta property="og:locale" content="ko">
+<meta property="og:image" content="https:&#x2F;&#x2F;boomkim.github.io&#x2F;images&#x2F;og_image.png">
+<meta property="og:updated_time" content="2019-12-13T08:51:23.974Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;boomkim.github.io&#x2F;images&#x2F;og_image.png">
+
+
+
+
+
+
+
+<link rel="icon" href="/images/favicon.svg">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+<style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+    
+    
+    
+    
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-121973475-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-121973475-1');
+</script>
+
+    
+    
+    
+    
+    
+    <link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+    
+    
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="is-2-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/logo.png" alt="reviewrepublic 심폐소생술 - (2)DigitalOcean -&gt; AWS" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item"
+                href="/">Home</a>
+                
+                <a class="navbar-item"
+                href="/archives">Archives</a>
+                
+                <a class="navbar-item"
+                href="/categories">Categories</a>
+                
+                <a class="navbar-item"
+                href="/tags">Tags</a>
+                
+                <a class="navbar-item"
+                href="/about">About</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    <a class="navbar-item" target="_blank" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="카탈로그" href="javascript:;" target="_blank" rel="noopener">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
+                
+                <a class="navbar-item search" title="검색" href="javascript:;" target="_blank" rel="noopener">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main">
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2018-09-17T15:00:00.000Z">2018-09-18</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Others/">Others</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    11분 읽기 (대략 1693 단어)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                reviewrepublic 심폐소생술 - (2)DigitalOcean -&gt; AWS
+            
+        </h1>
+        <div class="content">
+            <p>이번 편에선 DigitalOcean 에서 AWS로 서버들을 옮기는 과정을 적어본다. </p>
+<p>전에도 말했지만 리뷰리퍼블릭의 어플리케이션은 meteor.js 라는 프레임워크 (조금 더 정확하게는 meteor.js + react.js) 위에서 돌아간다. 이 프레임워크 덕분에 마이그레이션이 두배는 더 어려워졌다. 일단 익숙한 방식 (어디 한 express.js 나 스프링 MVC 정도 사용할 줄 알았는데…)이 아니기에 이 프레임워크의 전체적인 개념부터 어떤식으로 배포가 되는지를 파악해야 했다. </p>
+<a id="more"></a>
+<ol>
+<li>서버 배포방식 확인, 배포</li>
+</ol>
+<p>그렇다고 지금 이 포스팅에서 meteor.js의 작동방식에 대해 다룰 것은 아니다. 왜냐하면 다행히 리뷰리퍼블릭의 프라이빗 코드저장소에는 간략한(무려 네줄) 서버 실행 및 배포 방법이 적혀있었기 때문이다. (이렇게 문서화가 중요하다.)</p>
+<p>서버 실행은 meteor.js 에 setting.js 파일을 참조해서 하면 되고 배포는 mup.js 라는 배포툴을 이용하고 있었다. 그러니 나는 이걸 aws 인프라 위에서 작동이 되는지 확인만 하면 됐다. </p>
+<p>먼저 로컬환경에서 테스트를 해봤다. 내 로컬 컴퓨터에서 정상적으로 어플리케이션이 돌아가는지, 돌아가는 어플리케이션은 실 서비스의 동작과 같은지 확인해야했다. 다행히 하라는 대로 하니 서버가 돌아가긴 했다. 다만 환경변수 세팅이 제대로 안되어있어서 db 접속이 안됐다. 환경변수만 조금 세팅해주니 정상적으로 어플리케이션이 돌아갔다. 또 다행히도 실서비스와 같은 동작을 하는 서버 같았다. (아쉽게도 테스트코드 같은것은 없었다.)</p>
+<p>AWS에서 올려보려고 했다. 로컬에서와 똑같은 방식으로 실행을 시키려고 하는데 알수없는 이유로 자꾸 meteor가 빌드 중에 죽었다. 정확한 이유를 파악하기 어려웠다. 결국 mup.js를 통해서 다시 시도했다. mup.js 는 해당 meteor 어플리케이션의 도커 이미지를 만들고 그 도커이미지를 통해 원격 서버에서 컨테이너로 실행시켜주는 배포 툴인듯 했다. 몇번의 시도 끝에 EC2 인스턴스 위에 배포하는 데에 성공했다. mup.js에서 미리 세팅해놓은 덕에 환경변수도 깔끔하게 들어가서 db 접속문제도 없었다. 잘 돌아가기에 해당 서버의 AMI를 생성해서 이미지를 저장해놨다. </p>
+<p>이렇게 서버 배포는 간단하게 끝이났다. 결국 서버 이전의 방식은 뭐 서버의 이미지를 떠서 새로운 서버를 올리는 방식이 아니라, 그냥 새로운 서버 하나를 생성하고 그 위에 소스코드를 배포하는 방식이 되었다. 그러니깐, Digital Ocean이랑은 아무 상관이 없었다. 그냥 리눅스 가상머신 위에 소스를 배포하기만 하면 되는 일이었다. 다행히 코드저장 및 최소한의 인스트럭션이 남아있었고 이를 토대로 재배포를 정상적으로 수행할 수 있었다. 와… 만약에 그런 최소한의 코드 정리도 안되어 있고 문서화가 안되어있는 상황이었으면… 아마 그냥 포기하지 않았을까. </p>
+<ol start="2">
+<li>로드밸런서 변경, 오토스케일링 적용. </li>
+</ol>
+<p>일단 기존 로드밸런서에 가용성 문제가 있었다. 기존에는 그냥 인스턴스를 하나 띄워서 그 인스턴스가 로드밸런서의 역할을 한다. 그러다 만약 해당 인스턴스가 뻗어버리면? 바로 서비스 장애로 이어진다. 그러니 인스턴스가 뻗지 않게 사양도 높게 잡아줘야 하고 인스턴스의 가용성 관리도 해야하는건데 그게 쉽지 않다. AWS의 로드밸런서 서비스인 ELB는 고맙게도 그런걸 다 해준다(정확히는 AWS가 보장…해준다고 한다.). ELB 로드밸런서가 뻗지 않게 가용성을 보장해주는 관리형 서비스로 트래픽이 몰려도 이에 맞게 로드밸런서가 대응한다. 아무래도 무식하게 좋은서버 한대 올려서 로드밸런서 구성하는것 보다는 구성도 간단하고 요금도 무작정 성능 좋은 서버 하나에 로드밸런서 올려놓는 것보다 저렴하다. </p>
+<p>그래서 로드밸런서를 ELB로 교체했다. </p>
+<p>그리고 오토스케일링 적용. 트래픽이 늘어났을때 LB만 살아있다고 되는게 아니라 결정적으로 앱 서버가 살아있어야 한다. 은행에서 티켓 발행하는 기계가 아무리 살아있어도 은행원들이 탈진해버리면 은행 서비스가 불가능한 것과 똑같다. 그러니 앱 서버에도 가용성관리가 들어가야 한다. digital ocean은 아쉽게도 이러한 오토스케일링을 적용하려면 haproxy 등을 통해 직접 구성해야한다. AWS는 이 autoscaling 구성이 간편한게 자랑이다. </p>
+<p>그래서 autoscaling을 구성했다. 이렇게 함으로써 얻는 이점은 일단은 가용성이다. autoscaling을 통해 인스턴스가 알수없는 이유로 죽더라도 다시 생성된다. 또한 로드밸런서의 가용성도 올라갔다. 구성은 그냥 아까 서버 배포하면서 생성한 ami를 기준으로 시작구성 생성하고 오토스케일링 적용시켜주면 끝. </p>
+<ol start="3">
+<li>보너스… 싱가폴 -&gt; 서울 </li>
+</ol>
+<p>다른 얘길 적다보니 얘기 안했는데 digitalocean에서 제일 가까운 서버가 싱가폴에 있다. AWS는 서울리전이 지원된다. 응답속도는 적게는 0.2초, 많게는 거의 0.7초정도 차이난다(물론 테스트 환경마다 다름). 그러니 싱가폴에서 서울로 옮기기만 해도 최소 0.2초 정도는 버는 셈이었다. 근데 그럼 뭐해 사이트 로딩하는데 7~8초 걸리는데… 0.2초 차이 티도 안남.</p>
+<p>이 글을 적던 도중 리뷰리퍼블릭이 터져버렸다… </p>
+
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/AWS/" rel="tag">AWS</a>, <a class="has-link-grey -link" href="/tags/DigitalOcean/" rel="tag">DigitalOcean</a>, <a class="has-link-grey -link" href="/tags/cpr/" rel="tag">cpr</a>, <a class="has-link-grey -link" href="/tags/migration/" rel="tag">migration</a>, <a class="has-link-grey -link" href="/tags/revierepublic/" rel="tag">revierepublic</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2018/09/28/cross-region-read-replica-version-issue/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">AWS RDS mysql - 다른 리전에 읽기복제본 생성: 버전이슈</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2018/09/11/reviewrepublic-log-1/">
+                <span class="level-item">reviewrepublic 심폐소생술 - (1)프로젝트 수락</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+</div>
+                
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-4-widescreen  has-order-3 column-right ">
+    
+        
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                카테고리
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/AWS/">
+            <span class="level-start">
+                <span class="level-item">AWS</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">13</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/AWS/Computing/">
+            <span class="level-start">
+                <span class="level-item">Computing</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">6</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/AWS/Data-Analytics/">
+            <span class="level-start">
+                <span class="level-item">Data Analytics</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">4</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/AWS/Database/">
+            <span class="level-start">
+                <span class="level-item">Database</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/Bigdata/">
+            <span class="level-start">
+                <span class="level-item">Bigdata</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">4</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/Bigdata/Airflow/">
+            <span class="level-start">
+                <span class="level-item">Airflow</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Bigdata/Spark/">
+            <span class="level-start">
+                <span class="level-item">Spark</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/Blogging/">
+            <span class="level-start">
+                <span class="level-item">Blogging</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Container/">
+            <span class="level-start">
+                <span class="level-item">Container</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/Container/Docker/">
+            <span class="level-start">
+                <span class="level-item">Docker</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/Database/">
+            <span class="level-start">
+                <span class="level-item">Database</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/Database/PostgreSQL/">
+            <span class="level-start">
+                <span class="level-item">PostgreSQL</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/Linux/">
+            <span class="level-start">
+                <span class="level-item">Linux</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Others/">
+            <span class="level-start">
+                <span class="level-item">Others</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Security/">
+            <span class="level-start">
+                <span class="level-item">Security</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/Security/SAML/">
+            <span class="level-start">
+                <span class="level-item">SAML</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/blog/">
+            <span class="level-start">
+                <span class="level-item">blog</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.png" alt="reviewrepublic 심폐소생술 - (2)DigitalOcean -&gt; AWS" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2020 boomkim&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & <a
+                        href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("ko");</script>
+
+<script>
+var IcarusThemeSettings = {
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+    
+    
+<script src="/js/animation.js"></script>
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+<script src="/js/gallery.js" defer></script>
+
+    
+    
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" target="_blank" rel="noopener">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+    
+    
+<a id="back-to-top" title="Back to Top" href="javascript:;" target="_blank" rel="noopener">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="입력 하세요..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '포스트',
+                PAGES: '페이지',
+                CATEGORIES: '카테고리',
+                TAGS: '태그',
+                UNTITLED: '(제목없음)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>
