@@ -8,20 +8,6 @@
     </url>
 
     <url>
-        <loc>https://boomkim.github.io/categories/AWS/Database/</loc>
-        <lastmod>2020-04-22T10:03:58.092Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://boomkim.github.io/categories/AWS/</loc>
-        <lastmod>2020-04-22T10:03:58.092Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://boomkim.github.io/categories/Bigdata/Airflow/</loc>
         <lastmod>2020-01-08T06:05:18.734Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -37,6 +23,13 @@
 
     <url>
         <loc>https://boomkim.github.io/categories/AWS/Computing/</loc>
+        <lastmod>2020-01-08T05:40:05.384Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://boomkim.github.io/categories/AWS/</loc>
         <lastmod>2020-01-08T05:40:05.384Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -73,6 +66,13 @@
     <url>
         <loc>https://boomkim.github.io/categories/Security/</loc>
         <lastmod>2019-12-13T08:56:16.250Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://boomkim.github.io/categories/AWS/Database/</loc>
+        <lastmod>2019-12-13T08:55:35.462Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
