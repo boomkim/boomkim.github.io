@@ -160,7 +160,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    5분 읽기 (대략 769 단어)
+                    5분 읽기 (대략 810 단어)
                 </span>
                 
                 
@@ -169,12 +169,13 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2020/04/22/readreplica-downtime/">RDS, DocumentDB 는 Readreplica 생성시 다운타임이 있나요?</a>
+                <a class="has-link-black-ter" href="/2020/04/22/readreplica-downtime/">RDS, DocumentDB 는 Readreplica 생성시 다운타임이 발생하나요?</a>
             
         </h1>
         <div class="content">
             <h2 id="TL-DR"><a href="#TL-DR" class="headerlink" title="TL;DR"></a>TL;DR</h2><ul>
-<li>reareplica 생성시 single-az, RDS 아니면 순단은 발생하지 않습니다. </li>
+<li>RDS의 경우 single-az에 스냅샷을 한번도 생성한적이 없으면 I/O 지연이 발생할 수 있음 </li>
+<li>Aurora, Document DB 는 공유스토리지 덕분에 single instance인 경우에도 순단이 발생하지 않음. </li>
 </ul>
 <h2 id="Readreplica-읽기-부하-분산"><a href="#Readreplica-읽기-부하-분산" class="headerlink" title="Readreplica, 읽기 부하 분산"></a>Readreplica, 읽기 부하 분산</h2><p>RDS, Document DB 등 AWS에서 제공하는 관리형 DB는 Readreplica를 손쉽게 만드는 기능을 제공합니다. </p>
 <p><img src="/images/2020/04/rds-readreplica.png" alt="rds-readreplica"></p>
@@ -544,14 +545,14 @@
             
             <a href="/2020/04/22/readreplica-downtime/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="RDS, DocumentDB 는 Readreplica 생성시 다운타임이 있나요?">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="RDS, DocumentDB 는 Readreplica 생성시 다운타임이 발생하나요?">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-04-22T09:21:45.000Z">2020-04-22</time></div>
-                    <a href="/2020/04/22/readreplica-downtime/" class="title has-link-black-ter is-size-6 has-text-weight-normal">RDS, DocumentDB 는 Readreplica 생성시 다운타임이 있나요?</a>
+                    <a href="/2020/04/22/readreplica-downtime/" class="title has-link-black-ter is-size-6 has-text-weight-normal">RDS, DocumentDB 는 Readreplica 생성시 다운타임이 발생하나요?</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/AWS/">AWS</a> / <a class="has-link-grey -link" href="/categories/AWS/Database/">Database</a>
                     </p>
@@ -1194,14 +1195,14 @@
             
             <a href="/2020/04/22/readreplica-downtime/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="RDS, DocumentDB 는 Readreplica 생성시 다운타임이 있나요?">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="RDS, DocumentDB 는 Readreplica 생성시 다운타임이 발생하나요?">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-04-22T09:21:45.000Z">2020-04-22</time></div>
-                    <a href="/2020/04/22/readreplica-downtime/" class="title has-link-black-ter is-size-6 has-text-weight-normal">RDS, DocumentDB 는 Readreplica 생성시 다운타임이 있나요?</a>
+                    <a href="/2020/04/22/readreplica-downtime/" class="title has-link-black-ter is-size-6 has-text-weight-normal">RDS, DocumentDB 는 Readreplica 생성시 다운타임이 발생하나요?</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/AWS/">AWS</a> / <a class="has-link-grey -link" href="/categories/AWS/Database/">Database</a>
                     </p>
