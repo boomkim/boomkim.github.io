@@ -8,6 +8,14 @@
     </url>
 
     <url>
+        <loc>https://boomkim.github.io/2020/04/22/readreplica-downtime/</loc>
+        <lastmod>2020-04-22T11:57:18.232Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://boomkim.github.io/2020/01/08/airflow-install-amazon-linux-2/</loc>
         <lastmod>2020-01-08T06:05:18.734Z</lastmod>
         <changefreq>weekly</changefreq>

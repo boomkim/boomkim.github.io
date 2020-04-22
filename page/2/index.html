@@ -140,6 +140,60 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-05-23T15:00:00.000Z">2019-05-24</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/AWS/">AWS</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/AWS/Data-Analytics/">Data Analytics</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    16분 읽기 (대략 2333 단어)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/05/24/athena-with-zeppelin/">AWS Athena, Zeppelin과 함께 사용하기 (feat. ALB 로그분석)</a>
+            
+        </h1>
+        <div class="content">
+            <h1 id="Athena-심플하고-강력하지만-아쉬운-인터페이스"><a href="#Athena-심플하고-강력하지만-아쉬운-인터페이스" class="headerlink" title="Athena, 심플하고 강력하지만 아쉬운 인터페이스"></a>Athena, 심플하고 강력하지만 아쉬운 인터페이스</h1><p>이번 포스팅에서는 Athena 와 Zeppelin을 엮어서 사용하는 방법에 대해서 정리하려고 합니다. Athena는 써보면 써볼수록 요물이라는 생각이 드는 제품입니다. S3에 데이터만 잘 저장해 놓으면 그걸 SQL문으로 빠르게 쿼리할 수 있다는 컨셉이 간단하지만 강력하네요. 다른 분산처리 플랫폼도 많지만, 일단 간단하게 시작하기에는 Athena가 최적인것 같아요. </p>
+<p>다만, Athena가 워낙 심플한 구조를 갖고 있고 제공해주는 기능도 심플하다 보니 조금 아쉬운점도 있는데요, 일단 제 생각에 가장 아쉬운 점은 <code>인터페이스</code> 입니다. ‘대화형 쿼리’ 라는 컨셉으로 단순한 쿼리창만 갖고 있지만, 사실 ‘대화형’ 이라는 말처럼 채팅기록이 남진 않는게 제 생각엔 커다란 단점인 것 같아요. 우리나라 정서가 워낙 UI에 이것저것 많은 기능을 좋아해서 상대적으로 AWS의 UI가 좀 빈약하다는 느낌을 많이 받는데 Athena의 인터페이스도 그 중 하나인 것 같습니다. 그래도 ‘대화형’이라는 컨셉을 완성하기 위해서는 조금 더 인터페이스가 발전해야 할 것 같다고 생각합니다. </p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2019/05/24/athena-with-zeppelin/#more">자세히 보기</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2019-03-20T15:00:00.000Z">2019-03-21</time>
                 
                 <div class="level-item">
@@ -646,61 +700,6 @@
 
 
 
-    
-<div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2018-07-26T15:00:00.000Z">2018-07-27</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/Container/">Container</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/Container/Docker/">Docker</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    4분 읽기 (대략 595 단어)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2018/07/27/docker-overlay-bandwidth/">[docker] overlay network bandwidth test</a>
-            
-        </h1>
-        <div class="content">
-            <p>앞의 포스트에 이어 overlay network를 테스트해보다가 bandwidth가 궁금해졌다. 아무래도 네트워크 레이어를 하나 더 만드는 것이니 네트워크 성능이 노드들 끼리의 통신보다는 안 좋을 것이라 예상됐다. 찾아보니 예전 docker에서는 많게는 50% 정도까지 성능저하가 있었던 것 같다. </p>
-<p>테스트 환경: AWS EC2 t2.medium &lt;-&gt; t2.small</p>
-<p>테스트 방법: iperf3 을 사용했다. </p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2018/07/27/docker-overlay-bandwidth/#more">자세히 보기</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
 
     
 <div class="card card-transparent">
@@ -762,7 +761,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            26
+                            27
                         </p>
                     </a>
                 </div>
@@ -786,7 +785,7 @@
                     </p>
                     <a href="/tags">
                         <p class="title has-text-weight-normal">
-                            56
+                            57
                         </p>
                     </a>
                 </div>
@@ -837,7 +836,7 @@
                 <span class="level-item">AWS</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">12</span>
+                <span class="level-item tag">13</span>
             </span>
         </a><ul><li>
         <a class="level is-marginless" href="/categories/AWS/Computing/">
@@ -861,7 +860,7 @@
                 <span class="level-item">Database</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">2</span>
+                <span class="level-item tag">3</span>
             </span>
         </a></li></ul></li><li>
         <a class="level is-marginless" href="/categories/Bigdata/">
@@ -978,7 +977,7 @@
         <h3 class="menu-label">
             태그 클라우드
         </h3>
-        <a href="/tags/ALB/" style="font-size: 10px;">ALB</a> <a href="/tags/AWS/" style="font-size: 20px;">AWS</a> <a href="/tags/ActiveDirectory/" style="font-size: 12px;">ActiveDirectory</a> <a href="/tags/AmazonLinux2/" style="font-size: 10px;">AmazonLinux2</a> <a href="/tags/DigitalOcean/" style="font-size: 12px;">DigitalOcean</a> <a href="/tags/Docker/" style="font-size: 12px;">Docker</a> <a href="/tags/EC2/" style="font-size: 14px;">EC2</a> <a href="/tags/Jekyll/" style="font-size: 10px;">Jekyll</a> <a href="/tags/Overlay/" style="font-size: 12px;">Overlay</a> <a href="/tags/PostgreSQL/" style="font-size: 10px;">PostgreSQL</a> <a href="/tags/RDS/" style="font-size: 10px;">RDS</a> <a href="/tags/SAML/" style="font-size: 10px;">SAML</a> <a href="/tags/T3/" style="font-size: 10px;">T3</a> <a href="/tags/WindowsServer/" style="font-size: 12px;">WindowsServer</a> <a href="/tags/airflow/" style="font-size: 10px;">airflow</a> <a href="/tags/athena/" style="font-size: 16px;">athena</a> <a href="/tags/aws/" style="font-size: 16px;">aws</a> <a href="/tags/bandwidth/" style="font-size: 10px;">bandwidth</a> <a href="/tags/bastionhost/" style="font-size: 10px;">bastionhost</a> <a href="/tags/bigdata/" style="font-size: 20px;">bigdata</a> <a href="/tags/blog/" style="font-size: 12px;">blog</a> <a href="/tags/cloudfront/" style="font-size: 10px;">cloudfront</a> <a href="/tags/commands/" style="font-size: 10px;">commands</a> <a href="/tags/concurrency/" style="font-size: 10px;">concurrency</a> <a href="/tags/cpr/" style="font-size: 12px;">cpr</a> <a href="/tags/data/" style="font-size: 10px;">data</a> <a href="/tags/ec2/" style="font-size: 10px;">ec2</a> <a href="/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/tags/generate/" style="font-size: 10px;">generate</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/icarus/" style="font-size: 10px;">icarus</a> <a href="/tags/issue/" style="font-size: 10px;">issue</a> <a href="/tags/jekyll/" style="font-size: 10px;">jekyll</a> <a href="/tags/jekyll-swiss/" style="font-size: 10px;">jekyll-swiss</a> <a href="/tags/lambda/" style="font-size: 10px;">lambda</a> <a href="/tags/lambda-edge/" style="font-size: 10px;">lambda@edge</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/log/" style="font-size: 10px;">log</a> <a href="/tags/migration/" style="font-size: 12px;">migration</a> <a href="/tags/network/" style="font-size: 12px;">network</a> <a href="/tags/portfowarding/" style="font-size: 10px;">portfowarding</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/queries/" style="font-size: 10px;">queries</a> <a href="/tags/rds/" style="font-size: 10px;">rds</a> <a href="/tags/read-replica/" style="font-size: 10px;">read replica</a> <a href="/tags/readreplica/" style="font-size: 10px;">readreplica</a> <a href="/tags/revierepublic/" style="font-size: 10px;">revierepublic</a> <a href="/tags/reviewrepublic/" style="font-size: 10px;">reviewrepublic</a> <a href="/tags/security/" style="font-size: 10px;">security</a> <a href="/tags/serverless/" style="font-size: 10px;">serverless</a> <a href="/tags/spark/" style="font-size: 12px;">spark</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/storage/" style="font-size: 10px;">storage</a> <a href="/tags/theme/" style="font-size: 10px;">theme</a> <a href="/tags/troubleshooting/" style="font-size: 10px;">troubleshooting</a> <a href="/tags/zeppelin/" style="font-size: 18px;">zeppelin</a>
+        <a href="/tags/ALB/" style="font-size: 10px;">ALB</a> <a href="/tags/AWS/" style="font-size: 20px;">AWS</a> <a href="/tags/ActiveDirectory/" style="font-size: 11.67px;">ActiveDirectory</a> <a href="/tags/AmazonLinux2/" style="font-size: 10px;">AmazonLinux2</a> <a href="/tags/DigitalOcean/" style="font-size: 11.67px;">DigitalOcean</a> <a href="/tags/Docker/" style="font-size: 11.67px;">Docker</a> <a href="/tags/DocumentDB/" style="font-size: 10px;">DocumentDB</a> <a href="/tags/EC2/" style="font-size: 13.33px;">EC2</a> <a href="/tags/Jekyll/" style="font-size: 10px;">Jekyll</a> <a href="/tags/Overlay/" style="font-size: 11.67px;">Overlay</a> <a href="/tags/PostgreSQL/" style="font-size: 10px;">PostgreSQL</a> <a href="/tags/RDS/" style="font-size: 11.67px;">RDS</a> <a href="/tags/SAML/" style="font-size: 10px;">SAML</a> <a href="/tags/T3/" style="font-size: 10px;">T3</a> <a href="/tags/WindowsServer/" style="font-size: 11.67px;">WindowsServer</a> <a href="/tags/airflow/" style="font-size: 10px;">airflow</a> <a href="/tags/athena/" style="font-size: 15px;">athena</a> <a href="/tags/aws/" style="font-size: 15px;">aws</a> <a href="/tags/bandwidth/" style="font-size: 10px;">bandwidth</a> <a href="/tags/bastionhost/" style="font-size: 10px;">bastionhost</a> <a href="/tags/bigdata/" style="font-size: 18.33px;">bigdata</a> <a href="/tags/blog/" style="font-size: 11.67px;">blog</a> <a href="/tags/cloudfront/" style="font-size: 10px;">cloudfront</a> <a href="/tags/commands/" style="font-size: 10px;">commands</a> <a href="/tags/concurrency/" style="font-size: 10px;">concurrency</a> <a href="/tags/cpr/" style="font-size: 11.67px;">cpr</a> <a href="/tags/data/" style="font-size: 10px;">data</a> <a href="/tags/ec2/" style="font-size: 10px;">ec2</a> <a href="/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/tags/generate/" style="font-size: 10px;">generate</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/icarus/" style="font-size: 10px;">icarus</a> <a href="/tags/issue/" style="font-size: 10px;">issue</a> <a href="/tags/jekyll/" style="font-size: 10px;">jekyll</a> <a href="/tags/jekyll-swiss/" style="font-size: 10px;">jekyll-swiss</a> <a href="/tags/lambda/" style="font-size: 10px;">lambda</a> <a href="/tags/lambda-edge/" style="font-size: 10px;">lambda@edge</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/log/" style="font-size: 10px;">log</a> <a href="/tags/migration/" style="font-size: 11.67px;">migration</a> <a href="/tags/network/" style="font-size: 11.67px;">network</a> <a href="/tags/portfowarding/" style="font-size: 10px;">portfowarding</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/queries/" style="font-size: 10px;">queries</a> <a href="/tags/rds/" style="font-size: 10px;">rds</a> <a href="/tags/read-replica/" style="font-size: 10px;">read replica</a> <a href="/tags/readreplica/" style="font-size: 11.67px;">readreplica</a> <a href="/tags/revierepublic/" style="font-size: 10px;">revierepublic</a> <a href="/tags/reviewrepublic/" style="font-size: 10px;">reviewrepublic</a> <a href="/tags/security/" style="font-size: 10px;">security</a> <a href="/tags/serverless/" style="font-size: 10px;">serverless</a> <a href="/tags/spark/" style="font-size: 11.67px;">spark</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/storage/" style="font-size: 10px;">storage</a> <a href="/tags/theme/" style="font-size: 10px;">theme</a> <a href="/tags/troubleshooting/" style="font-size: 10px;">troubleshooting</a> <a href="/tags/zeppelin/" style="font-size: 16.67px;">zeppelin</a>
     </div>
 </div>
     
@@ -990,6 +989,25 @@
         <h3 class="menu-label">
             최근 글
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2020/04/22/readreplica-downtime/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/2020/04/rds-readreplica.png" alt="RDS, DocumentDB 는 Readreplica 생성시 다운타임이 발생하나요?">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-04-22T09:21:45.000Z">2020-04-22</time></div>
+                    <a href="/2020/04/22/readreplica-downtime/" class="title has-link-black-ter is-size-6 has-text-weight-normal">RDS, DocumentDB 는 Readreplica 생성시 다운타임이 발생하나요?</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/AWS/">AWS</a> / <a class="has-link-grey -link" href="/categories/AWS/Database/">Database</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -1067,25 +1085,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2019/12/04/new-blog-hexo-icarus/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="블로그 개편">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-03T15:00:00.000Z">2019-12-04</time></div>
-                    <a href="/2019/12/04/new-blog-hexo-icarus/" class="title has-link-black-ter is-size-6 has-text-weight-normal">블로그 개편</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/blog/">blog</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
         
@@ -1096,6 +1095,17 @@
             아카이브
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/04/">
+                <span class="level-start">
+                    <span class="level-item">4월 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2020/01/">
@@ -1219,7 +1229,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/AWS/">
                         <span class="tag">AWS</span>
-                        <span class="tag is-grey">8</span>
+                        <span class="tag is-grey">9</span>
                     </a>
                 </div>
                 
@@ -1248,6 +1258,13 @@
                     <a class="tags has-addons" href="/tags/Docker/">
                         <span class="tag">Docker</span>
                         <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/DocumentDB/">
+                        <span class="tag">DocumentDB</span>
+                        <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
@@ -1282,7 +1299,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/RDS/">
                         <span class="tag">RDS</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
@@ -1527,7 +1544,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/readreplica/">
                         <span class="tag">readreplica</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
@@ -1625,6 +1642,25 @@
         
         <article class="media">
             
+            <a href="/2020/04/22/readreplica-downtime/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/2020/04/rds-readreplica.png" alt="RDS, DocumentDB 는 Readreplica 생성시 다운타임이 발생하나요?">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-04-22T09:21:45.000Z">2020-04-22</time></div>
+                    <a href="/2020/04/22/readreplica-downtime/" class="title has-link-black-ter is-size-6 has-text-weight-normal">RDS, DocumentDB 는 Readreplica 생성시 다운타임이 발생하나요?</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/AWS/">AWS</a> / <a class="has-link-grey -link" href="/categories/AWS/Database/">Database</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2020/01/08/airflow-install-amazon-linux-2/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/2020/01/08/airflow.png" alt="Amazon Linux 2에 Airflow 설치하기">
@@ -1699,25 +1735,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2019/12/04/new-blog-hexo-icarus/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="블로그 개편">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-03T15:00:00.000Z">2019-12-04</time></div>
-                    <a href="/2019/12/04/new-blog-hexo-icarus/" class="title has-link-black-ter is-size-6 has-text-weight-normal">블로그 개편</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/blog/">blog</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
     
@@ -1728,6 +1745,17 @@
             아카이브
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/04/">
+                <span class="level-start">
+                    <span class="level-item">4월 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2020/01/">
@@ -1851,7 +1879,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/AWS/">
                         <span class="tag">AWS</span>
-                        <span class="tag is-grey">8</span>
+                        <span class="tag is-grey">9</span>
                     </a>
                 </div>
                 
@@ -1880,6 +1908,13 @@
                     <a class="tags has-addons" href="/tags/Docker/">
                         <span class="tag">Docker</span>
                         <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/DocumentDB/">
+                        <span class="tag">DocumentDB</span>
+                        <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
@@ -1914,7 +1949,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/RDS/">
                         <span class="tag">RDS</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
@@ -2159,7 +2194,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/readreplica/">
                         <span class="tag">readreplica</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
