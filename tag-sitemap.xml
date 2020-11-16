@@ -3,29 +3,71 @@
 
 
     <url>
-        <loc>https://boomkim.github.io/tags/DocumentDB/</loc>
-        <lastmod>2020-04-24T02:28:50.373Z</lastmod>
+        <loc>https://boomkim.github.io/tags/SPARK/</loc>
+        <lastmod>2020-11-16T15:19:10.515Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://boomkim.github.io/tags/RDS/</loc>
-        <lastmod>2020-04-24T02:28:50.373Z</lastmod>
+        <loc>https://boomkim.github.io/tags/LLAP/</loc>
+        <lastmod>2020-11-16T15:19:10.515Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://boomkim.github.io/tags/readreplica/</loc>
-        <lastmod>2020-04-24T02:28:50.373Z</lastmod>
+        <loc>https://boomkim.github.io/tags/Hive/</loc>
+        <lastmod>2020-11-16T15:19:10.515Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://boomkim.github.io/tags/Bigdata/</loc>
+        <lastmod>2020-11-16T15:19:10.515Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://boomkim.github.io/tags/Hadoop/</loc>
+        <lastmod>2020-11-16T15:19:10.515Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://boomkim.github.io/tags/EMR/</loc>
+        <lastmod>2020-11-16T15:19:10.515Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://boomkim.github.io/tags/AWS/</loc>
-        <lastmod>2020-04-24T02:28:50.373Z</lastmod>
+        <lastmod>2020-11-16T15:19:10.515Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://boomkim.github.io/tags/DocumentDB/</loc>
+        <lastmod>2020-04-24T02:34:04.874Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://boomkim.github.io/tags/RDS/</loc>
+        <lastmod>2020-04-24T02:34:04.874Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://boomkim.github.io/tags/readreplica/</loc>
+        <lastmod>2020-04-24T02:34:04.874Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

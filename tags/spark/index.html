@@ -7,12 +7,12 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>태그: spark - Boomkim</title>
+<title>태그: SPARK - Boomkim</title>
 
 
     <meta property="og:type" content="website">
 <meta property="og:title" content="Boomkim">
-<meta property="og:url" content="https:&#x2F;&#x2F;boomkim.github.io&#x2F;tags&#x2F;spark&#x2F;index.html">
+<meta property="og:url" content="https:&#x2F;&#x2F;boomkim.github.io&#x2F;tags&#x2F;SPARK&#x2F;index.html">
 <meta property="og:site_name" content="Boomkim">
 <meta property="og:locale" content="ko">
 <meta property="og:image" content="https:&#x2F;&#x2F;boomkim.github.io&#x2F;images&#x2F;og_image.png">
@@ -137,7 +137,7 @@
         <nav class="breadcrumb" aria-label="breadcrumbs">
         <ul>
             <li><a href="/tags">태그</a></li>
-            <li class="is-active"><a href="#" aria-current="page">spark</a></li>
+            <li class="is-active"><a href="#" aria-current="page">SPARK</a></li>
         </ul>
         </nav>
     </div>
@@ -147,8 +147,8 @@
 <div class="card">
     
     <div class="card-image">
-        <a href="/2019/12/17/zeppelin-stopped-sparkcontext/" class="image is-7by1">
-            <img class="thumbnail" src="/images/troubleshooting.jpg" alt="문제 해결: Cannot Call methods on a stopped SparkContext">
+        <a href="/2020/11/16/emr6/" class="image is-7by1">
+            <img class="thumbnail" src="/images/2020/11/EMR-thumbnail.png" alt="EMR 6 버전 출시 (Hadoop 3.0, Hive LLAP, Spark3.0 지원)">
         </a>
     </div>
     
@@ -156,17 +156,17 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-12-16T15:00:00.000Z">2019-12-17</time>
+                <time class="level-item has-text-grey" datetime="2020-11-16T14:25:33.000Z">2020-11-16</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/Bigdata/">Bigdata</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/Bigdata/Spark/">Spark</a>
+                <a class="has-link-grey -link" href="/categories/AWS/">AWS</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/AWS/Data-Analytics/">Data Analytics</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    3분 읽기 (대략 379 단어)
+                    2분 읽기 (대략 356 단어)
                 </span>
                 
                 
@@ -175,87 +175,27 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2019/12/17/zeppelin-stopped-sparkcontext/">문제 해결: Cannot Call methods on a stopped SparkContext</a>
+                <a class="has-link-black-ter" href="/2020/11/16/emr6/">EMR 6 버전 출시 (Hadoop 3.0, Hive LLAP, Spark3.0 지원)</a>
             
         </h1>
         <div class="content">
-            <p>스파크로 이것저것 테스트해보기 위해 zeppelin을 사용하는데 갑자기 이런 에러가 발생했다. </p>
-<p><code>java.lang.IllegalStateException: Cannot call methods on a stopped SparkContext.</code></p>
-<p>즉, 지금 사용하려는 SparkContext가 이미 종료되었다는 것이다. </p>
-<p>이걸 구글에 검색해도 ‘로그를 봐라’ 라는 식의 원론적인 답변이 나와서 헤매다가 해결방법이 떠올랐는데…</p>
-<h2 id="해결-방법"><a href="#해결-방법" class="headerlink" title="해결 방법"></a>해결 방법</h2><p><strong>그냥 스파크 인터프리터를 재시작</strong>하면 된다. </p>
+            <p>아주 오랜만의 포스팅. </p>
+<h2 id="EMR-6-0"><a href="#EMR-6-0" class="headerlink" title="EMR 6.0"></a>EMR 6.0</h2><p>너무 늦은감이 있지만 EMR 6버전이 새로 출시되었다. </p>
+<p>찾아보니 올해 4월에 출시가 되었는데… 무려 7개월만이다.<br>(<a href="https://aws.amazon.com/ko/about-aws/whats-new/2020/04/amazon-emr-announces-emr-release-6-with-new-major-versions-hadoop-hive-hbase-amazon-linux-2-docker/" target="_blank" rel="noopener">https://aws.amazon.com/ko/about-aws/whats-new/2020/04/amazon-emr-announces-emr-release-6-with-new-major-versions-hadoop-hive-hbase-amazon-linux-2-docker/</a>)</p>
+<p>주된 내용은 하둡 3.0 지원, 스파크를 Docker 환경에서 돌릴수 있도록 지원, Hive LLAP 지원 등이 있다. EMR이 Hadoop 버전 업데이트를 꽤 늦게 따라가는 감이 있었지만 이번에 대규모로 업데이트가 되는 듯 하다. (하둡 3.0은 작년 5월에 나왔다.)</p>
+<h2 id="EMR-6-1"><a href="#EMR-6-1" class="headerlink" title="EMR 6.1"></a>EMR 6.1</h2><p>이렇게 4월에 6.0이 나오고 11월인 지금은 6.1 버전이 나와있는데 6.1 버전에도 대규모 변경이 있다. 자세한 내용은 여기(<a href="https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-whatsnew.html" target="_blank" rel="noopener">https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-whatsnew.html</a>) 참고. </p>
+<p>6.1버전과 5.31버전이 동시에 나왔는데 워낙 내용이 많지만 개인적으로 중요한 내용을 꼽자면</p>
+<ol>
+<li>Managed Scaling</li>
+<li>Spark 3.0 추가</li>
+<li>flink 추가(6.0에는 왜 없었는지를 모르겠다. 5버전에는 있음)</li>
+<li>Tensorflow 2.1 추가 </li>
+</ol>
+<p>spark 2.4버전에서 3.0으로 넘어오면서 업데이트된 특징은 이 글(<a href="https://nephtyws.github.io/data/whats-new-in-spark-3/?fbclid=IwAR21yLNh9iUEh-ogS1MlvjYWLNfjadD50-zDuQ4wy_8wMNxhl8Is0GiPIIQ)에서" target="_blank" rel="noopener">https://nephtyws.github.io/data/whats-new-in-spark-3/?fbclid=IwAR21yLNh9iUEh-ogS1MlvjYWLNfjadD50-zDuQ4wy_8wMNxhl8Is0GiPIIQ)에서</a> 잘 설명해 주신 것 같다. </p>
+<p>EMR 관련해서는 앞으로 포스팅을 좀 더 열심히 해봐야겠다. </p>
+
         </div>
         
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/12/17/zeppelin-stopped-sparkcontext/#more">자세히 보기</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    
-<div class="card">
-    
-    <div class="card-image">
-        <a href="/2019/12/11/what-is-spark/" class="image is-7by1">
-            <img class="thumbnail" src="/images/2019/12/11/spark-main.jpeg" alt="스파크에 대한 아주 대략적인 정리">
-        </a>
-    </div>
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-12-10T15:00:00.000Z">2019-12-11</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/Bigdata/">Bigdata</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/Bigdata/Spark/">Spark</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    21분 읽기 (대략 3078 단어)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/12/11/what-is-spark/">스파크에 대한 아주 대략적인 정리</a>
-            
-        </h1>
-        <div class="content">
-            <p>빅데이터를 공부해야할 일이 생겨서, 하둡을 먼저 공부했다. 쌩으로 클러스터를 만들고, 설정값을 변경해보고… 그렇게 클러스터를 만드는 일부터 맵리듀스 어플리케이션을 만드는 일까지 공부하는게 쉽지만은 않았다. 여기서 약간 빅데이터의 벽(?)같은걸 1차로 느꼈다. </p>
-<p>그러다가 스파크를 만났다. 공부하다 보니 스파크가 그렇게 어렵지도 않고, 그런데 활용성은 굉장히 좋고, 성능도 좋다는 생각이 든다. 여기서 포인트는 <code>그닥 어렵지 않다</code>는 점이다. 자료들이 주로 scala라는 생소한 언어로 설명이 되어있지만, scala가 별로 어렵지 않다. 언어자체가 직관적이면서 간결하다. 그리고 scala로 배우는 스파크도 그닥 어렵지가 않다. 많은 기능을 제공하고 좋은 성능을 제공하지만, 기능들의 추상화가 잘 되어있어서 단순히 api만 호출하면 된다. </p>
-<p>이거 사긴데? 쉽고 빠른 빅데이터 처리 엔진이라니… </p>
-<p>그 동안 하둡을 공부하면서 느낀 어떤 답답함 같은게 해소되는 느낌이랄까. 맵리듀스를 짜면서 뭔가 병렬처리로 성능이 향상된다는건 알겠는데 코드 작성이 상당히 번거로웠다.<del>(책에는 간단하다고 나와있는데 원리야 간단하지만 코드짜는건 안간단함 ㅇㅇ)</del> 물론 하둡에는 맵리듀스 외에도 빠르게 분석할 수 있는 엔진들이 있지만, 그 중에 스파크가 가장 매력적으로 보인다. </p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/12/11/what-is-spark/#more">자세히 보기</a>
-                </div>
-            </div>
-        </div>
         
         
     </div>
@@ -308,7 +248,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            27
+                            28
                         </p>
                     </a>
                 </div>
@@ -332,7 +272,7 @@
                     </p>
                     <a href="/tags">
                         <p class="title has-text-weight-normal">
-                            57
+                            63
                         </p>
                     </a>
                 </div>
@@ -383,7 +323,7 @@
                 <span class="level-item">AWS</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">13</span>
+                <span class="level-item tag">14</span>
             </span>
         </a><ul><li>
         <a class="level is-marginless" href="/categories/AWS/Computing/">
@@ -399,7 +339,7 @@
                 <span class="level-item">Data Analytics</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">4</span>
+                <span class="level-item tag">5</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/AWS/Database/">
@@ -524,7 +464,7 @@
         <h3 class="menu-label">
             태그 클라우드
         </h3>
-        <a href="/tags/ALB/" style="font-size: 10px;">ALB</a> <a href="/tags/AWS/" style="font-size: 20px;">AWS</a> <a href="/tags/ActiveDirectory/" style="font-size: 11.67px;">ActiveDirectory</a> <a href="/tags/AmazonLinux2/" style="font-size: 10px;">AmazonLinux2</a> <a href="/tags/DigitalOcean/" style="font-size: 11.67px;">DigitalOcean</a> <a href="/tags/Docker/" style="font-size: 11.67px;">Docker</a> <a href="/tags/DocumentDB/" style="font-size: 10px;">DocumentDB</a> <a href="/tags/EC2/" style="font-size: 13.33px;">EC2</a> <a href="/tags/Jekyll/" style="font-size: 10px;">Jekyll</a> <a href="/tags/Overlay/" style="font-size: 11.67px;">Overlay</a> <a href="/tags/PostgreSQL/" style="font-size: 10px;">PostgreSQL</a> <a href="/tags/RDS/" style="font-size: 11.67px;">RDS</a> <a href="/tags/SAML/" style="font-size: 10px;">SAML</a> <a href="/tags/T3/" style="font-size: 10px;">T3</a> <a href="/tags/WindowsServer/" style="font-size: 11.67px;">WindowsServer</a> <a href="/tags/airflow/" style="font-size: 10px;">airflow</a> <a href="/tags/athena/" style="font-size: 15px;">athena</a> <a href="/tags/aws/" style="font-size: 15px;">aws</a> <a href="/tags/bandwidth/" style="font-size: 10px;">bandwidth</a> <a href="/tags/bastionhost/" style="font-size: 10px;">bastionhost</a> <a href="/tags/bigdata/" style="font-size: 18.33px;">bigdata</a> <a href="/tags/blog/" style="font-size: 11.67px;">blog</a> <a href="/tags/cloudfront/" style="font-size: 10px;">cloudfront</a> <a href="/tags/commands/" style="font-size: 10px;">commands</a> <a href="/tags/concurrency/" style="font-size: 10px;">concurrency</a> <a href="/tags/cpr/" style="font-size: 11.67px;">cpr</a> <a href="/tags/data/" style="font-size: 10px;">data</a> <a href="/tags/ec2/" style="font-size: 10px;">ec2</a> <a href="/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/tags/generate/" style="font-size: 10px;">generate</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/icarus/" style="font-size: 10px;">icarus</a> <a href="/tags/issue/" style="font-size: 10px;">issue</a> <a href="/tags/jekyll/" style="font-size: 10px;">jekyll</a> <a href="/tags/jekyll-swiss/" style="font-size: 10px;">jekyll-swiss</a> <a href="/tags/lambda/" style="font-size: 10px;">lambda</a> <a href="/tags/lambda-edge/" style="font-size: 10px;">lambda@edge</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/log/" style="font-size: 10px;">log</a> <a href="/tags/migration/" style="font-size: 11.67px;">migration</a> <a href="/tags/network/" style="font-size: 11.67px;">network</a> <a href="/tags/portfowarding/" style="font-size: 10px;">portfowarding</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/queries/" style="font-size: 10px;">queries</a> <a href="/tags/rds/" style="font-size: 10px;">rds</a> <a href="/tags/read-replica/" style="font-size: 10px;">read replica</a> <a href="/tags/readreplica/" style="font-size: 11.67px;">readreplica</a> <a href="/tags/revierepublic/" style="font-size: 10px;">revierepublic</a> <a href="/tags/reviewrepublic/" style="font-size: 10px;">reviewrepublic</a> <a href="/tags/security/" style="font-size: 10px;">security</a> <a href="/tags/serverless/" style="font-size: 10px;">serverless</a> <a href="/tags/spark/" style="font-size: 11.67px;">spark</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/storage/" style="font-size: 10px;">storage</a> <a href="/tags/theme/" style="font-size: 10px;">theme</a> <a href="/tags/troubleshooting/" style="font-size: 10px;">troubleshooting</a> <a href="/tags/zeppelin/" style="font-size: 16.67px;">zeppelin</a>
+        <a href="/tags/ALB/" style="font-size: 10px;">ALB</a> <a href="/tags/AWS/" style="font-size: 20px;">AWS</a> <a href="/tags/ActiveDirectory/" style="font-size: 11.67px;">ActiveDirectory</a> <a href="/tags/AmazonLinux2/" style="font-size: 10px;">AmazonLinux2</a> <a href="/tags/Bigdata/" style="font-size: 10px;">Bigdata</a> <a href="/tags/DigitalOcean/" style="font-size: 11.67px;">DigitalOcean</a> <a href="/tags/Docker/" style="font-size: 11.67px;">Docker</a> <a href="/tags/DocumentDB/" style="font-size: 10px;">DocumentDB</a> <a href="/tags/EC2/" style="font-size: 13.33px;">EC2</a> <a href="/tags/EMR/" style="font-size: 10px;">EMR</a> <a href="/tags/Hadoop/" style="font-size: 10px;">Hadoop</a> <a href="/tags/Hive/" style="font-size: 10px;">Hive</a> <a href="/tags/Jekyll/" style="font-size: 10px;">Jekyll</a> <a href="/tags/LLAP/" style="font-size: 10px;">LLAP</a> <a href="/tags/Overlay/" style="font-size: 11.67px;">Overlay</a> <a href="/tags/PostgreSQL/" style="font-size: 10px;">PostgreSQL</a> <a href="/tags/RDS/" style="font-size: 11.67px;">RDS</a> <a href="/tags/SAML/" style="font-size: 10px;">SAML</a> <a href="/tags/SPARK/" style="font-size: 10px;">SPARK</a> <a href="/tags/T3/" style="font-size: 10px;">T3</a> <a href="/tags/WindowsServer/" style="font-size: 11.67px;">WindowsServer</a> <a href="/tags/airflow/" style="font-size: 10px;">airflow</a> <a href="/tags/athena/" style="font-size: 15px;">athena</a> <a href="/tags/aws/" style="font-size: 15px;">aws</a> <a href="/tags/bandwidth/" style="font-size: 10px;">bandwidth</a> <a href="/tags/bastionhost/" style="font-size: 10px;">bastionhost</a> <a href="/tags/bigdata/" style="font-size: 18.33px;">bigdata</a> <a href="/tags/blog/" style="font-size: 11.67px;">blog</a> <a href="/tags/cloudfront/" style="font-size: 10px;">cloudfront</a> <a href="/tags/commands/" style="font-size: 10px;">commands</a> <a href="/tags/concurrency/" style="font-size: 10px;">concurrency</a> <a href="/tags/cpr/" style="font-size: 11.67px;">cpr</a> <a href="/tags/data/" style="font-size: 10px;">data</a> <a href="/tags/ec2/" style="font-size: 10px;">ec2</a> <a href="/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/tags/generate/" style="font-size: 10px;">generate</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/icarus/" style="font-size: 10px;">icarus</a> <a href="/tags/issue/" style="font-size: 10px;">issue</a> <a href="/tags/jekyll/" style="font-size: 10px;">jekyll</a> <a href="/tags/jekyll-swiss/" style="font-size: 10px;">jekyll-swiss</a> <a href="/tags/lambda/" style="font-size: 10px;">lambda</a> <a href="/tags/lambda-edge/" style="font-size: 10px;">lambda@edge</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/log/" style="font-size: 10px;">log</a> <a href="/tags/migration/" style="font-size: 11.67px;">migration</a> <a href="/tags/network/" style="font-size: 11.67px;">network</a> <a href="/tags/portfowarding/" style="font-size: 10px;">portfowarding</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/queries/" style="font-size: 10px;">queries</a> <a href="/tags/rds/" style="font-size: 10px;">rds</a> <a href="/tags/read-replica/" style="font-size: 10px;">read replica</a> <a href="/tags/readreplica/" style="font-size: 11.67px;">readreplica</a> <a href="/tags/revierepublic/" style="font-size: 10px;">revierepublic</a> <a href="/tags/reviewrepublic/" style="font-size: 10px;">reviewrepublic</a> <a href="/tags/security/" style="font-size: 10px;">security</a> <a href="/tags/serverless/" style="font-size: 10px;">serverless</a> <a href="/tags/spark/" style="font-size: 11.67px;">spark</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/storage/" style="font-size: 10px;">storage</a> <a href="/tags/theme/" style="font-size: 10px;">theme</a> <a href="/tags/troubleshooting/" style="font-size: 10px;">troubleshooting</a> <a href="/tags/zeppelin/" style="font-size: 16.67px;">zeppelin</a>
     </div>
 </div>
     
@@ -536,6 +476,25 @@
         <h3 class="menu-label">
             최근 글
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2020/11/16/emr6/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/2020/11/EMR-thumbnail.png" alt="EMR 6 버전 출시 (Hadoop 3.0, Hive LLAP, Spark3.0 지원)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-11-16T14:25:33.000Z">2020-11-16</time></div>
+                    <a href="/2020/11/16/emr6/" class="title has-link-black-ter is-size-6 has-text-weight-normal">EMR 6 버전 출시 (Hadoop 3.0, Hive LLAP, Spark3.0 지원)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/AWS/">AWS</a> / <a class="has-link-grey -link" href="/categories/AWS/Data-Analytics/">Data Analytics</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -613,25 +572,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2019/12/11/what-is-spark/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/2019/12/11/spark-main.jpeg" alt="스파크에 대한 아주 대략적인 정리">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-10T15:00:00.000Z">2019-12-11</time></div>
-                    <a href="/2019/12/11/what-is-spark/" class="title has-link-black-ter is-size-6 has-text-weight-normal">스파크에 대한 아주 대략적인 정리</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Bigdata/">Bigdata</a> / <a class="has-link-grey -link" href="/categories/Bigdata/Spark/">Spark</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
         
@@ -642,6 +582,17 @@
             아카이브
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/11/">
+                <span class="level-start">
+                    <span class="level-item">11월 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2020/04/">
@@ -776,7 +727,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/AWS/">
                         <span class="tag">AWS</span>
-                        <span class="tag is-grey">9</span>
+                        <span class="tag is-grey">10</span>
                     </a>
                 </div>
                 
@@ -790,6 +741,13 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/AmazonLinux2/">
                         <span class="tag">AmazonLinux2</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Bigdata/">
+                        <span class="tag">Bigdata</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -823,8 +781,36 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/EMR/">
+                        <span class="tag">EMR</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Hadoop/">
+                        <span class="tag">Hadoop</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Hive/">
+                        <span class="tag">Hive</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/Jekyll/">
                         <span class="tag">Jekyll</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/LLAP/">
+                        <span class="tag">LLAP</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -853,6 +839,13 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/SAML/">
                         <span class="tag">SAML</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/SPARK/">
+                        <span class="tag">SPARK</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1189,6 +1182,25 @@
         
         <article class="media">
             
+            <a href="/2020/11/16/emr6/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/2020/11/EMR-thumbnail.png" alt="EMR 6 버전 출시 (Hadoop 3.0, Hive LLAP, Spark3.0 지원)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-11-16T14:25:33.000Z">2020-11-16</time></div>
+                    <a href="/2020/11/16/emr6/" class="title has-link-black-ter is-size-6 has-text-weight-normal">EMR 6 버전 출시 (Hadoop 3.0, Hive LLAP, Spark3.0 지원)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/AWS/">AWS</a> / <a class="has-link-grey -link" href="/categories/AWS/Data-Analytics/">Data Analytics</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2020/04/22/readreplica-downtime/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/2020/04/rds-readreplica.png" alt="RDS, DocumentDB 는 Readreplica 생성시 다운타임이 발생하나요?">
@@ -1263,25 +1275,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2019/12/11/what-is-spark/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/2019/12/11/spark-main.jpeg" alt="스파크에 대한 아주 대략적인 정리">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-10T15:00:00.000Z">2019-12-11</time></div>
-                    <a href="/2019/12/11/what-is-spark/" class="title has-link-black-ter is-size-6 has-text-weight-normal">스파크에 대한 아주 대략적인 정리</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Bigdata/">Bigdata</a> / <a class="has-link-grey -link" href="/categories/Bigdata/Spark/">Spark</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
     
@@ -1292,6 +1285,17 @@
             아카이브
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/11/">
+                <span class="level-start">
+                    <span class="level-item">11월 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2020/04/">
@@ -1426,7 +1430,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/AWS/">
                         <span class="tag">AWS</span>
-                        <span class="tag is-grey">9</span>
+                        <span class="tag is-grey">10</span>
                     </a>
                 </div>
                 
@@ -1440,6 +1444,13 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/AmazonLinux2/">
                         <span class="tag">AmazonLinux2</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Bigdata/">
+                        <span class="tag">Bigdata</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1473,8 +1484,36 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/EMR/">
+                        <span class="tag">EMR</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Hadoop/">
+                        <span class="tag">Hadoop</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Hive/">
+                        <span class="tag">Hive</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/Jekyll/">
                         <span class="tag">Jekyll</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/LLAP/">
+                        <span class="tag">LLAP</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1503,6 +1542,13 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/SAML/">
                         <span class="tag">SAML</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/SPARK/">
+                        <span class="tag">SPARK</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1917,6 +1963,92 @@ var IcarusThemeSettings = {
 <script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
 <script>
     document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+    
+    
+<a id="back-to-top" title="Back to Top" href="javascript:;" target="_blank" rel="noopener">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="입력 하세요..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '포스트',
+                PAGES: '페이지',
+                CATEGORIES: '카테고리',
+                TAGS: '태그',
+                UNTITLED: '(제목없음)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>ntLoaded", function () {
         outdatedBrowser({
             bgColor: '#f25648',
             color: '#ffffff',
