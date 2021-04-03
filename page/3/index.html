@@ -206,7 +206,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    5분 읽기 (대략 740 단어)
+                    4분 읽기 (대략 595 단어)
                 </span>
                 
                 
@@ -215,21 +215,20 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2018/07/27/docker-network-overlay/">[docker] multihost networking - overlay</a>
+                <a class="has-link-black-ter" href="/2018/07/27/docker-overlay-bandwidth/">[docker] overlay network bandwidth test</a>
             
         </h1>
         <div class="content">
-            <p>여러 호스트를 이용하는 도커가 swarm을 이룰경우 서로 통신을 하려면 네트웍이 필요하다. 이때 각각 다른 호스트에서 생성된 컨테이너 사이에 네트워크를 생성해주는 것이 바로 overlay 네트워크 이다. </p>
-<p><img src="/images/overlay-network.png" alt="그림1"></p>
-<p><em>각각의 호스트에서 쓰고있는 네트워크와 상관없이 컨테이너 끼리의 사설망을 따로 만들어줌.</em></p>
-<p>예를들어 각각의 호스트 A가 10.0.0.3 B가 10.0.0.5 라는 사설 ip를 사용하고 있을때 overlay network로 전혀 다른 사설대역 192.168.0.0/24를 만들 수 있다. Docker Swarm 을 구성해놓은 상태에서 새로운 서비스를 생성할 때, 네트워크를 미리 만들어 둔 overlay 네트워크를 지정하면 overlay 네트워크를 사용하는 컨테이너가 각각 올라가고 해당 서브넷 내의 ip를 할당받는다. </p>
+            <p>앞의 포스트에 이어 overlay network를 테스트해보다가 bandwidth가 궁금해졌다. 아무래도 네트워크 레이어를 하나 더 만드는 것이니 네트워크 성능이 노드들 끼리의 통신보다는 안 좋을 것이라 예상됐다. 찾아보니 예전 docker에서는 많게는 50% 정도까지 성능저하가 있었던 것 같다. </p>
+<p>테스트 환경: AWS EC2 t2.medium &lt;-&gt; t2.small</p>
+<p>테스트 방법: iperf3 을 사용했다. </p>
         </div>
         
         
         <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2018/07/27/docker-network-overlay/#more">자세히 보기</a>
+                <a class="button is-size-7 is-light" href="/2018/07/27/docker-overlay-bandwidth/#more">자세히 보기</a>
                 </div>
             </div>
         </div>
@@ -262,7 +261,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    4분 읽기 (대략 595 단어)
+                    5분 읽기 (대략 740 단어)
                 </span>
                 
                 
@@ -271,20 +270,21 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2018/07/27/docker-overlay-bandwidth/">[docker] overlay network bandwidth test</a>
+                <a class="has-link-black-ter" href="/2018/07/27/docker-network-overlay/">[docker] multihost networking - overlay</a>
             
         </h1>
         <div class="content">
-            <p>앞의 포스트에 이어 overlay network를 테스트해보다가 bandwidth가 궁금해졌다. 아무래도 네트워크 레이어를 하나 더 만드는 것이니 네트워크 성능이 노드들 끼리의 통신보다는 안 좋을 것이라 예상됐다. 찾아보니 예전 docker에서는 많게는 50% 정도까지 성능저하가 있었던 것 같다. </p>
-<p>테스트 환경: AWS EC2 t2.medium &lt;-&gt; t2.small</p>
-<p>테스트 방법: iperf3 을 사용했다. </p>
+            <p>여러 호스트를 이용하는 도커가 swarm을 이룰경우 서로 통신을 하려면 네트웍이 필요하다. 이때 각각 다른 호스트에서 생성된 컨테이너 사이에 네트워크를 생성해주는 것이 바로 overlay 네트워크 이다. </p>
+<p><img src="/images/overlay-network.png" alt="그림1"></p>
+<p><em>각각의 호스트에서 쓰고있는 네트워크와 상관없이 컨테이너 끼리의 사설망을 따로 만들어줌.</em></p>
+<p>예를들어 각각의 호스트 A가 10.0.0.3 B가 10.0.0.5 라는 사설 ip를 사용하고 있을때 overlay network로 전혀 다른 사설대역 192.168.0.0/24를 만들 수 있다. Docker Swarm 을 구성해놓은 상태에서 새로운 서비스를 생성할 때, 네트워크를 미리 만들어 둔 overlay 네트워크를 지정하면 overlay 네트워크를 사용하는 컨테이너가 각각 올라가고 해당 서브넷 내의 ip를 할당받는다. </p>
         </div>
         
         
         <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2018/07/27/docker-overlay-bandwidth/#more">자세히 보기</a>
+                <a class="button is-size-7 is-light" href="/2018/07/27/docker-network-overlay/#more">자세히 보기</a>
                 </div>
             </div>
         </div>
