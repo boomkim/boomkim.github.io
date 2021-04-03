@@ -1,3 +1,4 @@
+@import url("https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.css");
 /* ---------------------------------
  *       Override CSS Framework
  * --------------------------------- */
@@ -12,7 +13,7 @@ button,
 input,
 select,
 textarea {
-  font-family: "Ubuntu", "Roboto", "Open Sans", "Microsoft YaHei", sans-serif;
+  font-family: 'NanumSquareRound', "Helvetica Neue", sans-serif;
 }
 @media screen and (min-width: 1280px) {
   .is-1-column .container,
@@ -197,11 +198,20 @@ img.thumbnail {
 .timeline .media:first-child:last-child:after {
   top: calc(0.3rem + 9px);
 }
+.article .title {
+  font-size: 2em;
+  font-weight: 700;
+  letter-spacing: -1.4px;
+}
 .article .article-meta {
   margin-bottom: 0.5rem !important;
 }
 .article .content {
-  font-size: 1.1rem;
+  font-size: $article-font-size;
+  line-height: 1.9em;
+  letter-spacing: -0.3px;
+  color: #5d686f;
+  margin-top: 20px;
 }
 .article .content blockquote.pullquote {
   float: right;
