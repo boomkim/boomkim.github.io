@@ -19,7 +19,7 @@
 <meta property="og:description" content="S3 interface endpoint 출시S3 endpoint service 에 드디어 interface endpoint가 나왔다.   AWS S3를 퍼블릭 통신 없이 이용하려면 어떡해요?   AWS에는 Private Link 혹은 VPC Endpoint 라고 불리는 서비스가 있다. 이름에서 알 수 있듯이 AWS의 서비스를 뭔가 Private 하게 쓸수">
 <meta property="og:locale" content="ko">
 <meta property="og:image" content="https:&#x2F;&#x2F;boomkim.github.io&#x2F;images&#x2F;2021&#x2F;interface-and-gateway-endpoints.png">
-<meta property="og:updated_time" content="2021-04-03T13:04:41.737Z">
+<meta property="og:updated_time" content="2021-04-03T13:06:57.288Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;boomkim.github.io&#x2F;images&#x2F;2021&#x2F;interface-and-gateway-endpoints.png">
 
@@ -163,7 +163,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    7분 읽기 (대략 978 단어)
+                    7분 읽기 (대략 979 단어)
                 </span>
                 
                 
@@ -181,6 +181,8 @@
 <p>AWS S3를 퍼블릭 통신 없이 이용하려면 어떡해요? </p>
 </blockquote>
 <p>AWS에는 Private Link 혹은 VPC Endpoint 라고 불리는 서비스가 있다. 이름에서 알 수 있듯이 AWS의 서비스를 뭔가 Private 하게 쓸수 있게 해주는 기능이다. 여기에는 <code>Interface Endpoint</code>, <code>Gateway Endpoint</code> 두가지 타입이 있는데 S3는 그 동안엔<br>gateway endpoint 만 제공했다. 사실 모든 서비스가 둘중 하나의 타입으로만 제공했다. 예를들어 SQS 나 DynamoDB 같은 경우엔 Gateway 타입으로만 제공이 됐고 나머지는 Interface 타입으로만 제공이 됐다. gateway endpoint는 VPC 내에서는 어플리케이션에서 엔드포인트 변경등이 필요없이 바로 적용이 되는 장점이 있지만 ip가 제공되지 않는다는 단점이 있다. </p>
+<a id="more"></a>
+
 <p>이게 왜 단점이 되냐면, 어디 AWS를 쓰는 사용자가 AWS만 쓰는가? 클라우드로 시작한 회사가 아니라면 IDC에서 운영되고 있는 서버가 있고 IDC의 네트워크와 AWS가 연동되어 있는 경우가 많다. 꼭 물리적인 네트워크가 아니더라도 클라우드 끼리 연동되어 있는 경우도 많다. 그런데 그런 경우 저렇게 Gateway 타입으로 제공되는 endpoint에 사설통신을 하려면 Squid 등을 이용해 프록시를 구성해서 접근해야 했다. </p>
 <p>그런데 이제 interface gateway가 나와서 <strong>프록시를 안써도 된다.</strong> 그냥 vpc에 s3 interface gateway를 만들면 나만의 s3 엔드포인트가 생성이 되고 내 어플리케이션에 엔드포인트를 생성된 엔드포인트로 바꿔주기만 하면 그게 VPC에 있든, 온프레미스에 있든 상관없이 그 ENI에 해당하는 <strong>사설 ip</strong>로 트래픽이 가게 된다. </p>
 <table>
