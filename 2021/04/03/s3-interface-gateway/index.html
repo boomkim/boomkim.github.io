@@ -19,7 +19,7 @@
 <meta property="og:description" content="S3 interface endpoint 출시S3 endpoint service 에 드디어 interface endpoint가 나왔다.   AWS S3 public 서비스라던데… 혹시 VPC에서는 사설통신이 되나요?   네 됩니다.  AWS에는 Private Link 혹은 VPC Endpoint 라고 불리는 서비스가 있다. 이름에서 알 수 있듯이 AWS의 서">
 <meta property="og:locale" content="ko">
 <meta property="og:image" content="https:&#x2F;&#x2F;boomkim.github.io&#x2F;images&#x2F;2021&#x2F;interface-and-gateway-endpoints.png">
-<meta property="og:updated_time" content="2021-04-03T13:16:46.604Z">
+<meta property="og:updated_time" content="2021-04-03T13:17:44.905Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;boomkim.github.io&#x2F;images&#x2F;2021&#x2F;interface-and-gateway-endpoints.png">
 
@@ -163,7 +163,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    7분 읽기 (대략 1009 단어)
+                    7분 읽기 (대략 1030 단어)
                 </span>
                 
                 
@@ -186,7 +186,7 @@
 
 <p>이게 왜 단점이 되냐면, 어디 AWS를 쓰는 사용자가 AWS만 쓰는가? 클라우드로 시작한 회사가 아니라면 IDC에서 운영되고 있는 서버가 있고 IDC의 네트워크와 AWS가 연동되어 있는 경우가 많다. 꼭 물리적인 네트워크가 아니더라도 클라우드 끼리 연동되어 있는 경우도 많다. 그런데 그런 경우 저렇게 Gateway 타입으로 제공되는 endpoint에 사설통신을 하려면 Squid 등을 이용해 프록시를 구성해서 접근해야 했다. </p>
 <p>그런데 이제 interface gateway가 나와서 <strong>프록시를 안써도 된다.</strong> 그냥 vpc에 s3 interface gateway를 만들면 나만의 s3 엔드포인트가 생성이 되고 내 어플리케이션에 엔드포인트를 생성된 엔드포인트로 바꿔주기만 하면 그게 VPC에 있든, 온프레미스에 있든 상관없이 그 ENI에 해당하는 <strong>사설 ip</strong>로 트래픽이 가게 된다. </p>
-<table>
+<h3 id="게이트웨이-엔드포인트-VS-인터페이스-엔드포인트"><a href="#게이트웨이-엔드포인트-VS-인터페이스-엔드포인트" class="headerlink" title="게이트웨이 엔드포인트 VS 인터페이스 엔드포인트"></a>게이트웨이 엔드포인트 VS 인터페이스 엔드포인트</h3><table>
 <thead>
 <tr>
 <th>Amazon S3용 게이트웨이 엔드포인트</th>
@@ -289,7 +289,11 @@
         <a class="is-flex" href="#S3-interface-endpoint-출시">
         <span class="has-mr-6">1</span>
         <span>S3 interface endpoint 출시</span>
-        </a></li><li>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#게이트웨이-엔드포인트-VS-인터페이스-엔드포인트">
+        <span class="has-mr-6">1.1</span>
+        <span>게이트웨이 엔드포인트 VS 인터페이스 엔드포인트</span>
+        </a></li></ul></li><li>
         <a class="is-flex" href="#endpoint를-명시해서-interface-endpoint로-가는-방법">
         <span class="has-mr-6">2</span>
         <span>endpoint를 명시해서 interface endpoint로 가는 방법.</span>
@@ -433,7 +437,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
     
     
-<a id="back-to-top" title="Back to Top" href="javascript:;" target="_blank" rel="noopener">
+<a id="back-to-top" title="Kembali ke atas" href="javascript:;" target="_blank" rel="noopener">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>
