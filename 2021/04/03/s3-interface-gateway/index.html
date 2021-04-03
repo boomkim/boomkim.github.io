@@ -19,7 +19,7 @@
 <meta property="og:description" content="S3 interface endpoint 출시S3 endpoint service 에 드디어 interface endpoint가 나왔다.   AWS S3 public 서비스라던데… 혹시 VPC에서는 사설통신이 되나요?   네 됩니다.  AWS에는 Private Link 혹은 VPC Endpoint 라고 불리는 서비스가 있다. 이름에서 알 수 있듯이 AWS의 서">
 <meta property="og:locale" content="ko">
 <meta property="og:image" content="https:&#x2F;&#x2F;boomkim.github.io&#x2F;images&#x2F;2021&#x2F;interface-and-gateway-endpoints.png">
-<meta property="og:updated_time" content="2021-04-03T13:17:44.905Z">
+<meta property="og:updated_time" content="2021-04-03T13:19:45.470Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;boomkim.github.io&#x2F;images&#x2F;2021&#x2F;interface-and-gateway-endpoints.png">
 
@@ -163,7 +163,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    7분 읽기 (대략 1030 단어)
+                    7분 읽기 (대략 1031 단어)
                 </span>
                 
                 
@@ -213,7 +213,7 @@
 <p>(출처: <a href="https://docs.aws.amazon.com/ko_kr/AmazonS3/latest/userguide/privatelink-interface-endpoints.html" target="_blank" rel="noopener">https://docs.aws.amazon.com/ko_kr/AmazonS3/latest/userguide/privatelink-interface-endpoints.html</a> )</p>
 <h2 id="endpoint를-명시해서-interface-endpoint로-가는-방법"><a href="#endpoint를-명시해서-interface-endpoint로-가는-방법" class="headerlink" title="endpoint를 명시해서 interface endpoint로 가는 방법."></a>endpoint를 명시해서 interface endpoint로 가는 방법.</h2><p>간단하다. aws s3 cli, sdk 등에는 옵션으로 endpoint를 명시할수 있는데 해당 endpoint에 interface endpoint 에서 제공하는 endpoint를 입력하면 된다. </p>
 <p>예를들어 AWS CLI를 이용할 경우 </p>
-<figure class="highlight plain hljs"><figcaption><span>CLI</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">aws s3 --endpoint-url https:&#x2F;&#x2F;bucket.vpce-1a2b3c4d-5e6f.s3.us-east-1.vpce.amazonaws.com ls s3:&#x2F;&#x2F;my-bucket&#x2F;</span></pre></td></tr></table></figure>
+<figure class="highlight plain hljs"><figcaption><span>AWS CLI</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">aws s3 --endpoint-url https:&#x2F;&#x2F;bucket.vpce-1a2b3c4d-5e6f.s3.us-east-1.vpce.amazonaws.com ls s3:&#x2F;&#x2F;my-bucket&#x2F;</span></pre></td></tr></table></figure>
 
 <p>python sdk 이용하는경우 </p>
 <figure class="highlight python hljs"><figcaption><span>python sdk(boto3)</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">s3_client = session.client(</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">service_name=<span class="hljs-string">'s3'</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">endpoint_url=<span class="hljs-string">'https://bucket.vpce-1a2b3c4d-5e6f.s3.us-east-1.vpce.amazonaws.com'</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">)</span></pre></td></tr></table></figure>
@@ -437,7 +437,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
     
     
-<a id="back-to-top" title="Kembali ke atas" href="javascript:;" target="_blank" rel="noopener">
+<a id="back-to-top" title="Back to Top" href="javascript:;" target="_blank" rel="noopener">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>
