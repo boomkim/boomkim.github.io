@@ -10,16 +10,16 @@
 <title>endpoint 설정 없이 사설 ip로 S3 접근하기 (feat. hosts 파일) - Boomkim</title>
 
 
-    <meta name="description" content="S3 interface endpoint 출시S3 endpoint service 에 드디어 interface endpoint가 나왔다.   AWS S3를 퍼블릭 통신 없이 이용하려면 어떡해요?   AWS에는 Private Link 혹은 VPC Endpoint 라고 불리는 서비스가 있다. 이름에서 알 수 있듯이 AWS의 서비스를 뭔가 Private 하게 쓸수">
+    <meta name="description" content="S3 interface endpoint 출시S3 endpoint service 에 드디어 interface endpoint가 나왔다.   AWS S3 public 서비스라던데… 혹시 VPC에서는 사설통신이 되나요?   네 됩니다.  AWS에는 Private Link 혹은 VPC Endpoint 라고 불리는 서비스가 있다. 이름에서 알 수 있듯이 AWS의 서">
 <meta name="keywords" content="AWS,S3,Network,Private,VPC">
 <meta property="og:type" content="article">
 <meta property="og:title" content="endpoint 설정 없이 사설 ip로 S3 접근하기 (feat. hosts 파일)">
 <meta property="og:url" content="https:&#x2F;&#x2F;boomkim.github.io&#x2F;2021&#x2F;04&#x2F;03&#x2F;s3-interface-gateway&#x2F;index.html">
 <meta property="og:site_name" content="Boomkim">
-<meta property="og:description" content="S3 interface endpoint 출시S3 endpoint service 에 드디어 interface endpoint가 나왔다.   AWS S3를 퍼블릭 통신 없이 이용하려면 어떡해요?   AWS에는 Private Link 혹은 VPC Endpoint 라고 불리는 서비스가 있다. 이름에서 알 수 있듯이 AWS의 서비스를 뭔가 Private 하게 쓸수">
+<meta property="og:description" content="S3 interface endpoint 출시S3 endpoint service 에 드디어 interface endpoint가 나왔다.   AWS S3 public 서비스라던데… 혹시 VPC에서는 사설통신이 되나요?   네 됩니다.  AWS에는 Private Link 혹은 VPC Endpoint 라고 불리는 서비스가 있다. 이름에서 알 수 있듯이 AWS의 서">
 <meta property="og:locale" content="ko">
 <meta property="og:image" content="https:&#x2F;&#x2F;boomkim.github.io&#x2F;images&#x2F;2021&#x2F;interface-and-gateway-endpoints.png">
-<meta property="og:updated_time" content="2021-04-03T13:11:50.445Z">
+<meta property="og:updated_time" content="2021-04-03T13:16:46.604Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;boomkim.github.io&#x2F;images&#x2F;2021&#x2F;interface-and-gateway-endpoints.png">
 
@@ -163,7 +163,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    7분 읽기 (대략 987 단어)
+                    7분 읽기 (대략 1009 단어)
                 </span>
                 
                 
@@ -178,8 +178,9 @@
         <div class="content">
             <h2 id="S3-interface-endpoint-출시"><a href="#S3-interface-endpoint-출시" class="headerlink" title="S3 interface endpoint 출시"></a>S3 interface endpoint 출시</h2><p>S3 endpoint service 에 드디어 <strong>interface endpoint</strong>가 나왔다. </p>
 <blockquote>
-<p>AWS S3를 퍼블릭 통신 없이 이용하려면 어떡해요? </p>
+<p>AWS S3 public 서비스라던데… 혹시 VPC에서는 사설통신이 되나요? </p>
 </blockquote>
+<p>네 됩니다. </p>
 <p>AWS에는 Private Link 혹은 VPC Endpoint 라고 불리는 서비스가 있다. 이름에서 알 수 있듯이 AWS의 서비스를 뭔가 Private 하게 쓸수 있게 해주는 기능이다. 여기에는 <code>Interface Endpoint</code>, <code>Gateway Endpoint</code> 두가지 타입이 있는데 S3는 그 동안엔<br>gateway endpoint 만 제공했다. 사실 모든 서비스가 둘중 하나의 타입으로만 제공했다. 예를들어 SQS 나 DynamoDB 같은 경우엔 Gateway 타입으로만 제공이 됐고 나머지는 Interface 타입으로만 제공이 됐다. gateway endpoint는 VPC 내에서는 어플리케이션에서 엔드포인트 변경등이 필요없이 바로 적용이 되는 장점이 있지만 ip가 제공되지 않는다는 단점이 있다. </p>
 <a id="more"></a>
 
@@ -217,9 +218,12 @@
 <p>python sdk 이용하는경우 </p>
 <figure class="highlight python hljs"><figcaption><span>python sdk(boto3)</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">s3_client = session.client(</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">service_name=<span class="hljs-string">'s3'</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">endpoint_url=<span class="hljs-string">'https://bucket.vpce-1a2b3c4d-5e6f.s3.us-east-1.vpce.amazonaws.com'</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">)</span></pre></td></tr></table></figure>
 
-
 <p>이런식으로 해주면 끝. </p>
-<h2 id="endpoint-옵션이-없는데-어떡해요"><a href="#endpoint-옵션이-없는데-어떡해요" class="headerlink" title="endpoint 옵션이 없는데 어떡해요?"></a>endpoint 옵션이 없는데 어떡해요?</h2><p>가끔 s3 connector라고 나온 애들 중에 endpoint를 특정해줄수 없는 것들이 있다. 그러면 <strong>강제로 호스트파일을 수정</strong>해 해결할 수 있다. </p>
+<p>그런데…</p>
+<blockquote>
+<p>endpoint 옵션이 없는데 어떡해요? </p>
+</blockquote>
+<h2 id="endpoint-옵션-없이-interface-endpoint-접근하기"><a href="#endpoint-옵션-없이-interface-endpoint-접근하기" class="headerlink" title="endpoint 옵션 없이 interface endpoint 접근하기."></a>endpoint 옵션 없이 interface endpoint 접근하기.</h2><p>가끔 s3 connector라고 나온 애들 중에 endpoint를 특정해줄 수 없는 것들이 있다.<br>그러면 <strong>강제로 호스트파일을 수정</strong>해 해결할 수 있다. </p>
 <p>우선 내 s3 endpoint의 ip를 알아내자. <code>nslookup</code> 해도 되고, 아래처럼 콘솔에서 바로 보여주기도 한다. </p>
 <p><img src="/images/2021/interface-ip.png" alt></p>
 <p>여기에서 얻은 ip를 들고 </p>
@@ -290,9 +294,9 @@
         <span class="has-mr-6">2</span>
         <span>endpoint를 명시해서 interface endpoint로 가는 방법.</span>
         </a></li><li>
-        <a class="is-flex" href="#endpoint-옵션이-없는데-어떡해요">
+        <a class="is-flex" href="#endpoint-옵션-없이-interface-endpoint-접근하기">
         <span class="has-mr-6">3</span>
-        <span>endpoint 옵션이 없는데 어떡해요?</span>
+        <span>endpoint 옵션 없이 interface endpoint 접근하기.</span>
         </a></li></ul>
             </div>
         </div>

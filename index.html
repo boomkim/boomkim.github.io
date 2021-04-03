@@ -156,7 +156,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    7분 읽기 (대략 987 단어)
+                    7분 읽기 (대략 1009 단어)
                 </span>
                 
                 
@@ -171,8 +171,9 @@
         <div class="content">
             <h2 id="S3-interface-endpoint-출시"><a href="#S3-interface-endpoint-출시" class="headerlink" title="S3 interface endpoint 출시"></a>S3 interface endpoint 출시</h2><p>S3 endpoint service 에 드디어 <strong>interface endpoint</strong>가 나왔다. </p>
 <blockquote>
-<p>AWS S3를 퍼블릭 통신 없이 이용하려면 어떡해요? </p>
+<p>AWS S3 public 서비스라던데… 혹시 VPC에서는 사설통신이 되나요? </p>
 </blockquote>
+<p>네 됩니다. </p>
 <p>AWS에는 Private Link 혹은 VPC Endpoint 라고 불리는 서비스가 있다. 이름에서 알 수 있듯이 AWS의 서비스를 뭔가 Private 하게 쓸수 있게 해주는 기능이다. 여기에는 <code>Interface Endpoint</code>, <code>Gateway Endpoint</code> 두가지 타입이 있는데 S3는 그 동안엔<br>gateway endpoint 만 제공했다. 사실 모든 서비스가 둘중 하나의 타입으로만 제공했다. 예를들어 SQS 나 DynamoDB 같은 경우엔 Gateway 타입으로만 제공이 됐고 나머지는 Interface 타입으로만 제공이 됐다. gateway endpoint는 VPC 내에서는 어플리케이션에서 엔드포인트 변경등이 필요없이 바로 적용이 되는 장점이 있지만 ip가 제공되지 않는다는 단점이 있다. </p>
         </div>
         
