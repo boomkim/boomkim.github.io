@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
 
-<meta name="generator" content="Hexo 4.0.0" />
+<meta name="generator" content="Hexo 5.2.0" />
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
@@ -12,12 +12,13 @@
 
     <meta property="og:type" content="website">
 <meta property="og:title" content="Boomkim">
-<meta property="og:url" content="https:&#x2F;&#x2F;boomkim.github.io&#x2F;tags&#x2F;security&#x2F;index.html">
+<meta property="og:url" content="https://boomkim.github.io/tags/security/index.html">
 <meta property="og:site_name" content="Boomkim">
-<meta property="og:locale" content="ko">
-<meta property="og:image" content="https:&#x2F;&#x2F;boomkim.github.io&#x2F;images&#x2F;og_image.png">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:image" content="https://boomkim.github.io/images/og_image.png">
+<meta property="article:author" content="boomkim">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;boomkim.github.io&#x2F;images&#x2F;og_image.png">
+<meta name="twitter:image" content="https://boomkim.github.io/images/og_image.png">
 
 
 
@@ -120,7 +121,7 @@
                 
                 
                 
-                <a class="navbar-item search" title="검색" href="javascript:;" target="_blank" rel="noopener">
+                <a class="navbar-item search" title="검색" href="javascript:;">
                     <i class="fas fa-search"></i>
                 </a>
                 
@@ -179,16 +180,16 @@
             
         </h1>
         <div class="content">
-            <p>aws 상에서 보안을 위해 그림과 같이 실제 사용하는 인스턴스는 private subnet에 숨기고, public에 bastion host 라는 걸 둬서 접근하는 방식이 있다.</p>
-<p><img src="/images/2019/12/20/bastionhost.png" alt></p>
+            <html><head></head><body><p>aws 상에서 보안을 위해 그림과 같이 실제 사용하는 인스턴스는 private subnet에 숨기고, public에 bastion host 라는 걸 둬서 접근하는 방식이 있다.</p>
+<p><img src="/images/2019/12/20/bastionhost.png" alt=""></p>
 <p>이렇게 하면 관리할 구멍을 하나만 만들고 그 외에는 접근이 원천적으로 불가능해지기 때문에 보안적으로는 좋아지긴 하는데… 그 내부로 접근하기가 매우 귀찮아지는 단점이 있다. </p>
 <p>결국 private subnet 안에 있는 인스턴스에 접근하려면 배스쳔호스트를 거쳐야 하는데,<br>매번 그 명령어를 까먹어서 기록해둔다. </p>
 <p>방법은 아래와 같다 </p>
 <hr>
-<h3 id="1-타겟의-22번-포트를-배스천호스트를-통해-로컬-내컴퓨터-의-33322-포트로-포워딩"><a href="#1-타겟의-22번-포트를-배스천호스트를-통해-로컬-내컴퓨터-의-33322-포트로-포워딩" class="headerlink" title="1.타겟의 22번 포트를 배스천호스트를 통해 로컬(내컴퓨터)의 33322 포트로 포워딩"></a>1.타겟의 22번 포트를 배스천호스트를 통해 로컬(내컴퓨터)의 33322 포트로 포워딩</h3><figure class="highlight sh hljs"><figcaption><span>포트 포워딩 </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">ssh -i <span class="hljs-string">"bastion-host-key.pem"</span> -N -L 33322:&#123;target-private-ip&#125;:22 ec2-user@&#123;bastion-host-public-ip&#125;</span></pre></td></tr></table></figure>
+<h3 id="1-타겟의-22번-포트를-배스천호스트를-통해-로컬-내컴퓨터-의-33322-포트로-포워딩"><a href="#1-타겟의-22번-포트를-배스천호스트를-통해-로컬-내컴퓨터-의-33322-포트로-포워딩" class="headerlink" title="1.타겟의 22번 포트를 배스천호스트를 통해 로컬(내컴퓨터)의 33322 포트로 포워딩"></a>1.타겟의 22번 포트를 배스천호스트를 통해 로컬(내컴퓨터)의 33322 포트로 포워딩</h3><figure class="highlight sh hljs"><figcaption><span>포트 포워딩</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -i <span class="hljs-string">"bastion-host-key.pem"</span> -N -L 33322:{target-private-ip}:22 ec2-user@{bastion-host-public-ip}</span><br></pre></td></tr></tbody></table></figure>
 
 <p><em>(주의) 새 터미널을 띄운 후</em></p>
-<h3 id="2-로컬호스트의-33322포트를-이용해-타겟으로-접속"><a href="#2-로컬호스트의-33322포트를-이용해-타겟으로-접속" class="headerlink" title="2.로컬호스트의 33322포트를 이용해 타겟으로 접속"></a>2.로컬호스트의 33322포트를 이용해 타겟으로 접속</h3><figure class="highlight sh hljs"><figcaption><span>접속 </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">ssh -i <span class="hljs-string">"target-key.pem"</span> -p 33322 &#123;target-user(대체로 ec2-user)&#125;@localhost</span></pre></td></tr></table></figure>
+<h3 id="2-로컬호스트의-33322포트를-이용해-타겟으로-접속"><a href="#2-로컬호스트의-33322포트를-이용해-타겟으로-접속" class="headerlink" title="2.로컬호스트의 33322포트를 이용해 타겟으로 접속"></a>2.로컬호스트의 33322포트를 이용해 타겟으로 접속</h3><figure class="highlight sh hljs"><figcaption><span>접속</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -i <span class="hljs-string">"target-key.pem"</span> -p 33322 {target-user(대체로 ec2-user)}@localhost</span><br></pre></td></tr></tbody></table></figure>
 
 <p>타겟의 22번 포트를 배스천호스트를 통해 로컬(내컴퓨터)의 33322 포트로 포워딩</p>
 <p>(용어정리)</p>
@@ -199,7 +200,7 @@
 <li><code>bastion-host-public-ip</code>: 말 그대로 bastion host의 퍼블릭 ip </li>
 </ul>
 <p>33322포트는 임의로 정한것이며 아무거나 남는 포트를 정하면 된다.<br>끝. </p>
-
+</body></html>
         </div>
         
         
@@ -254,7 +255,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            30
+                            31
                         </p>
                     </a>
                 </div>
@@ -266,7 +267,7 @@
                     </p>
                     <a href="/categories">
                         <p class="title has-text-weight-normal">
-                            18
+                            20
                         </p>
                     </a>
                 </div>
@@ -278,7 +279,7 @@
                     </p>
                     <a href="/tags">
                         <p class="title has-text-weight-normal">
-                            69
+                            72
                         </p>
                     </a>
                 </div>
@@ -460,6 +461,22 @@
                 <span class="level-item tag">1</span>
             </span>
         </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/TIL/">
+            <span class="level-start">
+                <span class="level-item">TIL</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/TIL/Rust/">
+            <span class="level-start">
+                <span class="level-item">Rust</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li></ul></li><li>
         <a class="level is-marginless" href="/categories/blog/">
             <span class="level-start">
                 <span class="level-item">blog</span>
@@ -478,7 +495,7 @@
         <h3 class="menu-label">
             태그 클라우드
         </h3>
-        <a href="/tags/ALB/" style="font-size: 10px;">ALB</a> <a href="/tags/AWS/" style="font-size: 20px;">AWS</a> <a href="/tags/ActiveDirectory/" style="font-size: 11.67px;">ActiveDirectory</a> <a href="/tags/AmazonLinux2/" style="font-size: 10px;">AmazonLinux2</a> <a href="/tags/Bigdata/" style="font-size: 11.67px;">Bigdata</a> <a href="/tags/DigitalOcean/" style="font-size: 11.67px;">DigitalOcean</a> <a href="/tags/Docker/" style="font-size: 11.67px;">Docker</a> <a href="/tags/DocumentDB/" style="font-size: 10px;">DocumentDB</a> <a href="/tags/EC2/" style="font-size: 13.33px;">EC2</a> <a href="/tags/EMR/" style="font-size: 10px;">EMR</a> <a href="/tags/Elasticsearch/" style="font-size: 10px;">Elasticsearch</a> <a href="/tags/Hadoop/" style="font-size: 10px;">Hadoop</a> <a href="/tags/Hive/" style="font-size: 10px;">Hive</a> <a href="/tags/Jekyll/" style="font-size: 10px;">Jekyll</a> <a href="/tags/LLAP/" style="font-size: 10px;">LLAP</a> <a href="/tags/Network/" style="font-size: 10px;">Network</a> <a href="/tags/Overlay/" style="font-size: 11.67px;">Overlay</a> <a href="/tags/PostgreSQL/" style="font-size: 10px;">PostgreSQL</a> <a href="/tags/Private/" style="font-size: 10px;">Private</a> <a href="/tags/RDS/" style="font-size: 11.67px;">RDS</a> <a href="/tags/S3/" style="font-size: 10px;">S3</a> <a href="/tags/SAML/" style="font-size: 10px;">SAML</a> <a href="/tags/SPARK/" style="font-size: 10px;">SPARK</a> <a href="/tags/T3/" style="font-size: 10px;">T3</a> <a href="/tags/VPC/" style="font-size: 10px;">VPC</a> <a href="/tags/WindowsServer/" style="font-size: 11.67px;">WindowsServer</a> <a href="/tags/airflow/" style="font-size: 10px;">airflow</a> <a href="/tags/athena/" style="font-size: 15px;">athena</a> <a href="/tags/aws/" style="font-size: 15px;">aws</a> <a href="/tags/bandwidth/" style="font-size: 10px;">bandwidth</a> <a href="/tags/bastionhost/" style="font-size: 10px;">bastionhost</a> <a href="/tags/bigdata/" style="font-size: 18.33px;">bigdata</a> <a href="/tags/blog/" style="font-size: 11.67px;">blog</a> <a href="/tags/cloudfront/" style="font-size: 10px;">cloudfront</a> <a href="/tags/commands/" style="font-size: 10px;">commands</a> <a href="/tags/concurrency/" style="font-size: 10px;">concurrency</a> <a href="/tags/cpr/" style="font-size: 11.67px;">cpr</a> <a href="/tags/data/" style="font-size: 10px;">data</a> <a href="/tags/ec2/" style="font-size: 10px;">ec2</a> <a href="/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/tags/generate/" style="font-size: 10px;">generate</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/icarus/" style="font-size: 10px;">icarus</a> <a href="/tags/issue/" style="font-size: 10px;">issue</a> <a href="/tags/jekyll/" style="font-size: 10px;">jekyll</a> <a href="/tags/jekyll-swiss/" style="font-size: 10px;">jekyll-swiss</a> <a href="/tags/lambda/" style="font-size: 10px;">lambda</a> <a href="/tags/lambda-edge/" style="font-size: 10px;">lambda@edge</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/log/" style="font-size: 10px;">log</a> <a href="/tags/migration/" style="font-size: 11.67px;">migration</a> <a href="/tags/network/" style="font-size: 11.67px;">network</a> <a href="/tags/painless/" style="font-size: 10px;">painless</a> <a href="/tags/portfowarding/" style="font-size: 10px;">portfowarding</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/queries/" style="font-size: 10px;">queries</a> <a href="/tags/rds/" style="font-size: 10px;">rds</a> <a href="/tags/read-replica/" style="font-size: 10px;">read replica</a> <a href="/tags/readreplica/" style="font-size: 11.67px;">readreplica</a> <a href="/tags/revierepublic/" style="font-size: 10px;">revierepublic</a> <a href="/tags/reviewrepublic/" style="font-size: 10px;">reviewrepublic</a> <a href="/tags/security/" style="font-size: 10px;">security</a> <a href="/tags/serverless/" style="font-size: 10px;">serverless</a> <a href="/tags/spark/" style="font-size: 11.67px;">spark</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/storage/" style="font-size: 10px;">storage</a> <a href="/tags/theme/" style="font-size: 10px;">theme</a> <a href="/tags/troubleshooting/" style="font-size: 10px;">troubleshooting</a> <a href="/tags/zeppelin/" style="font-size: 16.67px;">zeppelin</a>
+        <a href="/tags/ALB/" style="font-size: 10px;">ALB</a> <a href="/tags/AWS/" style="font-size: 20px;">AWS</a> <a href="/tags/ActiveDirectory/" style="font-size: 11.67px;">ActiveDirectory</a> <a href="/tags/AmazonLinux2/" style="font-size: 10px;">AmazonLinux2</a> <a href="/tags/Bigdata/" style="font-size: 11.67px;">Bigdata</a> <a href="/tags/DigitalOcean/" style="font-size: 11.67px;">DigitalOcean</a> <a href="/tags/Docker/" style="font-size: 11.67px;">Docker</a> <a href="/tags/DocumentDB/" style="font-size: 10px;">DocumentDB</a> <a href="/tags/EC2/" style="font-size: 13.33px;">EC2</a> <a href="/tags/EMR/" style="font-size: 10px;">EMR</a> <a href="/tags/Elasticsearch/" style="font-size: 10px;">Elasticsearch</a> <a href="/tags/Hadoop/" style="font-size: 10px;">Hadoop</a> <a href="/tags/Hive/" style="font-size: 10px;">Hive</a> <a href="/tags/Jekyll/" style="font-size: 10px;">Jekyll</a> <a href="/tags/LLAP/" style="font-size: 10px;">LLAP</a> <a href="/tags/Network/" style="font-size: 10px;">Network</a> <a href="/tags/Overlay/" style="font-size: 11.67px;">Overlay</a> <a href="/tags/PostgreSQL/" style="font-size: 10px;">PostgreSQL</a> <a href="/tags/Private/" style="font-size: 10px;">Private</a> <a href="/tags/RDS/" style="font-size: 11.67px;">RDS</a> <a href="/tags/Rust/" style="font-size: 10px;">Rust</a> <a href="/tags/S3/" style="font-size: 10px;">S3</a> <a href="/tags/SAML/" style="font-size: 10px;">SAML</a> <a href="/tags/SPARK/" style="font-size: 10px;">SPARK</a> <a href="/tags/T3/" style="font-size: 10px;">T3</a> <a href="/tags/TIL/" style="font-size: 10px;">TIL</a> <a href="/tags/VPC/" style="font-size: 10px;">VPC</a> <a href="/tags/WindowsServer/" style="font-size: 11.67px;">WindowsServer</a> <a href="/tags/airflow/" style="font-size: 10px;">airflow</a> <a href="/tags/athena/" style="font-size: 15px;">athena</a> <a href="/tags/aws/" style="font-size: 15px;">aws</a> <a href="/tags/bandwidth/" style="font-size: 10px;">bandwidth</a> <a href="/tags/bastionhost/" style="font-size: 10px;">bastionhost</a> <a href="/tags/bigdata/" style="font-size: 18.33px;">bigdata</a> <a href="/tags/blog/" style="font-size: 11.67px;">blog</a> <a href="/tags/cloudfront/" style="font-size: 10px;">cloudfront</a> <a href="/tags/commands/" style="font-size: 10px;">commands</a> <a href="/tags/concurrency/" style="font-size: 10px;">concurrency</a> <a href="/tags/cpr/" style="font-size: 11.67px;">cpr</a> <a href="/tags/data/" style="font-size: 10px;">data</a> <a href="/tags/ec2/" style="font-size: 10px;">ec2</a> <a href="/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/tags/generate/" style="font-size: 10px;">generate</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/icarus/" style="font-size: 10px;">icarus</a> <a href="/tags/issue/" style="font-size: 10px;">issue</a> <a href="/tags/jekyll/" style="font-size: 10px;">jekyll</a> <a href="/tags/jekyll-swiss/" style="font-size: 10px;">jekyll-swiss</a> <a href="/tags/lambda/" style="font-size: 10px;">lambda</a> <a href="/tags/lambda-edge/" style="font-size: 10px;">lambda@edge</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/log/" style="font-size: 10px;">log</a> <a href="/tags/migration/" style="font-size: 11.67px;">migration</a> <a href="/tags/network/" style="font-size: 11.67px;">network</a> <a href="/tags/painless/" style="font-size: 10px;">painless</a> <a href="/tags/portfowarding/" style="font-size: 10px;">portfowarding</a> <a href="/tags/programing-language/" style="font-size: 10px;">programing language</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/queries/" style="font-size: 10px;">queries</a> <a href="/tags/rds/" style="font-size: 10px;">rds</a> <a href="/tags/read-replica/" style="font-size: 10px;">read replica</a> <a href="/tags/readreplica/" style="font-size: 11.67px;">readreplica</a> <a href="/tags/revierepublic/" style="font-size: 10px;">revierepublic</a> <a href="/tags/reviewrepublic/" style="font-size: 10px;">reviewrepublic</a> <a href="/tags/security/" style="font-size: 10px;">security</a> <a href="/tags/serverless/" style="font-size: 10px;">serverless</a> <a href="/tags/spark/" style="font-size: 11.67px;">spark</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/storage/" style="font-size: 10px;">storage</a> <a href="/tags/theme/" style="font-size: 10px;">theme</a> <a href="/tags/troubleshooting/" style="font-size: 10px;">troubleshooting</a> <a href="/tags/zeppelin/" style="font-size: 16.67px;">zeppelin</a>
     </div>
 </div>
     
@@ -490,6 +507,25 @@
         <h3 class="menu-label">
             최근 글
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2021/08/03/til-rust/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/rust.png" alt="Rust 공부중">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2021-08-02T15:00:00.000Z">2021-08-03</time></div>
+                    <a href="/2021/08/03/til-rust/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Rust 공부중</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/TIL/">TIL</a> / <a class="has-link-grey -link" href="/categories/TIL/Rust/">Rust</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -567,25 +603,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2020/01/08/airflow-install-amazon-linux-2/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/2020/01/08/airflow.png" alt="Amazon Linux 2에 Airflow 설치하기">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-07T15:00:00.000Z">2020-01-08</time></div>
-                    <a href="/2020/01/08/airflow-install-amazon-linux-2/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Amazon Linux 2에 Airflow 설치하기</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Bigdata/">Bigdata</a> / <a class="has-link-grey -link" href="/categories/Bigdata/Airflow/">Airflow</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
         
@@ -596,6 +613,17 @@
             아카이브
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2021/08/">
+                <span class="level-start">
+                    <span class="level-item">8월 2021</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2021/04/">
@@ -883,6 +911,13 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/Rust/">
+                        <span class="tag">Rust</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/S3/">
                         <span class="tag">S3</span>
                         <span class="tag is-grey">1</span>
@@ -906,6 +941,13 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/T3/">
                         <span class="tag">T3</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/TIL/">
+                        <span class="tag">TIL</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1116,6 +1158,13 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/portfowarding/">
                         <span class="tag">portfowarding</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/programing-language/">
+                        <span class="tag">programing language</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1249,6 +1298,25 @@
         
         <article class="media">
             
+            <a href="/2021/08/03/til-rust/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/rust.png" alt="Rust 공부중">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2021-08-02T15:00:00.000Z">2021-08-03</time></div>
+                    <a href="/2021/08/03/til-rust/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Rust 공부중</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/TIL/">TIL</a> / <a class="has-link-grey -link" href="/categories/TIL/Rust/">Rust</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2021/04/23/replace-existing-document/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/elasticsearch.png" alt="Elasticsearch Update API로 Document 교체하기">
@@ -1323,25 +1391,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2020/01/08/airflow-install-amazon-linux-2/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/2020/01/08/airflow.png" alt="Amazon Linux 2에 Airflow 설치하기">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-07T15:00:00.000Z">2020-01-08</time></div>
-                    <a href="/2020/01/08/airflow-install-amazon-linux-2/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Amazon Linux 2에 Airflow 설치하기</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Bigdata/">Bigdata</a> / <a class="has-link-grey -link" href="/categories/Bigdata/Airflow/">Airflow</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
     
@@ -1352,6 +1401,17 @@
             아카이브
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2021/08/">
+                <span class="level-start">
+                    <span class="level-item">8월 2021</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2021/04/">
@@ -1639,6 +1699,13 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/Rust/">
+                        <span class="tag">Rust</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/S3/">
                         <span class="tag">S3</span>
                         <span class="tag is-grey">1</span>
@@ -1662,6 +1729,13 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/T3/">
                         <span class="tag">T3</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/TIL/">
+                        <span class="tag">TIL</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1872,6 +1946,13 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/portfowarding/">
                         <span class="tag">portfowarding</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/programing-language/">
+                        <span class="tag">programing language</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -2076,7 +2157,7 @@ var IcarusThemeSettings = {
     
 <div id="outdated">
     <h6>Your browser is out-of-date!</h6>
-    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" target="_blank" rel="noopener">Update
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" target="_blank" rel="noopener" href="http://outdatedbrowser.com/">Update
             my browser now </a></p>
     <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
 </div>
@@ -2116,7 +2197,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
     
     
-<a id="back-to-top" title="Back to Top" href="javascript:;" target="_blank" rel="noopener">
+<a id="back-to-top" title="Back to Top" href="javascript:;">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>

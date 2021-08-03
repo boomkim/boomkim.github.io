@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
 
-<meta name="generator" content="Hexo 4.0.0" />
+<meta name="generator" content="Hexo 5.2.0" />
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
@@ -12,12 +12,13 @@
 
     <meta property="og:type" content="website">
 <meta property="og:title" content="Boomkim">
-<meta property="og:url" content="https:&#x2F;&#x2F;boomkim.github.io&#x2F;categories&#x2F;Bigdata&#x2F;Spark&#x2F;index.html">
+<meta property="og:url" content="https://boomkim.github.io/categories/Bigdata/Spark/index.html">
 <meta property="og:site_name" content="Boomkim">
-<meta property="og:locale" content="ko">
-<meta property="og:image" content="https:&#x2F;&#x2F;boomkim.github.io&#x2F;images&#x2F;og_image.png">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:image" content="https://boomkim.github.io/images/og_image.png">
+<meta property="article:author" content="boomkim">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;boomkim.github.io&#x2F;images&#x2F;og_image.png">
+<meta name="twitter:image" content="https://boomkim.github.io/images/og_image.png">
 
 
 
@@ -120,7 +121,7 @@
                 
                 
                 
-                <a class="navbar-item search" title="검색" href="javascript:;" target="_blank" rel="noopener">
+                <a class="navbar-item search" title="검색" href="javascript:;">
                     <i class="fas fa-search"></i>
                 </a>
                 
@@ -182,11 +183,11 @@
             
         </h1>
         <div class="content">
-            <p>스파크로 이것저것 테스트해보기 위해 zeppelin을 사용하는데 갑자기 이런 에러가 발생했다. </p>
+            <html><head></head><body><p>스파크로 이것저것 테스트해보기 위해 zeppelin을 사용하는데 갑자기 이런 에러가 발생했다. </p>
 <p><code>java.lang.IllegalStateException: Cannot call methods on a stopped SparkContext.</code></p>
 <p>즉, 지금 사용하려는 SparkContext가 이미 종료되었다는 것이다. </p>
 <p>이걸 구글에 검색해도 ‘로그를 봐라’ 라는 식의 원론적인 답변이 나와서 헤매다가 해결방법이 떠올랐는데…</p>
-<h2 id="해결-방법"><a href="#해결-방법" class="headerlink" title="해결 방법"></a>해결 방법</h2><p><strong>그냥 스파크 인터프리터를 재시작</strong>하면 된다. </p>
+<h2 id="해결-방법"><a href="#해결-방법" class="headerlink" title="해결 방법"></a>해결 방법</h2><p><strong>그냥 스파크 인터프리터를 재시작</strong>하면 된다. </p></body></html>
         </div>
         
         
@@ -245,10 +246,10 @@
             
         </h1>
         <div class="content">
-            <p>빅데이터를 공부해야할 일이 생겨서, 하둡을 먼저 공부했다. 쌩으로 클러스터를 만들고, 설정값을 변경해보고… 그렇게 클러스터를 만드는 일부터 맵리듀스 어플리케이션을 만드는 일까지 공부하는게 쉽지만은 않았다. 여기서 약간 빅데이터의 벽(?)같은걸 1차로 느꼈다. </p>
+            <html><head></head><body><p>빅데이터를 공부해야할 일이 생겨서, 하둡을 먼저 공부했다. 쌩으로 클러스터를 만들고, 설정값을 변경해보고… 그렇게 클러스터를 만드는 일부터 맵리듀스 어플리케이션을 만드는 일까지 공부하는게 쉽지만은 않았다. 여기서 약간 빅데이터의 벽(?)같은걸 1차로 느꼈다. </p>
 <p>그러다가 스파크를 만났다. 공부하다 보니 스파크가 그렇게 어렵지도 않고, 그런데 활용성은 굉장히 좋고, 성능도 좋다는 생각이 든다. 여기서 포인트는 <code>그닥 어렵지 않다</code>는 점이다. 자료들이 주로 scala라는 생소한 언어로 설명이 되어있지만, scala가 별로 어렵지 않다. 언어자체가 직관적이면서 간결하다. 그리고 scala로 배우는 스파크도 그닥 어렵지가 않다. 많은 기능을 제공하고 좋은 성능을 제공하지만, 기능들의 추상화가 잘 되어있어서 단순히 api만 호출하면 된다. </p>
 <p>이거 사긴데? 쉽고 빠른 빅데이터 처리 엔진이라니… </p>
-<p>그 동안 하둡을 공부하면서 느낀 어떤 답답함 같은게 해소되는 느낌이랄까. 맵리듀스를 짜면서 뭔가 병렬처리로 성능이 향상된다는건 알겠는데 코드 작성이 상당히 번거로웠다.<del>(책에는 간단하다고 나와있는데 원리야 간단하지만 코드짜는건 안간단함 ㅇㅇ)</del> 물론 하둡에는 맵리듀스 외에도 빠르게 분석할 수 있는 엔진들이 있지만, 그 중에 스파크가 가장 매력적으로 보인다. </p>
+<p>그 동안 하둡을 공부하면서 느낀 어떤 답답함 같은게 해소되는 느낌이랄까. 맵리듀스를 짜면서 뭔가 병렬처리로 성능이 향상된다는건 알겠는데 코드 작성이 상당히 번거로웠다.<del>(책에는 간단하다고 나와있는데 원리야 간단하지만 코드짜는건 안간단함 ㅇㅇ)</del> 물론 하둡에는 맵리듀스 외에도 빠르게 분석할 수 있는 엔진들이 있지만, 그 중에 스파크가 가장 매력적으로 보인다. </p></body></html>
         </div>
         
         
@@ -311,7 +312,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            30
+                            31
                         </p>
                     </a>
                 </div>
@@ -323,7 +324,7 @@
                     </p>
                     <a href="/categories">
                         <p class="title has-text-weight-normal">
-                            18
+                            20
                         </p>
                     </a>
                 </div>
@@ -335,7 +336,7 @@
                     </p>
                     <a href="/tags">
                         <p class="title has-text-weight-normal">
-                            69
+                            72
                         </p>
                     </a>
                 </div>
@@ -517,6 +518,22 @@
                 <span class="level-item tag">1</span>
             </span>
         </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/TIL/">
+            <span class="level-start">
+                <span class="level-item">TIL</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/TIL/Rust/">
+            <span class="level-start">
+                <span class="level-item">Rust</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li></ul></li><li>
         <a class="level is-marginless" href="/categories/blog/">
             <span class="level-start">
                 <span class="level-item">blog</span>
@@ -535,7 +552,7 @@
         <h3 class="menu-label">
             태그 클라우드
         </h3>
-        <a href="/tags/ALB/" style="font-size: 10px;">ALB</a> <a href="/tags/AWS/" style="font-size: 20px;">AWS</a> <a href="/tags/ActiveDirectory/" style="font-size: 11.67px;">ActiveDirectory</a> <a href="/tags/AmazonLinux2/" style="font-size: 10px;">AmazonLinux2</a> <a href="/tags/Bigdata/" style="font-size: 11.67px;">Bigdata</a> <a href="/tags/DigitalOcean/" style="font-size: 11.67px;">DigitalOcean</a> <a href="/tags/Docker/" style="font-size: 11.67px;">Docker</a> <a href="/tags/DocumentDB/" style="font-size: 10px;">DocumentDB</a> <a href="/tags/EC2/" style="font-size: 13.33px;">EC2</a> <a href="/tags/EMR/" style="font-size: 10px;">EMR</a> <a href="/tags/Elasticsearch/" style="font-size: 10px;">Elasticsearch</a> <a href="/tags/Hadoop/" style="font-size: 10px;">Hadoop</a> <a href="/tags/Hive/" style="font-size: 10px;">Hive</a> <a href="/tags/Jekyll/" style="font-size: 10px;">Jekyll</a> <a href="/tags/LLAP/" style="font-size: 10px;">LLAP</a> <a href="/tags/Network/" style="font-size: 10px;">Network</a> <a href="/tags/Overlay/" style="font-size: 11.67px;">Overlay</a> <a href="/tags/PostgreSQL/" style="font-size: 10px;">PostgreSQL</a> <a href="/tags/Private/" style="font-size: 10px;">Private</a> <a href="/tags/RDS/" style="font-size: 11.67px;">RDS</a> <a href="/tags/S3/" style="font-size: 10px;">S3</a> <a href="/tags/SAML/" style="font-size: 10px;">SAML</a> <a href="/tags/SPARK/" style="font-size: 10px;">SPARK</a> <a href="/tags/T3/" style="font-size: 10px;">T3</a> <a href="/tags/VPC/" style="font-size: 10px;">VPC</a> <a href="/tags/WindowsServer/" style="font-size: 11.67px;">WindowsServer</a> <a href="/tags/airflow/" style="font-size: 10px;">airflow</a> <a href="/tags/athena/" style="font-size: 15px;">athena</a> <a href="/tags/aws/" style="font-size: 15px;">aws</a> <a href="/tags/bandwidth/" style="font-size: 10px;">bandwidth</a> <a href="/tags/bastionhost/" style="font-size: 10px;">bastionhost</a> <a href="/tags/bigdata/" style="font-size: 18.33px;">bigdata</a> <a href="/tags/blog/" style="font-size: 11.67px;">blog</a> <a href="/tags/cloudfront/" style="font-size: 10px;">cloudfront</a> <a href="/tags/commands/" style="font-size: 10px;">commands</a> <a href="/tags/concurrency/" style="font-size: 10px;">concurrency</a> <a href="/tags/cpr/" style="font-size: 11.67px;">cpr</a> <a href="/tags/data/" style="font-size: 10px;">data</a> <a href="/tags/ec2/" style="font-size: 10px;">ec2</a> <a href="/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/tags/generate/" style="font-size: 10px;">generate</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/icarus/" style="font-size: 10px;">icarus</a> <a href="/tags/issue/" style="font-size: 10px;">issue</a> <a href="/tags/jekyll/" style="font-size: 10px;">jekyll</a> <a href="/tags/jekyll-swiss/" style="font-size: 10px;">jekyll-swiss</a> <a href="/tags/lambda/" style="font-size: 10px;">lambda</a> <a href="/tags/lambda-edge/" style="font-size: 10px;">lambda@edge</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/log/" style="font-size: 10px;">log</a> <a href="/tags/migration/" style="font-size: 11.67px;">migration</a> <a href="/tags/network/" style="font-size: 11.67px;">network</a> <a href="/tags/painless/" style="font-size: 10px;">painless</a> <a href="/tags/portfowarding/" style="font-size: 10px;">portfowarding</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/queries/" style="font-size: 10px;">queries</a> <a href="/tags/rds/" style="font-size: 10px;">rds</a> <a href="/tags/read-replica/" style="font-size: 10px;">read replica</a> <a href="/tags/readreplica/" style="font-size: 11.67px;">readreplica</a> <a href="/tags/revierepublic/" style="font-size: 10px;">revierepublic</a> <a href="/tags/reviewrepublic/" style="font-size: 10px;">reviewrepublic</a> <a href="/tags/security/" style="font-size: 10px;">security</a> <a href="/tags/serverless/" style="font-size: 10px;">serverless</a> <a href="/tags/spark/" style="font-size: 11.67px;">spark</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/storage/" style="font-size: 10px;">storage</a> <a href="/tags/theme/" style="font-size: 10px;">theme</a> <a href="/tags/troubleshooting/" style="font-size: 10px;">troubleshooting</a> <a href="/tags/zeppelin/" style="font-size: 16.67px;">zeppelin</a>
+        <a href="/tags/ALB/" style="font-size: 10px;">ALB</a> <a href="/tags/AWS/" style="font-size: 20px;">AWS</a> <a href="/tags/ActiveDirectory/" style="font-size: 11.67px;">ActiveDirectory</a> <a href="/tags/AmazonLinux2/" style="font-size: 10px;">AmazonLinux2</a> <a href="/tags/Bigdata/" style="font-size: 11.67px;">Bigdata</a> <a href="/tags/DigitalOcean/" style="font-size: 11.67px;">DigitalOcean</a> <a href="/tags/Docker/" style="font-size: 11.67px;">Docker</a> <a href="/tags/DocumentDB/" style="font-size: 10px;">DocumentDB</a> <a href="/tags/EC2/" style="font-size: 13.33px;">EC2</a> <a href="/tags/EMR/" style="font-size: 10px;">EMR</a> <a href="/tags/Elasticsearch/" style="font-size: 10px;">Elasticsearch</a> <a href="/tags/Hadoop/" style="font-size: 10px;">Hadoop</a> <a href="/tags/Hive/" style="font-size: 10px;">Hive</a> <a href="/tags/Jekyll/" style="font-size: 10px;">Jekyll</a> <a href="/tags/LLAP/" style="font-size: 10px;">LLAP</a> <a href="/tags/Network/" style="font-size: 10px;">Network</a> <a href="/tags/Overlay/" style="font-size: 11.67px;">Overlay</a> <a href="/tags/PostgreSQL/" style="font-size: 10px;">PostgreSQL</a> <a href="/tags/Private/" style="font-size: 10px;">Private</a> <a href="/tags/RDS/" style="font-size: 11.67px;">RDS</a> <a href="/tags/Rust/" style="font-size: 10px;">Rust</a> <a href="/tags/S3/" style="font-size: 10px;">S3</a> <a href="/tags/SAML/" style="font-size: 10px;">SAML</a> <a href="/tags/SPARK/" style="font-size: 10px;">SPARK</a> <a href="/tags/T3/" style="font-size: 10px;">T3</a> <a href="/tags/TIL/" style="font-size: 10px;">TIL</a> <a href="/tags/VPC/" style="font-size: 10px;">VPC</a> <a href="/tags/WindowsServer/" style="font-size: 11.67px;">WindowsServer</a> <a href="/tags/airflow/" style="font-size: 10px;">airflow</a> <a href="/tags/athena/" style="font-size: 15px;">athena</a> <a href="/tags/aws/" style="font-size: 15px;">aws</a> <a href="/tags/bandwidth/" style="font-size: 10px;">bandwidth</a> <a href="/tags/bastionhost/" style="font-size: 10px;">bastionhost</a> <a href="/tags/bigdata/" style="font-size: 18.33px;">bigdata</a> <a href="/tags/blog/" style="font-size: 11.67px;">blog</a> <a href="/tags/cloudfront/" style="font-size: 10px;">cloudfront</a> <a href="/tags/commands/" style="font-size: 10px;">commands</a> <a href="/tags/concurrency/" style="font-size: 10px;">concurrency</a> <a href="/tags/cpr/" style="font-size: 11.67px;">cpr</a> <a href="/tags/data/" style="font-size: 10px;">data</a> <a href="/tags/ec2/" style="font-size: 10px;">ec2</a> <a href="/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/tags/generate/" style="font-size: 10px;">generate</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/icarus/" style="font-size: 10px;">icarus</a> <a href="/tags/issue/" style="font-size: 10px;">issue</a> <a href="/tags/jekyll/" style="font-size: 10px;">jekyll</a> <a href="/tags/jekyll-swiss/" style="font-size: 10px;">jekyll-swiss</a> <a href="/tags/lambda/" style="font-size: 10px;">lambda</a> <a href="/tags/lambda-edge/" style="font-size: 10px;">lambda@edge</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/log/" style="font-size: 10px;">log</a> <a href="/tags/migration/" style="font-size: 11.67px;">migration</a> <a href="/tags/network/" style="font-size: 11.67px;">network</a> <a href="/tags/painless/" style="font-size: 10px;">painless</a> <a href="/tags/portfowarding/" style="font-size: 10px;">portfowarding</a> <a href="/tags/programing-language/" style="font-size: 10px;">programing language</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/queries/" style="font-size: 10px;">queries</a> <a href="/tags/rds/" style="font-size: 10px;">rds</a> <a href="/tags/read-replica/" style="font-size: 10px;">read replica</a> <a href="/tags/readreplica/" style="font-size: 11.67px;">readreplica</a> <a href="/tags/revierepublic/" style="font-size: 10px;">revierepublic</a> <a href="/tags/reviewrepublic/" style="font-size: 10px;">reviewrepublic</a> <a href="/tags/security/" style="font-size: 10px;">security</a> <a href="/tags/serverless/" style="font-size: 10px;">serverless</a> <a href="/tags/spark/" style="font-size: 11.67px;">spark</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/storage/" style="font-size: 10px;">storage</a> <a href="/tags/theme/" style="font-size: 10px;">theme</a> <a href="/tags/troubleshooting/" style="font-size: 10px;">troubleshooting</a> <a href="/tags/zeppelin/" style="font-size: 16.67px;">zeppelin</a>
     </div>
 </div>
     
@@ -547,6 +564,25 @@
         <h3 class="menu-label">
             최근 글
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2021/08/03/til-rust/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/rust.png" alt="Rust 공부중">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2021-08-02T15:00:00.000Z">2021-08-03</time></div>
+                    <a href="/2021/08/03/til-rust/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Rust 공부중</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/TIL/">TIL</a> / <a class="has-link-grey -link" href="/categories/TIL/Rust/">Rust</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -624,25 +660,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2020/01/08/airflow-install-amazon-linux-2/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/2020/01/08/airflow.png" alt="Amazon Linux 2에 Airflow 설치하기">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-07T15:00:00.000Z">2020-01-08</time></div>
-                    <a href="/2020/01/08/airflow-install-amazon-linux-2/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Amazon Linux 2에 Airflow 설치하기</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Bigdata/">Bigdata</a> / <a class="has-link-grey -link" href="/categories/Bigdata/Airflow/">Airflow</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
         
@@ -653,6 +670,17 @@
             아카이브
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2021/08/">
+                <span class="level-start">
+                    <span class="level-item">8월 2021</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2021/04/">
@@ -940,6 +968,13 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/Rust/">
+                        <span class="tag">Rust</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/S3/">
                         <span class="tag">S3</span>
                         <span class="tag is-grey">1</span>
@@ -963,6 +998,13 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/T3/">
                         <span class="tag">T3</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/TIL/">
+                        <span class="tag">TIL</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1173,6 +1215,13 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/portfowarding/">
                         <span class="tag">portfowarding</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/programing-language/">
+                        <span class="tag">programing language</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1306,6 +1355,25 @@
         
         <article class="media">
             
+            <a href="/2021/08/03/til-rust/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/rust.png" alt="Rust 공부중">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2021-08-02T15:00:00.000Z">2021-08-03</time></div>
+                    <a href="/2021/08/03/til-rust/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Rust 공부중</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/TIL/">TIL</a> / <a class="has-link-grey -link" href="/categories/TIL/Rust/">Rust</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2021/04/23/replace-existing-document/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/elasticsearch.png" alt="Elasticsearch Update API로 Document 교체하기">
@@ -1380,25 +1448,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2020/01/08/airflow-install-amazon-linux-2/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/2020/01/08/airflow.png" alt="Amazon Linux 2에 Airflow 설치하기">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-07T15:00:00.000Z">2020-01-08</time></div>
-                    <a href="/2020/01/08/airflow-install-amazon-linux-2/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Amazon Linux 2에 Airflow 설치하기</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Bigdata/">Bigdata</a> / <a class="has-link-grey -link" href="/categories/Bigdata/Airflow/">Airflow</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
     
@@ -1409,6 +1458,17 @@
             아카이브
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2021/08/">
+                <span class="level-start">
+                    <span class="level-item">8월 2021</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2021/04/">
@@ -1696,6 +1756,13 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/Rust/">
+                        <span class="tag">Rust</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/S3/">
                         <span class="tag">S3</span>
                         <span class="tag is-grey">1</span>
@@ -1719,6 +1786,13 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/T3/">
                         <span class="tag">T3</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/TIL/">
+                        <span class="tag">TIL</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1929,6 +2003,13 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/portfowarding/">
                         <span class="tag">portfowarding</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/programing-language/">
+                        <span class="tag">programing language</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -2133,7 +2214,7 @@ var IcarusThemeSettings = {
     
 <div id="outdated">
     <h6>Your browser is out-of-date!</h6>
-    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" target="_blank" rel="noopener">Update
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" target="_blank" rel="noopener" href="http://outdatedbrowser.com/">Update
             my browser now </a></p>
     <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
 </div>
@@ -2173,7 +2254,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
     
     
-<a id="back-to-top" title="Back to Top" href="javascript:;" target="_blank" rel="noopener">
+<a id="back-to-top" title="Back to Top" href="javascript:;">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>

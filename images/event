@@ -1,0 +1,222 @@
+DROP TABLE T_TPT_RAW_ADBRIX;
+CREATE EXTERNAL TABLE IF NOT EXISTS T_TPT_RAW_ADBRIX (
+       package_name string
+      ,activity string
+      ,activity_group string
+      ,activity_param string
+      ,category string
+      ,appkey string
+      ,deeplink_url string
+      ,gaid string
+      ,ifa string
+      ,event_datetime_kst string
+      ,event_datetime_utc string
+      ,event_detail string
+      ,event_time string
+      ,first_install_time string
+      ,event_type_code string
+      ,keyword string
+      ,language string
+      ,a_ip string
+      ,product_id string
+      ,product_name string
+      ,country string
+      ,currency string
+      ,sales string
+      ,price string
+      ,quantity string
+      ,is_install_attributed string
+      ,is_last_attributed string
+      ,install_cb_param1 string
+      ,install_cb_param2 string
+      ,install_cb_param3 string
+      ,install_cb_param4 string
+      ,install_cb_param5 string
+      ,last_cb_param1 string
+      ,last_cb_param2 string
+      ,last_cb_param3 string
+      ,last_cb_param4 string
+      ,last_cb_param5 string
+      ,model string
+      ,network string
+      ,carrier string
+      ,order_id string
+      ,os_ver string
+      ,platform string
+      ,height string
+      ,width string
+      ,log_timestamp string
+)
+PARTITIONED BY (process_date string, hour string)
+STORED AS PARQUET
+LOCATION "s3a://dmc-integrated-analytics/staging/third-party-tracking/adbrix/"
+TBLPROPERTIES ('compressionType'='gzip');
+
+DROP TABLE T_TPT_RAW_SINGULAR;
+CREATE EXTERNAL TABLE IF NOT EXISTS T_TPT_RAW_SINGULAR (
+       app_name string
+      ,app_version string
+      ,evtname string
+      ,evtattr string
+      ,aifa string
+      ,idfa string
+      ,dt string
+      ,time string
+      ,utc string
+      ,cid string
+      ,currency string
+      ,amount string
+      ,is_first_event string
+      ,is_re_eng string
+      ,is_viewthrough string
+      ,install_date string
+      ,install_time string
+      ,install_utc string
+      ,click_date string
+      ,click_time string
+      ,click_utc string
+      ,clid string
+      ,creative string
+      ,country string
+      ,state string
+      ,city string
+      ,dnt string
+      ,nodnt string
+      ,platform string
+      ,os_version string
+      ,match_type string
+      ,apid string
+      ,ip string
+      ,site string
+      ,rand string
+      ,longname string
+      ,device_brand string
+      ,device_model string
+      ,network string
+      ,plfhid string
+      ,log_timestamp string
+)
+PARTITIONED BY (process_date string, hour string)
+STORED AS PARQUET
+LOCATION "s3a://dmc-integrated-analytics/staging/third-party-tracking/singular/"
+TBLPROPERTIES ('compressionType'='gzip');
+
+DROP TABLE T_TPT_RAW_BRANCH;
+CREATE EXTERNAL TABLE IF NOT EXISTS T_TPT_RAW_BRANCH (
+       tune_site_id string
+      ,tune_site_name string
+      ,tune_site_event_id string
+      ,app_id string
+      ,organization_id string
+      ,organization_name string
+      ,name string
+      ,attributed string
+      ,origin string
+      ,customer_event_alias string
+      ,di_match_click_token string
+      ,first_event_for_user string
+      ,last_attributed_touch_type string
+      ,event_timestamp string
+      ,last_cta_view_timestamp string
+      ,store_install_begin_timestamp string
+      ,referrer_click_timestamp string
+      ,last_attributed_touch_timestamp string
+      ,latd_technology_partner string
+      ,latd_advertising_partner_id string
+      ,latd_secondary_publisher_id string
+      ,latd_ad_set_id string
+      ,latd_ad_id string
+      ,latd_campaign string
+      ,latd_creative_name string
+      ,latd_ad_set_name string
+      ,latd_id string
+      ,latd_advertising_partner_name string
+      ,latd_channel string
+      ,latd_secondary_publisher string
+      ,latd_campaign_type string
+      ,latd_creative_id string
+      ,latd_keyword string
+      ,latd_ad_name string
+      ,latd_campaign_id string
+      ,latd_customer_campaign string
+      ,latd_stage string
+      ,ud_aaid string
+      ,ud_idfa string
+      ,ud_os string
+      ,ud_os_version string
+      ,ud_geo_lon string
+      ,ud_build string
+      ,ud_geo_continent_code string
+      ,ud_carrier_name string
+      ,ud_cpu_type string
+      ,ud_geo_lat string
+      ,ud_browser string
+      ,ud_user_agent string
+      ,ud_environment string
+      ,ud_developer_identity string
+      ,ud_ip string
+      ,ud_geo_city_code string
+      ,ud_model string
+      ,ud_device_type string
+      ,ud_limit_ad_tracking string
+      ,ud_brand string
+      ,ud_screen_width string
+      ,ud_screen_height string
+      ,ud_geo_country_code string
+      ,ud_platform string
+      ,ud_language string
+      ,ud_internet_connection_type string
+      ,ud_installer_package_name string
+      ,ud_geo_region_code string
+      ,ci0_product_brand string
+      ,ci0_product_name string
+      ,ci0_quantity string
+      ,ci0_currency string
+      ,ci0_price string
+      ,ci0_price_in_usd string
+      ,ci0_value string
+      ,ci0_value_in_usd string
+      ,ci0_og_description string
+      ,ci0_product_variant string
+      ,ci0_canonical_url string
+      ,ci0_exp_date string
+      ,ci0_content_schema string
+      ,ci0_sku string
+      ,ci0_keywords string
+      ,ci0_og_image_url string
+      ,ed_revenue string
+      ,ed_revenue_in_usd string
+      ,ed_currency string
+      ,ed_search_query string
+      ,ed_shipping string
+      ,ed_affiliation string
+      ,log_timestamp string
+)
+PARTITIONED BY (process_date string, hour string)
+STORED AS PARQUET
+LOCATION "s3a://dmc-integrated-analytics/staging/third-party-tracking/branch/"
+TBLPROPERTIES ('compressionType'='gzip');
+
+DROP TABLE t_pxl_event;
+CREATE EXTERNAL TABLE IF NOT EXISTS t_pxl_event (
+         halfhour string
+        ,pixel_id string
+        ,catalog_id string
+        ,p_cid string
+        ,event_code string
+        ,device_type_code string
+        ,contents_type string
+        ,contents_id string
+        ,price bigint
+        ,amount bigint
+        ,href string
+        ,referrer string
+        ,user_agent string
+        ,currency string
+        ,event_timestamp timestamp
+        ,next_event_timestamp timestamp
+)
+PARTITIONED BY (process_date string, hour string)
+STORED AS PARQUET
+LOCATION "s3a://dmc-integrated-analytics/staging/tracking-pixel/event/all/"
+TBLPROPERTIES ('compressionType'='gzip');

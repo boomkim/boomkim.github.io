@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
 
-<meta name="generator" content="Hexo 4.0.0" />
+<meta name="generator" content="Hexo 5.2.0" />
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
@@ -11,17 +11,21 @@
 
 
     <meta name="description" content="AWS RDS에는 가용성과 확장성을 위해 multi-az 라는 기능과 read replica라는 기능을 지원한다. 비슷하지만 다른 특징들을 갖고 있어 간단하게 정리해둔다.">
-<meta name="keywords" content="aws,rds,readreplica">
 <meta property="og:type" content="article">
 <meta property="og:title" content="RDS(MySQL, MariaDB) - Multi-AZ &#x2F; Read Replica (읽기전용 복제본) 관련 정리">
-<meta property="og:url" content="https:&#x2F;&#x2F;boomkim.github.io&#x2F;2018&#x2F;07&#x2F;13&#x2F;rds-multiaz-readreplica-summary&#x2F;index.html">
+<meta property="og:url" content="https://boomkim.github.io/2018/07/13/rds-multiaz-readreplica-summary/index.html">
 <meta property="og:site_name" content="Boomkim">
 <meta property="og:description" content="AWS RDS에는 가용성과 확장성을 위해 multi-az 라는 기능과 read replica라는 기능을 지원한다. 비슷하지만 다른 특징들을 갖고 있어 간단하게 정리해둔다.">
-<meta property="og:locale" content="ko">
-<meta property="og:image" content="https:&#x2F;&#x2F;boomkim.github.io&#x2F;images&#x2F;og_image.png">
-<meta property="og:updated_time" content="2019-12-13T08:55:35.462Z">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:image" content="https://boomkim.github.io/images/og_image.png">
+<meta property="article:published_time" content="2018-07-12T15:00:00.000Z">
+<meta property="article:modified_time" content="2019-12-13T08:55:35.462Z">
+<meta property="article:author" content="boomkim">
+<meta property="article:tag" content="aws">
+<meta property="article:tag" content="rds">
+<meta property="article:tag" content="readreplica">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;boomkim.github.io&#x2F;images&#x2F;og_image.png">
+<meta name="twitter:image" content="https://boomkim.github.io/images/og_image.png">
 
 
 
@@ -123,12 +127,12 @@
                     
                 
                 
-                <a class="navbar-item is-hidden-tablet catalogue" title="카탈로그" href="javascript:;" target="_blank" rel="noopener">
+                <a class="navbar-item is-hidden-tablet catalogue" title="카탈로그" href="javascript:;">
                     <i class="fas fa-list-ul"></i>
                 </a>
                 
                 
-                <a class="navbar-item search" title="검색" href="javascript:;" target="_blank" rel="noopener">
+                <a class="navbar-item search" title="검색" href="javascript:;">
                     <i class="fas fa-search"></i>
                 </a>
                 
@@ -170,7 +174,7 @@
             
         </h1>
         <div class="content">
-            <p>AWS RDS에는 가용성과 확장성을 위해 multi-az 라는 기능과 read replica라는 기능을 지원한다. 비슷하지만 다른 특징들을 갖고 있어 간단하게 정리해둔다.</p>
+            <html><head></head><body><p>AWS RDS에는 가용성과 확장성을 위해 multi-az 라는 기능과 read replica라는 기능을 지원한다. 비슷하지만 다른 특징들을 갖고 있어 간단하게 정리해둔다.</p>
 <a id="more"></a>
 
 <h2 id="Multi-AZ"><a href="#Multi-AZ" class="headerlink" title="Multi-AZ"></a>Multi-AZ</h2><p><img src="/images/rds_ha1.jpg" alt="그림1"></p>
@@ -226,20 +230,20 @@
 <td>장애 시 수동으로 승격</td>
 </tr>
 </tbody></table>
-<p>동기식 복제/ 비동기식 복제 차이점은 <a href="https://cloudbasic.net/white-papers/synchronous-vs-asynchronous-replication/" target="_blank" rel="noopener">여기</a>를 참고 </p>
+<p>동기식 복제/ 비동기식 복제 차이점은 <a target="_blank" rel="noopener" href="https://cloudbasic.net/white-papers/synchronous-vs-asynchronous-replication/">여기</a>를 참고 </p>
 <p>참고자료</p>
 <ul>
-<li><a href="https://docs.aws.amazon.com/ko_kr/AmazonRDS/latest/UserGuide/USER_ReadRepl.html" target="_blank" rel="noopener">AWS RDS Documentation - 읽기복제본 작업</a></li>
-<li><a href="https://www.slideshare.net/AmazonWebServices/dat302deep-dive-on-amazon-relational-database-service-rds?qid=5a05e0f6-fec2-4451-a0cd-e3769a0f0b7d&v=&b=&from_search=7" target="_blank" rel="noopener">Deep Dive on Amazon RDS</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/ko_kr/AmazonRDS/latest/UserGuide/USER_ReadRepl.html">AWS RDS Documentation - 읽기복제본 작업</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.slideshare.net/AmazonWebServices/dat302deep-dive-on-amazon-relational-database-service-rds?qid=5a05e0f6-fec2-4451-a0cd-e3769a0f0b7d&amp;v=&amp;b=&amp;from_search=7">Deep Dive on Amazon RDS</a></li>
 </ul>
-
+</body></html>
         </div>
         
         <div class="level is-size-7 is-uppercase">
             <div class="level-start">
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/aws/" rel="tag">aws</a>, <a class="has-link-grey -link" href="/tags/rds/" rel="tag">rds</a>, <a class="has-link-grey -link" href="/tags/readreplica/" rel="tag">readreplica</a>
+                    <a class="has-link-grey -link-link" href="/tags/aws/" rel="tag">aws</a>, <a class="has-link-grey -link-link" href="/tags/rds/" rel="tag">rds</a>, <a class="has-link-grey -link-link" href="/tags/readreplica/" rel="tag">readreplica</a>
                 </div>
             </div>
         </div>
@@ -487,6 +491,22 @@
                 <span class="level-item tag">1</span>
             </span>
         </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/TIL/">
+            <span class="level-start">
+                <span class="level-item">TIL</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/TIL/Rust/">
+            <span class="level-start">
+                <span class="level-item">Rust</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li></ul></li><li>
         <a class="level is-marginless" href="/categories/blog/">
             <span class="level-start">
                 <span class="level-item">blog</span>
@@ -590,7 +610,7 @@ var IcarusThemeSettings = {
     
 <div id="outdated">
     <h6>Your browser is out-of-date!</h6>
-    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" target="_blank" rel="noopener">Update
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" target="_blank" rel="noopener" href="http://outdatedbrowser.com/">Update
             my browser now </a></p>
     <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
 </div>
@@ -630,7 +650,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
     
     
-<a id="back-to-top" title="Back to Top" href="javascript:;" target="_blank" rel="noopener">
+<a id="back-to-top" title="Back to Top" href="javascript:;">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>

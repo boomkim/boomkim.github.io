@@ -8,15 +8,29 @@
     </url>
 
     <url>
+        <loc>https://boomkim.github.io/categories/TIL/Rust/</loc>
+        <lastmod>2021-08-03T04:13:18.121Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://boomkim.github.io/categories/TIL/</loc>
+        <lastmod>2021-08-03T04:13:18.121Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://boomkim.github.io/categories/Bigdata/Elasticsearch/</loc>
-        <lastmod>2021-04-23T09:59:39.369Z</lastmod>
+        <lastmod>2021-04-23T10:01:55.112Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://boomkim.github.io/categories/Bigdata/</loc>
-        <lastmod>2021-04-23T09:59:39.369Z</lastmod>
+        <lastmod>2021-04-23T10:01:55.112Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

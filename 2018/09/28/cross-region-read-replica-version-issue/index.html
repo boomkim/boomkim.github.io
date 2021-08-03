@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
 
-<meta name="generator" content="Hexo 4.0.0" />
+<meta name="generator" content="Hexo 5.2.0" />
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
@@ -11,17 +11,22 @@
 
 
     <meta name="description" content="다른 리전에 읽기복제본을 생성해야 될 때가 있다. 대충 추려보면 다음과 같은 경우.   다른 리전에 데이터를 읽기만 하는 워크로드가 있는 경우  다른 리전에 DR 용으로 데이터를 보관하는 경우  그럴때 RDS의 읽기복제본 생성 기능은 매우 간편하고 효과적이다. 파라미터 그룹을 만진다든지 하는 설정을 해줄 필요 없이 대상 리전에 서브넷 그룹만 잘 설정 되어">
-<meta name="keywords" content="AWS,RDS,issue,read replica">
 <meta property="og:type" content="article">
 <meta property="og:title" content="AWS RDS mysql - 다른 리전에 읽기복제본 생성: 버전이슈">
-<meta property="og:url" content="https:&#x2F;&#x2F;boomkim.github.io&#x2F;2018&#x2F;09&#x2F;28&#x2F;cross-region-read-replica-version-issue&#x2F;index.html">
+<meta property="og:url" content="https://boomkim.github.io/2018/09/28/cross-region-read-replica-version-issue/index.html">
 <meta property="og:site_name" content="Boomkim">
 <meta property="og:description" content="다른 리전에 읽기복제본을 생성해야 될 때가 있다. 대충 추려보면 다음과 같은 경우.   다른 리전에 데이터를 읽기만 하는 워크로드가 있는 경우  다른 리전에 DR 용으로 데이터를 보관하는 경우  그럴때 RDS의 읽기복제본 생성 기능은 매우 간편하고 효과적이다. 파라미터 그룹을 만진다든지 하는 설정을 해줄 필요 없이 대상 리전에 서브넷 그룹만 잘 설정 되어">
-<meta property="og:locale" content="ko">
-<meta property="og:image" content="https:&#x2F;&#x2F;boomkim.github.io&#x2F;images&#x2F;og_image.png">
-<meta property="og:updated_time" content="2019-12-13T08:51:15.048Z">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:image" content="https://boomkim.github.io/images/og_image.png">
+<meta property="article:published_time" content="2018-09-27T15:00:00.000Z">
+<meta property="article:modified_time" content="2019-12-13T08:51:15.048Z">
+<meta property="article:author" content="boomkim">
+<meta property="article:tag" content="AWS">
+<meta property="article:tag" content="RDS">
+<meta property="article:tag" content="issue">
+<meta property="article:tag" content="read replica">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;boomkim.github.io&#x2F;images&#x2F;og_image.png">
+<meta name="twitter:image" content="https://boomkim.github.io/images/og_image.png">
 
 
 
@@ -123,12 +128,12 @@
                     
                 
                 
-                <a class="navbar-item is-hidden-tablet catalogue" title="카탈로그" href="javascript:;" target="_blank" rel="noopener">
+                <a class="navbar-item is-hidden-tablet catalogue" title="카탈로그" href="javascript:;">
                     <i class="fas fa-list-ul"></i>
                 </a>
                 
                 
-                <a class="navbar-item search" title="검색" href="javascript:;" target="_blank" rel="noopener">
+                <a class="navbar-item search" title="검색" href="javascript:;">
                     <i class="fas fa-search"></i>
                 </a>
                 
@@ -170,7 +175,7 @@
             
         </h1>
         <div class="content">
-            <p><img src="/images/readreplica.png" alt="그림0"></p>
+            <html><head></head><body><p><img src="/images/readreplica.png" alt="그림0"></p>
 <p>다른 리전에 읽기복제본을 생성해야 될 때가 있다. 대충 추려보면 다음과 같은 경우. </p>
 <ol>
 <li>다른 리전에 데이터를 읽기만 하는 워크로드가 있는 경우 </li>
@@ -194,14 +199,14 @@
 <p>대체 무슨 문제일까 찾아보니, <em>도쿄리전, 버지니아 리전 등에는 mysql 5.7.23이 없다.</em> 마찬가지로 mysql 5.6.41버전도 tokyo 리전엔 없어서 읽기 복제본 생성이 불가능 하다. 즉, 읽기 복제본을 만드려고 하는 mysql 버전이 해당 리전에 존재하지 않기 때문에 복제본을 생성할 수 가 없는 것이다.  </p>
 <p>아니 대체 왜? 보통 도쿄, 버지니아는 업데이트가 가장 빠른 지역이 아닌가. 그나마 의심해 볼수 있는건 최신버전을 RDS에 적용하는데 문제가 있다거나… 홀수 버전은 취급 안한다든가… 등을 의심해볼 수 있겠지만 무슨 이슈가 있는지 정확하게 파악기는 어렵다. 그냥 지금 상태로는 안되는 것이다. 따라서 마이너 버전 업데이트를 롤백하든지… 도쿄리전 등에 마이너 버전이 업데이트 되길 기다리든지 해야 한다.</p>
 <p>여튼 RDS에서 다른리전에 읽기복제본 생성시 주의사항 하나가 추가되었다.</p>
-<h2 id="대상-리전에-해당-mysql-버전이-있는지-확인할-것"><a href="#대상-리전에-해당-mysql-버전이-있는지-확인할-것" class="headerlink" title="대상 리전에 해당 mysql 버전이 있는지 확인할 것"></a>대상 리전에 해당 mysql 버전이 있는지 확인할 것</h2>
+<h2 id="대상-리전에-해당-mysql-버전이-있는지-확인할-것"><a href="#대상-리전에-해당-mysql-버전이-있는지-확인할-것" class="headerlink" title="대상 리전에 해당 mysql 버전이 있는지 확인할 것"></a>대상 리전에 해당 mysql 버전이 있는지 확인할 것</h2></body></html>
         </div>
         
         <div class="level is-size-7 is-uppercase">
             <div class="level-start">
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/AWS/" rel="tag">AWS</a>, <a class="has-link-grey -link" href="/tags/RDS/" rel="tag">RDS</a>, <a class="has-link-grey -link" href="/tags/issue/" rel="tag">issue</a>, <a class="has-link-grey -link" href="/tags/read-replica/" rel="tag">read replica</a>
+                    <a class="has-link-grey -link-link" href="/tags/AWS/" rel="tag">AWS</a>, <a class="has-link-grey -link-link" href="/tags/RDS/" rel="tag">RDS</a>, <a class="has-link-grey -link-link" href="/tags/issue/" rel="tag">issue</a>, <a class="has-link-grey -link-link" href="/tags/read-replica/" rel="tag">read replica</a>
                 </div>
             </div>
         </div>
@@ -417,6 +422,22 @@
                 <span class="level-item tag">1</span>
             </span>
         </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/TIL/">
+            <span class="level-start">
+                <span class="level-item">TIL</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/TIL/Rust/">
+            <span class="level-start">
+                <span class="level-item">Rust</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li></ul></li><li>
         <a class="level is-marginless" href="/categories/blog/">
             <span class="level-start">
                 <span class="level-item">blog</span>
@@ -520,7 +541,7 @@ var IcarusThemeSettings = {
     
 <div id="outdated">
     <h6>Your browser is out-of-date!</h6>
-    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" target="_blank" rel="noopener">Update
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" target="_blank" rel="noopener" href="http://outdatedbrowser.com/">Update
             my browser now </a></p>
     <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
 </div>
@@ -560,7 +581,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
     
     
-<a id="back-to-top" title="Back to Top" href="javascript:;" target="_blank" rel="noopener">
+<a id="back-to-top" title="Back to Top" href="javascript:;">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>

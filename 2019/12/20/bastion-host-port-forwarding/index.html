@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
 
-<meta name="generator" content="Hexo 4.0.0" />
+<meta name="generator" content="Hexo 5.2.0" />
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
@@ -11,17 +11,23 @@
 
 
     <meta name="description" content="aws 상에서 보안을 위해 그림과 같이 실제 사용하는 인스턴스는 private subnet에 숨기고, public에 bastion host 라는 걸 둬서 접근하는 방식이 있다.  이렇게 하면 관리할 구멍을 하나만 만들고 그 외에는 접근이 원천적으로 불가능해지기 때문에 보안적으로는 좋아지긴 하는데… 그 내부로 접근하기가 매우 귀찮아지는 단점이 있다.  결국">
-<meta name="keywords" content="ec2,bastionhost,ssh,portfowarding,security">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Bastion Host를 통해 내부 서버에 SSH 접속하기 (터널링)">
-<meta property="og:url" content="https:&#x2F;&#x2F;boomkim.github.io&#x2F;2019&#x2F;12&#x2F;20&#x2F;bastion-host-port-forwarding&#x2F;index.html">
+<meta property="og:url" content="https://boomkim.github.io/2019/12/20/bastion-host-port-forwarding/index.html">
 <meta property="og:site_name" content="Boomkim">
 <meta property="og:description" content="aws 상에서 보안을 위해 그림과 같이 실제 사용하는 인스턴스는 private subnet에 숨기고, public에 bastion host 라는 걸 둬서 접근하는 방식이 있다.  이렇게 하면 관리할 구멍을 하나만 만들고 그 외에는 접근이 원천적으로 불가능해지기 때문에 보안적으로는 좋아지긴 하는데… 그 내부로 접근하기가 매우 귀찮아지는 단점이 있다.  결국">
-<meta property="og:locale" content="ko">
-<meta property="og:image" content="https:&#x2F;&#x2F;boomkim.github.io&#x2F;images&#x2F;aws-logo-2.png">
-<meta property="og:updated_time" content="2020-01-08T05:40:05.384Z">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:image" content="https://boomkim.github.io/images/aws-logo-2.png">
+<meta property="article:published_time" content="2019-12-19T15:00:00.000Z">
+<meta property="article:modified_time" content="2020-01-08T05:40:05.384Z">
+<meta property="article:author" content="boomkim">
+<meta property="article:tag" content="ec2">
+<meta property="article:tag" content="bastionhost">
+<meta property="article:tag" content="ssh">
+<meta property="article:tag" content="portfowarding">
+<meta property="article:tag" content="security">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;boomkim.github.io&#x2F;images&#x2F;aws-logo-2.png">
+<meta name="twitter:image" content="https://boomkim.github.io/images/aws-logo-2.png">
 
 
 
@@ -124,7 +130,7 @@
                 
                 
                 
-                <a class="navbar-item search" title="검색" href="javascript:;" target="_blank" rel="noopener">
+                <a class="navbar-item search" title="검색" href="javascript:;">
                     <i class="fas fa-search"></i>
                 </a>
                 
@@ -172,16 +178,16 @@
             
         </h1>
         <div class="content">
-            <p>aws 상에서 보안을 위해 그림과 같이 실제 사용하는 인스턴스는 private subnet에 숨기고, public에 bastion host 라는 걸 둬서 접근하는 방식이 있다.</p>
-<p><img src="/images/2019/12/20/bastionhost.png" alt></p>
+            <html><head></head><body><p>aws 상에서 보안을 위해 그림과 같이 실제 사용하는 인스턴스는 private subnet에 숨기고, public에 bastion host 라는 걸 둬서 접근하는 방식이 있다.</p>
+<p><img src="/images/2019/12/20/bastionhost.png" alt=""></p>
 <p>이렇게 하면 관리할 구멍을 하나만 만들고 그 외에는 접근이 원천적으로 불가능해지기 때문에 보안적으로는 좋아지긴 하는데… 그 내부로 접근하기가 매우 귀찮아지는 단점이 있다. </p>
 <p>결국 private subnet 안에 있는 인스턴스에 접근하려면 배스쳔호스트를 거쳐야 하는데,<br>매번 그 명령어를 까먹어서 기록해둔다. </p>
 <p>방법은 아래와 같다 </p>
 <hr>
-<h3 id="1-타겟의-22번-포트를-배스천호스트를-통해-로컬-내컴퓨터-의-33322-포트로-포워딩"><a href="#1-타겟의-22번-포트를-배스천호스트를-통해-로컬-내컴퓨터-의-33322-포트로-포워딩" class="headerlink" title="1.타겟의 22번 포트를 배스천호스트를 통해 로컬(내컴퓨터)의 33322 포트로 포워딩"></a>1.타겟의 22번 포트를 배스천호스트를 통해 로컬(내컴퓨터)의 33322 포트로 포워딩</h3><figure class="highlight sh hljs"><figcaption><span>포트 포워딩 </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">ssh -i <span class="hljs-string">"bastion-host-key.pem"</span> -N -L 33322:&#123;target-private-ip&#125;:22 ec2-user@&#123;bastion-host-public-ip&#125;</span></pre></td></tr></table></figure>
+<h3 id="1-타겟의-22번-포트를-배스천호스트를-통해-로컬-내컴퓨터-의-33322-포트로-포워딩"><a href="#1-타겟의-22번-포트를-배스천호스트를-통해-로컬-내컴퓨터-의-33322-포트로-포워딩" class="headerlink" title="1.타겟의 22번 포트를 배스천호스트를 통해 로컬(내컴퓨터)의 33322 포트로 포워딩"></a>1.타겟의 22번 포트를 배스천호스트를 통해 로컬(내컴퓨터)의 33322 포트로 포워딩</h3><figure class="highlight sh hljs"><figcaption><span>포트 포워딩</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -i <span class="hljs-string">"bastion-host-key.pem"</span> -N -L 33322:{target-private-ip}:22 ec2-user@{bastion-host-public-ip}</span><br></pre></td></tr></tbody></table></figure>
 
 <p><em>(주의) 새 터미널을 띄운 후</em></p>
-<h3 id="2-로컬호스트의-33322포트를-이용해-타겟으로-접속"><a href="#2-로컬호스트의-33322포트를-이용해-타겟으로-접속" class="headerlink" title="2.로컬호스트의 33322포트를 이용해 타겟으로 접속"></a>2.로컬호스트의 33322포트를 이용해 타겟으로 접속</h3><figure class="highlight sh hljs"><figcaption><span>접속 </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">ssh -i <span class="hljs-string">"target-key.pem"</span> -p 33322 &#123;target-user(대체로 ec2-user)&#125;@localhost</span></pre></td></tr></table></figure>
+<h3 id="2-로컬호스트의-33322포트를-이용해-타겟으로-접속"><a href="#2-로컬호스트의-33322포트를-이용해-타겟으로-접속" class="headerlink" title="2.로컬호스트의 33322포트를 이용해 타겟으로 접속"></a>2.로컬호스트의 33322포트를 이용해 타겟으로 접속</h3><figure class="highlight sh hljs"><figcaption><span>접속</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -i <span class="hljs-string">"target-key.pem"</span> -p 33322 {target-user(대체로 ec2-user)}@localhost</span><br></pre></td></tr></tbody></table></figure>
 
 <p>타겟의 22번 포트를 배스천호스트를 통해 로컬(내컴퓨터)의 33322 포트로 포워딩</p>
 <p>(용어정리)</p>
@@ -192,14 +198,14 @@
 <li><code>bastion-host-public-ip</code>: 말 그대로 bastion host의 퍼블릭 ip </li>
 </ul>
 <p>33322포트는 임의로 정한것이며 아무거나 남는 포트를 정하면 된다.<br>끝. </p>
-
+</body></html>
         </div>
         
         <div class="level is-size-7 is-uppercase">
             <div class="level-start">
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/bastionhost/" rel="tag">bastionhost</a>, <a class="has-link-grey -link" href="/tags/ec2/" rel="tag">ec2</a>, <a class="has-link-grey -link" href="/tags/portfowarding/" rel="tag">portfowarding</a>, <a class="has-link-grey -link" href="/tags/security/" rel="tag">security</a>, <a class="has-link-grey -link" href="/tags/ssh/" rel="tag">ssh</a>
+                    <a class="has-link-grey -link-link" href="/tags/bastionhost/" rel="tag">bastionhost</a>, <a class="has-link-grey -link-link" href="/tags/ec2/" rel="tag">ec2</a>, <a class="has-link-grey -link-link" href="/tags/portfowarding/" rel="tag">portfowarding</a>, <a class="has-link-grey -link-link" href="/tags/security/" rel="tag">security</a>, <a class="has-link-grey -link-link" href="/tags/ssh/" rel="tag">ssh</a>
                 </div>
             </div>
         </div>
@@ -391,6 +397,22 @@
                 <span class="level-item tag">1</span>
             </span>
         </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/TIL/">
+            <span class="level-start">
+                <span class="level-item">TIL</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/TIL/Rust/">
+            <span class="level-start">
+                <span class="level-item">Rust</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li></ul></li><li>
         <a class="level is-marginless" href="/categories/blog/">
             <span class="level-start">
                 <span class="level-item">blog</span>
@@ -494,7 +516,7 @@ var IcarusThemeSettings = {
     
 <div id="outdated">
     <h6>Your browser is out-of-date!</h6>
-    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" target="_blank" rel="noopener">Update
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" target="_blank" rel="noopener" href="http://outdatedbrowser.com/">Update
             my browser now </a></p>
     <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
 </div>
@@ -534,7 +556,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
     
     
-<a id="back-to-top" title="Back to Top" href="javascript:;" target="_blank" rel="noopener">
+<a id="back-to-top" title="Back to Top" href="javascript:;">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>

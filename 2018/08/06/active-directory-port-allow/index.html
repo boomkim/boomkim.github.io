@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
 
-<meta name="generator" content="Hexo 4.0.0" />
+<meta name="generator" content="Hexo 5.2.0" />
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
@@ -11,17 +11,20 @@
 
 
     <meta name="description" content="Active Directory 글을 보고 AWS 상에서 AD를 구성하는 것을 테스트해보고 있다. 하지만 이 글은 AWS의 인프라를 기준으로 작성되어 있지 한다. 여기저기 찾아봤으나 aws 상에서 AD를 구성하는 예제가 많지 않다. 사실 쉽게 AWS에서 quickstart로 나와있어서 굳이 구성 예제가 필요하지 않았던 것 같다. 그래도 사정상 테스트를 해야했">
-<meta name="keywords" content="WindowsServer,ActiveDirectory">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[ActiveDirectory] DC 구성시 허용해야 하는 포트 ">
-<meta property="og:url" content="https:&#x2F;&#x2F;boomkim.github.io&#x2F;2018&#x2F;08&#x2F;06&#x2F;active-directory-port-allow&#x2F;index.html">
+<meta property="og:url" content="https://boomkim.github.io/2018/08/06/active-directory-port-allow/index.html">
 <meta property="og:site_name" content="Boomkim">
 <meta property="og:description" content="Active Directory 글을 보고 AWS 상에서 AD를 구성하는 것을 테스트해보고 있다. 하지만 이 글은 AWS의 인프라를 기준으로 작성되어 있지 한다. 여기저기 찾아봤으나 aws 상에서 AD를 구성하는 예제가 많지 않다. 사실 쉽게 AWS에서 quickstart로 나와있어서 굳이 구성 예제가 필요하지 않았던 것 같다. 그래도 사정상 테스트를 해야했">
-<meta property="og:locale" content="ko">
-<meta property="og:image" content="https:&#x2F;&#x2F;boomkim.github.io&#x2F;images&#x2F;og_image.png">
-<meta property="og:updated_time" content="2019-12-07T04:19:49.431Z">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:image" content="https://boomkim.github.io/images/og_image.png">
+<meta property="article:published_time" content="2018-08-05T15:00:00.000Z">
+<meta property="article:modified_time" content="2019-12-07T04:19:49.431Z">
+<meta property="article:author" content="boomkim">
+<meta property="article:tag" content="WindowsServer">
+<meta property="article:tag" content="ActiveDirectory">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;boomkim.github.io&#x2F;images&#x2F;og_image.png">
+<meta name="twitter:image" content="https://boomkim.github.io/images/og_image.png">
 
 
 
@@ -123,12 +126,12 @@
                     
                 
                 
-                <a class="navbar-item is-hidden-tablet catalogue" title="카탈로그" href="javascript:;" target="_blank" rel="noopener">
+                <a class="navbar-item is-hidden-tablet catalogue" title="카탈로그" href="javascript:;">
                     <i class="fas fa-list-ul"></i>
                 </a>
                 
                 
-                <a class="navbar-item search" title="검색" href="javascript:;" target="_blank" rel="noopener">
+                <a class="navbar-item search" title="검색" href="javascript:;">
                     <i class="fas fa-search"></i>
                 </a>
                 
@@ -170,25 +173,25 @@
             
         </h1>
         <div class="content">
-            <p><a href="http://dianememory.tistory.com/5" target="_blank" rel="noopener">Active Directory</a> 글을 보고 AWS 상에서 AD를 구성하는 것을 테스트해보고 있다. 하지만 이 글은 AWS의 인프라를 기준으로 작성되어 있지 한다. 여기저기 찾아봤으나 aws 상에서 AD를 구성하는 예제가 많지 않다. 사실 쉽게 AWS에서 quickstart로 나와있어서 굳이 구성 예제가 필요하지 않았던 것 같다. 그래도 사정상 테스트를 해야했기에… 일단은 부딪혀보기로 했다. </p>
+            <html><head></head><body><p><a target="_blank" rel="noopener" href="http://dianememory.tistory.com/5">Active Directory</a> 글을 보고 AWS 상에서 AD를 구성하는 것을 테스트해보고 있다. 하지만 이 글은 AWS의 인프라를 기준으로 작성되어 있지 한다. 여기저기 찾아봤으나 aws 상에서 AD를 구성하는 예제가 많지 않다. 사실 쉽게 AWS에서 quickstart로 나와있어서 굳이 구성 예제가 필요하지 않았던 것 같다. 그래도 사정상 테스트를 해야했기에… 일단은 부딪혀보기로 했다. </p>
 <p>첫번재 AD를 만드는 데에는 아무 문제가 없었으나 두번째 AD를 만드는 과정에서 문제가 생겼다. example.com 으로 도메인을 만들었는데 두번째 윈도우 서버에서 그 도메인을 찾지를 못한다. nslookup으로 질의해보니 dns가 응답하지 않는다. 뭐가 문제인지 모르겠다. tcp 포트도 다 열려있는데… 그래서 그냥 모든 트래픽을 허용해버렸다. 된다. </p>
-<p>모든 트래픽을 열어주는건 찜찜해서 dns가 어떤 포트를 쓰는지 궁금해졌다. 뒤져보니 나랑 비슷한 질문을 한 글을 발견했다. (<a href="https://social.technet.microsoft.com/Forums/windows/en-US/955244f1-867a-4f3b-a0a3-321f05982fa0/nslookup-how-to-set-to-tcp-from-udp?forum=win10itpronetworking" target="_blank" rel="noopener">질문: NSLookup, how to set to TCP from UDP?</a>)</p>
+<p>모든 트래픽을 열어주는건 찜찜해서 dns가 어떤 포트를 쓰는지 궁금해졌다. 뒤져보니 나랑 비슷한 질문을 한 글을 발견했다. (<a target="_blank" rel="noopener" href="https://social.technet.microsoft.com/Forums/windows/en-US/955244f1-867a-4f3b-a0a3-321f05982fa0/nslookup-how-to-set-to-tcp-from-udp?forum=win10itpronetworking">질문: NSLookup, how to set to TCP from UDP?</a>)</p>
 <p>결론: <strong>그냥 udp 53 포트를 열어주면 되는 문제</strong>였다… 질문을 열어보면 <strong>dns는 주로 udp 53 포트를 사용하고 512 byte가 넘을때만 tcp를 사용한다</strong>고 친절하고 내공있는 답변이 적혀있다. 세상은 넓고 고수는 많다. 어쨌든 AWS 상에서 수동으로 AD를 구성하고, 이전하는 것 까지 테스트를 해보고 긴 포스트를 올려볼 예정이다. 물론, 예정일 뿐이다. </p>
-<p>위키피디아에 <a href="https://en.wikipedia.org/wiki/Domain_Name_System#DNS_Protocol_transport" target="_blank" rel="noopener">DNS 항목</a>에도 다음과 같이 적혀있다. </p>
+<p>위키피디아에 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Domain_Name_System#DNS_Protocol_transport">DNS 항목</a>에도 다음과 같이 적혀있다. </p>
 <blockquote>
 <blockquote>
 <p>DNS primarily uses the User Datagram Protocol (UDP) on port number 53 to serve requests.[3] DNS queries consist of a single UDP request from the client followed by a single UDP reply from the server. When the length of the answer exceeds 512 bytes and both client and server support EDNS, larger UDP packets are used. Otherwise, the query is sent again using the Transmission Control Protocol (TCP). TCP is also used for tasks such as zone transfers. Some resolver implementations use TCP for all queries.</p>
 </blockquote>
 </blockquote>
 <p>(지금보니 그 고수의 댓글은 위키피디아에서 그냥 퍼온 것…) 그런데, <em>TCP 포트는 몇번 포트로 통신하는거지?</em> 그걸 알아야 여는 포트를 최소화 할수 있는데… </p>
-
+</body></html>
         </div>
         
         <div class="level is-size-7 is-uppercase">
             <div class="level-start">
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/ActiveDirectory/" rel="tag">ActiveDirectory</a>, <a class="has-link-grey -link" href="/tags/WindowsServer/" rel="tag">WindowsServer</a>
+                    <a class="has-link-grey -link-link" href="/tags/ActiveDirectory/" rel="tag">ActiveDirectory</a>, <a class="has-link-grey -link-link" href="/tags/WindowsServer/" rel="tag">WindowsServer</a>
                 </div>
             </div>
         </div>
@@ -381,6 +384,22 @@
                 <span class="level-item tag">1</span>
             </span>
         </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/TIL/">
+            <span class="level-start">
+                <span class="level-item">TIL</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/TIL/Rust/">
+            <span class="level-start">
+                <span class="level-item">Rust</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li></ul></li><li>
         <a class="level is-marginless" href="/categories/blog/">
             <span class="level-start">
                 <span class="level-item">blog</span>
@@ -484,7 +503,7 @@ var IcarusThemeSettings = {
     
 <div id="outdated">
     <h6>Your browser is out-of-date!</h6>
-    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" target="_blank" rel="noopener">Update
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" target="_blank" rel="noopener" href="http://outdatedbrowser.com/">Update
             my browser now </a></p>
     <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
 </div>
@@ -524,7 +543,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
     
     
-<a id="back-to-top" title="Back to Top" href="javascript:;" target="_blank" rel="noopener">
+<a id="back-to-top" title="Back to Top" href="javascript:;">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>

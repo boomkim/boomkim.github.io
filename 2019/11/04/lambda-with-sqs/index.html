@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
 
-<meta name="generator" content="Hexo 4.0.0" />
+<meta name="generator" content="Hexo 5.2.0" />
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
@@ -11,17 +11,22 @@
 
 
     <meta name="description" content="Lambda가 진정한 cloud native인걸까!300원에 200만뷰 소화하기라는 포스팅을 읽은 적이 있습니다.  그리고AWS와 함께 천만 사용자 웹서비스 만들기라는 슬라이드도 본 적이 있습니다.  저 슬라이드를 처음 봤던 때에는 Lambda에 대해서 많이 사용을 안해봐서 그런지 저 자료들만 보면 왠지 엄청난 트래픽을 아주 적은 비용으로 큰 문제 없이 수">
-<meta name="keywords" content="lambda,concurrency,lambda@edge,serverless">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Lambda의 동시성에 대하여 - 1">
-<meta property="og:url" content="https:&#x2F;&#x2F;boomkim.github.io&#x2F;2019&#x2F;11&#x2F;04&#x2F;lambda-with-sqs&#x2F;index.html">
+<meta property="og:url" content="https://boomkim.github.io/2019/11/04/lambda-with-sqs/index.html">
 <meta property="og:site_name" content="Boomkim">
 <meta property="og:description" content="Lambda가 진정한 cloud native인걸까!300원에 200만뷰 소화하기라는 포스팅을 읽은 적이 있습니다.  그리고AWS와 함께 천만 사용자 웹서비스 만들기라는 슬라이드도 본 적이 있습니다.  저 슬라이드를 처음 봤던 때에는 Lambda에 대해서 많이 사용을 안해봐서 그런지 저 자료들만 보면 왠지 엄청난 트래픽을 아주 적은 비용으로 큰 문제 없이 수">
-<meta property="og:locale" content="ko">
-<meta property="og:image" content="https:&#x2F;&#x2F;boomkim.github.io&#x2F;images&#x2F;og_image.png">
-<meta property="og:updated_time" content="2019-12-07T04:01:22.879Z">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:image" content="https://boomkim.github.io/images/og_image.png">
+<meta property="article:published_time" content="2019-11-03T15:00:00.000Z">
+<meta property="article:modified_time" content="2019-12-07T04:01:22.879Z">
+<meta property="article:author" content="boomkim">
+<meta property="article:tag" content="lambda">
+<meta property="article:tag" content="concurrency">
+<meta property="article:tag" content="lambda@edge">
+<meta property="article:tag" content="serverless">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;boomkim.github.io&#x2F;images&#x2F;og_image.png">
+<meta name="twitter:image" content="https://boomkim.github.io/images/og_image.png">
 
 
 
@@ -123,12 +128,12 @@
                     
                 
                 
-                <a class="navbar-item is-hidden-tablet catalogue" title="카탈로그" href="javascript:;" target="_blank" rel="noopener">
+                <a class="navbar-item is-hidden-tablet catalogue" title="카탈로그" href="javascript:;">
                     <i class="fas fa-list-ul"></i>
                 </a>
                 
                 
-                <a class="navbar-item search" title="검색" href="javascript:;" target="_blank" rel="noopener">
+                <a class="navbar-item search" title="검색" href="javascript:;">
                     <i class="fas fa-search"></i>
                 </a>
                 
@@ -170,8 +175,8 @@
             
         </h1>
         <div class="content">
-            <h2 id="Lambda가-진정한-cloud-native인걸까"><a href="#Lambda가-진정한-cloud-native인걸까" class="headerlink" title="Lambda가 진정한 cloud native인걸까!"></a>Lambda가 진정한 cloud native인걸까!</h2><p><a href="https://blog.rocketpunch.com/2017/07/02/2-million-pv-with-300-krw/" target="_blank" rel="noopener">300원에 200만뷰 소화하기</a>라는 포스팅을 읽은 적이 있습니다. </p>
-<p>그리고<br><a href="http://awsblogskr.s3-ap-northeast-2.amazonaws.com/pdf/2016-03-your-10mil-users-onaws-naverd2sf.pdf" target="_blank" rel="noopener">AWS와 함께 천만 사용자 웹서비스 만들기</a>라는 슬라이드도 본 적이 있습니다. </p>
+            <html><head></head><body><h2 id="Lambda가-진정한-cloud-native인걸까"><a href="#Lambda가-진정한-cloud-native인걸까" class="headerlink" title="Lambda가 진정한 cloud native인걸까!"></a>Lambda가 진정한 cloud native인걸까!</h2><p><a target="_blank" rel="noopener" href="https://blog.rocketpunch.com/2017/07/02/2-million-pv-with-300-krw/">300원에 200만뷰 소화하기</a>라는 포스팅을 읽은 적이 있습니다. </p>
+<p>그리고<br><a target="_blank" rel="noopener" href="http://awsblogskr.s3-ap-northeast-2.amazonaws.com/pdf/2016-03-your-10mil-users-onaws-naverd2sf.pdf">AWS와 함께 천만 사용자 웹서비스 만들기</a>라는 슬라이드도 본 적이 있습니다. </p>
 <p>저 슬라이드를 처음 봤던 때에는 Lambda에 대해서 많이 사용을 안해봐서 그런지 저 자료들만 보면 왠지 엄청난 트래픽을 아주 적은 비용으로 큰 문제 없이 수용할 수 있을 것만 같았습니다. 그러면서 언젠가 full-serverless 로 구성된 서비스를 한번 만들어 봐야겠다는 생각을 했었습니다. <del>생각만요.</del> </p>
 <p>생각해보면 단순히 REST API에 대한 요청만 받아주는 서비스라면 API GATEWAY + Lambda 로만 구성하는게 충분히 메리트 있을것 같았습니다. 그러면 정말 진정한 의미에 Pay-as-you-go 를 구현하는 클라우드 네이티브를 구현해볼 수 있지 않을까요…?</p>
 <a id="more"></a>
@@ -196,14 +201,14 @@
 <h3 id="여담…"><a href="#여담…" class="headerlink" title="여담…"></a>여담…</h3><p>좀 이상한 방향으로 글이 흘러갔다는걸 느끼면서도 오늘은 일단 글을 오랜만에 쓴다는 것과 그 글을 마무리하는 데에 가장 큰 목적이 있기에 이렇게 중구난방한 글을 적습니다. </p>
 <p>저는 책을 읽을 때 서론 읽는게 제일 재밌던데 쓸 때도 마찬가지로 서론 쓸 때가 제일 재밌는것 같아요. 기슬 블로그를 쓸 때는 유용하려면 막 자료도 들어가야 되고 검증된 코드도 들어가야되고 하잖아요. 근데 오늘 쓴 서론?처럼 약간 전체 글에대한 소개이면서도 그 주제에 대한 저의 정리이기도 한 글이 쓸 때 재밌는 것 같네요. </p>
 <p>무슨 코드 한 줄 없이 기술블로그를 쓰나 싶지만서도 오히려 이런 글들이 있는 블로그도 나름 재미있지 않으려나요. 방법이나 실제 practice는 없고 의견만 있는 이런 글이 실질적인 도움이 되지는 않겠지만, ‘아 이 사람은 이런 기술에 대해서 이렇게 생각하는구나’는 걸 보는 것도 필요하지 않을까 싶네요.</p>
-
+</body></html>
         </div>
         
         <div class="level is-size-7 is-uppercase">
             <div class="level-start">
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/concurrency/" rel="tag">concurrency</a>, <a class="has-link-grey -link" href="/tags/lambda/" rel="tag">lambda</a>, <a class="has-link-grey -link" href="/tags/lambda-edge/" rel="tag">lambda@edge</a>, <a class="has-link-grey -link" href="/tags/serverless/" rel="tag">serverless</a>
+                    <a class="has-link-grey -link-link" href="/tags/concurrency/" rel="tag">concurrency</a>, <a class="has-link-grey -link-link" href="/tags/lambda/" rel="tag">lambda</a>, <a class="has-link-grey -link-link" href="/tags/lambda-edge/" rel="tag">lambda@edge</a>, <a class="has-link-grey -link-link" href="/tags/serverless/" rel="tag">serverless</a>
                 </div>
             </div>
         </div>
@@ -431,6 +436,22 @@
                 <span class="level-item tag">1</span>
             </span>
         </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/TIL/">
+            <span class="level-start">
+                <span class="level-item">TIL</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/TIL/Rust/">
+            <span class="level-start">
+                <span class="level-item">Rust</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li></ul></li><li>
         <a class="level is-marginless" href="/categories/blog/">
             <span class="level-start">
                 <span class="level-item">blog</span>
@@ -534,7 +555,7 @@ var IcarusThemeSettings = {
     
 <div id="outdated">
     <h6>Your browser is out-of-date!</h6>
-    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" target="_blank" rel="noopener">Update
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" target="_blank" rel="noopener" href="http://outdatedbrowser.com/">Update
             my browser now </a></p>
     <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
 </div>
@@ -574,7 +595,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
     
     
-<a id="back-to-top" title="Back to Top" href="javascript:;" target="_blank" rel="noopener">
+<a id="back-to-top" title="Back to Top" href="javascript:;">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
 
-<meta name="generator" content="Hexo 4.0.0" />
+<meta name="generator" content="Hexo 5.2.0" />
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
@@ -12,12 +12,13 @@
 
     <meta property="og:type" content="website">
 <meta property="og:title" content="Boomkim">
-<meta property="og:url" content="https:&#x2F;&#x2F;boomkim.github.io&#x2F;page&#x2F;2&#x2F;index.html">
+<meta property="og:url" content="https://boomkim.github.io/page/2/index.html">
 <meta property="og:site_name" content="Boomkim">
-<meta property="og:locale" content="ko">
-<meta property="og:image" content="https:&#x2F;&#x2F;boomkim.github.io&#x2F;images&#x2F;og_image.png">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:image" content="https://boomkim.github.io/images/og_image.png">
+<meta property="article:author" content="boomkim">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;boomkim.github.io&#x2F;images&#x2F;og_image.png">
+<meta name="twitter:image" content="https://boomkim.github.io/images/og_image.png">
 
 
 
@@ -120,7 +121,7 @@
                 
                 
                 
-                <a class="navbar-item search" title="검색" href="javascript:;" target="_blank" rel="noopener">
+                <a class="navbar-item search" title="검색" href="javascript:;">
                     <i class="fas fa-search"></i>
                 </a>
                 
@@ -133,6 +134,62 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
+    
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-11-03T15:00:00.000Z">2019-11-04</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/AWS/">AWS</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/AWS/Computing/">Computing</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    14분 읽기 (대략 2044 단어)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/11/04/lambda-with-sqs/">Lambda의 동시성에 대하여 - 1</a>
+            
+        </h1>
+        <div class="content">
+            <html><head></head><body><h2 id="Lambda가-진정한-cloud-native인걸까"><a href="#Lambda가-진정한-cloud-native인걸까" class="headerlink" title="Lambda가 진정한 cloud native인걸까!"></a>Lambda가 진정한 cloud native인걸까!</h2><p><a target="_blank" rel="noopener" href="https://blog.rocketpunch.com/2017/07/02/2-million-pv-with-300-krw/">300원에 200만뷰 소화하기</a>라는 포스팅을 읽은 적이 있습니다. </p>
+<p>그리고<br><a target="_blank" rel="noopener" href="http://awsblogskr.s3-ap-northeast-2.amazonaws.com/pdf/2016-03-your-10mil-users-onaws-naverd2sf.pdf">AWS와 함께 천만 사용자 웹서비스 만들기</a>라는 슬라이드도 본 적이 있습니다. </p>
+<p>저 슬라이드를 처음 봤던 때에는 Lambda에 대해서 많이 사용을 안해봐서 그런지 저 자료들만 보면 왠지 엄청난 트래픽을 아주 적은 비용으로 큰 문제 없이 수용할 수 있을 것만 같았습니다. 그러면서 언젠가 full-serverless 로 구성된 서비스를 한번 만들어 봐야겠다는 생각을 했었습니다. <del>생각만요.</del> </p>
+<p>생각해보면 단순히 REST API에 대한 요청만 받아주는 서비스라면 API GATEWAY + Lambda 로만 구성하는게 충분히 메리트 있을것 같았습니다. 그러면 정말 진정한 의미에 Pay-as-you-go 를 구현하는 클라우드 네이티브를 구현해볼 수 있지 않을까요…?</p></body></html>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2019/11/04/lambda-with-sqs/#more">자세히 보기</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
     
 <div class="card">
     
@@ -163,8 +220,8 @@
             
         </h1>
         <div class="content">
-            <h2 id="들어가기-전에…"><a href="#들어가기-전에…" class="headerlink" title="들어가기 전에…"></a>들어가기 전에…</h2><p>최근에 AWS Datascience 소그룹 모임의 자료를 쭉 보던 중 아주 정리가 잘 되어있는 자료를 보았습니다. <a href="https://github.com/awskrug/datascience-group/tree/master/workshop-sustainable_data_analysis" target="_blank" rel="noopener">AWS 기반 지속 가능한 데이터 분석하기
-</a> 라는 자료인데 <a href="https://www.bigdatahub.co.kr/index.do" target="_blank" rel="noopener">SK 빅데이터 허브</a>에서 제공하는 배달 업종 통화 기록을 베이스로 spark로 데이터를 변환하고 athena, Presto, tableau 를 이용해서 시각화 하는 내용을 담고 있습니다. ETL 부터 시각화까지의 내용을 아주 재밌는 데이터와 함께 잘 정리한 글입니다. (AWS 데이터사이언스 모임은 가보지 않았지만 언젠간 한번 꼭 참석하리라 마음을 먹은지 벌써 몇달째… )</p>
+            <html><head></head><body><h2 id="들어가기-전에…"><a href="#들어가기-전에…" class="headerlink" title="들어가기 전에…"></a>들어가기 전에…</h2><p>최근에 AWS Datascience 소그룹 모임의 자료를 쭉 보던 중 아주 정리가 잘 되어있는 자료를 보았습니다. <a target="_blank" rel="noopener" href="https://github.com/awskrug/datascience-group/tree/master/workshop-sustainable_data_analysis">AWS 기반 지속 가능한 데이터 분석하기
+</a> 라는 자료인데 <a target="_blank" rel="noopener" href="https://www.bigdatahub.co.kr/index.do">SK 빅데이터 허브</a>에서 제공하는 배달 업종 통화 기록을 베이스로 spark로 데이터를 변환하고 athena, Presto, tableau 를 이용해서 시각화 하는 내용을 담고 있습니다. ETL 부터 시각화까지의 내용을 아주 재밌는 데이터와 함께 잘 정리한 글입니다. (AWS 데이터사이언스 모임은 가보지 않았지만 언젠간 한번 꼭 참석하리라 마음을 먹은지 벌써 몇달째… )</p></body></html>
         </div>
         
         
@@ -217,7 +274,7 @@
             
         </h1>
         <div class="content">
-            <h1 id="AWS-Athena-Cloudfront-Log-분석을-위한-쿼리-예시"><a href="#AWS-Athena-Cloudfront-Log-분석을-위한-쿼리-예시" class="headerlink" title="AWS Athena, Cloudfront Log 분석을 위한 쿼리 예시"></a>AWS Athena, Cloudfront Log 분석을 위한 쿼리 예시</h1><p>Cloudfront는 고맙게도 Edge단에서 발생하는 처리 로그들을 모아서 제공해 줍니다. CF Log는 기본적으로 S3에 gz 형태로 압축되엇 제공이 되고<br>다음과 같은 DDL을 통해 테이블을 정의하면 Athena에서 조회할 수 있습니다. </p>
+            <html><head></head><body><h1 id="AWS-Athena-Cloudfront-Log-분석을-위한-쿼리-예시"><a href="#AWS-Athena-Cloudfront-Log-분석을-위한-쿼리-예시" class="headerlink" title="AWS Athena, Cloudfront Log 분석을 위한 쿼리 예시"></a>AWS Athena, Cloudfront Log 분석을 위한 쿼리 예시</h1><p>Cloudfront는 고맙게도 Edge단에서 발생하는 처리 로그들을 모아서 제공해 줍니다. CF Log는 기본적으로 S3에 gz 형태로 압축되엇 제공이 되고<br>다음과 같은 DDL을 통해 테이블을 정의하면 Athena에서 조회할 수 있습니다. </p></body></html>
         </div>
         
         
@@ -270,8 +327,8 @@
             
         </h1>
         <div class="content">
-            <h1 id="Amazon-Elasticsearch-Dedicated-Master의-스토리지-비용은"><a href="#Amazon-Elasticsearch-Dedicated-Master의-스토리지-비용은" class="headerlink" title="Amazon Elasticsearch Dedicated Master의 스토리지 비용은?"></a>Amazon Elasticsearch Dedicated Master의 스토리지 비용은?</h1><p>Amazon Elasticsearch 에는 Dedicated Master를 설정해줄 수 있습니다. 마스터노드의 기능만 하는 노드를 따로 빼서 클러스터의 안정성을 높이는 방안입니다. Elastic의 문서에도 클러스터의 사이즈가 큰 경우 마스터 노드를 분리하는 것을 권장하고 있네요. (참고: <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-node.html" target="_blank" rel="noopener">https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-node.html</a>)</p>
-<p>오늘 내용은 Dedicated Master에 대한 디테일한 내용이 아니라 비용에 관한 간단한 얘기입니다. </p>
+            <html><head></head><body><h1 id="Amazon-Elasticsearch-Dedicated-Master의-스토리지-비용은"><a href="#Amazon-Elasticsearch-Dedicated-Master의-스토리지-비용은" class="headerlink" title="Amazon Elasticsearch Dedicated Master의 스토리지 비용은?"></a>Amazon Elasticsearch Dedicated Master의 스토리지 비용은?</h1><p>Amazon Elasticsearch 에는 Dedicated Master를 설정해줄 수 있습니다. 마스터노드의 기능만 하는 노드를 따로 빼서 클러스터의 안정성을 높이는 방안입니다. Elastic의 문서에도 클러스터의 사이즈가 큰 경우 마스터 노드를 분리하는 것을 권장하고 있네요. (참고: <a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-node.html">https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-node.html</a>)</p>
+<p>오늘 내용은 Dedicated Master에 대한 디테일한 내용이 아니라 비용에 관한 간단한 얘기입니다. </p></body></html>
         </div>
         
         
@@ -324,8 +381,8 @@
             
         </h1>
         <div class="content">
-            <h1 id="Athena-심플하고-강력하지만-아쉬운-인터페이스"><a href="#Athena-심플하고-강력하지만-아쉬운-인터페이스" class="headerlink" title="Athena, 심플하고 강력하지만 아쉬운 인터페이스"></a>Athena, 심플하고 강력하지만 아쉬운 인터페이스</h1><p>이번 포스팅에서는 Athena 와 Zeppelin을 엮어서 사용하는 방법에 대해서 정리하려고 합니다. Athena는 써보면 써볼수록 요물이라는 생각이 드는 제품입니다. S3에 데이터만 잘 저장해 놓으면 그걸 SQL문으로 빠르게 쿼리할 수 있다는 컨셉이 간단하지만 강력하네요. 다른 분산처리 플랫폼도 많지만, 일단 간단하게 시작하기에는 Athena가 최적인것 같아요. </p>
-<p>다만, Athena가 워낙 심플한 구조를 갖고 있고 제공해주는 기능도 심플하다 보니 조금 아쉬운점도 있는데요, 일단 제 생각에 가장 아쉬운 점은 <code>인터페이스</code> 입니다. ‘대화형 쿼리’ 라는 컨셉으로 단순한 쿼리창만 갖고 있지만, 사실 ‘대화형’ 이라는 말처럼 채팅기록이 남진 않는게 제 생각엔 커다란 단점인 것 같아요. 우리나라 정서가 워낙 UI에 이것저것 많은 기능을 좋아해서 상대적으로 AWS의 UI가 좀 빈약하다는 느낌을 많이 받는데 Athena의 인터페이스도 그 중 하나인 것 같습니다. 그래도 ‘대화형’이라는 컨셉을 완성하기 위해서는 조금 더 인터페이스가 발전해야 할 것 같다고 생각합니다. </p>
+            <html><head></head><body><h1 id="Athena-심플하고-강력하지만-아쉬운-인터페이스"><a href="#Athena-심플하고-강력하지만-아쉬운-인터페이스" class="headerlink" title="Athena, 심플하고 강력하지만 아쉬운 인터페이스"></a>Athena, 심플하고 강력하지만 아쉬운 인터페이스</h1><p>이번 포스팅에서는 Athena 와 Zeppelin을 엮어서 사용하는 방법에 대해서 정리하려고 합니다. Athena는 써보면 써볼수록 요물이라는 생각이 드는 제품입니다. S3에 데이터만 잘 저장해 놓으면 그걸 SQL문으로 빠르게 쿼리할 수 있다는 컨셉이 간단하지만 강력하네요. 다른 분산처리 플랫폼도 많지만, 일단 간단하게 시작하기에는 Athena가 최적인것 같아요. </p>
+<p>다만, Athena가 워낙 심플한 구조를 갖고 있고 제공해주는 기능도 심플하다 보니 조금 아쉬운점도 있는데요, 일단 제 생각에 가장 아쉬운 점은 <code>인터페이스</code> 입니다. ‘대화형 쿼리’ 라는 컨셉으로 단순한 쿼리창만 갖고 있지만, 사실 ‘대화형’ 이라는 말처럼 채팅기록이 남진 않는게 제 생각엔 커다란 단점인 것 같아요. 우리나라 정서가 워낙 UI에 이것저것 많은 기능을 좋아해서 상대적으로 AWS의 UI가 좀 빈약하다는 느낌을 많이 받는데 Athena의 인터페이스도 그 중 하나인 것 같습니다. 그래도 ‘대화형’이라는 컨셉을 완성하기 위해서는 조금 더 인터페이스가 발전해야 할 것 같다고 생각합니다. </p></body></html>
         </div>
         
         
@@ -378,10 +435,10 @@
             
         </h1>
         <div class="content">
-            <p><img src="/images/lightsail.jpeg" alt="그림0"></p>
+            <html><head></head><body><p><img src="/images/lightsail.jpeg" alt="그림0"></p>
 <p>Lightsail 이라는 서비스가 나온지는 좀 되었다. 간단하게 소개하면 <strong>아마존에서 제공하는 웹 호스팅 서비스</strong> 이다. 기본적인 컨셉 자체는 AWS라는 복잡하고 어려운 클라우드 어쩌구를 몰라도 웹호스팅을 다른 업체만큼 싸게 제공해주는 데 목적이 있는 듯하다. 영세한 웹호스팅업계에 AWS라는 공룡이 침입한 게 아닌가 싶다. Digital Oceans 같은 호스팅업체와 제공하는 서비스와 심지어 UI까지 비슷하다. Digital Oceans는 점점 클라우드 업체처럼 되어가고 있고 아마존은 호스팅 업계의 영역까지 군침을 흘리고 있는 모양새다. </p>
 <p>어쨌든 Lightsail은 그저 ‘아마존의 웹호스팅 서비스’라는 것이 중요하다. </p>
-<p>그런데, AWS를 사용하고 있는 사람 입장에서는 그럼 AWS에서 EC2를 사용하는것과 Lightsail에서 사용하는 것과 뭐가 다른지가 궁금하다. 간단하게 그 차이점을 정리해보려고 한다. </p>
+<p>그런데, AWS를 사용하고 있는 사람 입장에서는 그럼 AWS에서 EC2를 사용하는것과 Lightsail에서 사용하는 것과 뭐가 다른지가 궁금하다. 간단하게 그 차이점을 정리해보려고 한다. </p></body></html>
         </div>
         
         
@@ -434,13 +491,13 @@
             
         </h1>
         <div class="content">
-            <p><img src="/images/readreplica.png" alt="그림0"></p>
+            <html><head></head><body><p><img src="/images/readreplica.png" alt="그림0"></p>
 <p>다른 리전에 읽기복제본을 생성해야 될 때가 있다. 대충 추려보면 다음과 같은 경우. </p>
 <ol>
 <li>다른 리전에 데이터를 읽기만 하는 워크로드가 있는 경우 </li>
 <li>다른 리전에 DR 용으로 데이터를 보관하는 경우</li>
 </ol>
-<p>그럴때 RDS의 읽기복제본 생성 기능은 매우 간편하고 효과적이다. 파라미터 그룹을 만진다든지 하는 설정을 해줄 필요 없이 대상 리전에 서브넷 그룹만 잘 설정 되어 있으면 콘솔에서 클릭 몇번으로 복제본을 생성할 수 있다. </p>
+<p>그럴때 RDS의 읽기복제본 생성 기능은 매우 간편하고 효과적이다. 파라미터 그룹을 만진다든지 하는 설정을 해줄 필요 없이 대상 리전에 서브넷 그룹만 잘 설정 되어 있으면 콘솔에서 클릭 몇번으로 복제본을 생성할 수 있다. </p></body></html>
         </div>
         
         
@@ -493,8 +550,8 @@
             
         </h1>
         <div class="content">
-            <p>이번 편에선 DigitalOcean 에서 AWS로 서버들을 옮기는 과정을 적어본다. </p>
-<p>전에도 말했지만 리뷰리퍼블릭의 어플리케이션은 meteor.js 라는 프레임워크 (조금 더 정확하게는 meteor.js + react.js) 위에서 돌아간다. 이 프레임워크 덕분에 마이그레이션이 두배는 더 어려워졌다. 일단 익숙한 방식 (어디 한 express.js 나 스프링 MVC 정도 사용할 줄 알았는데…)이 아니기에 이 프레임워크의 전체적인 개념부터 어떤식으로 배포가 되는지를 파악해야 했다. </p>
+            <html><head></head><body><p>이번 편에선 DigitalOcean 에서 AWS로 서버들을 옮기는 과정을 적어본다. </p>
+<p>전에도 말했지만 리뷰리퍼블릭의 어플리케이션은 meteor.js 라는 프레임워크 (조금 더 정확하게는 meteor.js + react.js) 위에서 돌아간다. 이 프레임워크 덕분에 마이그레이션이 두배는 더 어려워졌다. 일단 익숙한 방식 (어디 한 express.js 나 스프링 MVC 정도 사용할 줄 알았는데…)이 아니기에 이 프레임워크의 전체적인 개념부터 어떤식으로 배포가 되는지를 파악해야 했다. </p></body></html>
         </div>
         
         
@@ -547,7 +604,7 @@
             
         </h1>
         <div class="content">
-            <h2 id="서론"><a href="#서론" class="headerlink" title="서론"></a>서론</h2><p>페이스북에 <em>리뷰왕 김리뷰</em>라는 페이지가 있다. 갖가지 리뷰들이 올라오고 요새 올라오는 카드뉴스식의 리뷰를 선도한(…?) 페이지이다. 그 김리뷰가 <em>리뷰리퍼블릭</em>이라는 서비스를 만들었다. 사용자들이 리뷰를 작성해서 올리고 양질의 리뷰를 올릴수록 그 보상이 작성자에게 돌아가게끔 하겠다는 취지로 만들었다고 한다. 어쨋든 겉으로 보이는 형태는 조그만한 커뮤니티 앱이다. 어떻게 보면 sns같기도 하고. 어쨋든 그런 조그마한 커뮤니티 앱이 월 100만원 가량의 유지비가 나온다는 소식을 들었다. 서비스 유지비용이 월 100만원씩 나온다면 도저히 수지타산이 안나온다. 곧 망할 것 같았다. </p>
+            <html><head></head><body><h2 id="서론"><a href="#서론" class="headerlink" title="서론"></a>서론</h2><p>페이스북에 <em>리뷰왕 김리뷰</em>라는 페이지가 있다. 갖가지 리뷰들이 올라오고 요새 올라오는 카드뉴스식의 리뷰를 선도한(…?) 페이지이다. 그 김리뷰가 <em>리뷰리퍼블릭</em>이라는 서비스를 만들었다. 사용자들이 리뷰를 작성해서 올리고 양질의 리뷰를 올릴수록 그 보상이 작성자에게 돌아가게끔 하겠다는 취지로 만들었다고 한다. 어쨋든 겉으로 보이는 형태는 조그만한 커뮤니티 앱이다. 어떻게 보면 sns같기도 하고. 어쨋든 그런 조그마한 커뮤니티 앱이 월 100만원 가량의 유지비가 나온다는 소식을 들었다. 서비스 유지비용이 월 100만원씩 나온다면 도저히 수지타산이 안나온다. 곧 망할 것 같았다. </p></body></html>
         </div>
         
         
@@ -600,7 +657,7 @@
             
         </h1>
         <div class="content">
-            <p>새로운 테마를 적용했다.</p>
+            <html><head></head><body><p>새로운 테마를 적용했다.</p>
 <p>원래의 계획은 minima 테마를 커스터마이징 하는 것이었지만, </p>
 <ol>
 <li>디자인에는 재능이 없고 </li>
@@ -609,7 +666,7 @@
 </ol>
 <p>그냥 테마를 적용하기로 했다. </p>
 <p>역시 세상은 넓고 이미 만들어 놓은 좋은 것도 많다. 공부하는 차원에서 만들어보려고 했는데, 굳이 jekyll을 깊게 파면서까지 이걸 커스터마이징할 이유가 없었다. 그래도 꾸역꾸역 기능하나정도 추가하는건 어렵지 않을것 같아서, 다른 jekyll 활용 예를 참고하려고 했고 참고하려고 하니 마음에 드는 테마 하나를 발견했다. </p>
-<p>이번에 적용한 테마는 <strong><a href="https://github.com/broccolini/swiss" target="_blank" rel="noopener">Swiss</a></strong></p>
+<p>이번에 적용한 테마는 <strong><a target="_blank" rel="noopener" href="https://github.com/broccolini/swiss">Swiss</a></strong></p>
 <p>이 테마를 적용한 이유는 간단하다.</p>
 <ol>
 <li>예쁘다 </li>
@@ -617,67 +674,8 @@
 <li>그 외에 잡다한 기능들이 <em>없다.</em> </li>
 </ol>
 <p>한 마디로 minima 테마에서 카테고리 별로 정리해주는 기능만 딱 하나 추가되고, 디자인이 예쁘게 정리된 <u>내가 찾던 바로 그 테마</u>인 것이다. 그리고 무엇보다도 다른 기능이 없는 게 중요했다. 다른 다양한 기능이 있다고 해도 내가 쓸 생각이 없기 때문에 기능은 최소의 기능만 있는게 좋다. 그래야 관리도 되고 나중에 커스터마이징 할 때도 코드를 보기가 편하다. 블로그 테마가 계속 마음에 걸렸는데 이걸로 일단 한 동안은 유지할 수 있을 것 같다. </p>
-<p>테마 적용방법은 <a href="https://jekyllrb.com/docs/themes/" target="_blank" rel="noopener">지킬 홈페이지</a> 와 <a href="https://github.com/broccolini/swiss" target="_blank" rel="noopener">스위스 테마 깃헙</a> 참고. 적용이 매우 간단하다. </p>
-
-        </div>
-        
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    
-<div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2018-08-21T15:00:00.000Z">2018-08-22</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/AWS/">AWS</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/AWS/Computing/">Computing</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    3분 읽기 (대략 502 단어)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2018/08/22/t3-instance-launch/">[EC2 - T3] T3 인스턴스 출시!!!!!!!</a>
-            
-        </h1>
-        <div class="content">
-            <p>대박사건. EC2 인스턴스 타입 중 작은타입을 지원하고, 테스트용, 혹은 작은규모의 로직을 돌리기에 적합하던 t타입의 인스턴스 중 3세대가 나왔다. 이전 세대인 t2 타입은 2014년에 처음 나왔고 2016년에 다양한 사이즈들이 추가됐다. </p>
-<p><em>그러니깐, 4년만에 t타입의 새로운 세대가 나온 것.</em></p>
-<p>당연히 t2 타입보다 <strong>성능은 올라가고, 가격은 떨어졌다.</strong> 버지니아 기준으로 가격은 10%정도 저렴하다.<br><img src="/images/t2t3-pricing.png" alt="그림1"></p>
-<p> <em>아쉽게도 서울리전은 아직 지원이 안됨.</em> </p>
-<br>
-**사실 cpu 성능보다 더 기대가 되는것은 네트워크 성능.** m4에서 m5로 업그레이드가 됐을 때 cpu 성능도 증가했지만, 기본 네트워크성능이 많이 향상되었다.(관련글: [EC2 인스턴스의 타입별 대역폭을 살펴보자](https://blog.wisen.co.kr/?p=7751))
-
-<p>마찬가지로 t2에서 t3로 업그레이드 되면서 기본 네트워크 성능이 향상될 것으로 보인다. </p>
-<p><img src="/images/t2t3-performance.png" alt="그림2"><br><em>(low to moderate -&gt; up to 5 Gigabit)</em> </p>
-<br>
-이전 t2 인스턴스의 한계라면 cpu 성능이나 불안정성도 한 몫했지만 단순 웹서버로 사용하기에 아쉬웠던 점은 아무래도 네트워크 성능. 작은규모의 웹사이트의 경우 m5.large 정도의 스펙이 불필요하지만 네트워크 성능 때문에 어쩔 수 없이 m5를 선택하기도 했다. 만약 t3에서 네트워크 성능이 일정 기준치 이상으로 향상되었다면 t3 타입은 꽤 매력적인 인스턴스 타입이 될 것 같다. 
-
-<p>정확한 사양은 더 테스트해봐야 알겠지만, 어쨌든 좋은소식임에는 분명하다. </p>
-<p>참고: <a href="https://aws.amazon.com/ko/blogs/aws/new-t3-instances-burstable-cost-effective-performance/" target="_blank" rel="noopener">https://aws.amazon.com/ko/blogs/aws/new-t3-instances-burstable-cost-effective-performance/</a></p>
-
+<p>테마 적용방법은 <a target="_blank" rel="noopener" href="https://jekyllrb.com/docs/themes/">지킬 홈페이지</a> 와 <a target="_blank" rel="noopener" href="https://github.com/broccolini/swiss">스위스 테마 깃헙</a> 참고. 적용이 매우 간단하다. </p>
+</body></html>
         </div>
         
         
@@ -709,6 +707,8 @@
             <li><a class="pagination-link is-current" href="/page/2/">2</a></li>
             
             <li><a class="pagination-link has-text-black-ter" href="/page/3/">3</a></li>
+            
+            <li><a class="pagination-link has-text-black-ter" href="/page/4/">4</a></li>
             
         </ul>
     </nav>
@@ -753,7 +753,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            30
+                            31
                         </p>
                     </a>
                 </div>
@@ -765,7 +765,7 @@
                     </p>
                     <a href="/categories">
                         <p class="title has-text-weight-normal">
-                            18
+                            20
                         </p>
                     </a>
                 </div>
@@ -777,7 +777,7 @@
                     </p>
                     <a href="/tags">
                         <p class="title has-text-weight-normal">
-                            69
+                            72
                         </p>
                     </a>
                 </div>
@@ -959,6 +959,22 @@
                 <span class="level-item tag">1</span>
             </span>
         </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/TIL/">
+            <span class="level-start">
+                <span class="level-item">TIL</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/TIL/Rust/">
+            <span class="level-start">
+                <span class="level-item">Rust</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li></ul></li><li>
         <a class="level is-marginless" href="/categories/blog/">
             <span class="level-start">
                 <span class="level-item">blog</span>
@@ -977,7 +993,7 @@
         <h3 class="menu-label">
             태그 클라우드
         </h3>
-        <a href="/tags/ALB/" style="font-size: 10px;">ALB</a> <a href="/tags/AWS/" style="font-size: 20px;">AWS</a> <a href="/tags/ActiveDirectory/" style="font-size: 11.67px;">ActiveDirectory</a> <a href="/tags/AmazonLinux2/" style="font-size: 10px;">AmazonLinux2</a> <a href="/tags/Bigdata/" style="font-size: 11.67px;">Bigdata</a> <a href="/tags/DigitalOcean/" style="font-size: 11.67px;">DigitalOcean</a> <a href="/tags/Docker/" style="font-size: 11.67px;">Docker</a> <a href="/tags/DocumentDB/" style="font-size: 10px;">DocumentDB</a> <a href="/tags/EC2/" style="font-size: 13.33px;">EC2</a> <a href="/tags/EMR/" style="font-size: 10px;">EMR</a> <a href="/tags/Elasticsearch/" style="font-size: 10px;">Elasticsearch</a> <a href="/tags/Hadoop/" style="font-size: 10px;">Hadoop</a> <a href="/tags/Hive/" style="font-size: 10px;">Hive</a> <a href="/tags/Jekyll/" style="font-size: 10px;">Jekyll</a> <a href="/tags/LLAP/" style="font-size: 10px;">LLAP</a> <a href="/tags/Network/" style="font-size: 10px;">Network</a> <a href="/tags/Overlay/" style="font-size: 11.67px;">Overlay</a> <a href="/tags/PostgreSQL/" style="font-size: 10px;">PostgreSQL</a> <a href="/tags/Private/" style="font-size: 10px;">Private</a> <a href="/tags/RDS/" style="font-size: 11.67px;">RDS</a> <a href="/tags/S3/" style="font-size: 10px;">S3</a> <a href="/tags/SAML/" style="font-size: 10px;">SAML</a> <a href="/tags/SPARK/" style="font-size: 10px;">SPARK</a> <a href="/tags/T3/" style="font-size: 10px;">T3</a> <a href="/tags/VPC/" style="font-size: 10px;">VPC</a> <a href="/tags/WindowsServer/" style="font-size: 11.67px;">WindowsServer</a> <a href="/tags/airflow/" style="font-size: 10px;">airflow</a> <a href="/tags/athena/" style="font-size: 15px;">athena</a> <a href="/tags/aws/" style="font-size: 15px;">aws</a> <a href="/tags/bandwidth/" style="font-size: 10px;">bandwidth</a> <a href="/tags/bastionhost/" style="font-size: 10px;">bastionhost</a> <a href="/tags/bigdata/" style="font-size: 18.33px;">bigdata</a> <a href="/tags/blog/" style="font-size: 11.67px;">blog</a> <a href="/tags/cloudfront/" style="font-size: 10px;">cloudfront</a> <a href="/tags/commands/" style="font-size: 10px;">commands</a> <a href="/tags/concurrency/" style="font-size: 10px;">concurrency</a> <a href="/tags/cpr/" style="font-size: 11.67px;">cpr</a> <a href="/tags/data/" style="font-size: 10px;">data</a> <a href="/tags/ec2/" style="font-size: 10px;">ec2</a> <a href="/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/tags/generate/" style="font-size: 10px;">generate</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/icarus/" style="font-size: 10px;">icarus</a> <a href="/tags/issue/" style="font-size: 10px;">issue</a> <a href="/tags/jekyll/" style="font-size: 10px;">jekyll</a> <a href="/tags/jekyll-swiss/" style="font-size: 10px;">jekyll-swiss</a> <a href="/tags/lambda/" style="font-size: 10px;">lambda</a> <a href="/tags/lambda-edge/" style="font-size: 10px;">lambda@edge</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/log/" style="font-size: 10px;">log</a> <a href="/tags/migration/" style="font-size: 11.67px;">migration</a> <a href="/tags/network/" style="font-size: 11.67px;">network</a> <a href="/tags/painless/" style="font-size: 10px;">painless</a> <a href="/tags/portfowarding/" style="font-size: 10px;">portfowarding</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/queries/" style="font-size: 10px;">queries</a> <a href="/tags/rds/" style="font-size: 10px;">rds</a> <a href="/tags/read-replica/" style="font-size: 10px;">read replica</a> <a href="/tags/readreplica/" style="font-size: 11.67px;">readreplica</a> <a href="/tags/revierepublic/" style="font-size: 10px;">revierepublic</a> <a href="/tags/reviewrepublic/" style="font-size: 10px;">reviewrepublic</a> <a href="/tags/security/" style="font-size: 10px;">security</a> <a href="/tags/serverless/" style="font-size: 10px;">serverless</a> <a href="/tags/spark/" style="font-size: 11.67px;">spark</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/storage/" style="font-size: 10px;">storage</a> <a href="/tags/theme/" style="font-size: 10px;">theme</a> <a href="/tags/troubleshooting/" style="font-size: 10px;">troubleshooting</a> <a href="/tags/zeppelin/" style="font-size: 16.67px;">zeppelin</a>
+        <a href="/tags/ALB/" style="font-size: 10px;">ALB</a> <a href="/tags/AWS/" style="font-size: 20px;">AWS</a> <a href="/tags/ActiveDirectory/" style="font-size: 11.67px;">ActiveDirectory</a> <a href="/tags/AmazonLinux2/" style="font-size: 10px;">AmazonLinux2</a> <a href="/tags/Bigdata/" style="font-size: 11.67px;">Bigdata</a> <a href="/tags/DigitalOcean/" style="font-size: 11.67px;">DigitalOcean</a> <a href="/tags/Docker/" style="font-size: 11.67px;">Docker</a> <a href="/tags/DocumentDB/" style="font-size: 10px;">DocumentDB</a> <a href="/tags/EC2/" style="font-size: 13.33px;">EC2</a> <a href="/tags/EMR/" style="font-size: 10px;">EMR</a> <a href="/tags/Elasticsearch/" style="font-size: 10px;">Elasticsearch</a> <a href="/tags/Hadoop/" style="font-size: 10px;">Hadoop</a> <a href="/tags/Hive/" style="font-size: 10px;">Hive</a> <a href="/tags/Jekyll/" style="font-size: 10px;">Jekyll</a> <a href="/tags/LLAP/" style="font-size: 10px;">LLAP</a> <a href="/tags/Network/" style="font-size: 10px;">Network</a> <a href="/tags/Overlay/" style="font-size: 11.67px;">Overlay</a> <a href="/tags/PostgreSQL/" style="font-size: 10px;">PostgreSQL</a> <a href="/tags/Private/" style="font-size: 10px;">Private</a> <a href="/tags/RDS/" style="font-size: 11.67px;">RDS</a> <a href="/tags/Rust/" style="font-size: 10px;">Rust</a> <a href="/tags/S3/" style="font-size: 10px;">S3</a> <a href="/tags/SAML/" style="font-size: 10px;">SAML</a> <a href="/tags/SPARK/" style="font-size: 10px;">SPARK</a> <a href="/tags/T3/" style="font-size: 10px;">T3</a> <a href="/tags/TIL/" style="font-size: 10px;">TIL</a> <a href="/tags/VPC/" style="font-size: 10px;">VPC</a> <a href="/tags/WindowsServer/" style="font-size: 11.67px;">WindowsServer</a> <a href="/tags/airflow/" style="font-size: 10px;">airflow</a> <a href="/tags/athena/" style="font-size: 15px;">athena</a> <a href="/tags/aws/" style="font-size: 15px;">aws</a> <a href="/tags/bandwidth/" style="font-size: 10px;">bandwidth</a> <a href="/tags/bastionhost/" style="font-size: 10px;">bastionhost</a> <a href="/tags/bigdata/" style="font-size: 18.33px;">bigdata</a> <a href="/tags/blog/" style="font-size: 11.67px;">blog</a> <a href="/tags/cloudfront/" style="font-size: 10px;">cloudfront</a> <a href="/tags/commands/" style="font-size: 10px;">commands</a> <a href="/tags/concurrency/" style="font-size: 10px;">concurrency</a> <a href="/tags/cpr/" style="font-size: 11.67px;">cpr</a> <a href="/tags/data/" style="font-size: 10px;">data</a> <a href="/tags/ec2/" style="font-size: 10px;">ec2</a> <a href="/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/tags/generate/" style="font-size: 10px;">generate</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/icarus/" style="font-size: 10px;">icarus</a> <a href="/tags/issue/" style="font-size: 10px;">issue</a> <a href="/tags/jekyll/" style="font-size: 10px;">jekyll</a> <a href="/tags/jekyll-swiss/" style="font-size: 10px;">jekyll-swiss</a> <a href="/tags/lambda/" style="font-size: 10px;">lambda</a> <a href="/tags/lambda-edge/" style="font-size: 10px;">lambda@edge</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/log/" style="font-size: 10px;">log</a> <a href="/tags/migration/" style="font-size: 11.67px;">migration</a> <a href="/tags/network/" style="font-size: 11.67px;">network</a> <a href="/tags/painless/" style="font-size: 10px;">painless</a> <a href="/tags/portfowarding/" style="font-size: 10px;">portfowarding</a> <a href="/tags/programing-language/" style="font-size: 10px;">programing language</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/queries/" style="font-size: 10px;">queries</a> <a href="/tags/rds/" style="font-size: 10px;">rds</a> <a href="/tags/read-replica/" style="font-size: 10px;">read replica</a> <a href="/tags/readreplica/" style="font-size: 11.67px;">readreplica</a> <a href="/tags/revierepublic/" style="font-size: 10px;">revierepublic</a> <a href="/tags/reviewrepublic/" style="font-size: 10px;">reviewrepublic</a> <a href="/tags/security/" style="font-size: 10px;">security</a> <a href="/tags/serverless/" style="font-size: 10px;">serverless</a> <a href="/tags/spark/" style="font-size: 11.67px;">spark</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/storage/" style="font-size: 10px;">storage</a> <a href="/tags/theme/" style="font-size: 10px;">theme</a> <a href="/tags/troubleshooting/" style="font-size: 10px;">troubleshooting</a> <a href="/tags/zeppelin/" style="font-size: 16.67px;">zeppelin</a>
     </div>
 </div>
     
@@ -989,6 +1005,25 @@
         <h3 class="menu-label">
             최근 글
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2021/08/03/til-rust/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/rust.png" alt="Rust 공부중">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2021-08-02T15:00:00.000Z">2021-08-03</time></div>
+                    <a href="/2021/08/03/til-rust/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Rust 공부중</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/TIL/">TIL</a> / <a class="has-link-grey -link" href="/categories/TIL/Rust/">Rust</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -1066,25 +1101,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2020/01/08/airflow-install-amazon-linux-2/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/2020/01/08/airflow.png" alt="Amazon Linux 2에 Airflow 설치하기">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-07T15:00:00.000Z">2020-01-08</time></div>
-                    <a href="/2020/01/08/airflow-install-amazon-linux-2/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Amazon Linux 2에 Airflow 설치하기</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Bigdata/">Bigdata</a> / <a class="has-link-grey -link" href="/categories/Bigdata/Airflow/">Airflow</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
         
@@ -1095,6 +1111,17 @@
             아카이브
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2021/08/">
+                <span class="level-start">
+                    <span class="level-item">8월 2021</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2021/04/">
@@ -1382,6 +1409,13 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/Rust/">
+                        <span class="tag">Rust</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/S3/">
                         <span class="tag">S3</span>
                         <span class="tag is-grey">1</span>
@@ -1405,6 +1439,13 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/T3/">
                         <span class="tag">T3</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/TIL/">
+                        <span class="tag">TIL</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1615,6 +1656,13 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/portfowarding/">
                         <span class="tag">portfowarding</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/programing-language/">
+                        <span class="tag">programing language</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1748,6 +1796,25 @@
         
         <article class="media">
             
+            <a href="/2021/08/03/til-rust/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/rust.png" alt="Rust 공부중">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2021-08-02T15:00:00.000Z">2021-08-03</time></div>
+                    <a href="/2021/08/03/til-rust/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Rust 공부중</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/TIL/">TIL</a> / <a class="has-link-grey -link" href="/categories/TIL/Rust/">Rust</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2021/04/23/replace-existing-document/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/elasticsearch.png" alt="Elasticsearch Update API로 Document 교체하기">
@@ -1822,25 +1889,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2020/01/08/airflow-install-amazon-linux-2/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/2020/01/08/airflow.png" alt="Amazon Linux 2에 Airflow 설치하기">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-07T15:00:00.000Z">2020-01-08</time></div>
-                    <a href="/2020/01/08/airflow-install-amazon-linux-2/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Amazon Linux 2에 Airflow 설치하기</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Bigdata/">Bigdata</a> / <a class="has-link-grey -link" href="/categories/Bigdata/Airflow/">Airflow</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
     
@@ -1851,6 +1899,17 @@
             아카이브
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2021/08/">
+                <span class="level-start">
+                    <span class="level-item">8월 2021</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2021/04/">
@@ -2138,6 +2197,13 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/Rust/">
+                        <span class="tag">Rust</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/S3/">
                         <span class="tag">S3</span>
                         <span class="tag is-grey">1</span>
@@ -2161,6 +2227,13 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/T3/">
                         <span class="tag">T3</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/TIL/">
+                        <span class="tag">TIL</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -2371,6 +2444,13 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/portfowarding/">
                         <span class="tag">portfowarding</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/programing-language/">
+                        <span class="tag">programing language</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -2575,7 +2655,7 @@ var IcarusThemeSettings = {
     
 <div id="outdated">
     <h6>Your browser is out-of-date!</h6>
-    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" target="_blank" rel="noopener">Update
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" target="_blank" rel="noopener" href="http://outdatedbrowser.com/">Update
             my browser now </a></p>
     <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
 </div>
@@ -2615,7 +2695,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
     
     
-<a id="back-to-top" title="Back to Top" href="javascript:;" target="_blank" rel="noopener">
+<a id="back-to-top" title="Back to Top" href="javascript:;">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>
