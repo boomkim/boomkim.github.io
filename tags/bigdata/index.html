@@ -7,12 +7,12 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>태그: Bigdata - Boomkim</title>
+<title>태그: bigdata - Boomkim</title>
 
 
     <meta property="og:type" content="website">
 <meta property="og:title" content="Boomkim">
-<meta property="og:url" content="https://boomkim.github.io/tags/Bigdata/index.html">
+<meta property="og:url" content="https://boomkim.github.io/tags/bigdata/index.html">
 <meta property="og:site_name" content="Boomkim">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:image" content="https://boomkim.github.io/images/og_image.png">
@@ -138,7 +138,7 @@
         <nav class="breadcrumb" aria-label="breadcrumbs">
         <ul>
             <li><a href="/tags">태그</a></li>
-            <li class="is-active"><a href="#" aria-current="page">Bigdata</a></li>
+            <li class="is-active"><a href="#" aria-current="page">bigdata</a></li>
         </ul>
         </nav>
     </div>
@@ -148,8 +148,8 @@
 <div class="card">
     
     <div class="card-image">
-        <a href="/2021/04/23/replace-existing-document/" class="image is-7by1">
-            <img class="thumbnail" src="/images/elasticsearch.png" alt="Elasticsearch Update API로 Document 교체하기">
+        <a href="/2020/01/08/airflow-install-amazon-linux-2/" class="image is-7by1">
+            <img class="thumbnail" src="/images/2020/01/08/airflow.png" alt="Amazon Linux 2에 Airflow 설치하기">
         </a>
     </div>
     
@@ -157,17 +157,17 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2021-04-22T15:00:00.000Z">2021-04-23</time>
+                <time class="level-item has-text-grey" datetime="2020-01-07T15:00:00.000Z">2020-01-08</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/Bigdata/">Bigdata</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/Bigdata/Elasticsearch/">Elasticsearch</a>
+                <a class="has-link-grey -link" href="/categories/Bigdata/">Bigdata</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/Bigdata/Airflow/">Airflow</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    2분 읽기 (대략 360 단어)
+                    2분 읽기 (대략 243 단어)
                 </span>
                 
                 
@@ -176,23 +176,77 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2021/04/23/replace-existing-document/">Elasticsearch Update API로 Document 교체하기</a>
+                <a class="has-link-black-ter" href="/2020/01/08/airflow-install-amazon-linux-2/">Amazon Linux 2에 Airflow 설치하기</a>
             
         </h1>
         <div class="content">
-            <html><head></head><body><p>Elasticsearch 는 기본적으로 Update API를 통해 요청하면 요청한 필드만 딱 업데이트한다. </p>
-<p>그런데 종종 문서를 교체해야하는 일이 있다. update문서를 보면 문서의 Replace를 원하는 경우 <a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-index_.html">Index API</a>를 이용하라고 가이드 되어있다. </p>
-<blockquote>
-<p>To fully replace an existing document, use the index API. <a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-update.html">update 문서참고</a></p>
-</blockquote>
-<p>하지만 Index API는 만약 <strong>기존 문서가 존재하지 않으면 새로 생성</strong>해버리는 문제가 있다. 만약 기존 문서의 교체 만을 원한 것이라면 이게 문제가 된다. 기존 문서 교체를 원해서 index api를 날렸는데 실수로 id를 다르게 적었다면, 내가 교체하려는 문서는 그대로 있고 새로운 id에 문서가 생성되는 상황이 발생한다. </p></body></html>
+            <html><head></head><body><p>당연히 쉽게 될줄 알았던 airflow 설치에 꽤 애를 먹었다. 구글링을 해봐도 명확한 가이드가 나오질 않아서 내가 성공한 설치 방법을 공유한다. </p>
+<figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># 의존성 설치 (가이드 상에는 python3, gcc, gcc-c++ 정도만 설치하면 된다는데 그렇게만 하면 자꾸 에러가 난다. gcc를 실행을 못한다든지...)</span></span><br><span class="line">$ sudo yum update -y</span><br><span class="line">$ sudo yum install group <span class="hljs-string">"Development tools"</span> -y</span><br><span class="line">$ sudo yum install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel python3-devel.x86_64 cyrus-sasl-devel.x86_64 -y</span><br><span class="line">$ sudo yum install libevent-devel -y</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 드디어 airflow를 설치. 여기에서 sudo를 생략하면 권한문제가 발생한다. </span></span><br><span class="line">$ sudo pip3 install apache-airflow</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 위의 과정을 마쳤으면 여기서부터는 공식 가이드 그대로. </span></span><br><span class="line">$ airflow initdb</span><br><span class="line">$ nohup airflow webserver -p 8080 &gt; webserver.out &amp; </span><br><span class="line">$ nohup airflow scheduler &gt; scheduler.out</span><br></pre></td></tr></tbody></table></figure>
+
+<p>다른 OS에서는 확인을 못해봤고 Amazon Linux2가 올라간 EC2에서는 정상적으로 작동된다. (2020.1.8 기준)</p>
+</body></html>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-image">
+        <a href="/2019/12/17/zeppelin-stopped-sparkcontext/" class="image is-7by1">
+            <img class="thumbnail" src="/images/troubleshooting.jpg" alt="문제 해결: Cannot Call methods on a stopped SparkContext">
+        </a>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-12-16T15:00:00.000Z">2019-12-17</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Bigdata/">Bigdata</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/Bigdata/Spark/">Spark</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    3분 읽기 (대략 379 단어)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/12/17/zeppelin-stopped-sparkcontext/">문제 해결: Cannot Call methods on a stopped SparkContext</a>
+            
+        </h1>
+        <div class="content">
+            <html><head></head><body><p>스파크로 이것저것 테스트해보기 위해 zeppelin을 사용하는데 갑자기 이런 에러가 발생했다. </p>
+<p><code>java.lang.IllegalStateException: Cannot call methods on a stopped SparkContext.</code></p>
+<p>즉, 지금 사용하려는 SparkContext가 이미 종료되었다는 것이다. </p>
+<p>이걸 구글에 검색해도 ‘로그를 봐라’ 라는 식의 원론적인 답변이 나와서 헤매다가 해결방법이 떠올랐는데…</p>
+<h2 id="해결-방법"><a href="#해결-방법" class="headerlink" title="해결 방법"></a>해결 방법</h2><p><strong>그냥 스파크 인터프리터를 재시작</strong>하면 된다. </p></body></html>
         </div>
         
         
         <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2021/04/23/replace-existing-document/#more">자세히 보기</a>
+                <a class="button is-size-7 is-light" href="/2019/12/17/zeppelin-stopped-sparkcontext/#more">자세히 보기</a>
                 </div>
             </div>
         </div>
@@ -212,8 +266,8 @@
 <div class="card">
     
     <div class="card-image">
-        <a href="/2020/11/16/emr6/" class="image is-7by1">
-            <img class="thumbnail" src="/images/2020/11/EMR-thumbnail.png" alt="EMR 6 버전 출시 (Hadoop 3.0, Hive LLAP, Spark3.0 지원)">
+        <a href="/2019/12/11/what-is-spark/" class="image is-7by1">
+            <img class="thumbnail" src="/images/2019/12/11/spark-main.jpeg" alt="스파크에 대한 아주 대략적인 정리">
         </a>
     </div>
     
@@ -221,7 +275,63 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2020-11-16T14:25:33.000Z">2020-11-16</time>
+                <time class="level-item has-text-grey" datetime="2019-12-10T15:00:00.000Z">2019-12-11</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Bigdata/">Bigdata</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/Bigdata/Spark/">Spark</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    21분 읽기 (대략 3078 단어)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/12/11/what-is-spark/">스파크에 대한 아주 대략적인 정리</a>
+            
+        </h1>
+        <div class="content">
+            <html><head></head><body><p>빅데이터를 공부해야할 일이 생겨서, 하둡을 먼저 공부했다. 쌩으로 클러스터를 만들고, 설정값을 변경해보고… 그렇게 클러스터를 만드는 일부터 맵리듀스 어플리케이션을 만드는 일까지 공부하는게 쉽지만은 않았다. 여기서 약간 빅데이터의 벽(?)같은걸 1차로 느꼈다. </p>
+<p>그러다가 스파크를 만났다. 공부하다 보니 스파크가 그렇게 어렵지도 않고, 그런데 활용성은 굉장히 좋고, 성능도 좋다는 생각이 든다. 여기서 포인트는 <code>그닥 어렵지 않다</code>는 점이다. 자료들이 주로 scala라는 생소한 언어로 설명이 되어있지만, scala가 별로 어렵지 않다. 언어자체가 직관적이면서 간결하다. 그리고 scala로 배우는 스파크도 그닥 어렵지가 않다. 많은 기능을 제공하고 좋은 성능을 제공하지만, 기능들의 추상화가 잘 되어있어서 단순히 api만 호출하면 된다. </p>
+<p>이거 사긴데? 쉽고 빠른 빅데이터 처리 엔진이라니… </p>
+<p>그 동안 하둡을 공부하면서 느낀 어떤 답답함 같은게 해소되는 느낌이랄까. 맵리듀스를 짜면서 뭔가 병렬처리로 성능이 향상된다는건 알겠는데 코드 작성이 상당히 번거로웠다.<del>(책에는 간단하다고 나와있는데 원리야 간단하지만 코드짜는건 안간단함 ㅇㅇ)</del> 물론 하둡에는 맵리듀스 외에도 빠르게 분석할 수 있는 엔진들이 있지만, 그 중에 스파크가 가장 매력적으로 보인다. </p></body></html>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2019/12/11/what-is-spark/#more">자세히 보기</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-06-28T15:00:00.000Z">2019-06-29</time>
                 
                 <div class="level-item">
                 <a class="has-link-grey -link" href="/categories/AWS/">AWS</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/AWS/Data-Analytics/">Data Analytics</a>
@@ -231,7 +341,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    2분 읽기 (대략 357 단어)
+                    15분 읽기 (대략 2176 단어)
                 </span>
                 
                 
@@ -240,20 +350,236 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2020/11/16/emr6/">EMR 6 버전 출시 (Hadoop 3.0, Hive LLAP, Spark3.0 지원)</a>
+                <a class="has-link-black-ter" href="/2019/06/29/EMR-Athena-Zepplin/">EMR 에 올라간 Zeppelin 활용하여 Athena 이용하기. </a>
             
         </h1>
         <div class="content">
-            <html><head></head><body><p>아주 오랜만의 포스팅. </p>
-<h2 id="EMR-6-0"><a href="#EMR-6-0" class="headerlink" title="EMR 6.0"></a>EMR 6.0</h2><p>너무 늦은감이 있지만 EMR 6버전이 새로 출시되었다. </p>
-<p>찾아보니 올해 4월에 출시가 되었는데… 무려 7개월만이다.<br>(<a target="_blank" rel="noopener" href="https://aws.amazon.com/ko/about-aws/whats-new/2020/04/amazon-emr-announces-emr-release-6-with-new-major-versions-hadoop-hive-hbase-amazon-linux-2-docker/">https://aws.amazon.com/ko/about-aws/whats-new/2020/04/amazon-emr-announces-emr-release-6-with-new-major-versions-hadoop-hive-hbase-amazon-linux-2-docker/</a>)</p></body></html>
+            <html><head></head><body><h2 id="들어가기-전에…"><a href="#들어가기-전에…" class="headerlink" title="들어가기 전에…"></a>들어가기 전에…</h2><p>최근에 AWS Datascience 소그룹 모임의 자료를 쭉 보던 중 아주 정리가 잘 되어있는 자료를 보았습니다. <a target="_blank" rel="noopener" href="https://github.com/awskrug/datascience-group/tree/master/workshop-sustainable_data_analysis">AWS 기반 지속 가능한 데이터 분석하기
+</a> 라는 자료인데 <a target="_blank" rel="noopener" href="https://www.bigdatahub.co.kr/index.do">SK 빅데이터 허브</a>에서 제공하는 배달 업종 통화 기록을 베이스로 spark로 데이터를 변환하고 athena, Presto, tableau 를 이용해서 시각화 하는 내용을 담고 있습니다. ETL 부터 시각화까지의 내용을 아주 재밌는 데이터와 함께 잘 정리한 글입니다. (AWS 데이터사이언스 모임은 가보지 않았지만 언젠간 한번 꼭 참석하리라 마음을 먹은지 벌써 몇달째… )</p></body></html>
         </div>
         
         
         <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2020/11/16/emr6/#more">자세히 보기</a>
+                <a class="button is-size-7 is-light" href="/2019/06/29/EMR-Athena-Zepplin/#more">자세히 보기</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-06-06T15:00:00.000Z">2019-06-07</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/AWS/">AWS</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/AWS/Data-Analytics/">Data Analytics</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    9분 읽기 (대략 1287 단어)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/06/07/athena-cf-log-analysis/">AWS Athena, CF Log 분석을 위한 쿼리 예시</a>
+            
+        </h1>
+        <div class="content">
+            <html><head></head><body><h1 id="AWS-Athena-Cloudfront-Log-분석을-위한-쿼리-예시"><a href="#AWS-Athena-Cloudfront-Log-분석을-위한-쿼리-예시" class="headerlink" title="AWS Athena, Cloudfront Log 분석을 위한 쿼리 예시"></a>AWS Athena, Cloudfront Log 분석을 위한 쿼리 예시</h1><p>Cloudfront는 고맙게도 Edge단에서 발생하는 처리 로그들을 모아서 제공해 줍니다. CF Log는 기본적으로 S3에 gz 형태로 압축되엇 제공이 되고<br>다음과 같은 DDL을 통해 테이블을 정의하면 Athena에서 조회할 수 있습니다. </p></body></html>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2019/06/07/athena-cf-log-analysis/#more">자세히 보기</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-06-06T15:00:00.000Z">2019-06-07</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/AWS/">AWS</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/AWS/Data-Analytics/">Data Analytics</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    3분 읽기 (대략 462 단어)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/06/07/amazon-elasticsearch-dedicated-master-free-storage/">Amazon Elasticsearch Dedicated Master의 스토리지 비용은?</a>
+            
+        </h1>
+        <div class="content">
+            <html><head></head><body><h1 id="Amazon-Elasticsearch-Dedicated-Master의-스토리지-비용은"><a href="#Amazon-Elasticsearch-Dedicated-Master의-스토리지-비용은" class="headerlink" title="Amazon Elasticsearch Dedicated Master의 스토리지 비용은?"></a>Amazon Elasticsearch Dedicated Master의 스토리지 비용은?</h1><p>Amazon Elasticsearch 에는 Dedicated Master를 설정해줄 수 있습니다. 마스터노드의 기능만 하는 노드를 따로 빼서 클러스터의 안정성을 높이는 방안입니다. Elastic의 문서에도 클러스터의 사이즈가 큰 경우 마스터 노드를 분리하는 것을 권장하고 있네요. (참고: <a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-node.html">https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-node.html</a>)</p>
+<p>오늘 내용은 Dedicated Master에 대한 디테일한 내용이 아니라 비용에 관한 간단한 얘기입니다. </p></body></html>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2019/06/07/amazon-elasticsearch-dedicated-master-free-storage/#more">자세히 보기</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-05-23T15:00:00.000Z">2019-05-24</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/AWS/">AWS</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/AWS/Data-Analytics/">Data Analytics</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    16분 읽기 (대략 2333 단어)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/05/24/athena-with-zeppelin/">AWS Athena, Zeppelin과 함께 사용하기 (feat. ALB 로그분석)</a>
+            
+        </h1>
+        <div class="content">
+            <html><head></head><body><h1 id="Athena-심플하고-강력하지만-아쉬운-인터페이스"><a href="#Athena-심플하고-강력하지만-아쉬운-인터페이스" class="headerlink" title="Athena, 심플하고 강력하지만 아쉬운 인터페이스"></a>Athena, 심플하고 강력하지만 아쉬운 인터페이스</h1><p>이번 포스팅에서는 Athena 와 Zeppelin을 엮어서 사용하는 방법에 대해서 정리하려고 합니다. Athena는 써보면 써볼수록 요물이라는 생각이 드는 제품입니다. S3에 데이터만 잘 저장해 놓으면 그걸 SQL문으로 빠르게 쿼리할 수 있다는 컨셉이 간단하지만 강력하네요. 다른 분산처리 플랫폼도 많지만, 일단 간단하게 시작하기에는 Athena가 최적인것 같아요. </p>
+<p>다만, Athena가 워낙 심플한 구조를 갖고 있고 제공해주는 기능도 심플하다 보니 조금 아쉬운점도 있는데요, 일단 제 생각에 가장 아쉬운 점은 <code>인터페이스</code> 입니다. ‘대화형 쿼리’ 라는 컨셉으로 단순한 쿼리창만 갖고 있지만, 사실 ‘대화형’ 이라는 말처럼 채팅기록이 남진 않는게 제 생각엔 커다란 단점인 것 같아요. 우리나라 정서가 워낙 UI에 이것저것 많은 기능을 좋아해서 상대적으로 AWS의 UI가 좀 빈약하다는 느낌을 많이 받는데 Athena의 인터페이스도 그 중 하나인 것 같습니다. 그래도 ‘대화형’이라는 컨셉을 완성하기 위해서는 조금 더 인터페이스가 발전해야 할 것 같다고 생각합니다. </p></body></html>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2019/05/24/athena-with-zeppelin/#more">자세히 보기</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-03-20T15:00:00.000Z">2019-03-21</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/AWS/">AWS</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/AWS/Computing/">Computing</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    11분 읽기 (대략 1607 단어)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/03/21/lightsail-vs-ec2/">AWS Lightsail VS EC2</a>
+            
+        </h1>
+        <div class="content">
+            <html><head></head><body><p><img src="/images/lightsail.jpeg" alt="그림0"></p>
+<p>Lightsail 이라는 서비스가 나온지는 좀 되었다. 간단하게 소개하면 <strong>아마존에서 제공하는 웹 호스팅 서비스</strong> 이다. 기본적인 컨셉 자체는 AWS라는 복잡하고 어려운 클라우드 어쩌구를 몰라도 웹호스팅을 다른 업체만큼 싸게 제공해주는 데 목적이 있는 듯하다. 영세한 웹호스팅업계에 AWS라는 공룡이 침입한 게 아닌가 싶다. Digital Oceans 같은 호스팅업체와 제공하는 서비스와 심지어 UI까지 비슷하다. Digital Oceans는 점점 클라우드 업체처럼 되어가고 있고 아마존은 호스팅 업계의 영역까지 군침을 흘리고 있는 모양새다. </p>
+<p>어쨌든 Lightsail은 그저 ‘아마존의 웹호스팅 서비스’라는 것이 중요하다. </p>
+<p>그런데, AWS를 사용하고 있는 사람 입장에서는 그럼 AWS에서 EC2를 사용하는것과 Lightsail에서 사용하는 것과 뭐가 다른지가 궁금하다. 간단하게 그 차이점을 정리해보려고 한다. </p></body></html>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2019/03/21/lightsail-vs-ec2/#more">자세히 보기</a>
                 </div>
             </div>
         </div>
@@ -1832,478 +2158,6 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/bandwidth/">
                         <span class="tag">bandwidth</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/bastionhost/">
-                        <span class="tag">bastionhost</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/bigdata/">
-                        <span class="tag">bigdata</span>
-                        <span class="tag is-grey">8</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/blog/">
-                        <span class="tag">blog</span>
-                        <span class="tag is-grey">2</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/cloudfront/">
-                        <span class="tag">cloudfront</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/commands/">
-                        <span class="tag">commands</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/concurrency/">
-                        <span class="tag">concurrency</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/cpr/">
-                        <span class="tag">cpr</span>
-                        <span class="tag is-grey">2</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/data/">
-                        <span class="tag">data</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/ec2/">
-                        <span class="tag">ec2</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/elasticsearch/">
-                        <span class="tag">elasticsearch</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/generate/">
-                        <span class="tag">generate</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/hexo/">
-                        <span class="tag">hexo</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/icarus/">
-                        <span class="tag">icarus</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/issue/">
-                        <span class="tag">issue</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/jekyll/">
-                        <span class="tag">jekyll</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/jekyll-swiss/">
-                        <span class="tag">jekyll-swiss</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/lambda/">
-                        <span class="tag">lambda</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/lambda-edge/">
-                        <span class="tag">lambda@edge</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/linux/">
-                        <span class="tag">linux</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/log/">
-                        <span class="tag">log</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/migration/">
-                        <span class="tag">migration</span>
-                        <span class="tag is-grey">2</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/network/">
-                        <span class="tag">network</span>
-                        <span class="tag is-grey">2</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/painless/">
-                        <span class="tag">painless</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/portfowarding/">
-                        <span class="tag">portfowarding</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/programing-language/">
-                        <span class="tag">programing language</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/python/">
-                        <span class="tag">python</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/queries/">
-                        <span class="tag">queries</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/rds/">
-                        <span class="tag">rds</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/read-replica/">
-                        <span class="tag">read replica</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/readreplica/">
-                        <span class="tag">readreplica</span>
-                        <span class="tag is-grey">2</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/revierepublic/">
-                        <span class="tag">revierepublic</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/reviewrepublic/">
-                        <span class="tag">reviewrepublic</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/security/">
-                        <span class="tag">security</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/serverless/">
-                        <span class="tag">serverless</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/spark/">
-                        <span class="tag">spark</span>
-                        <span class="tag is-grey">2</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/ssh/">
-                        <span class="tag">ssh</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/storage/">
-                        <span class="tag">storage</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/theme/">
-                        <span class="tag">theme</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/troubleshooting/">
-                        <span class="tag">troubleshooting</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/zeppelin/">
-                        <span class="tag">zeppelin</span>
-                        <span class="tag is-grey">5</span>
-                    </a>
-                </div>
-                
-            </div>
-        </div>
-    </div>
-</div>
-    
-    
-</div>
-
-            </div>
-        </div>
-    </section>
-    <footer class="footer">
-    <div class="container">
-        <div class="level">
-            <div class="level-start has-text-centered-mobile">
-                <a class="footer-logo is-block has-mb-6" href="/">
-                
-                    <img src="/images/logo.png" alt="Boomkim" height="28">
-                
-                </a>
-                <p class="is-size-7">
-                &copy; 2021 boomkim&nbsp;
-                Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & <a
-                        href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
-                
-                </p>
-            </div>
-            <div class="level-end">
-            
-                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
-                
-                <p class="control">
-                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
-                        
-                        <i class="fab fa-creative-commons"></i>
-                        
-                    </a>
-                </p>
-                
-                <p class="control">
-                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
-                        
-                        <i class="fab fa-creative-commons-by"></i>
-                        
-                    </a>
-                </p>
-                
-                <p class="control">
-                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
-                        
-                        <i class="fab fa-github"></i>
-                        
-                    </a>
-                </p>
-                
-                </div>
-            
-            </div>
-        </div>
-    </div>
-</footer>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
-<script>moment.locale("ko");</script>
-
-<script>
-var IcarusThemeSettings = {
-    article: {
-        highlight: {
-            clipboard: true,
-            fold: 'unfolded'
-        }
-    }
-};
-</script>
-
-
-    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
-
-
-
-    
-    
-<script src="/js/animation.js"></script>
-
-    
-    
-<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
-<script src="/js/gallery.js" defer></script>
-
-    
-    
-<div id="outdated">
-    <h6>Your browser is out-of-date!</h6>
-    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" target="_blank" rel="noopener" href="http://outdatedbrowser.com/">Update
-            my browser now </a></p>
-    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
-</div>
-<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        outdatedBrowser({
-            bgColor: '#f25648',
-            color: '#ffffff',
-            lowerThan: 'flex'
-        });
-    });
-</script>
-
-    
-    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-    MathJax.Hub.Config({
-        'HTML-CSS': {
-            matchFontHeight: false
-        },
-        SVG: {
-            matchFontHeight: false
-        },
-        CommonHTML: {
-            matchFontHeight: false
-        },
-        tex2jax: {
-            inlineMath: [
-                ['$','$'],
-                ['\\(','\\)']
-            ]
-        }
-    });
-});
-</script>
-    
-    
-<a id="back-to-top" title="Back to Top" href="javascript:;">
-    <i class="fas fa-chevron-up"></i>
-</a>
-<script src="/js/back-to-top.js" defer></script>
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-
-<script src="/js/main.js" defer></script>
-
-    
-    <div class="searchbox ins-search">
-    <div class="searchbox-container ins-search-container">
-        <div class="searchbox-input-wrapper">
-            <input type="text" class="searchbox-input ins-search-input" placeholder="입력 하세요..." />
-            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
-        </div>
-        <div class="searchbox-result-wrapper ins-section-wrapper">
-            <div class="ins-section-container"></div>
-        </div>
-    </div>
-</div>
-<script>
-    (function (window) {
-        var INSIGHT_CONFIG = {
-            TRANSLATION: {
-                POSTS: '포스트',
-                PAGES: '페이지',
-                CATEGORIES: '카테고리',
-                TAGS: '태그',
-                UNTITLED: '(제목없음)',
-            },
-            CONTENT_URL: '/content.json',
-        };
-        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
-    })(window);
-</script>
-<script src="/js/insight.js" defer></script>
-<link rel="stylesheet" href="/css/search.css">
-<link rel="stylesheet" href="/css/insight.css">
-    
-</body>
-</html>                     <span class="tag">bandwidth</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
