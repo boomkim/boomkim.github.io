@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html  lang="ko">
+<head>
+    <meta charset="utf-8" />
+
+<meta name="generator" content="Hexo 5.2.0" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<title>디아2 레저렉션 서버다운 공지를 번역해봤습니다. - Boomkim</title>
+
+
+    <meta name="description" content="디아2: 레저렉션, 서버도 터지고 아이템도 날아가고…디아2 레저렉션 서버가 터졌습니다.  그냥 터지고 게임만 못하면 그나마 다행인데, 몇몇 유저의 게임 진행 내용이 사라졌습니다. 과거 시점으로 롤백 되어버린거죠. 아니 이게 실화인가 싶었는데 와우 유저들에게는 종종 있었던 일이라네요. (그게 더 놀랍네요) 백섭 이라는 용어가 있더군요… https:&#x2F;&#x2F;namu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="디아2 레저렉션 서버다운 공지를 번역해봤습니다.">
+<meta property="og:url" content="https://boomkim.github.io/2021/10/15/d2r-outages/index.html">
+<meta property="og:site_name" content="Boomkim">
+<meta property="og:description" content="디아2: 레저렉션, 서버도 터지고 아이템도 날아가고…디아2 레저렉션 서버가 터졌습니다.  그냥 터지고 게임만 못하면 그나마 다행인데, 몇몇 유저의 게임 진행 내용이 사라졌습니다. 과거 시점으로 롤백 되어버린거죠. 아니 이게 실화인가 싶었는데 와우 유저들에게는 종종 있었던 일이라네요. (그게 더 놀랍네요) 백섭 이라는 용어가 있더군요… https:&#x2F;&#x2F;namu">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:image" content="https://boomkim.github.io/images/d2r-outage.png">
+<meta property="article:published_time" content="2021-10-14T15:00:00.000Z">
+<meta property="article:modified_time" content="2021-10-15T08:55:17.881Z">
+<meta property="article:author" content="boomkim">
+<meta property="article:tag" content="D2R">
+<meta property="article:tag" content="Architecture">
+<meta property="article:tag" content="Microservice">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://boomkim.github.io/images/d2r-outage.png">
+
+
+
+
+
+
+
+<link rel="icon" href="/images/favicon.svg">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+<style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+    
+    
+    
+    
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-121973475-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-121973475-1');
+</script>
+
+    
+    
+    
+    
+    
+    <link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+    
+    
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="is-2-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/logo.png" alt="디아2 레저렉션 서버다운 공지를 번역해봤습니다." height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item"
+                href="/">Home</a>
+                
+                <a class="navbar-item"
+                href="/archives">Archives</a>
+                
+                <a class="navbar-item"
+                href="/categories">Categories</a>
+                
+                <a class="navbar-item"
+                href="/tags">Tags</a>
+                
+                <a class="navbar-item"
+                href="/about">About</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    <a class="navbar-item" target="_blank" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                
+                <a class="navbar-item search" title="검색" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main">
+<div class="card">
+    
+    <div class="card-image">
+        <span  class="image is-7by1">
+            <img class="thumbnail" src="/images/d2r-outage.png" alt="디아2 레저렉션 서버다운 공지를 번역해봤습니다.">
+        </span>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2021-10-14T15:00:00.000Z">2021-10-15</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/%EB%B2%88%EC%97%AD/">번역</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    한 시간 읽기 (대략 7942 단어)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                디아2 레저렉션 서버다운 공지를 번역해봤습니다.
+            
+        </h1>
+        <div class="content">
+            <html><head></head><body><h2 id="디아2-레저렉션-서버도-터지고-아이템도-날아가고…"><a href="#디아2-레저렉션-서버도-터지고-아이템도-날아가고…" class="headerlink" title="디아2: 레저렉션, 서버도 터지고 아이템도 날아가고…"></a>디아2: 레저렉션, 서버도 터지고 아이템도 날아가고…</h2><p>디아2 레저렉션 서버가 터졌습니다. </p>
+<p>그냥 터지고 게임만 못하면 그나마 다행인데, 몇몇 유저의 게임 진행 내용이 사라졌습니다. 과거 시점으로 롤백 되어버린거죠. 아니 이게 실화인가 싶었는데 와우 유저들에게는 종종 있었던 일이라네요. (그게 더 놀랍네요) <code>백섭</code> 이라는 용어가 있더군요… <a target="_blank" rel="noopener" href="https://namu.wiki/w/%EB%A1%A4%EB%B0%B1?from=%EB%B0%B1%EC%84%AD">https://namu.wiki/w/롤백?from=백섭</a></p>
+<p>다행히 저는 지난 주말에 택배사가 일을 안해서 컴퓨터를 못맞췄고… 게임을 진행하지 않아 백섭 당하지 않았습니다. 여튼 서버가 터지고, 그 시간에 득템을 한사람들, 심지어 득템한걸 거래한 사람들은… 이후에 좋은 템 주우실 거에요… 저도 어제 좀 해봤는데, 기분 탓인지 블쟈가 미안하다고 잠시 템 드랍률을 올린건지… 템이 잘 뜨더라구요. </p>
+<p>여튼, <em>도대체 디아블로2 레저렉션 서버가 어떻길래 이런일이 가능한거지?</em> 싶어서 궁금해하던 차에… 블쟈에서 무슨일이 벌어졌던건지 글을 내놓았습니다. </p>
+<p><a target="_blank" rel="noopener" href="https://us.forums.blizzard.com/en/d2r/t/diablo-ii-resurrected-outages-an-explanation-how-we%E2%80%99ve-been-working-on-it-and-how-we%E2%80%99re-moving-forward/28164">https://us.forums.blizzard.com/en/d2r/t/diablo-ii-resurrected-outages-an-explanation-how-we’ve-been-working-on-it-and-how-we’re-moving-forward/28164</a></p>
+<p>그래서 읽어봤는데, 엔지니어로서 상당히 흥미로웠습니다 ㅋㅋㅋㅋ</p>
+<p>레거시 서비스가(무려 20년전 서비스) 얼굴만 살짝 바꿔서 현대의 유저를 만났을때 어떤 문제가 생기는지, 그걸 어떻게 바꿔나가는지 재밌는 사례인것 같아서 공유해보려고 합니다. </p>
+<p>매끄럽지 않고, 생략도 많고 오역도 있을 수 있는, 번역이라고 말하기 어려운 번역이지만… 구글 번역으로 읽다 보니 뭔말인지 모르겠는 문장이 많아서… 대충 한 문단씩 제가 관심가는 부분만  번역해봤습니다. </p>
+<p>전체 글 보기 귀찮으신 분들은 내려가서 요약 만 먼저 보셔요.</p>
+<hr>
+<h2 id="공지-번역-문단-by-문단"><a href="#공지-번역-문단-by-문단" class="headerlink" title="공지 번역 (문단 by 문단)"></a>공지 번역 (문단 by 문단)</h2><p>Hello, everyone.</p>
+<p>Since the launch of Diablo II: Resurrected, we have been experiencing multiple server issues, and we wanted to provide some transparency around what is causing these issues and the steps we have taken so far to address them. We also want to give you some insight into how we’re moving forward.</p>
+<p>안녕 여러분. 서버가 터졌고, 여러분들한테 뭐가 문제였고 앞으로 어떻게할건지 투명하게 말하고 싶어서 글을 써. </p>
+<p>tl;dr: Our server outages have not been caused by a singular issue; we are solving each problem as they arise, with both mitigating solves and longer-term architectural changes. A small number of players have experienced character progression loss–moving forward, any loss due to a server crash should be limited to several minutes. This is not a complete solve to us, and we are continuing to work on this issue. Our team, with the help of others at Blizzard, are working to bring the game experience to a place that feels good for everyone. </p>
+<p>짧게 말하자면,  <del>(안짧은데?)</del> 서버가 단순히 하나의 문제 때문에 터진건 아니다. 여러 문제를 고쳐나가면서 동시에 장기적, 구조적 변경을 진행하고 있다. ‘소수의’  유저가 캐릭터 진행사항을 잃어버렸고, 앞으로 이런일은 서버가 터진 몇분 안으로 제한되어야 한다(혹은 그렇게 될것 이다). 그러나 이게 완전한 문제 해결은 아니고, 계속 이 이슈에 대해서 작업 중이다. </p>
+<p>We’re going to get a little bit into the weeds here with some engineering specifics, but we hope that overall this helps you understand why these outages have been occurring and what we’ve been doing to address each instance, as well as how we’re investigating the overall root cause. Let’s start at the beginning.</p>
+<p>앞으로 얘기할 거리는 엔지니어링 적인 측면이 많아. 그래도 이렇게 좀 자세한 얘기를 해야 우리를 좀더 이해해줄거라 믿어. </p>
+<p><strong>The problem(s) with the servers:</strong></p>
+<p>Before we talk about the problems, we’ll briefly give you some context as to how our server databases work. First, there’s our global database, which exists as the single source of truth for all your character information and progress. As you can imagine, that’s a big task for one database, and wouldn’t cope on its own. So to alleviate load and latency on our global database, each region–NA, EU, and Asia–has individual databases that also store your character’s information and progress, and your region’s database will periodically write to the global one. Most of your in-game actions are performed against this regional database because it’s faster, and your character is “locked” there to maintain the individual character record integrity. The global database also has a back-up in case the main fails.</p>
+<p><strong>서버의 문제:</strong></p>
+<p>를 얘기하기 전에 우리 서버가 어떻게 되어있는지 알려줄게. </p>
+<p>우리는 single source of truth 가 되는 global database와, 얘가 혼자 일하기엔 너무 빡세니깐 region database 를 NA, EU, Asia에 두고있어. 유저가 게임을 진행하면 여기에 먼저 저장이되고 주기적으로 global database에 write 해. 캐릭터는 무결성을 위해 거기(아마도 global database)에 “락” 되고, 글로벌 데이터베이스는 백업도 갖고 있어. </p>
+<p>With that in mind, to explain what’s been going on, we’ll be focusing on the downtimes experienced between Saturday October 9 to now.</p>
+<p>이걸 바탕으로 앞으로 설명한 10/9 에 일어난 일에 대해서 설명할거야. (태평양 기준으로 10월 9일 토요일 아침, 즉 한국시간으로 10월 8일 금요일 밤)</p>
+<p>On Saturday morning Pacific time, we suffered a global outage due to a sudden, significant surge in traffic. This was a new threshold that our servers had not experienced at all, not even at launch. This was exacerbated by an update we had rolled out the previous day intended to enhance performance around game creation–these two factors combined overloaded our global database, causing it to time out. We decided to roll back that Friday update we’d previously deployed, hoping that would ease the load on the servers leading into Sunday while also giving us the space to investigate deeper into the root cause.</p>
+<p>금요일 밤에 갑자기 트래픽이 엄청 몰리면서 서버가 터졌어. 우리가 런치때도 경험해보지 못한 엄청난 양이었어. </p>
+<p>전날 배포한 게임 생성 성능 향상을 위한 업데이트와 맞물리면서 맞물리면서 더 악화됐고, global database에 과부하가 걸려 timeout이 발생했어. 우리를 금요일에 배포한 업데이트를 롤백시키기로 결정했어. 롤백이 부하를 좀 경감시켜서 근본 원인을 파악할 수 있는 여유를 좀 만들기를 기대하면서. (맨 처음 결정이 DB롤백은 아니라는 말) </p>
+<p>On Sunday, though, it became clear what we’d done on Saturday wasn’t enough–we saw an even higher increase in traffic, causing us to hit another outage. Our game servers were observing the disconnect from the database and immediately attempted to reconnect, repeatedly, which meant the database never had time to catch up on the work we had completed because it was too busy handling a continuous stream of connection attempts by game servers. During this time, we also saw we could make configuration improvements to our database event logging, which is necessary to restore a healthy state in case of database failure, so we completed those, and undertook further root cause analysis.</p>
+<p>일요일에, 우리가 토요일에 한 조치가 충분하지 않다는걸 깨달았어. 심지어 더 많은 트래픽이 발생했고, 또 다시 터짐. 게임서버가 DB에 접속하지 못하면서 재접속을 반복적으로 시도하고, 이로인해 DB는 더더욱 ‘the work we have completed’을 따라가지 못하게 되었어. 그러는 동안 DB 로깅 설정을 개선했어. DB를 복구하기 위해선 필수적이었어. </p>
+<p>The double-edged sword of Sunday’s outage was that because of what we’d dealt with on Saturday, we had created what was essentially a playbook on how to recover from it quickly. Which was good.</p>
+<p>일요일 사고의 장점은… 빨리 복구 할수 있었다는거야… 좋은일이지… (빠르게 복구하는 법을 playbook으로 만들 수 있었다) </p>
+<p>But because we came online again so quickly in a peak window of player activity, with hundreds of thousands of games within tens of minutes, we fell over again. Which was bad.</p>
+<p>근데 너무 빨리 복구해버려서, 그것도 수십만 게임이 있는 상황에 빠르게 복구를 해버려서, 다시 터져버렸어. 안좋은 일이지… </p>
+<p>So we had many fixes to deploy, including configuration and code improvements, which we deployed onto the backup global database. This leads us into Monday, October 11, when we made the switch between the global databases. This led to another outage, when our backup database was erroneously continuing to run its backup process, meaning that it spent most of its time trying to copy from the other database when it should’ve been servicing requests from servers. During this time, we discovered further issues, and we made further improvements–we found a since-deprecated-but-taxing query we could eliminate entirely from the database, we optimized eligibility checks for players when they join a game, further alleviating the load, and we have further performance improvements in testing as we speak. We also believe we fixed the database-reconnect storms we were seeing, because we didn’t see it occur on Tuesday.</p>
+<p>그래서 우리는 설정과 코드 개선을 포함하는 배포본을 만들었고 백업 글로벌 데이터베이스를 대상으로 배포했어. 그래서 결국 10월 11일 월요일 (PDT 기준), 이거 때문에 또 터짐. 백업서버가 백업과정에 오류를 겪으면서, 계속 원본서버에서 copy를 시도했고, 원본서버는 서비스 중인 게임의 요청을 받아야 되는데 copy에 정신이 뺐겨 버림. 그러면서 우리는 안쓰는 쿼리 몇개를 제거하고, 부하를 증가시키는 유저 인증을 최적화하고, 그 외에도 여러 성능개선이 이루어지고 있어(이 글을 쓰고 있는 중에도). 데이터베이스-재접속 폭풍은 고쳤다고 믿고 있어. 화요일에 안나타나고 있거든. </p>
+<p>Then Tuesday, we hit another concurrent player high, with a few hundreds of thousands of players in one region alone. This made us hit another incident of degraded database performance, the cause of which is currently being worked on by our database engineers. We also reached out to other engineers around Blizzard to work on smaller fixes as our own team focused on core server issues, and we reached out to our third-party partners for assistance as well.</p>
+<p>화요일에, 다시 접속자가 몰리는 것을 확인했고, 특히 한 리전에, 다시 데이터베이스 성능저하를 맛보게 됨. 여기에 대해서는 우리 DB 엔지니어가 확인 중임. 다른 블쟈 엔지니어의 도움과 파트너들의 도움도 받고 있어. 우리는 코어 서버이슈를 확인하고 있고. </p>
+<p><strong>Why this is happening:</strong></p>
+<p>In staying true to the original game, we kept a lot of legacy code. However, one legacy service in particular is struggling to keep up with modern player behavior.</p>
+<p><strong>왜 이런일이 생긴 걸까:</strong></p>
+<p>원작을 살리기 위해, 레거시 코드도 살려놨어 ^0^ 그런데 레거시 서비스중 어떤 서비스는 부분적으로(에이..) 모던 플레이어의 행동을 따라가기는 벅찬가봐. </p>
+<p>This service, with some upgrades from the original, handles critical pieces of game functionality, namely game creation/joining, updating/reading/filtering game lists, verifying game server health, and reading characters from the database to ensure your character can participate in whatever it is you’re filtering for. Importantly, this service is a singleton, which means we can only run one instance of it in order to ensure all players are seeing the most up-to-date and correct game list at all times. We did optimize this service in many ways to conform to more modern technology, but as we previously mentioned, a lot of our issues stem from game creation.</p>
+<p>그 서비스는 게임생성, 조인, 게임리스트 업데이트, 읽기, 필터, 그리고 게임서버 상태체크, 데이터베이스에서 캐릭터 상태를 읽어 게임에 참가할수 있는지 판단하기 등의 작업을 해. 그런데, 싱글턴이야. 모든 플레이어가 정확한 최신 게임리스트를 보려고 할때 하나의 그거에 대해 하나의 인스턴스만 실행할 수 있어. 이 서비스를 현대화시키려고 많이 노력했고, 개선했는데, 많은 문제는 게임생성에서 비롯해. </p>
+<p>We mention “modern player behavior” because it’s an interesting point to think about. In 2001, there wasn’t nearly as much content on the internet around how to play Diablo II “correctly” (Baal runs for XP, Pindleskin/Ancient Sewers/etc for magic find, etc). Today, however, a new player can look up any number of amazing content creators who can teach them how to play the game in different ways, many of them including lots of database load in the form of creating, loading, and destroying games in quick succession. Though we did foresee this–with players making fresh characters on fresh servers, working hard to get their magic-finding items–we vastly underestimated the scope we derived from beta testing.</p>
+<p>2001년에는… 바알런 핀들런 토굴앵벌 같은게 없었어. 이런 유저의 행동은 게임을 생성하고, 로드하고, 파괴하는 과정을 빠르게 반복하면서 db 부하를 줘. 물론 우리도 이걸 예상하긴했는데, 디아재들의 앵벌력을 얕봤어. (아니근데 베타테스트에는 액트 2까지 밖에 없었잖아) </p>
+<p>Additionally, overall, we were saving too often to the global database: There is no need to do this as often as we were. We should really be saving you to the regional database, and only saving you to the global database when we need to unlock you–this is one of the mitigations we have put in place. Right now we are writing code to change how we do this entirely, so we will almost never be saving to the global database, which will significantly reduce the load on that server, but that is an architecture redesign which will take some time to build, test, then implement.</p>
+<p>게다가, 우리가 global database로 너무 자주 Save했어. 그럴 필요가 없었는데. 지역 데이터베이스에만 너희 정보를 제대로 저장하고 글로벌 데이터베이스에는 너희를 unlock 할때만 필요한건데 말야. 이렇게 하는 코드를 지금 작성중이야. 글로벌데이터베이스에는 거의 save 하지 않는 방법. 그러면 서버 부하가 엄청나게 줄어들거야. 그런데 이건 아키텍쳐를 다시 설계하는거라 빌드, 테스트, 구현에 시간이 좀 걸려. </p>
+<p><strong>A note about progress loss:</strong></p>
+<p>The progress loss some players have experienced is due to the way we do character locks both in the regional and global databases–we lock your character in the global database when you are assigned to a region (for example, when you play in the US region, your character is locked to the US region, and most actions are resolved in the US region’s database.)</p>
+<p><strong>게임 진행사항을 잃어버린것에 대하여:</strong> </p>
+<p>몇몇 플레이어는 백섭을 당했어. 우리의 lock 방식때문에. (두 데이터베이스  모두에 write 하는 방식) </p>
+<p>he problem was that during a server outage, when the database was falling over, a number of characters were becoming stuck in the regional database, and we had no way of moving them over to the global database. At that time, we believed we had two options: we either unlock everyone with unsaved changes in the global database, therefore losing some progress due to an overwrite that would occur in the global database, or we bring the game down entirely for an indeterminate amount of time and run a script to write the regional data to the global database.</p>
+<p>서버가 터져있는 동안. 몇몇 캐릭터는 regional database에 갇혀버렸고 (stuck), 우리는 이걸 글로벌 데이터베이스로 옮길 방법이 없었어. 그때, 우리는 두 가지 방법이 있다고 생각했어. 하나는, 저장되지 않은 사항을 모두 풀어버려서 게임 진행사항을 좀 잃어버리는 방법 (덮어쓰기가 되기 때문에… 즉 백섭), 아니면 얼마나 걸릴지 모르는 시간을 기다리고 점검을 걸어서 reginal data를 global data에 쓰는 방법. </p>
+<p>At the time, we acted on the former: we felt it was more important to keep the game up so people could play, rather than take the game down for a long period of time to restore the data. We are deeply sorry to any players who lost important progress or valuable items. As players ourselves, we know the sting of a rollback, and feel it deeply.</p>
+<p>그 시점에, 우리는 전자의 방법(백섭)을 선택했어. 긴 시간 동안 게임을 못하게 하는것 보다는, 유저가 계속 게임을 플레이하는게 더 중요하다고 생각했거든. 미안. 몹시 미안. </p>
+<p>Moving forward, we believe we have a way to restore characters that doesn’t lead to any significant data loss–it should be limited to several minutes of loss, if any, in the event of a server crash.</p>
+<p>(애매해서 그냥 구글 번역…) 앞으로 우리는 심각한 데이터 손실로 이어지지 않는 캐릭터를 복원할 수 있는 방법이 있다고 생각합니다. 서버 충돌 시 손실이 있는 경우 몇 분 이내로 제한되어야 합니다.</p>
+<p>This is better, but still not good enough in our eyes.</p>
+<p>이건 그나마 좀 낫지만 <del>(몇시간 데이터가 날아가는것 보다는 몇분이 낫다는건가)</del> 우리가 보기에 충분히 좋지 않다. </p>
+<p><strong>What we are doing about it:</strong></p>
+<p>우리가 지금 뭘하고 있냐면… </p>
+<p><strong><em>Rate limiting:</em></strong> We are limiting the number of operations to the database around creating and joining games, and we know this is being felt by a lot of you. For example, for those of you doing Pindleskin runs, you’ll be in and out of a game and creating a new one within 20 seconds. In this case, you will be rate limited at a point. When this occurs, the error message will say there is an issue communicating with game servers: this is not an indicator that game servers are down in this particular instance, it just means you have been rate limited to reduce load temporarily on the database, in the interest of keeping the game running. We can assure you this is just mitigation for now–we do not see this as a long-term fix.</p>
+<p><strong>비율 제한:</strong> 20초에 한번만 게임 만들 수 있음. 게임서버와 통신에 문제가 있습니다 라는 에러가 나오겠지만, 이러한 상황이면 너가 비율제한에 걸린거다.이건 임시 조치이고. long-term fix는 아님. </p>
+<p><strong><em>Login Queue Creation:</em></strong> This past weekend was a series of problems, not the same problem over and over again. Due to a revitalized playerbase, the addition of multiple platforms, and other problems associated with scaling, we may continue to run into small problems. To diagnose and address them swiftly, we need to make sure the “herding”–large numbers of players logging in simultaneously–stops. To address this, we have people working on a login queue, much like you may have experienced in World of Warcraft. This will keep the population at the safe level we have at the time, so we can monitor where the system is straining and address it before it brings the game down completely. Each time we fix a strain, we’ll be able to increase the population caps. This login queue has already been partially implemented on the backend (right now, it looks like a failed authentication in the client) and should be fully deployed in the coming days on PC, with console to follow after.</p>
+<p><strong>로그인 큐 생성:</strong> 서버가 터졌다 살아났다를 반복하니, 로그인이 몰리는 현상도 있었다. 로그인 큐를 만들겠다. 곧 배포됨. </p>
+<p><strong><em>Breaking out critical pieces of functionality into smaller services:</em></strong> This work is both partially in progress for things we can tackle in less than a day (some have been completed already this week) and also planned for larger projects, like new microservices (for example, a GameList service that is only responsible for providing the game list to players). Once critical functionality has been broken down, we can look into scaling up our game management services, which will reduce the amount of load.</p>
+<p><strong>서비스 쪼개기.</strong> 일부는 벌써 완료, 일부는 더 큰 규모의 프로젝트로 계획중. 예를들어 Gamelist라는 microservice 신설. 중요 기능이 쪼개지면, 게임 관리 서비스를 스케일업 할 수 있고, 부하를 감소시킬 수 있다. </p>
+<p>We have people working incredibly hard to manage incidents in real-time, diagnosing issues, and implementing fixes–not just on the D2R team, but across Blizzard. This game means so much to all of us. A lot of us on the team are lifelong D2 players–we played during its initial launch back in 2000, some are part of the modding community, and so on. We can assure you that we will keep working until the game experience feels good to us not only as developers, but as players and members of the community ourselves.</p>
+<p>지금 우린 실시간으로 빡세게 작업중이야… 디아블로2레저렉션은 우리에게 많은 의미가 있어. 우리팀에는 디아재가 많아. 잘해볼게… </p>
+<hr>
+<h2 id="엔지니어링-관점에서-요약…"><a href="#엔지니어링-관점에서-요약…" class="headerlink" title="엔지니어링 관점에서 요약…"></a>엔지니어링 관점에서 요약…</h2><h3 id="디아블로-서비스-구조"><a href="#디아블로-서비스-구조" class="headerlink" title="디아블로 서비스 구조"></a>디아블로 서비스 구조</h3><ul>
+<li>Global Database : Single Source of Truth</li>
+<li>Regional Database: for latency</li>
+<li>Regional Database &lt; — &gt; Global Database 동기화를 짧은 주기로 반복함.</li>
+<li>DB와의 통신을 담당하는 서비스가 Singleton (게임생성,목록조회, 필터링, 캐릭터 상태 파악 등…)<ul>
+<li>이 정도면 멀티플레이 모듈이 그냥 한 묶음인거 아닐까.</li>
+</ul>
+</li>
+<li>유저인증도 분리되지 않은 듯.</li>
+</ul>
+<h3 id="서비스-장애는…"><a href="#서비스-장애는…" class="headerlink" title="서비스 장애는…"></a>서비스 장애는…</h3><ul>
+<li>예상보다 많은 유저가 몰렸고 많은 유저를 감당하던 중 regional db의 데이터를 global db로 쓰지 못하는 문제가 발생.</li>
+<li>서버가 터지면서 db에 수많은 connection을 생성하고 이로인해 db timeout 발생</li>
+<li>터지는 과정은…<ul>
+<li>game creation 속도를 개선하려고 새 배포 (배포까진 안터짐)</li>
+<li>수많은 유저 + 반복적인 game creation (금요일 밤, 디아재들이 앵벌하러 몰려감)</li>
+<li>서버 복구 후 접속 폭주, 인증요청 폭주 (야 서버 열렸대!! 다시 달려감 → 터짐)</li>
+<li>다시 터짐  등 반복</li>
+</ul>
+</li>
+</ul>
+<h3 id="복구-과정"><a href="#복구-과정" class="headerlink" title="복구 과정"></a>복구 과정</h3><ul>
+<li>우선 game creation 관련한 배포 롤백</li>
+<li>그래도 터지고, 복구하고 반복 (이때는 몇가지 DB conf 정도만 수정한듯)</li>
+<li>소스 수정, 테스트 과정에서 백업서버와의 동기화 과정에서 또 터짐</li>
+<li>이 과정에서 안쓰는 쿼리제거, 유저 인증과정 최적화</li>
+<li>화요일 이후에는 안정적으로 보인다… (어제도 10시에 터지드만… 11시반쯤 복구되고)</li>
+</ul>
+<h3 id="장애원인"><a href="#장애원인" class="headerlink" title="장애원인"></a>장애원인</h3><ul>
+<li>불필요한 region, global db 동기화</li>
+<li>많은 서비스를 감당하는 singleton 서비스</li>
+<li>디아재들의 화력을 얕봄</li>
+</ul>
+<h3 id="앞으로-어떡할거냐면…"><a href="#앞으로-어떡할거냐면…" class="headerlink" title="앞으로 어떡할거냐면…"></a>앞으로 어떡할거냐면…</h3><ul>
+<li>20초에 한번씩 방만드는건 막을게 미안 (장기적으로는 이 제한 풀어줄게)</li>
+<li>로그인 큐는 필요한것 같아. 한번에 너무 몰리면 서버가 터져</li>
+<li>microservice 도입할게. 예를들면 GameList라는 서비스를 분리.</li>
+<li>DB도 굳이 리전이랑 글로벌이랑 동기화 많이 안해도 될듯. 아주 가끔 하도록 바꿀거야. 리전 정보가 너의 캐릭의 마스터 정보가 되도록 ㅇㅇ</li>
+</ul>
+<hr>
+<h2 id="한글만-모아놓은-ver"><a href="#한글만-모아놓은-ver" class="headerlink" title="한글만 모아놓은 ver."></a>한글만 모아놓은 ver.</h2><p>안녕 여러분. 서버가 터졌고, 여러분들한테 뭐가 문제였고 앞으로 어떻게할건지 투명하게 말하고 싶어서 글을 써. </p>
+<p>(tl;dr)짧게 말하자면,  <del>(안짧은데?)</del> 서버가 단순히 하나의 문제 때문에 터진건 아니다. 여러 문제를 고쳐나가면서 동시에 장기적, 구조적 변경을 진행하고 있따. 몇몇 유저가 캐릭터 진행사항을 잃어버렸고, 앞으로 이런일은 서버가 터진 몇분 안으로 제한되어야 한다(혹은 그렇게 될것 이다). 그러나 이게 완전한 문제 해결은 아니고, 계속 이 이슈에 대해서 작업 중이다.</p>
+<p>앞으로 얘기할 거리는 엔지니어링 적인 측면이 많아. 그래도 이렇게 좀 자세한 얘기를 해야 우리를 좀더 이해해줄거라 믿어. </p>
+<h3 id="서버의-문제"><a href="#서버의-문제" class="headerlink" title="서버의 문제:"></a><strong>서버의 문제:</strong></h3><p>를 얘기하기 전에 우리 서버가 어떻게 되어있는지 알려줄게. </p>
+<p>우리는 single source of truth 가 되는 global database와, 얘가 혼자 일하기엔 너무 빡세니깐 region database 를 NA, EU, Asia에 두고있어. 유저가 게임을 진행하면 여기(regional database)에 먼저 저장이되고 주기적으로 global database에 write 해. 캐릭터는 무결성을 위해 거기(아마도 global database)에 “락” 되고, 글로벌 데이터베이스는 백업도 갖고 있어. </p>
+<p>이걸 바탕으로 앞으로 설명한 10/9 에 일어난 일에 대해서 설명할거야. (태평양 기준으로 10월 9일 토요일 아침, 즉 한국시간으로 10월 8일 금요일 밤)</p>
+<p>금요일 밤에 갑자기 트래픽이 엄청 몰리면서 서버가 터졌어. 우리가 런치때도 경험해보지 못한 엄청난 양이었어. </p>
+<p>전날 배포한 게임 생성 성능 향상을 위한 업데이트와 맞물리면서 더 악화됐고, global database에 과부하가 걸려 timeout이 발생했어. 우리를 금요일에 배포한 업데이트를 롤백시키기로 결정했어. 롤백이 부하를 좀 경감시켜서 근본 원인을 파악할 수 있는 여유를 좀 만들기를 기대하면서. (맨 처음 결정이 DB롤백은 아니라는 말) </p>
+<p>일요일에, 우리가 토요일에 한 조치가 충분하지 않다는걸 깨달았어. 심지어 더 많은 트래픽이 발생했고, 또 다시 터짐. 게임서버가 DB에 접속하지 못하면서 재접속을 반복적으로 시도하고, 이로인해 DB는 더더욱 ‘the work we have completed’을 따라가지 못하게 되었어. 그러는 동안 DB 로깅 설정을 개선했어. DB를 복구하기 위해선 필수적이었어. </p>
+<p>일요일 사고는 우리에게 양날의 검과 같았어. 빨리 복구 할수 있었다는거야… 좋은 측면이지… (빠르게 복구하는 법을 playbook으로 만들 수 있었다) </p>
+<p>근데 너무 빨리 복구해버려서, 그것도 수십만 게임이 있는 상황에 빠르게 복구를 해버려서, 다시 터져버렸어. 안좋은 일이지… </p>
+<p>그래서 우리는 설정과 코드 개선을 포함하는 배포본을 만들었고 백업 글로벌 데이터베이스를 대상으로 배포했어. 그런데 10월 11일 월요일 (PDT 기준), 이거 때문에 또 터짐. 백업서버가 백업과정에 오류를 겪으면서, 계속 원본서버에서 copy를 시도했고, 원본서버는 서비스중인 게임의 요청을 받아야 되는데 copy에 정신이 뺐겨 버림. 그러면서 우리는 안쓰는 쿼리 몇개를 제거하고, 부하를 증가시키는 유저 인증을 최적화하고, 그 외에도 여러 성능개선이 이루어지고 있어(이 글을 쓰고 있는 중에도). 데이터베이스-재접속 폭풍은 고쳤다고 믿고 있어. 화요일에 안나타나고 있거든. </p>
+<p>화요일에, 다시 접속자가 몰리는 것을 확인했고, 특히 한 리전에, 다시 데이터베이스 성능저하를 맛보게 됨. 여기에 대해서는 우리 DB 엔지니어가 확인 중임. 다른 블쟈 엔지니어의 도움과 파트너들의 도움도 받고 있어. 우리는 코어 서버이슈를 확인하고 있고. </p>
+<h3 id="왜-이런일이-생긴-걸까"><a href="#왜-이런일이-생긴-걸까" class="headerlink" title="왜 이런일이 생긴 걸까:"></a><strong>왜 이런일이 생긴 걸까:</strong></h3><p>원작을 살리기 위해, 레거시 코드도 살려놨어 ^0^ 그런데 레거시 서비스중 어떤 서비스는 부분적으로(에이..) 모던 플레이어의 행동을 따라가기는 벅찬가봐</p>
+<p>그 서비스는 게임생성, 조인, 게임리스트 업데이트, 읽기, 필터, 그리고 게임서버 상태체크, 데이터베이스에서 캐릭터 상태를 읽어 게임에 참가할수 있는지 판단하기 등의 작업을 해. 그런데, 싱글턴이야. 모든 플레이어가 정확한 최신 게임리스트를 보려고 할때 하나의 그거에 대해 하나의 인스턴스만 실행할 수 있어. 이 서비스를 현대화시키려고 많이 노력했고, 개선했는데, 많은 문제는 게임생성에서 비롯해. </p>
+<p>2001년에는… 바알런 핀들런 토굴앵벌 같은게 없었어. 이런 유저의 행동은 게임을 생성하고, 로드하고, 파괴하는 과정을 빠르게 반복하면서 db 부하를 줘. 물론 우리도 이걸 예상하긴했는데, 디아재들의 앵벌력을 얕봤어. (아니근데 베타테스트에는 액트 2까지 밖에 없었잖아) </p>
+<p>게다가, 우리가 global database로 너무 자주 save했어. 그럴 필요가 없었는데. 지역 데이터베이스에만 너희 정보를 제대로 저장하고 글로벌 데이터베이스에는 너희를 unlock 할때만 필요한건데 말야. 이렇게 하는 코드를 지금 작성중이야. 글로벌데이터베이스에는 거의 save 하지 않는 방법. 그러면 서버 부하가 엄청나게 줄어들거야. 그런데 이건 아키텍쳐를 다시 설계하는거라 빌드, 테스트, 구현에 시간이 좀 걸려. </p>
+<h3 id="게임-진행사항을-잃어버린것에-대하여"><a href="#게임-진행사항을-잃어버린것에-대하여" class="headerlink" title="게임 진행사항을 잃어버린것에 대하여:"></a><strong>게임 진행사항을 잃어버린것에 대하여:</strong></h3><p>몇몇 플레이어는 백섭을 당했어. 우리의 lock 방식때문에. (두 데이터베이스  모두에 write 하는 방식) </p>
+<p>서버가 터져있는 동안. 몇몇 캐릭터는 regional database에 갇혀버렸고 (stuck), 우리는 이걸 글로벌 데이터베이스로 옮길 방법이 없었어. 그때, 우리는 두 가지 방법이 있다고 생각했어. 하나는, 저장되지 않은 사항을 모두 풀어버려서 게임 진행사항을 좀 잃어버리는 방법 (덮어쓰기가 되기 때문에… 즉 백섭), 아니면 얼마나 걸릴지 모르는 시간을 기다리고 점검을 걸어서 reginal data를 global data에 쓰는 방법. </p>
+<p>그 시점에, 우리는 전자의 방법(백섭)을 선택했어. 긴 시간 동안 게임을 못하게 하는것 보다는, 유저가 계속 게임을 플레이하는게 더 중요하다고 생각했거든. 미안. 몹시 미안. </p>
+<blockquote>
+<p>Moving forward, we believe we have a way to restore characters that doesn’t lead to any significant data loss–it should be limited to several minutes of loss, if any, in the event of a server crash.</p>
+</blockquote>
+<p>(애매해서 그냥 구글 번역…) 앞으로 우리는 심각한 데이터 손실로 이어지지 않는 캐릭터를 복원할 수 있는 방법이 있다고 생각합니다. 서버 충돌 시 손실이 있는 경우 몇 분 이내로 제한되어야 합니다.</p>
+<blockquote>
+<p>This is better, but still not good enough in our eyes.</p>
+</blockquote>
+<p>이건 그나마 좀 낫지만 <del>(몇시간 데이터가 날아가는것 보다는 몇분이 낫다는건가)</del> 우리가 보기에 충분히 좋지 않다. </p>
+<h3 id="이슈에-대해-현재-진행중인것들"><a href="#이슈에-대해-현재-진행중인것들" class="headerlink" title="이슈에 대해 현재 진행중인것들:"></a>이슈에 대해 현재 진행중인것들:</h3><p><strong>비율 제한:</strong> </p>
+<p>20초에 한번만 게임 만들 수 있음. 게임 막 만들다가 보면 ‘게임서버와 통신에 문제가 있습니다’ 라는 에러가 나오겠지만, 이러한 상황이면 너가 비율제한에 걸린거다.이건 임시 조치이고. long-term fix는 아님. </p>
+<p><strong>로그인 큐 생성:</strong> </p>
+<p>서버가 터졌다 살아났다를 반복하니, 로그인이 몰리는 현상도 있었다. 로그인 큐를 만들겠다. 아직 배포된건 아니고 곧 배포됨. </p>
+<p><strong>서비스 쪼개기:</strong>  </p>
+<p>일부는 벌써 완료, 일부는 더 큰 규모의 프로젝트로 계획중. 예를들어 Gamelist라는 microservice 신설. 중요 기능이 쪼개지면, 게임 관리 서비스를 스케일업 할 수 있고, 부하를 감소시킬 수 있다. </p>
+<p>지금 우린 실시간으로 빡세게 작업중이야… 디아블로2레저렉션은 우리에게 많은 의미가 있어. 우리팀에는 디아재가 많아. 잘해볼게…</p>
+</body></html>
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link-link" href="/tags/Architecture/" rel="tag">Architecture</a>, <a class="has-link-grey -link-link" href="/tags/D2R/" rel="tag">D2R</a>, <a class="has-link-grey -link-link" href="/tags/Microservice/" rel="tag">Microservice</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2021/08/04/react-next-login-pattern/">
+                <span class="level-item">(포스트 추천) next.js 로그인 패턴 (feat. HOC)</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+</div>
+                
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-4-widescreen  has-order-3 column-right ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                카테고리
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/AWS/">
+            <span class="level-start">
+                <span class="level-item">AWS</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">15</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/AWS/Computing/">
+            <span class="level-start">
+                <span class="level-item">Computing</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">6</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/AWS/Data-Analytics/">
+            <span class="level-start">
+                <span class="level-item">Data Analytics</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">5</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/AWS/Database/">
+            <span class="level-start">
+                <span class="level-item">Database</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/Bigdata/">
+            <span class="level-start">
+                <span class="level-item">Bigdata</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">5</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/Bigdata/Airflow/">
+            <span class="level-start">
+                <span class="level-item">Airflow</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Bigdata/Elasticsearch/">
+            <span class="level-start">
+                <span class="level-item">Elasticsearch</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Bigdata/Spark/">
+            <span class="level-start">
+                <span class="level-item">Spark</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/Blogging/">
+            <span class="level-start">
+                <span class="level-item">Blogging</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Container/">
+            <span class="level-start">
+                <span class="level-item">Container</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/Container/Docker/">
+            <span class="level-start">
+                <span class="level-item">Docker</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/Database/">
+            <span class="level-start">
+                <span class="level-item">Database</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/Database/PostgreSQL/">
+            <span class="level-start">
+                <span class="level-item">PostgreSQL</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/Linux/">
+            <span class="level-start">
+                <span class="level-item">Linux</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Others/">
+            <span class="level-start">
+                <span class="level-item">Others</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Security/">
+            <span class="level-start">
+                <span class="level-item">Security</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/Security/SAML/">
+            <span class="level-start">
+                <span class="level-item">SAML</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/TIL/">
+            <span class="level-start">
+                <span class="level-item">TIL</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/TIL/Rust/">
+            <span class="level-start">
+                <span class="level-item">Rust</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/blog/">
+            <span class="level-start">
+                <span class="level-item">blog</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/%EB%B2%88%EC%97%AD/">
+            <span class="level-start">
+                <span class="level-item">번역</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/%ED%8F%AC%EC%8A%A4%ED%8A%B8%EC%B6%94%EC%B2%9C/">
+            <span class="level-start">
+                <span class="level-item">포스트추천</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.png" alt="디아2 레저렉션 서버다운 공지를 번역해봤습니다." height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2021 boomkim&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & <a
+                        href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("ko");</script>
+
+<script>
+var IcarusThemeSettings = {
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+    
+    
+<script src="/js/animation.js"></script>
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+<script src="/js/gallery.js" defer></script>
+
+    
+    
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" target="_blank" rel="noopener" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+    
+    
+<a id="back-to-top" title="Back to Top" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="입력 하세요..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '포스트',
+                PAGES: '페이지',
+                CATEGORIES: '카테고리',
+                TAGS: '태그',
+                UNTITLED: '(제목없음)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>
