@@ -7,12 +7,12 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>태그: network - Boomkim</title>
+<title>태그: Network - Boomkim</title>
 
 
     <meta property="og:type" content="website">
 <meta property="og:title" content="Boomkim">
-<meta property="og:url" content="https://boomkim.github.io/tags/network/index.html">
+<meta property="og:url" content="https://boomkim.github.io/tags/Network/index.html">
 <meta property="og:site_name" content="Boomkim">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:image" content="https://boomkim.github.io/images/og_image.png">
@@ -138,7 +138,7 @@
         <nav class="breadcrumb" aria-label="breadcrumbs">
         <ul>
             <li><a href="/tags">태그</a></li>
-            <li class="is-active"><a href="#" aria-current="page">network</a></li>
+            <li class="is-active"><a href="#" aria-current="page">Network</a></li>
         </ul>
         </nav>
     </div>
@@ -147,77 +147,27 @@
     
 <div class="card">
     
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2018-07-26T15:00:00.000Z">2018-07-27</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/Container/">Container</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/Container/Docker/">Docker</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    5분 읽기 (대략 740 단어)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2018/07/27/docker-network-overlay/">[docker] multihost networking - overlay</a>
-            
-        </h1>
-        <div class="content">
-            <html><head></head><body><p>여러 호스트를 이용하는 도커가 swarm을 이룰경우 서로 통신을 하려면 네트웍이 필요하다. 이때 각각 다른 호스트에서 생성된 컨테이너 사이에 네트워크를 생성해주는 것이 바로 overlay 네트워크 이다. </p>
-<p><img src="/images/overlay-network.png" alt="그림1"></p>
-<p><em>각각의 호스트에서 쓰고있는 네트워크와 상관없이 컨테이너 끼리의 사설망을 따로 만들어줌.</em></p>
-<p>예를들어 각각의 호스트 A가 10.0.0.3 B가 10.0.0.5 라는 사설 ip를 사용하고 있을때 overlay network로 전혀 다른 사설대역 192.168.0.0/24를 만들 수 있다. Docker Swarm 을 구성해놓은 상태에서 새로운 서비스를 생성할 때, 네트워크를 미리 만들어 둔 overlay 네트워크를 지정하면 overlay 네트워크를 사용하는 컨테이너가 각각 올라가고 해당 서브넷 내의 ip를 할당받는다. </p></body></html>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2018/07/27/docker-network-overlay/#more">자세히 보기</a>
-                </div>
-            </div>
-        </div>
-        
-        
+    <div class="card-image">
+        <a href="/2021/04/03/s3-interface-gateway/" class="image is-7by1">
+            <img class="thumbnail" src="/images/2021/interface-and-gateway-endpoints.png" alt="endpoint 설정 없이 사설 ip로 S3 접근하기 (feat. hosts 파일)">
+        </a>
     </div>
-</div>
-
-
-
-
-
-
-
-
-    
-<div class="card">
     
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2018-07-26T15:00:00.000Z">2018-07-27</time>
+                <time class="level-item has-text-grey" datetime="2021-04-03T12:00:00.000Z">2021-04-03</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/Container/">Container</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/Container/Docker/">Docker</a>
+                <a class="has-link-grey -link" href="/categories/AWS/">AWS</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    4분 읽기 (대략 595 단어)
+                    7분 읽기 (대략 1031 단어)
                 </span>
                 
                 
@@ -226,20 +176,23 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2018/07/27/docker-overlay-bandwidth/">[docker] overlay network bandwidth test</a>
+                <a class="has-link-black-ter" href="/2021/04/03/s3-interface-gateway/">endpoint 설정 없이 사설 ip로 S3 접근하기 (feat. hosts 파일)</a>
             
         </h1>
         <div class="content">
-            <html><head></head><body><p>앞의 포스트에 이어 overlay network를 테스트해보다가 bandwidth가 궁금해졌다. 아무래도 네트워크 레이어를 하나 더 만드는 것이니 네트워크 성능이 노드들 끼리의 통신보다는 안 좋을 것이라 예상됐다. 찾아보니 예전 docker에서는 많게는 50% 정도까지 성능저하가 있었던 것 같다. </p>
-<p>테스트 환경: AWS EC2 t2.medium &lt;-&gt; t2.small</p>
-<p>테스트 방법: iperf3 을 사용했다. </p></body></html>
+            <html><head></head><body><h2 id="S3-interface-endpoint-출시"><a href="#S3-interface-endpoint-출시" class="headerlink" title="S3 interface endpoint 출시"></a>S3 interface endpoint 출시</h2><p>S3 endpoint service 에 드디어 <strong>interface endpoint</strong>가 나왔다. </p>
+<blockquote>
+<p>AWS S3 public 서비스라던데… 혹시 VPC에서는 사설통신이 되나요? </p>
+</blockquote>
+<p>네 됩니다. </p>
+<p>AWS에는 Private Link 혹은 VPC Endpoint 라고 불리는 서비스가 있다. 이름에서 알 수 있듯이 AWS의 서비스를 뭔가 Private 하게 쓸수 있게 해주는 기능이다. 여기에는 <code>Interface Endpoint</code>, <code>Gateway Endpoint</code> 두가지 타입이 있는데 S3는 그 동안엔<br>gateway endpoint 만 제공했다. 사실 모든 서비스가 둘중 하나의 타입으로만 제공했다. 예를들어 SQS 나 DynamoDB 같은 경우엔 Gateway 타입으로만 제공이 됐고 나머지는 Interface 타입으로만 제공이 됐다. gateway endpoint는 VPC 내에서는 어플리케이션에서 엔드포인트 변경등이 필요없이 바로 적용이 되는 장점이 있지만 ip가 제공되지 않는다는 단점이 있다. </p></body></html>
         </div>
         
         
         <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2018/07/27/docker-overlay-bandwidth/#more">자세히 보기</a>
+                <a class="button is-size-7 is-light" href="/2021/04/03/s3-interface-gateway/#more">자세히 보기</a>
                 </div>
             </div>
         </div>
@@ -568,7 +521,7 @@
             
             <a href="/2021/10/15/d2r-outages/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/d2r-outage.png" alt="디아2 레저렉션 서버다운 공지를 번역해봤습니다.">
+                    <img class="thumbnail" src="/images/2021/d2r-outage.png" alt="디아2 레저렉션 서버다운 공지를 번역해봤습니다.">
                 </p>
             </a>
             
@@ -1423,7 +1376,7 @@
             
             <a href="/2021/10/15/d2r-outages/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/d2r-outage.png" alt="디아2 레저렉션 서버다운 공지를 번역해봤습니다.">
+                    <img class="thumbnail" src="/images/2021/d2r-outage.png" alt="디아2 레저렉션 서버다운 공지를 번역해봤습니다.">
                 </p>
             </a>
             
@@ -2374,6 +2327,72 @@ document.addEventListener('DOMContentLoaded', function () {
             matchFontHeight: false
         },
         CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+    
+    
+<a id="back-to-top" title="Back to Top" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="입력 하세요..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '포스트',
+                PAGES: '페이지',
+                CATEGORIES: '카테고리',
+                TAGS: '태그',
+                UNTITLED: '(제목없음)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>nHTML: {
             matchFontHeight: false
         },
         tex2jax: {
